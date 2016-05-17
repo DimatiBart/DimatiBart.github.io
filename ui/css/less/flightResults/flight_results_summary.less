@@ -1,0 +1,243 @@
+/*
+ ***************************************************
+ * searchBar
+ ***************************************************
+ */
+.searchBar {
+  .clearfix;
+  position: relative;
+  background: #0065bd;
+  color: #fff;
+  min-height: 45px;
+  margin: 0 0 1px 0;
+  @media only screen and (min-width: @mobile-bp) {
+    min-height: 54px;
+    margin: 20px 20px 1px 20px;
+  }
+  @media only screen and (min-width: @desktop-bp) {
+    min-height: 54px;
+    margin: 20px auto 1px auto;
+    width: 960px;
+  }
+
+  h5 { // TEMP
+    float: left;
+    color: #fff;
+    margin: 15px 0 0 10px;
+    text-transform: capitalize;
+    @media only screen and (min-width: @mobile-bp) {
+      margin: 18px 0 0 20px;
+    }
+  }
+
+  .search-btn {
+    width: 45px;
+    min-height: 45px;
+    background-color: transparent;
+    border: none;
+    border-right: solid 1px #3384ca;
+    float: left;
+    margin-right: 10px;
+    position: absolute;
+    height: 100%;
+    @media only screen and (min-width: @mobile-bp) {
+      width: 54px;
+      min-width: 54px;
+      margin-right: 0;
+      position: static;
+      height: auto;
+    }
+  }
+
+  .origin, .destination {
+    border-bottom: solid 1px white;
+    line-height: 12px;
+    display: inline-block;
+  }
+
+  .dest-wrapper {
+    font: 400 14px/normal @title-font-family;
+    padding: 4px 0;
+  }
+
+  .mobile-hidden-element {
+    display: none;
+    @media only screen and (min-width: @mobile-bp) {
+      display: block;
+    }
+  }
+
+  .edit-search-btn {
+    float: right;
+    margin: 10px 10px 0 0;
+    font: normal 12px/14px @title-font-family;
+    color: #fff;
+    background: transparent;
+    border: 1px solid #fff;
+    min-height: 34px;
+    width: 130px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: none;
+    letter-spacing: 1px;
+    -moz-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -17px;
+  }
+
+  .search-bar-infobox {
+    margin-top: 3px;
+    @media only screen and (min-width: @mobile-bp) {
+      float: left;
+      border-right: solid 1px #3384ca;
+      box-sizing: border-box;
+      padding: 19px 10px 10px;
+      margin-top: 0;
+    }
+  }
+
+  .table-icon {
+    float: left;
+    margin: 0 0 0 -25px;
+  }
+
+  .table-icon-container {
+    padding-left: 0px;
+    @media only screen and (min-width: @mobile-bp) {
+      padding-left: 35px;
+    }
+
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  .info-wrapper {
+    width: calc(~"100% - 150px");
+    float: left;
+    font-size: 14px;
+    margin-left: 0;
+    display: block;
+    min-height: 45px;
+    @media only screen and (min-width: @mobile-bp) {
+      .display-flex;
+      min-height: 54px;
+    }
+  }
+
+  .search-bar-infobox {
+    margin-left: 50px;
+    @media only screen and (min-width: @mobile-bp) {
+      margin-left: 0;
+    }
+  }
+
+  .search-bar-infobox:last-child {
+    @media only screen and (min-width: @mobile-bp) {
+      border-right: none;
+    }
+  }
+   .search-bar-infobox, .edit-search-btn{
+    @media only screen and (min-width: @mobile-bp) {
+      display: block;
+    }
+
+  }
+  .sprite-search {
+    background: url('../../icons/flightResultsPage/flights_results_spr.png') no-repeat -1px -101px;
+    width: 21px;
+    height: 21px;
+    margin: 0 auto;
+    display: block
+  }
+  .sprite-calendar {
+    background: url('../../icons/flightResultsPage/flights_results_spr.png') no-repeat -1px -127px;
+    width: 15px;
+    height: 15px;
+    float: left;
+    position: relative;
+    top: 1px;
+    margin-right: 11px;
+    display: none;
+    @media only screen and (min-width: @mobile-bp) {
+      display: block;
+    }
+  }
+
+  .sprite-travellers {
+    background: url('../../icons/flightResultsPage/flights_results_spr.png') no-repeat -34px -135px;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 1px;
+    margin-right: 11px;
+    float: left;
+  }
+
+  .sprite-two-way-arrow {
+    background: url('../../icons/flightResultsPage/flights_results_spr.png') no-repeat -28px -101px;
+    width: 22px;
+    height: 12px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    margin: 0 5px;
+  }
+
+  .sprite-one-way-arrow {
+    background: url('../../icons/flightResultsPage/flights_results_spr.png') no-repeat -35px -118px;
+    width: 15px;
+    height: 12px;
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    margin: 0 5px;
+  }
+
+  .sprite-one-way-arrow-min {
+    background: url('../../icons/flightResultsPage/flights_results_spr.png') no-repeat -22px -140px;
+    width: 6px;
+    height: 12px;
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    margin: 0 5px;
+  }
+
+  .travelers-wrapper {
+    .flex(20%);
+  }
+
+    /*
+  ***************************************************
+  * fixedHeader emulation
+  ***************************************************
+  */
+  &.fixedHeader {
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    @media only screen and (min-width: @mobile-bp) {
+      width: calc(~"100% - 40px");
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media only screen and (min-width: @desktop-bp) {
+      width: 960px;
+    }
+  }
+}

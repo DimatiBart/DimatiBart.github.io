@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Flight Interstitial</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <script type="text/javascript" src="ui/js/libs/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="ui/js/matchMedia.js"></script>
+    <script type="text/javascript" src="ui/js/matchMedia.addListener.js"></script>
+
+    <script type="text/javascript" src="ui/js/interstitialPage/interstitials.js"></script>
+    <script type="text/javascript" src="ui/js/interstitialPage/flipboard.js"></script>
+
+
+    <link type="text/css" href="ui/css/interstitialPage/main.min.css" rel="stylesheet">
+    <link type="text/css" href="ui/css/interstitialPage/flipboard.css" rel="stylesheet">
+
+    <script>
+        var searchFormParams = {
+            'interstitialType': 'flight',
+            'multiCityDepartureMonth':'',
+            'flightType': 'RT',
+            'pax': '2',
+            'paxTeacher': '0',
+            'paxAdult': '0',
+            'paxStudent': '1',
+            'paxU26': '1',
+            'multiCity': '',
+            'dateFormatPattern': 'dd/MM/yyyy',
+            'journeyLength': '1',
+            'origin1': 'LON',
+            'destination1': 'NYC',
+            'outboundDate1': '04/09/2016',
+            'inboundDate': '05/09/2016',
+            'origin2': '',
+            'destination2': '',
+            'outboundDate2': '',
+            'origin3': '',
+            'destination3': '',
+            'outboundDate3': '',
+            'origin4': '',
+            'destination4': '',
+            'outboundDate4': '',
+            'origin5': '',
+            'destination5': '',
+            'outboundDate5': '',
+            'origin6': '',
+            'destination6': '',
+            'outboundDate6': ''
+        };
+    </script>
+
+</head>
+<body>
+
+    <header class="pageHeader">
+        <a class="pageHeaderLogo" href="#">
+            <img class="pageHeaderLogoImg" src="ui/img/sta-img/mainLogo.png" alt="STA Logo">
+        </a>
+    </header>
+
+    <section class="pageContent" id="pageContent">
+
+        <article class="msgBox">
+            <h5 class="title">Please Wait</h5>
+            <p>while we search for the best deal...</p>
+        </article>
+
+        <section class="interstitialBox flight">
+            <header class="interstitialBoxHeader">
+                <img src="ui/img/interstitialsPage/sta_logo.png" class="staLogo" alt="STA logo">
+                <div class="intBoxTitleWrapp">
+                    <span class="icon"></span>
+                    <span class="title"><b>Return</b> Flight</span>
+                </div>
+                <div class="leftBG"></div>
+                <div class="rightBG"></div>
+            </header>
+            <article class="interstitialBoxContent">
+                <div class="mainContent">
+
+                    <div class="flightInfoContainer">
+                        <div class="flightInfoBox departure">
+
+                                <p class="flightInfoBoxTitle cd-headline letters rotate-2">
+                                            <span class="cd-words-wrapper">
+                                                <b class="is-visible">LON</b>
+                                                <b>NYC</b>
+                                            </span>
+                                </p>
+
+                            <p class="flightInfoBoxText cd-headline HHHH letters rotate-2">
+
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">London ghghhgfffflorem ipsum</b>
+                                    <b>New York CIty (airport)</b>
+                                </span>
+                            </p>
+                        </div>
+
+                        <span class="icon"></span>
+
+                        <div class="flightInfoBox arrive">
+                            <p class="flightInfoBoxTitle cd-headline  letters rotate-2">
+                                <span class="cd-words-wrapper">
+                                                <b class="is-visible">NYC</b>
+                                                <b>LON</b>
+                                            </span>
+                            </p>
+                            <p class="flightInfoBoxText cd-headline letters rotate-2">
+
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">New York CIty (all airport</b>
+                                    <b>New York CIty (all airport)</b>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="gridBox flightGrid">
+                        <div class="row">
+                            <div class="cell one">
+                                <p class="cellTitle">Flying On</p>
+                                <p class="cellText cd-headline letters rotate-2">
+                                    <span class="cd-words-wrapper">
+                                        <b class="is-visible">Wed 20 May 2016</b>
+                                        <b>Wed 2 sep 2222</b>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="cell two">
+                                <p class="cellTitle">Passengers</p>
+                                <p class="cellText cd-headline letters rotate-2">
+                                    <span class="cd-words-wrapper">
+                                        <b class="is-visible">2 Students, 2 Adults</b>
+                                        <b>2 Students</b>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="cell three">
+                                <p class="cellTitle">Airline</p>
+                                <p class="cellText searchingData">Searching <span class="count">1,500</span> offers<span class="dotsLooping"></span></p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <aside class="bannerImageHolder">
+                    <img src="#" id="premiumBannerImg" alt="Premium Banner image">
+                </aside>
+                <div class="leftBG"></div>
+                <div class="leftBlockBG"></div>
+                <div class="rightBG"></div>
+                <div class="rightBlockBG"></div>
+            </article>
+            <footer class="interstitialBoxFooter">
+                <div class="leftBG"></div>
+                <div class="rightBG"></div>
+            </footer>
+        </section>
+
+        <div class="leaderboardBannerBox">
+            <img src="ui/img/interstitialsPage/int.png" id="leaderboardBannerImg" alt="Leader Board Banner image">
+            <!--<object data="ui/img/didyouknowwhiteCopy.swf" style="display: inline-block;"></object>-->
+            <!--<object style="display: inline-block;">-->
+                <!--<embed type="application/x-shockwave-flash" src="ui/img/didyouknowwhiteCopy.swf">-->
+            <!--</object>-->
+            <embed type="application/x-shockwave-flash" src="ui/img/didyouknowwhiteCopy.swf" style="display: inline-block;">
+        </div>
+
+
+    </section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

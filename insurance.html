@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Insurance</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <script type="text/javascript" src="ui/js/libs/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="ui/js/matchMedia.js"></script>
+    <script type="text/javascript" src="ui/js/matchMedia.addListener.js"></script>
+    <script type="text/javascript" src="ui/js/insurancePage/insurance_table.js"></script>
+    <script type="text/javascript" src="ui/js/insurancePage/swipe.js"></script>
+
+    <link type="text/css" href="ui/css/insurancePage/main.min.css" rel="stylesheet">
+
+    <!--[if lt IE 10]>
+        <link type="text/css" href="ui/css/insurancePage/ie9styles.css" rel="stylesheet">
+    <![endif]-->
+
+</head>
+<body>
+
+    <nav class="breadcrumbs">
+        <div class="breadcrumb visited">
+            <span class="bgBlock"></span>
+            <span class="breadcrumbTopBg"></span>
+            <span class="breadcrumbBottomBg"></span>
+            <span class="breadcrumbCounter">1</span>
+            <span class="breadcrumbValue">Select a Policy</span>
+        </div>
+        <div class="breadcrumb">
+            <span class="breadcrumbTopBg"></span>
+            <span class="breadcrumbBottomBg"></span>
+            <span class="breadcrumbCounter">2</span>
+            <span class="breadcrumbValue">Traveller Details</span>
+        </div>
+        <div class="breadcrumb" >
+            <span class="breadcrumbTopBg"></span>
+            <span class="breadcrumbBottomBg"></span>
+            <span class="breadcrumbCounter">3</span>
+            <span class="breadcrumbValue">Payment</span>
+        </div>
+        <div class="breadcrumb">
+            <span class="bgBlock"></span>
+            <span class="breadcrumbTopBg"></span>
+            <span class="breadcrumbBottomBg"></span>
+            <span class="breadcrumbCounter">4</span>
+            <span class="breadcrumbValue">Finished</span>
+        </div>
+    </nav>
+
+    <section class="pageContent">
+
+        <div class="messageBox">
+            <h6>OOPS</h6>
+            <p>Sorry there has been a problem with your insurance policy, please try again or give us a call on 137 782 and we will be happy to help</p>
+        </div>
+
+        <div class="searchBox">
+            <header>
+                <h3 class="searchBoxTitle">Your Insurance Quote Is Based On:</h3>
+                <button class="btn II editSearchBtn topBtn">Edit Search</button>
+            </header>
+            <div class="searchParameters">
+                <div class="searchItem">
+                    <h6>Policy Type</h6>
+                    <p>Single</p>
+                </div>
+                <div class="searchItem">
+                    <h6>Destination</h6>
+                    <p>Worldwide inc USA</p>
+                </div>
+                <div class="searchItem">
+                    <h6>Start</h6>
+                    <p>05 Feb 2015</p>
+                </div>
+                <div class="searchItem">
+                    <h6>End</h6>
+                    <p>15 Feb 2015</p>
+                </div>
+                <div class="searchItem durationItem">
+                    <h6>Duration</h6>
+                    <p>15 Days</p>
+                </div>
+                <div class="searchItem">
+                    <h6>Travellers</h6>
+                    <p>2 Adults</p>
+                </div>
+                <div class="searchItem">
+                    <h6>Ages</h6>
+                    <p><span>22</span><span>23</span></p>
+                </div>
+            </div>
+            <button class="btn II editSearchBtn bottomBtn">Edit Search</button>
+        </div>
+
+        <div class="insuranceTableSection" id="insuranceTableSection">
+            <div class="mobileTableTopSection" id="mobileTableTopSection">
+                <header class="mobileTableSectionHeader">
+                    <h3>Benefits Table</h3>
+                </header>
+                <h6>Choose your cover</h6>
+                <div class="tableSlider" id="tableSlider">
+                    <a href="#" class="prevBtn" id="sliderPrevBtn"></a>
+                    <a href="#" class="nextBtn" id="sliderNextBtn"></a>
+                    <div class="sliderBox" id="sliderBox">
+                        <div class="sliderWrap" id="sliderWrap">
+                            <div class="sliderItem current">
+                                <div class="infoCard">
+                                    <header>
+                                        <h4>Basic</h4>
+                                    </header>
+                                    <div class="infoCardContent">
+                                        <span class="price">?7.99</span>
+                                        <p>Benefit of this insurance policy would go here</p>
+                                        <button class="btn buyNowBtn">Buy Now</button>
+                                        <a href="#" class="policyLink">Policy Summary</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sliderItem">
+                                <div class="infoCard">
+                                    <header>
+                                        <h4>Standard</h4>
+                                    </header>
+                                    <div class="infoCardContent">
+                                        <span class="price">?7.99</span>
+                                        <p>Benefit of this insurance policy would go here</p>
+                                        <button class="btn buyNowBtn">Buy Now</button>
+                                        <p class="hint">Price includes all travellers"</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sliderItem">
+                                <div class="infoCard">
+                                    <header>
+                                        <h4>Premier</h4>
+                                    </header>
+                                    <div class="infoCardContent">
+                                        <span class="price">?7.99</span>
+                                        <p>Benefit of this insurance policy would go here</p>
+                                        <button class="btn buyNowBtn">Buy Now</button>
+                                        <a href="#" >Policy Summary</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sliderItem">
+                                <div class="infoCard">
+                                    <div class="mostPopularBox">
+                                        <h4>Most Popular</h4>
+                                    </div>
+                                    <header>
+                                        <h4>Premier Plus</h4>
+                                    </header>
+                                    <div class="infoCardContent">
+                                        <span class="price">?7.99</span>
+                                        <p>Benefit of this insurance policy would go here</p>
+                                        <button class="btn buyNowBtn">Buy Now</button>
+                                        <a href="#">Policy Summary</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sliderPagination" id="sliderPagination">
+                        <span class="current"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <table class="insuranceTable" id="insuranceTable">
+                <thead>
+                    <tr class="mostPopularRow">
+                        <td class="rowHeading"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="mostPopular">
+                        <div class="inner">Most Popular</div>
+                        </td>
+                    </tr>
+                    <tr class="headingRow">
+                        <th class="rowHeading"></th>
+                        <th class="current">Basic</th>
+                        <th>Cancellation & Luggage</th>
+                        <th>Premier</th>
+                        <th class="mostPopular">Premier Plus</th>
+                    </tr>
+                </thead>
+                <tbody class="tableTopSection">
+                    <tr class="priceRow">
+                        <td class="rowHeading" rowspan="4">
+                            <h3>Choose Your Cover</h3>
+                            <p>Click on items for detailed explanation</p>
+                        </td>
+                        <td><span class="price">£7.99</span></td>
+                        <td><span class="price">NZD 700.99</span></td>
+                        <td><span class="price">BLR 999.990</span></td>
+                        <td class="mostPopular"><span class="price">£7.99</span></td>
+                    </tr>
+                    <tr class="textRow">
+                        <td>Benefit of this insurance policy would go here</td>
+                        <td>Benefit of this insurance policy would go here.
+                            Benefit of this insurance policy would go hereBenefit of this insurance
+                            Benefit of this insurance policy would go herepolicy would go here</td>
+                        <td>Benefit of this insurance policy would go here</td>
+                        <td class="mostPopular">Benefit of this insurance</td>
+                    </tr>
+                    <tr class="btnRow">
+                        <td><button class="btn buyNowBtn">Buy Now</button></td>
+                        <td><button class="btn buyNowBtn">Buy Now</button></td>
+                        <td><button class="btn buyNowBtn">Buy Now</button></td>
+                        <td class="mostPopular"><button class="btn buyNowBtn">Buy Now</button></td>
+                    </tr>
+                    <tr class="linkRow">
+                        <td><a href="#" class="pdfLink">Policy Summary (123kb)</a></td>
+                        <td><p class="hint">Price includes all travellers</p></td>
+                        <td><a href="#">Policy Summary</a></td>
+                        <td class="mostPopular"><a href="#">Policy Summary</a></td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr class="dividerRow">
+                        <td class="rowHeading">
+                            <div class="inner">
+                                <h6>AccidentAccident</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Accident</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Accident</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Accident</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Accident</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip.">Emergency medical</td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip.">Emergency medical</td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip.">Emergency medical</td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip.">Emergency medical</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading" data-tooltip-heading="Emergency medical" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip.">Emergency medical</td>
+                        <td>£1 Million</td>
+                        <td>£1 Million</td>
+                        <td>£1 Million</td>
+                        <td class="mostPopular">£1 Million</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading" data-tooltip-heading="Emergency medical" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip."></td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip.">In-patient benefit</td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip.">In-patient benefit</td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip.">In-patient benefit</td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip.">In-patient benefit</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading" data-tooltip-heading="In-patient benefit" data-tooltip-content="Some text for tooltip. Some text for tooltip. Some text for tooltip. Some text for tooltip. Some text for tooltip. Some text for tooltip.">In-patient benefit</td>
+                        <td>£150</td>
+                        <td>£150</td>
+                        <td>£150</td>
+                        <td class="mostPopular">£150</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading" data-tooltip-heading="Emergency medical" data-tooltip-content=""></td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="">Transport & Accomodation</td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="">Transport & Accomodation</td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="">Transport & Accomodation</td>
+                        <td data-tooltip-heading="Emergency medical" data-tooltip-content="">Transport & Accomodation</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading" data-tooltip-heading="Emergency medical" data-tooltip-content="">Transport & Accomodation</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading" data-tooltip-heading="" data-tooltip-content="Some text for tooltip."></td>
+                        <td data-tooltip-heading="" data-tooltip-content="Some text for tooltip.">Dental</td>
+                        <td data-tooltip-heading="" data-tooltip-content="Some text for tooltip.">Dental</td>
+                        <td data-tooltip-heading="" data-tooltip-content="Some text for tooltip.">Dental</td>
+                        <td data-tooltip-heading="" data-tooltip-content="Some text for tooltip.">Dental</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading" data-tooltip-heading="" data-tooltip-content="Some text for tooltip.">Dental</td>
+                        <td><span class="crossIcon"></span></td>
+                        <td><span class="crossIcon"></span></td>
+                        <td><span class="tickIcon"></span></td>
+                        <td class="mostPopular"><span class="tickIcon"></span></td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Funeral Expenses</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">Emergency medical</td>
+                        <td>£1 Million</td>
+                        <td>£1 Million</td>
+                        <td>£1 Million</td>
+                        <td class="mostPopular">£1 Million</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">In-patient benefit</td>
+                        <td>£150</td>
+                        <td>£150</td>
+                        <td>£150</td>
+                        <td class="mostPopular">£150</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">Transport & Accomodation</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Dental</td>
+                        <td><span class="crossIcon"></span></td>
+                        <td><span class="crossIcon"></span></td>
+                        <td><span class="tickIcon"></span></td>
+                        <td class="mostPopular"><span class="tickIcon"></span></td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">Funeral Expenses</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr class="dividerRow">
+                        <td class="rowHeading">
+                            <div class="inner">
+                                <h6>Medical</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Medical</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Medical</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Medical</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Medical</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Emergency medical</td>
+                        <td>£1 Million</td>
+                        <td>£1 Million</td>
+                        <td>£1 Million</td>
+                        <td class="mostPopular">£1 Million</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">In-patient benefit</td>
+                        <td>£150</td>
+                        <td>£150</td>
+                        <td>£150</td>
+                        <td class="mostPopular">£150</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Transport & Accomodation</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">Dental</td>
+                        <td><span class="crossIcon"></span></td>
+                        <td><span class="crossIcon"></span></td>
+                        <td><span class="tickIcon"></span></td>
+                        <td class="mostPopular"><span class="tickIcon"></span></td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Funeral Expenses</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr class="dividerRow">
+                        <td class="rowHeading">
+                            <div class="inner">
+                                <h6>Luggage</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Luggage</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Luggage</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Luggage</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="inner">
+                                <h6>Luggage</h6>
+                                <button class="extraRowsToggleBtn"><span class="showText">Show all +</span><span
+                                        class="hideText">Hide all -</span></button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Emergency medical</td>
+                        <td>£1 Million</td>
+                        <td>£1 Million</td>
+                        <td>£1 Million</td>
+                        <td class="mostPopular">£1 Million</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">In-patient benefit</td>
+                        <td>£150</td>
+                        <td>£150</td>
+                        <td>£150</td>
+                        <td class="mostPopular">£150</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Transport & Accomodation</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">Dental</td>
+                        <td><span class="crossIcon"></span></td>
+                        <td><span class="crossIcon"></span></td>
+                        <td><span class="tickIcon"></span></td>
+                        <td class="mostPopular"><span class="tickIcon"></span></td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Funeral Expenses</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                        <td>Emergency medical</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">Emergency medical</td>
+                        <td>£1 Million</td>
+                        <td>£1 Million</td>
+                        <td>£1 Million</td>
+                        <td class="mostPopular">£1 Million</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                        <td>In-patient benefit</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">In-patient benefit</td>
+                        <td>£150</td>
+                        <td>£150</td>
+                        <td>£150</td>
+                        <td class="mostPopular">£150</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                        <td>Transport & Accomodation</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">Transport & Accomodation</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                        <td>Dental</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Dental</td>
+                        <td><span class="crossIcon"></span></td>
+                        <td><span class="crossIcon"></span></td>
+                        <td><span class="tickIcon"></span></td>
+                        <td class="mostPopular"><span class="tickIcon"></span></td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">Funeral Expenses</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Funeral Expenses</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                    </tr>
+                    <tr class="infoRow bg">
+                        <td class="rowHeading">Funeral Expenses</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+
+                    <tr class="mobileHeadingRow">
+                        <td class="rowHeading"></td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                        <td>Funeral Expenses</td>
+                    </tr>
+                    <tr class="infoRow">
+                        <td class="rowHeading">Funeral Expenses</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td>£20 per day, max £600</td>
+                        <td class="mostPopular">£20 per day, max £600</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="bottomRow">
+                        <td class="rowHeading"></td>
+                        <td>
+                            <span class="price">£7.99</span>
+                            <button class="btn buyNowBtn">Buy Now</button>
+                            <p class="hint">Price includes all travellers</p>
+                        </td>
+                        <td>
+                            <span class="price">£7.99</span>
+                            <button class="btn buyNowBtn">Buy Now</button>
+                            <p class="hint">Price includes all travellers</p>
+                        </td>
+                        <td>
+                            <span class="price">£7.99</span>
+                            <button class="btn buyNowBtn">Buy Now</button>
+                            <p class="hint">Price includes all travellers</p>
+                        </td>
+                        <td class="mostPopular">
+                            <span class="price">£7.99</span>
+                            <button class="btn buyNowBtn">Buy Now</button>
+                            <p class="hint">Price includes all travellers</p>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <article class="tableLegalTextBox">
+                <p>STA Travel Pty Ltd ABN 34 004 801 512, AR No 261330 is an author.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p>It has survived not only five centuries. Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry.</p>
+                    <p>when an unknown printer took a galley of type and scrambled.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                <p>It has survived not only five centuries. Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry.</p>
+                <p>when an unknown printer took a galley of type and scrambled.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                <p>It has survived not only five centuries. Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry.</p>
+                <p>when an unknown printer took a galley of type and scrambled.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+            </article>
+        </div>
+
+        <article class="legalTextBox">
+            <p>STA Travel Pty Ltd ABN 34 004 801 512, AR No 261330 is an author.
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled.</p>
+        </article>
+
+
+    </section>
+
+    <input type="hidden" name="insuranceTableHoverCheck" id="insuranceTableHoverCheck" value="true">
+
+</body>
+</html>

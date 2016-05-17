@@ -1,0 +1,367 @@
+@import "../reset.less";
+@import "../variables.less";
+@import "../mixins.less";
+@import "../breadcrumbs.less";
+
+.pageContent * {
+  .box-sizing(border-box);
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  font: normal 14px/normal @default-font-family;
+  color: @default-font-color;
+  background: #fff;
+  -webkit-text-size-adjust: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @title-font-family;
+  text-transform: uppercase;
+  color: @default-font-color;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 32px;
+  @media only screen and (min-width: 641px) {
+    font-size: 36px;
+    line-height: 38px;
+  }
+}
+
+h2, header h2, footer h2 {
+  font-size: 24px;
+  line-height: 26px;
+  @media only screen and (min-width: 641px) {
+    font-size: 26px;
+    line-height: 28px;
+  }
+}
+
+h3, header h3, footer h3 {
+  font-size: 20px;
+  line-height: 22px;
+  @media only screen and (min-width: 641px) {
+    font-size: 21px;
+  }
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+h6, header h6, footer h6 {
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0;
+}
+
+a, footer a, header a,
+a:link, footer a:link, header a:link {
+  font: bold 12px/14px @default-font-family;
+  color: @default-link-color;
+  text-decoration: none;
+  &:hover {
+    color: #fB4f14;
+  }
+}
+
+/*
+ * select
+ **********************************
+ */
+.selectBox {
+  display: inline-block;
+  position: relative;
+  background: #fff;
+
+  &:after {
+    content: "";
+    width: 24px;
+    height: 100%;
+    font: normal 14px/normal @default-font-family;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: url("../../icons/cartPage/select-bg.png") -1px 50% no-repeat #434343;
+    pointer-events: none;
+    border: 1px solid #dadada;
+    border-left: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  select {
+    height: 26px;
+    min-height: 26px;
+    border: 1px solid #dadada;
+    padding: 0 0 0 10px;
+    background: transparent;
+    border-radius: 0;
+    font: normal 16px/normal @default-font-family;
+    color: #434343;
+    -webkit-visibility: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+
+  }
+}
+
+input {
+  border: 1px solid #e0e3e6;
+  height: 37px;
+  font: normal 14px/normal @default-font-family;
+  color: #434343;
+  padding: 0 15px;
+}
+
+.btn {
+  min-height: 36px;
+}
+.btn.II {
+  min-height: 34px;
+}
+
+/*
+ * breadcrumbs
+ **********************************
+ */
+.breadcrumbs {
+  @media only screen and (min-width: 850px) {
+    margin: 25px 20px 20px 20px;
+  }
+  @media only screen and (min-width: 1000px) {
+    margin: 25px auto 20px auto;
+  }
+}
+
+/*
+ * content
+ **********************************
+ */
+.pageContent {
+  .clearfix;
+  padding: 10px;
+  @media only screen and (min-width: 850px) {
+    margin: 20px;
+    padding: 0;
+  }
+  @media only screen and (min-width: 1000px) {
+    width: 960px;
+    margin: 20px auto;
+  }
+}
+
+/*
+ * searchBox
+ **********************************
+ */
+.searchBox {
+  .clearfix;
+  background: #f4f5f7;
+  padding: 13px 15px 18px 15px;
+  @media only screen and (min-width: 641px) {
+    padding: 15px;
+  }
+
+  header {
+    .clearfix;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 0 0 9px 0;
+    margin: 0 0 10px 0;
+    @media only screen and (min-width: 641px) {
+      padding: 0 0 16px 0;
+      margin: 0 0 8px 0;
+    }
+  }
+
+  .editSearchBtn {
+    &.topBtn {
+      display: none;
+      @media only screen and (min-width: 641px) {
+        float: right;
+        display: block;
+        min-width: 160px;
+        width: auto;
+      }
+    }
+
+    &.bottomBtn {
+      width: 100%;
+      @media only screen and (min-width: 641px) {
+        display: none;
+      }
+    }
+  }
+
+  .searchBoxTitle {
+    float: left;
+    color: #0065bd;
+    font: normal 15px/16px @title-font-family;
+    @media only screen and (min-width: 641px) {
+      font-size: 20px;
+      line-height: 21px;
+      margin: 8px 0 0 0;
+    }
+  }
+
+  .searchParameters {
+    .clearfix;
+    margin: 8px 0 5px 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    @media only screen and (min-width: 641px) {
+      margin: 17px 0 6px 0;
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -webkit-box-pack: justify;
+      -moz-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+  }
+
+  .searchItem {
+    margin: 0 0 10px 0;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 1 48%;
+    -ms-flex: 0 1 48%;
+    flex: 0 1 48%;
+    max-width: 48%;
+    @media only screen and (min-width: 641px) {
+      margin: 0 10px;
+      -webkit-box-flex: 0;
+      -moz-box-flex: 0;
+      -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+      flex: 0 1 auto;
+      max-width: inherit;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    h6 {
+      font: bold 12px/14px @default-font-family;
+      text-transform: uppercase;
+      margin: 0 0 5px 0;
+    }
+    p {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  .durationItem {
+    display: none;
+    @media only screen and (min-width: 641px){
+      display: block;
+    }
+  }
+}
+
+/*
+ * legalTextBox
+ **********************************
+ */
+.legalTextBox {
+  margin: 30px 0px;
+  padding: 12px 15px;
+  background: #f1f2f4;
+  text-align: center;
+  @media only screen and (min-width: 850px) {
+    margin: 40px 0;
+    padding: 25px 35px 27px 35px;
+  }
+
+  p {
+    color: #000;
+    font-size: 12px;
+    line-height: 17px;
+    margin: 0 0 5px 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*
+ * insuranceTable
+ **********************************
+ */
+@import "insurance_table.less";
+
+
+/*
+ * messageBox
+ **********************************
+ */
+.messageBox {
+  background: #f4f4f4;
+  padding: 16px 20px 14px 52px;
+  margin: 10px 0 20px 0;
+  position: relative;
+  &:before {
+    content: "";
+    width: 20px;
+    height: 19px;
+    position: absolute;
+    top: 24px;
+    left: 19px;
+    background: url("../../icons/insurancePage/icons_spr.png") 0 -91px no-repeat;
+  }
+  h6 {
+    margin: 0 0 8px 0;
+    color: #fe0000;
+  }
+  p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+}
+
+/*
+ * styles for popup from splendid.css
+ **********************************
+ */
+@import "insurance_splendid.less";
+
+
+/*
+ * insurance globe ui styles reset
+ **********************************
+ */
+@import "insurance_globe_ui_reset.less";

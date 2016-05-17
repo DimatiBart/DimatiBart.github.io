@@ -1,0 +1,772 @@
+/*
+ * flight_results_details.less
+ ***************************************************
+ */
+
+/*
+ ***************************************************
+ * flightTicketDetailsBox
+ ***************************************************
+ */
+.flightTicketDetailsBox {
+  .clearfix;
+  cursor: auto;
+  display: none;
+  padding: 10px;
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 20px 10px;
+  }
+  &.openOnMobile {
+    position: fixed;
+    background: #fff;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow-y: auto;
+  }
+  &.rotate {
+    .transform(rotateY(-180deg) translateZ(-1px));
+  }
+  &.defaultState {
+    .transform(rotateY(-180deg) translateZ(-1px));
+  }
+
+  a {
+    cursor: pointer;
+  }
+}
+
+.flightTicketDetailsTopBar {
+  padding: 16px 10px 14px 10px;
+  margin: -10px -10px 0 -10px;
+  @media only screen and (min-width: @mobile-bp) {
+    display: none;
+  }
+}
+
+.backToResultsBtn {
+  border: none;
+  font: 600 12px/normal @title-font-family;
+  color: @default-font-color;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 0 0 23px;
+  min-height: 20px;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 19px;
+    width: 12px;
+    background: url("../../icons/flightResultsPage/flights_results_spr.png") -38px -53px no-repeat;
+  }
+}
+
+/*
+ ***************************************************
+ * flightTicketDetailsHeader
+ ***************************************************
+ */
+.flightTicketDetailsHeader {
+  text-align: right;
+  margin: 0 -10px 15px -10px;
+  padding: 8px 10px;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px dashed #f0f0f0;
+  @media only screen and (min-width: @mobile-bp) {
+    margin: 0 0 40px 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  .title {
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: none;
+    margin: 0 0 6px 0;
+  }
+
+  .hint {
+    color: #9f9f9f;
+    .price {
+      color: @default-font-color;
+      font-weight: bold;
+      margin: 0 0 0 5px;
+    }
+  }
+
+  p {
+    margin: 0 0 5px 0;
+  }
+
+  .linkList {
+    margin: 6px 0 0 0;
+  }
+}
+
+/*
+ ***************************************************
+ * linkList
+ ***************************************************
+ */
+.linkList {
+  .clearfix;
+  li {
+    display: inline-block;
+    font-weight: bold;
+    border-right: 1px solid #0065bd;
+    padding: 0 5px 0 0;
+    font-size: 10px;
+    line-height: 10px;
+    &:last-child {
+      border-right: 0;
+      padding-right: 0;
+    }
+  }
+  li a {
+    font-weight: bold;
+  }
+}
+
+/*
+ ***************************************************
+ * flightDetailsWrapper
+ ***************************************************
+ */
+.flightDetailsWrapper {
+  margin: 15px 0 0 0;
+  @media only screen and (min-width: @mobile-bp) {
+    margin: 30px 0 0 0;
+  }
+  &.mrgnTop {
+    margin-top: 40px;
+  }
+}
+
+.flightDetailsWrapperTitle {
+  color: #434343;
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 1px;
+  @media only screen and (min-width: @mobile-bp) {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    text-align: left;
+    letter-spacing: normal;
+  }
+}
+
+/*
+ ***************************************************
+ * flightDetailsBox
+ ***************************************************
+ */
+.flightDetailsBox {
+  border: 1px solid #dadada;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.flightDetailsBoxHeader {
+  position: relative;
+  padding: 15px 10px 15px 10px;
+  margin: 0 0 12px 0;
+  background: #f0f0f0;
+  text-align: center;
+  font-family: @title-font-family;
+  font-weight: 600;
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 25px 10px;
+  }
+  .rounds {
+    position: absolute;
+    left: -6px;
+    bottom: -11px;
+    width: 100%;
+    height: 32px;
+    overflow: hidden;
+    padding: 0 1px;
+    .box-sizing(content-box);
+    border-right: 5px solid #fff;
+    border-left: 5px solid #fff;
+    z-index: 0;
+    cursor: default;
+    &:before,
+    &:after {
+      content: "";
+      height: 30px;
+      width: 26px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      top: 0;
+      .transform(translate(-50%,0));
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15) inset;
+      z-index: 1;
+      border: 1px solid #dadada;
+    }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      left: 100%;
+    }
+  }
+  .date {
+    margin: 0 0 20px 0;
+    font-size: 12px;
+    @media only screen and (min-width: @mobile-bp) {
+      font-size: 14px;
+    }
+  }
+
+  .flightAirportsBox {
+    margin: 20px 0 17px 0;
+  }
+
+  .duration {
+    font-size: 14px;
+    margin: 0;
+    span {
+      padding: 0 0 0 20px;
+      position: relative;
+      margin: 0 17px;
+      &:before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        position: absolute;
+        top: 5px;
+        left: 0;
+      }
+    }
+    .time {
+      &:before{
+        background: url("../../icons/flightResultsPage/flights_results_spr.png") 0px -60px no-repeat;
+      }
+    }
+    .stops {
+      &:before{
+        background: url("../../icons/flightResultsPage/flights_results_spr.png") -15px -60px no-repeat;
+      }
+    }
+  }
+
+  .msgBox {
+    margin: 30px -10px -15px -10px;
+    @media only screen and (min-width: @mobile-bp) {
+      margin: 20px -10px -25px -10px;
+    }
+
+    .warningMsg {
+      display: none;
+    }
+  }
+
+}
+
+/*
+ ***************************************************
+ * warningMsg
+ ***************************************************
+ */
+.warningMsg {
+  background: #fdf2cc;
+  padding: 10px 20px 10px 60px;
+  position: relative;
+  font-family: @default-font-family;
+  font-weight: normal;
+  text-align: left;
+  font-size: 12px;
+  line-height: 16px;
+  min-height: 52px;
+  margin: 0;
+  @media only screen and (min-width: @mobile-bp) {
+    min-height: 35px;
+    padding: 9px 20px 8px 20px;
+    text-align: center;
+    line-height: 14px;
+  }
+  .icon {
+    position: absolute;
+    top: 11px;
+    left: 16px;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    border: 2px solid #f6be00;
+    color: #f6be00;
+    text-align: center;
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: bold;
+    font-family: @title-font-family;
+    @media only screen and (min-width: @mobile-bp) {
+      width: 18px;
+      height: 18px;
+      font-size: 15px;
+      line-height: 14px;
+      position: static;
+      display: inline-block;
+      margin: 0 5px 0 0;
+      padding: 0 0 0 1px;
+    }
+  }
+
+  b, span {
+    display: block;
+    @media only screen and (min-width: @mobile-bp) {
+      display: inline;
+    }
+  }
+}
+
+.dateWarningMsg {
+  background: #fae6ea;
+  padding: 10px 20px;
+  font-family: @default-font-family;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  margin: 0;
+}
+
+/*
+ ***************************************************
+ * flightAirportsBox
+ ***************************************************
+ */
+.flightAirportsBox {
+  .clearfix;
+  font-size: 0;
+  .cell {
+    display: inline-block;
+    font-size: 12px;
+  }
+
+  .cell.iconCell {
+    width: 100px;
+    @media only screen and (min-width: @mobile-bp) {
+      width: 110px;
+    }
+  }
+  .cell.airportCell {
+    width: calc(~"50% - 50px");
+    @media only screen and (min-width: @mobile-bp) {
+      width: calc(~"50% - 55px");
+    }
+  }
+  .cell.left {
+    text-align: right;
+  }
+  .cell.right {
+    text-align: left;
+  }
+  .cell.iconCell {
+    text-align: center;
+    .icon {
+      display: inline-block;
+      width: 37px;
+      height: 31px;
+      background: url("../../icons/flightResultsPage/flights_results_spr.png") 0 -24px no-repeat;
+      margin: 0 0 8px 0;
+    }
+  }
+
+
+  .name {
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 12px;
+    margin: 0;
+  }
+
+  .code {
+    font-size: 37px;
+    line-height: 38px;
+    margin: 0;
+  }
+}
+
+/*
+ ***************************************************
+ * flightDetailsBoxContent
+ ***************************************************
+ */
+.flightDetailsBoxContent {
+  padding: 0 10px 20px 10px;
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 5px 20px 20px 20px;
+  }
+}
+
+/*
+ ***************************************************
+ * flightDetailsTicketBox
+ ***************************************************
+ */
+.flightDetailsTicketBox {
+
+}
+
+/*
+ ***************************************************
+ * flightDetailsTicketBoxHeader
+ ***************************************************
+ */
+.flightDetailsTicketBoxHeader {
+  .clearfix;
+  position: relative;
+  @media only screen and (min-width: @mobile-bp) {
+    position: static;
+  }
+  .logoBox {
+    float: left;
+    min-width: 70px;
+    min-height: 45px;
+    margin: 0 20px 0 5px;
+    img {
+      display: block;
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .infoBox {
+    float: left;
+    color: #9f9f9f;
+    margin: 5px 0 0 0;
+    p {
+      margin: 0 0 6px 0;
+    }
+    .name {
+      color: @default-font-color;
+    }
+  }
+
+  .dateBox {
+    .clearfix;
+    position: absolute;
+    right: 0;
+    bottom: -51px;
+    @media only screen and (min-width: @mobile-bp) {
+      position: static;
+      right: auto;
+      bottom: auto;
+      float: right;
+      text-align: right;
+      margin: 5px 0 0 0;
+    }
+    p {
+      float: right;
+      clear: right;
+      margin: 0 0 6px 0;
+      @media only screen and (min-width: @mobile-bp) {
+        margin: 0 0 6px 0;
+      }
+    }
+    .time {
+      padding: 0 0 0 15px;
+      position: relative;
+      font-weight: bold;
+      margin: 5px 0 0 0;
+      @media only screen and (min-width: @mobile-bp) {
+        margin: 0 0 6px 0;
+      }
+      &:before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        background: url("../../icons/flightResultsPage/flights_results_spr.png") 0px -60px no-repeat;
+      }
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * flightDetailsTicketBoxContent
+ ***************************************************
+ */
+.flightDetailsTicketBoxContent {
+  @media only screen and (min-width: @mobile-bp) {
+    .clearfix;
+  }
+}
+
+/*
+ ***************************************************
+ * flightDetailsAirportBox
+ ***************************************************
+ */
+.flightDetailsAirportBox {
+  padding: 0 0 0 36px;
+  position: relative;
+  margin: 35px 0 0 0;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 17px;
+    width: 21px;
+    height: 17px;
+    background: url("../../icons/flightResultsPage/flights_results_spr.png") 0 -80px no-repeat;
+  }
+  &.departure {
+    &:before {
+      background-position: 0 -80px;
+    }
+    @media only screen and (min-width: @mobile-bp){
+      margin-right: 6%;
+    }
+  }
+  &.arrival:before {
+    background-position: -25px -79px;
+  }
+  @media only screen and (min-width: @mobile-bp) {
+    margin: 20px 0 0 0;
+    padding: 0 20px 0 40px;
+    float: left;
+    width: 47%;
+    &:before {
+      top: 10px;
+      left: 5px;
+    }
+  }
+
+  .time {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 2px 0;
+    max-width: calc(~"100% - 100px");
+    @media only screen and (min-width: @mobile-bp) {
+      margin: 0 0 6px 0;
+      max-width: inherit;
+    }
+  }
+  .code {
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin: 0 0 5px 0;
+    @media only screen and (min-width: @mobile-bp) {
+      margin: 0 0 8px 0;
+    }
+    .label {
+      display: inline-block;
+      padding: 0 5px;
+      background: #f8cb33;
+      text-align: center;
+    }
+  }
+
+  .hint {
+    color: #b61234;
+    font-size: 12px;
+    font-weight: normal;
+  }
+}
+
+/*
+ ***************************************************
+ * flightDetailsTicketBoxFooter
+ ***************************************************
+ */
+.flightDetailsTicketBoxFooter {
+  margin: 25px 0 0 0;
+  @media only screen and (min-width: @mobile-bp) {
+    margin: 30px 0 0 0;
+  }
+}
+
+.flightDetailsInfoList {
+  .clearfix;
+  li {
+    float: left;
+    position: relative;
+    color: #9f9f9f;
+    font-size: 11px;
+    line-height: 12px;
+    padding: 0 0 0 10px;
+    margin: 0 5px 0 0;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 3px;
+      height: 3px;
+      background: #9f9f9f;
+      border-radius: 50%;
+    }
+    &:first-child {
+      padding-left: 0;
+      &:before {
+        display: none;
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.flightDetailsFooterLink {
+  display: inline-block;
+  font-size: 11px;
+  margin: 15px 0 0 0;
+}
+
+/*
+ ***************************************************
+ * flightDetailsMsgBox
+ ***************************************************
+ */
+.flightDetailsMsgBox {
+  min-height: 52px;
+  margin: 25px -10px;
+  text-align: center;
+  @media only screen and (min-width: @mobile-bp) {
+    margin: 25px -20px;
+  }
+  &.I {
+    background: repeating-linear-gradient(-45deg, #f6be00, #fff 2px, #fff 10px);
+    .title {
+      color: #f6be00;
+    }
+  }
+  &.II {
+    background: repeating-linear-gradient(-45deg, #824bb0, #fff 2px, #fff 10px);
+    .title {
+      color: #824bb0;
+    }
+  }
+
+  .innerBox {
+    background: #fff;
+    min-height: 52px;
+    display: inline-block;
+    padding: 0 10px 15px 10px;
+    position: relative;
+    min-width: 100px;
+    max-width: 190px;
+    @media only screen and (min-width: @mobile-bp) {
+      padding: 0 15px 15px 15px;
+      max-width: 200px;
+    }
+  }
+
+  .title {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: bold;
+    margin: 0 0 7px 0;
+  }
+
+  .text {
+    font-size: 11px;
+    line-height: 12px;
+    color: #9f9f9f;
+    margin: 0 0 4px 0;
+  }
+
+  .timeHolder {
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    min-width: 68px;
+    text-align: left;
+    .transform(translateX(-50%));
+    height: 12px;
+  }
+}
+
+.timeHolder {
+  padding: 0 0 0 15px;
+  position: relative;
+  font: bold 11px/12px @default-font-family;
+  display: inline-block;
+  &:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    background: url("../../icons/flightResultsPage/flights_results_spr.png") 0px -60px no-repeat;
+  }
+}
+
+
+/*
+ ***************************************************
+ * flightTicketDetailsFooter
+ ***************************************************
+ */
+.flightTicketDetailsFooter {
+  .clearfix;
+  margin: 20px 0 0 0;
+  text-align: center;
+  @media only screen and (min-width: @mobile-bp) {
+    text-align: left;
+    margin: 0;
+    padding: 20px 0;
+
+    .closeFlightDetailsBtn {
+      display: none;
+    }
+  }
+}
+
+.closeFlightDetailsBtn {
+  font-size: 12px;
+  line-height: 12px;
+  text-transform: uppercase;
+  font-family: @title-font-family;
+  font-weight: bold;
+  &.desktop {
+    display: none;
+  }
+  @media only screen and (min-width: @mobile-bp) {
+    float: right;
+    &.desktop {
+      display: inline-block;
+    }
+  }
+}
+
+footer a.closeFlightDetailsBtn {
+  font-weight: bold;
+}
+
+.flightDetailsSelectBtn {
+  display: block;
+  width: 100%;
+  margin: 20px 0 0 0;
+  @media only screen and (min-width: @mobile-bp) {
+    float: right;
+    width: 52%;
+    clear: right;
+    margin: 0;
+  }
+  &.btn {
+    @media only screen and (min-width: @mobile-bp) {
+      width: 52%;
+    }
+  }
+}
+
+
+

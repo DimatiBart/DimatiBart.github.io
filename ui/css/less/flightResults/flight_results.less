@@ -1,0 +1,943 @@
+/*
+ * flight_results.less
+ ***************************************************
+ */
+@import "../reset.less";
+@import "flight_results_mixins";
+/*
+ ***************************************************
+ * globe ui styles reset
+ ***************************************************
+ */
+@import "../globe_ui_reset.less";
+
+/*
+ ***************************************************
+ * fonts
+ ***************************************************
+ */
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700);
+
+/*
+ ***************************************************
+ * variables
+ ***************************************************
+ */
+@default-font-family: Tahoma, Arial, sans-serif;
+@title-font-family: 'Titillium Web', Tahoma, Arial, sans-serif;
+@default-font-color: #434343;
+@default-link-color: #0065bd;
+@main-content-bg: #f0f0f0;
+
+@mobile-bp: 641px;
+@desktop-bp: 1000px;
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  font: normal 12px/normal @default-font-family;
+  color: @default-font-color;
+  background: #fff;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @title-font-family;
+  text-transform: uppercase;
+  color: @default-font-color;
+  font-weight: 600;
+}
+
+header, footer {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: @title-font-family;
+    text-transform: uppercase;
+    color: @default-font-color;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+h1, header h1, footer h1 {
+  font-size: 30px;
+  line-height: 32px;
+}
+
+h2, header h2, footer h2 {
+  font-size: 24px;
+  line-height: 26px;
+}
+
+h3, header h3, footer h3 {
+  font-size: 20px;
+  line-height: 22px;
+}
+
+h4, header h4, footer h4 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+h5, header h5, footer h5 {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+h6, header h6, footer h6 {
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0;
+}
+
+a, footer a, header a {
+  color: @default-link-color;
+  text-decoration: none;
+  &:hover,
+  #top-header a:hover, #newsletter a:hover, header a:hover, footer a:hover {
+    text-decoration: underline;
+    color: #0065bd;
+  }
+}
+
+
+
+/*
+ ***************************************************
+ * pageHeader
+ ***************************************************
+ */
+.pageHeader {
+  display: none;
+  .clearfix;
+  .box-sizing(border-box);
+  @media only screen and (min-width: @mobile-bp) {
+    display: block;
+    margin: 0 0 20px 0;
+    padding: 40px 20px 20px 20px;
+    border-bottom: 2px solid #007bc9;
+    min-height: 100px; // TEMP
+  }
+  @media only screen and (min-width: @desktop-bp) {
+    width: 960px;
+    margin: 0 auto 20px auto;
+  }
+  .pageHeaderLogo {
+    float: left;
+    img {
+      display: block;
+      width: 113px;
+      height: 72px;
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * pageContentHeader
+ ***************************************************
+ */
+.pageContentHeader {
+  display: none;
+  .clearfix;
+  @media only screen and (min-width: @mobile-bp) {
+    display: block;
+    margin: 25px 0 20px 0;
+    padding: 0 20px;
+    .box-sizing(border-box);
+  }
+  @media only screen and (min-width: @desktop-bp) {
+    width: 960px;
+    margin: 25px auto 20px auto;
+    padding: 0;
+  }
+
+  .markText {
+    color: #9f9f9f;
+    display: inline-block;
+  }
+  .pageContentHeaderTitle {
+    text-transform: capitalize;
+    float: left;
+  }
+}
+
+/*
+ ***************************************************
+ * pageContent
+ ***************************************************
+ */
+.pageContent {
+  .box-sizing(border-box);
+  .clearfix;
+  margin: 0 0 10px 0;
+  position: relative;
+  overflow: hidden;
+  padding: 5px 0 0 0;
+  .transition(padding .2s linear);
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 0 0 0 240px;
+    margin: 20px;
+  }
+  @media only screen and (min-width: @desktop-bp) {
+    width: 960px;
+    margin: 20px auto;
+    overflow: visible;
+  }
+  * {
+    .box-sizing(border-box);
+  }
+}
+
+
+/*
+ ***************************************************
+ * mainContent
+ ***************************************************
+ */
+.mainContent {
+  .clearfix;
+  background: @main-content-bg;
+  padding: 10px;
+  min-height: 500px;
+  width: 100%;
+  .transition(margin 0.3s ease-in-out);
+  @media only screen and (min-width: @mobile-bp) {
+    .transition(none);
+    float: right;
+  }
+}
+
+/*
+ ***************************************************
+ * mainContentHeader
+ ***************************************************
+ */
+.mainContentHeader {
+  .clearfix;
+  background: #fff;
+  padding: 0 10px 1px 10px;
+  min-height: 45px;
+  margin: 0 -10px 0 -10px;
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 0 0 2px 0;
+    margin: -10px -10px 0 -10px;
+  }
+
+  .flightResultsCount {
+    display: none;
+    @media only screen and (min-width: @mobile-bp) {
+      display: block;
+      float: right;
+      font-size: 13px;
+      line-height: 14px;
+      margin: 15px 0 10px 10px;
+    }
+    span {
+      font-weight: 600;
+      font-size: 13px;
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * mainContentFooter
+ ***************************************************
+ */
+.mainContentFooter {
+    padding: 10px 0;
+    @media only screen and (min-width: @mobile-bp) {
+      .clearfix;
+    }
+
+  .moreResultInfo {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    @media only screen and (min-width: @mobile-bp) {
+      float: left;
+      text-align: left;
+      margin-top: 11px;
+      width: calc(~"100% - 220px");
+    }
+  }
+
+  .second-btn {
+    width: 100%;
+    @media only screen and (min-width: @mobile-bp) {
+      float: right;
+      width: 220px;
+    }
+  }
+}
+
+
+/*
+ ***************************************************
+ * second-btn
+ ***************************************************
+ */
+.second-btn {
+  font: bold 14px/normal 'Titillium Web',Tahoma,Arial,sans-serif;
+  height: 38px;
+  color:  #434343;
+  background-color: transparent;
+  text-transform: uppercase;
+  border: solid 1px black;
+  text-align: center;
+  letter-spacing: 1px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media only screen and (min-width: @desktop-bp) {
+    font-size: 12px;
+  }
+}
+/*
+ ***************************************************
+ * mobileTopHintBar
+ ***************************************************
+ */
+.mobileTopHintBar {
+  .clearfix;
+  margin: -10px -10px 0 -10px;
+  padding: 5px 10px 10px 10px;
+  background: #fff;
+  font-size: 12px;
+  line-height: 14px;
+  @media only screen and (min-width: @mobile-bp) {
+    display: none;
+  }
+
+  .flightResultsCount {
+    float: left;
+    width: 50%;
+    padding: 0 5px 0 0;
+    span {
+      font-weight: 600;
+      display: block;
+      font-size: 14px;
+    }
+  }
+
+  .priceHint  {
+    float: right;
+    width: 50%;
+    padding: 0 0 0 5px;
+    color: #9f9f9f;
+    text-align: right;
+  }
+}
+
+/*
+ ***************************************************
+ * resultsTabMenu
+ ***************************************************
+ */
+.resultsTabMenu {
+  .clearfix;
+  @media only screen and (min-width: @mobile-bp) {
+    float: left;
+  }
+  .tabItem {
+    float: left;
+    min-height: 45px;
+    padding: 0 10px;
+    font-family: 'Titillium Web',Tahoma,Arial,sans-serif;
+    width: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    background: @main-content-bg;
+    @media only screen and (min-width: @mobile-bp) {
+      width: auto;
+      min-width: 135px;
+      margin: 0 2px 0 0;
+    }
+    &.active {
+      background: #fff;
+      cursor: default;
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * tabMenuContent
+ ***************************************************
+ */
+.tabMenuContent {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+
+/*
+ ***************************************************
+ * searchWidgetBox
+ ***************************************************
+ */
+.searchWidgetBox {
+  background: #0065bd;
+  margin: 1px 0 10px 0;
+  min-height: 100px; // TEMP
+  display: none;
+  @media only screen and (min-width: @mobile-bp) {
+    margin: 1px 20px 25px 20px;
+  }
+  @media only screen and (min-width: @desktop-bp) {
+    margin: 1px auto 25px auto;
+    width: 960px;
+  }
+}
+
+/*
+ ***************************************************
+ * mobileFilterBtn
+ ***************************************************
+ */
+.mobileFilterBtn {
+  float: right;
+  margin: 6px 10px 0 0;
+  font: normal 12px/14px @title-font-family;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #fff;
+  min-height: 34px;
+  min-width: 84px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  .box-sizing(border-box);
+  -moz-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  @media only screen and (min-width: @mobile-bp) {
+    display: none;
+  }
+}
+
+/*
+ ***************************************************
+ * contentHint
+ ***************************************************
+ */
+.contentHint {
+  color: #9f9f9f;
+  margin: 10px 0;
+  text-align: right;
+}
+
+.priceHint.contentHint {
+  display: none;
+  @media only screen and (min-width: @mobile-bp) {
+    display: block;
+  }
+}
+
+/*
+ ***************************************************
+ * flightTicketBox
+ ***************************************************
+ */
+.flightTicketBox {
+  background: #fff;
+  margin: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  cursor: pointer;
+  @media only screen and (min-width: @mobile-bp) {
+    cursor: auto;
+  }
+  &.active {
+    cursor: auto;
+  }
+  p, span, b {
+    //cursor: auto;
+  }
+}
+
+.flightTicketHeader {
+  .clearfix;
+  min-height: 50px;
+  position: relative;
+  margin: 0 0 20px 0;
+  padding: 5px 10px;
+  @media only screen and (min-width: @mobile-bp) {
+    min-height: 40px;
+    margin: 0 0 26px 0;
+    padding: 5px 20px 5px 20px;
+  }
+
+  .rounds {
+    position: absolute;
+    left: -5px;
+    top: 100%;
+    width: 100%;
+    height: 20px;
+    overflow: hidden;
+    .box-sizing(content-box);
+    border-right: 5px solid @main-content-bg;
+    border-left: 5px solid @main-content-bg;
+    z-index: 1;
+    cursor: default;
+    @media only screen and (min-width: @mobile-bp) {
+      height: 26px;
+    }
+    &:before,
+    &:after {
+      content: "";
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: @main-content-bg;
+      position: absolute;
+      top: 0;
+      .transform(translate(-50%,0));
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15) inset;
+      @media only screen and (min-width: @mobile-bp) {
+        height: 26px;
+        width: 26px;
+      }
+    }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      left: 100%;
+    }
+  }
+
+  .logoBox {
+    float: left;
+    margin: 5px 0 -10px 0;
+
+    img {
+      display: block;
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .price {
+    float: right;
+    clear: right;
+    color: #92a401;
+    font: bold 20px/22px @default-font-family;
+    margin: 10px 0 0 0;
+    @media only screen and (min-width: @mobile-bp) {
+      margin: 11px 0 0 0;
+      font-size: 22px;
+    }
+
+    .sub {
+      font-size: 14px;
+      margin: 0 0 0 -5px;
+    }
+  }
+
+  .priceForAll {
+    display: none;
+    @media only screen and (min-width: @mobile-bp) {
+      display: block;
+      position: absolute;
+      right: 20px;
+      bottom: -16px;
+      font-size: 10px;
+      color: #9f9f9f;
+      line-height: 12px;
+      -moz-text-overflow: ellipsis;
+      -webkit-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 60%;
+      z-index: 2;
+      margin: 0;
+    }
+    b {
+      font-size: 10px;
+    }
+  }
+
+  .flightTicketHeaderLink {
+    float: right;
+    clear: right;
+    text-transform: uppercase;
+    margin: 2px 0 -10px 0;
+    font: 600 10px/normal @title-font-family;
+    @media only screen and (min-width: @mobile-bp) {
+      margin: 2px 0 -8px 0;
+    }
+  }
+}
+
+
+
+/*
+ ***************************************************
+ * flightTicketContent
+ ***************************************************
+ */
+.flightTicketContent {
+  padding: 5px 10px;
+  @media only screen and (min-width: @mobile-bp) {
+    .clearfix;
+    padding: 0 20px 10px 20px;
+  }
+
+  .main {
+    @media only screen and (min-width: @mobile-bp){
+      max-width: 460px;
+      float: left;
+      width: 69.697%;
+    }
+  }
+  .sidebar {
+    display: none;
+    @media only screen and (min-width: @mobile-bp){
+      display: block;
+      float: right;
+      width: 18.183%;
+      padding: 2px 0 0 0;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * flightTicketFooter
+ ***************************************************
+ */
+.flightTicketFooter {
+  .clearfix;
+  border-top: 1px dashed #dadada;
+  padding: 6px 10px;
+  min-height: 45px;
+  cursor: pointer;
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 8px 20px 7px 20px;
+    min-height: 47px;
+    position: relative;
+  }
+
+  p {
+    color: #9f9f9f;
+    font-size: 10px;
+    line-height: 12px;
+    margin: 0 0 4px 0;
+  }
+
+  .leftCol {
+    float: left;
+    max-width: 60%;
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .infoBox {
+      .clearfix;
+      margin: 0 0 10px 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      a {
+        float: left;
+        clear: left;
+        margin: 0 0 4px 0;
+        font-size: 11px;
+        line-height: 12px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &:hover {
+          color: #0065bd;
+          text-decoration: underline;
+        }
+      }
+    }
+
+  }
+}
+
+/*
+ ***************************************************
+ * flightDetailsBtn
+ ***************************************************
+ */
+.flightDetailsBtn {
+  display: none;
+  float: right;
+  font: bold 12px/14px @title-font-family;
+  text-transform: uppercase;
+  border: 0;
+  cursor: pointer;
+  color: #434343;
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+  letter-spacing: 1px;
+  &:after {
+    content: '+';
+    margin: 0 0 0 4px;
+    min-width: 8px;
+    display: inline-block;
+  }
+  &.active:after {
+    content: "-"
+  }
+  @media only screen and (min-width: @mobile-bp) {
+    display: block;
+  }
+}
+
+/*
+ ***************************************************
+ * flightTicketRow
+ ***************************************************
+ */
+.flightTicketRow {
+  .clearfix;
+  margin: 0 0 10px 0;
+  @media only screen and (min-width: @mobile-bp) {
+    margin: 0 0 20px 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .cell {
+    float: left;
+    width: 20%;
+    min-height: 30px;
+    padding: 0 20px 0 0;
+    @media only screen and (min-width: @mobile-bp) {
+      padding: 0 20px 0 0;
+      width: 13%;
+    }
+    p {
+      margin: 0 0 2px 0;
+      @media only screen and (min-width: @mobile-bp) {
+        margin: 0 0 4px 0;
+      }
+    }
+  }
+  .cell:nth-child(1),
+  .cell:nth-child(3) {
+    width: 30%;
+    @media only screen and (min-width: @mobile-bp) {
+      width: 35%;
+    }
+  }
+  .cell:nth-child(4) {
+    text-align: right;
+    padding: 0;
+    @media only screen and (min-width: @mobile-bp) {
+      width: 17%;
+    }
+
+  }
+
+  .time {
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .code {
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .name {
+    color: #8e8e8e;
+    display: none;
+    @media only screen and (min-width: @mobile-bp) {
+      display: block;
+    }
+  }
+
+  .iconCell .icon {
+    width: 20px;
+    height: 20px;
+    background: rgba(0,0,0,0.6);
+    display: block;
+    margin: 2px 0 0 5px;
+    background: url("../../icons/flightResultsPage/flights_results_spr.png") -1px 0 no-repeat;
+    @media only screen and (min-width: @mobile-bp) {
+      margin: 2px 0 0 0;
+    }
+  }
+
+  .infoCell {
+
+  }
+
+  .cell .type {
+    .clearfix;
+    text-transform: uppercase;
+    margin-top: 5px;
+    font-size: 11px;
+    line-height: 12px;
+    @media only screen and (min-width: @mobile-bp) {
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  .type .label {
+    padding: 2px 5px;
+    float: right;
+    margin: -2px 0 0 0;
+    @media only screen and (min-width: @mobile-bp) {
+      padding: 2px 8px;
+      margin: -3px 0 0 0;
+    }
+    &.direct {
+      background: #bdeaf3;
+    }
+  }
+
+  .code .label {
+    display: inline-block;
+    padding: 0 5px;
+    background: #f8cb33;
+    text-align: center;
+  }
+}
+
+/*
+ ***************************************************
+ * noScroll
+ ***************************************************
+ */
+.noScroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+/*
+ ***************************************************
+ * mobileMenuOpen
+ ***************************************************
+ */
+.mobileSidebarOpen {
+  .pageSidebar {
+    margin: 0 -240px 0 0;
+  }
+  .mainContent {
+    margin: 0 -240px 0 240px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+}
+
+/*
+ ***************************************************
+ * bodyTransition
+ ***************************************************
+ */
+.bodyTransition {
+  .transition(transform 0.5s ease);
+  @media only screen and (min-width: @mobile-bp) {
+    .transition(none);
+  }
+}
+
+/*
+ ***************************************************
+ * mobileMenuOpen
+ ***************************************************
+ */
+.bodyRotate {
+  .transform(rotateY(-180deg));
+}
+
+.bodyBackRotate {
+  .transform(rotateY(180deg));
+}
+
+/*
+ ***************************************************
+ * hidden
+ ***************************************************
+ */
+.hidden {
+  display: none;
+}
+
+
+/*
+ ***************************************************
+ * Flight Details (.flightTicketDetailsBox)
+ ***************************************************
+ */
+@import "flight_results_details.less";
+
+
+/*
+ ***************************************************
+ * Sidebar (.pageSidebar)
+ ***************************************************
+ */
+@import "flight_results_sidebar.less";
+
+/*
+ ***************************************************
+ * Search Bar
+ ***************************************************
+ */
+@import "flight_results_summary.less";
+
+/*
+ ***************************************************
+ * blue ticket flight
+ ***************************************************
+ */
+@import "flight_results_blue_ticket.less";
+
+
+
+.tooltip {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 120px;
+  max-width: 150px;
+  display: none;
+  background: #fff;
+  border: 1px solid #ededed;
+  padding: 20px 10px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  min-height: 50px;
+  z-index: 5;
+  text-align: center;
+  &.active {
+    //display: block;
+  }
+}
+
+.cell .tooltipContainer {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 5px;
+  .type {
+    margin-top: 0;
+  }
+}

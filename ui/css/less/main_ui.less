@@ -1,0 +1,717 @@
+/*
+ * main_ui.less
+ ***************************************************
+ */
+
+@import "reset.less";
+@import "variables.less";
+@import "mixins.less";
+@import "breadcrumbs.less";
+
+@font-face {
+  font-family: FontAwesome;
+  src: url('../../fonts/fontawesome-webfont.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../fonts/fontawesome-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../../fonts/fontawesome-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../../fonts/fontawesome-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('../../fonts/fontawesome-webfont.svg#fontawesome') format('svg'); /* Legacy iOS */
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  font: normal 14px/normal @default-font-family;
+  color: @default-font-color;
+  background: #fff;
+  -webkit-text-size-adjust: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @title-font-family;
+  text-transform: uppercase;
+  color: @default-font-color;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 32px;
+  @media only screen and (min-width: 641px) {
+    font-size: 36px;
+    line-height: 38px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 26px;
+  @media only screen and (min-width: 641px) {
+    font-size: 26px;
+    line-height: 28px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 22px;
+  @media only screen and (min-width: 641px) {
+    font-size: 21px;
+  }
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+h6, header h6, footer h6 {
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0;
+}
+
+.subtitle {
+  font-family: @default-font-family;
+  margin: 0 0 10px 0;
+}
+
+a {
+  font: normal 14px/16px @default-font-family;
+  color: @default-link-color;
+  text-decoration: none;
+  &:hover {
+    color: #fB4f14;
+  }
+}
+
+input,
+select {
+  background: #fff;
+  border: 1px solid #dadada;
+  color: #333;
+  font: normal 14px/normal @default-font-family;
+  border-radius: 1px;
+  height: 37px;
+  box-shadow: none;
+  &:focus {
+    border: 1px solid #0065bd;
+    outline: none;
+  }
+}
+
+input {
+  padding: 0 10px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  height: auto;
+  padding: 0;
+}
+
+select {
+  cursor: pointer;
+  padding: 0 0 0 5px;
+}
+
+button {
+  cursor: pointer;
+  font: normal 16px/normal @default-font-family;
+}
+
+.btn {
+  min-height: 40px;
+  &:disabled {
+    background: #ebebeb;
+    color: #d1d1d1;
+    border-color: #ebebeb;
+    cursor: default;
+  }
+}
+
+/*
+ ***************************************************
+ * customCheckbox
+ ***************************************************
+ */
+.customCheckbox {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border: 1px solid #dadada;
+  border-radius: 1px;
+  cursor: pointer;
+  position: relative;
+
+  input[type="checkbox"]{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    .transform(translate(-50%,-50%));
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &.checked {
+    background: url("../../icons/checkoutPage/checkout_spr.png") 1px -32px no-repeat #fff;
+  }
+  &.disabled {
+    opacity: 0.35;
+    cursor: default;
+    input {
+      cursor: default;
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * customSelect
+ ***************************************************
+ */
+.customSelect {
+  display: inline-block;
+  background: #fff;
+  position: relative;
+  &:before {
+    content: "";
+    width: 36px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid #dadada;
+    background: url("../../icons/checkoutPage/checkout_spr.png") -24px 16px no-repeat;
+    z-index: 1;
+  }
+  select {
+    -webkit-visibility: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &::-ms-expand {
+      display: none;
+    }
+    background: transparent;
+    position: relative;
+    z-index: 2;
+    padding: 0 40px 0 5px;
+    width: 100%;
+    &.defValSelected {
+      color: #888;
+      option {
+        color: #333;
+      }
+    }
+    option.defaultVal {
+      color: #888;
+    }
+  }
+  &.fullWidth {
+    width: 100%;
+  }
+}
+
+/*
+ ***************************************************
+ * panelBox
+ ***************************************************
+ */
+.panelBox {
+  background: #fff;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2);
+  margin: 0 0 10px 0;
+  @media only screen and (min-width: 641px){
+    margin: 0 0 20px 0;
+  }
+  p {
+    margin: 5px 0;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .panelHeader {
+    .clearfix;
+    padding: 16px 10px 10px 10px;
+    min-height: 50px;
+    background: #0065bd;
+    @media only screen and (min-width: 641px){
+      padding: 16px 20px 10px 20px;
+    }
+    h4 {
+      display: inline-block;
+      color: #fff;
+      margin: 0;
+      line-height: 20px;
+    }
+    .editBtn {
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      line-height: 16px;
+      min-height: 16px;
+      padding: 0 0 0 20px;
+      position: relative;
+      float: right;
+      margin: 1px 0 0 0;
+      background: transparent;
+      &:before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        .transform(translateY(-50%));
+        background: url("../../icons/checkoutPage/checkout_spr.png") -1px -123px no-repeat;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+      &:active {
+        text-decoration: none;
+      }
+    }
+  }
+  .panelContent {
+    .clearfix;
+    padding: 10px;
+    border: 1px solid #d6d6d6;
+    @media only screen and (min-width: 641px){
+      padding: 20px;
+    }
+  }
+  .panelFooter {
+    .clearfix;
+    border-top: 1px solid #d6d6d6;
+    margin: 20px -10px 0 -10px;
+    padding: 10px 10px 0 10px;
+    @media only screen and (min-width: 641px){
+      margin: 20px -20px 0 -20px;
+      padding: 20px 20px 0 20px;
+    }
+    .btn {
+      float: right;
+      width: 100%;
+      @media only screen and (min-width: 641px){
+        width: auto;
+      }
+    }
+    .continueBtn {
+      @media only screen and (min-width: 641px){
+        min-width: 260px;
+      }
+    }
+
+    .panelFooterLink {
+      float: right;
+      margin: 12px 20px 0 0;
+    }
+  }
+  // Edit Panel
+  &.editPanel {
+    .panelHeader {
+      padding: 16px 10px 10px 50px;
+      position: relative;
+      @media only screen and (min-width: 641px){
+        padding: 16px 20px 10px 60px;
+      }
+      &:before {
+        content: "";
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        .transform(translateY(-50%));
+        border-radius: 50%;
+        background: url("../../icons/checkoutPage/checkout_spr.png") 2px -31px no-repeat #fff;
+        @media only screen and (min-width: 641px){
+          left: 20px;
+        }
+      }
+    }
+    .panelContent {
+      padding: 10px;
+      @media only screen and (min-width: 641px){
+        padding: 20px;
+      }
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * travellerInfoList
+ ***************************************************
+ */
+.travellerInfoList {
+  margin: 0 0 15px 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  li {
+    padding: 0 0 0 25px;
+    line-height: 16px;
+    margin: 0 0 10px 0;
+    position: relative;
+    min-height: 16px;
+    &:before {
+      content: "";
+      width: 14px;
+      height: 16px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      .transform(translateY(-50%));
+      background: url("../../icons/checkoutPage/checkout_spr.png") 0 0 no-repeat;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &.name {
+      &:before {
+        background-position: 0px -152px;
+        height: 18px;
+      }
+    }
+    &.email {
+      word-break: break-all;
+      &:before {
+        background-position: -25px -153px;
+      }
+    }
+    &.tel {
+      &:before {
+        background-position: -1px -183px;
+      }
+    }
+    span {
+      margin: 0 2px 0 0;
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * lightbox
+ ***************************************************
+ */
+.lightbox {
+  display: none;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 18px 2px rgba(0,0,0,0.3);
+  border: 1px solid #ededed;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 860px;
+  z-index: 105;
+  min-height: 150px;
+  .transform(translate(-50%,-50%));
+  @media only screen and (min-width: 641px) {
+    padding: 30px;
+  }
+  .closeLightboxBtn {
+    position: absolute;
+    top: -15px;
+    right: -12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: #ebebeb;
+    color: #0065bd;
+    text-transform: uppercase;
+    font: normal 18px/32px Arial,Tahoma,sans-serif;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  }
+  h5, h6 {
+    text-transform: none;
+    margin: 0 0 10px 0;
+  }
+  h6 {
+    margin-bottom: 8px;
+  }
+  .cardWrapp {
+    margin: 25px 0 0 0;
+  }
+
+  .cardImgHolder {
+    width: 188px;
+    height: 118px;
+    background: url("../../img/content/credit_card_spr.png") 0 -1px no-repeat;
+    &.americanExpress {
+      background-position: 0 -125px;
+    }
+  }
+
+  &.absolutePos {
+    position: absolute;
+    top: 15px;
+    margin: 0 0 20px 0;
+    .transform(translate(-50%,0%));
+  }
+
+  .lightboxTitle {
+    margin: 0 0 15px 0;
+  }
+
+  .offerBox.blueTicketBox {
+    cursor: default;
+  }
+
+  &.scroll {
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  h1,h2,h3,h4,h5,h6,p {
+    margin: 0 0 10px 0;
+  }
+  .lightboxContent {
+    p:first-child {
+      margin-top: 0;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * blue ticket lightbox
+ ***************************************************
+ */
+.blueTicketPopup {
+  .lightboxContent {
+    @media only screen and (min-width: 641px) {
+      padding: 0 325px 0 0;
+      background: url("../../img/content/blue_ticket.png") 100% 50% no-repeat;
+      min-height: 170px;
+    }
+  }
+  .lightboxTitle {
+    padding: 0 0 12px 0;
+    border-bottom: 1px dashed #e7e7e7;
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    line-height: 18px;
+    @media only screen and (min-width: 641px) {
+      font-size: 18px;
+      line-height: 20px;
+    }
+  }
+  .row {
+    margin: 0 0 15px 0;
+    @media only screen and (min-width: 641px) {
+      margin: 0 0 30px;
+    }
+    h3 {
+      font-size: 14px;
+      line-height: 16px;
+      @media only screen and (min-width: 641px) {
+        font-size: 16px;
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * qBtn
+ ***************************************************
+ */
+.qBtn {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: #f4f4f4;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #555;
+  cursor: pointer;
+  padding: 0 0 0 1px;
+}
+
+/*
+ ***************************************************
+ * tooltipWrapp
+ ***************************************************
+ */
+.tooltipWrapp {
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0 5px;
+  position: relative;
+  padding: 0 0 4px 0;
+  &.mobileView {
+    position: static;
+  }
+}
+
+/*
+ ***************************************************
+ * tooltipBox
+ ***************************************************
+ */
+.tooltipBox {
+  display: none;
+  background: #fff;
+  border: 1px solid #ededed;
+  padding: 20px 15px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+  z-index: 5;
+  min-height: 50px;
+  .closeLightboxBtn {
+    display: none;
+  }
+  &:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    background: #fff;
+    border-top: 1px solid #ededed;
+    border-left: 1px solid #ededed;
+    .transform(translate(-50%,0) rotate(45deg));
+  }
+  &.rightSide {
+    padding: 15px;
+    &:before {
+      left: -6px;
+      top: 20px;
+      border-top: 0;
+      border-bottom: 1px solid #ededed;
+      .transform(translate(0,-50%) rotate(45deg));
+    }
+  }
+  @media only screen and (min-width: 641px) {
+
+  }
+  h5, h6 {
+    text-transform: none;
+    margin: 0 0 10px 0;
+  }
+  h6 {
+    margin-bottom: 8px;
+  }
+  p {
+    font-size: 14px;
+  }
+  .cardWrapp {
+    margin: 25px 0 0 0;
+  }
+  .cardImgHolder {
+    width: 188px;
+    height: 118px;
+    background: url("../../img/content/credit_card_spr.png") 0 -1px no-repeat;
+    &.americanExpress {
+      background-position: 0 -125px;
+    }
+  }
+  .lightboxContent {
+    p:first-child {
+      margin-top: 0;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * mobileTooltipBox
+ ***************************************************
+ */
+.mobileTooltipBox {
+  .lightboxContent {
+    max-height: 300px;
+    overflow-y: auto;
+    @media only screen and (min-width: 641px) {
+      max-height: inherit;
+      overflow-y: visible;
+    }
+  }
+  &.noContentScroll {
+    .lightboxContent {
+      max-height: inherit;
+      overflow-y: visible;
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * noScroll
+ ***************************************************
+ */
+.noScroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+.translateX {
+  .transform(translateX(-50%));
+}
+
+/*
+ ***************************************************
+ * bgLayer
+ ***************************************************
+ */
+.bgLayer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 4;
+}
+
+/*
+ ***************************************************
+ * loadingLayer
+ ***************************************************
+ */
+.loadingLayer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.4);
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    margin-left: -32px;
+    top: 50%;
+    margin-top: -32px;
+  }
+}

@@ -1,0 +1,217 @@
+.clearfix:after{
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.user-links {
+    margin: 0 0 3px 0;
+    padding: 0 0 15px 0;
+    border-bottom: 1px solid #CCC;
+    height: 21px;
+}
+
+.user-links li {
+    float: left;
+    font-weight: normal;
+    color: #616161;
+    margin-right: 15px;
+    height: 21px;
+    line-height: 21px;
+}
+
+/*
+ * tripAdvisor rating
+ ****************************************************************
+ */
+.tripAdvisorBox {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.tripAdvisorBox .tripAdvisorLogo {
+    float: left;
+    width: 34px;
+    height: 20px;
+    background: url("../../img/tripAdvisor/tripAdvisorLogo.png") 0 0 no-repeat;
+    margin: 0 2px 0 0;
+}
+
+.tripAdvisorBox .ratingItemWrapp {
+    float: left;
+}
+
+.tripAdvisorBox .ratingItem {
+    width: 17px;
+    height: 17px;
+    background: #fff;
+    border: 2px solid #599642;
+    border-radius: 50%;
+    float: left;
+    margin: 3px 0 0 0;
+    padding: 2px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.tripAdvisorBox .ratingItem:before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+/* rating 0.5 */
+.tripAdvisorBox.rating05 .ratingItem:nth-child(1):before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 9px;
+    border-radius: 9px 0 0 9px;
+    background: #599642;
+}
+
+/* rating 1 */
+.tripAdvisorBox.rating10 .ratingItem:nth-child(1):before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #599642;
+}
+
+/* rating 1.5 */
+.tripAdvisorBox.rating15 .ratingItem:nth-child(1):before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #599642;
+}
+.tripAdvisorBox.rating15 .ratingItem:nth-child(2):before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 9px;
+    border-radius: 9px 0 0 9px;
+    background: #599642;
+}
+
+/* rating 2 */
+.tripAdvisorBox.rating20 .ratingItem:nth-child(1):before,
+.tripAdvisorBox.rating20 .ratingItem:nth-child(2):before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #599642;
+}
+
+/* rating 2.5 */
+.tripAdvisorBox.rating25 .ratingItem:nth-child(1):before,
+.tripAdvisorBox.rating25 .ratingItem:nth-child(2):before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #599642;
+}
+.tripAdvisorBox.rating25 .ratingItem:nth-child(3):before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 9px;
+    border-radius: 9px 0 0 9px;
+    background: #599642;
+}
+
+/* rating 3 */
+.tripAdvisorBox.rating30 .ratingItem:nth-child(1):before,
+.tripAdvisorBox.rating30 .ratingItem:nth-child(2):before,
+.tripAdvisorBox.rating30 .ratingItem:nth-child(3):before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #599642;
+}
+
+/* rating 3.5 */
+.tripAdvisorBox.rating35 .ratingItem:nth-child(1):before,
+.tripAdvisorBox.rating35 .ratingItem:nth-child(2):before,
+.tripAdvisorBox.rating35 .ratingItem:nth-child(3):before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #599642;
+}
+.tripAdvisorBox.rating35 .ratingItem:nth-child(4):before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 9px;
+    border-radius: 9px 0 0 9px;
+    background: #599642;
+}
+
+/* rating 4 */
+.tripAdvisorBox.rating40 .ratingItem:nth-child(1):before,
+.tripAdvisorBox.rating40 .ratingItem:nth-child(2):before,
+.tripAdvisorBox.rating40 .ratingItem:nth-child(3):before,
+.tripAdvisorBox.rating40 .ratingItem:nth-child(4):before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #599642;
+}
+
+/* rating 4.5 */
+.tripAdvisorBox.rating45 .ratingItem:nth-child(1):before,
+.tripAdvisorBox.rating45 .ratingItem:nth-child(2):before,
+.tripAdvisorBox.rating45 .ratingItem:nth-child(3):before,
+.tripAdvisorBox.rating45 .ratingItem:nth-child(4):before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #599642;
+}
+.tripAdvisorBox.rating45 .ratingItem:nth-child(5):before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 9px;
+    border-radius: 9px 0 0 9px;
+    background: #599642;
+}
+
+/* rating 5 */
+.tripAdvisorBox.rating50 .ratingItem:nth-child(1):before,
+.tripAdvisorBox.rating50 .ratingItem:nth-child(2):before,
+.tripAdvisorBox.rating50 .ratingItem:nth-child(3):before,
+.tripAdvisorBox.rating50 .ratingItem:nth-child(4):before,
+.tripAdvisorBox.rating50 .ratingItem:nth-child(5):before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #599642;
+}
+
+
