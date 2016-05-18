@@ -206,6 +206,7 @@ $(document).ready(function(){
             });
             $(document).on('click', '.tooltipContainer, .tooltip', function(event){
                 event.stopPropagation();
+                event.preventDefault();
             });
         }
         else {
