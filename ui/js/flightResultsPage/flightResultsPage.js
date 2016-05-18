@@ -211,6 +211,11 @@ $(document).ready(function(){
                 event.stopPropagation();
                 event.preventDefault();
             });
+            $(document).on('click', function(){
+                if ($('.tooltip.active').length != 0) {
+                    event.stopPropagation();
+                }
+            })
         }
         else {
             $(document).on('mouseenter', '.tooltipContainer', function(event){
