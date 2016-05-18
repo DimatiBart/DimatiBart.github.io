@@ -199,6 +199,7 @@ $(document).ready(function(){
                 showTooltip(this);
             });
             $(document).on('touchstart', function(){
+                event.stopPropagation();
                 hideTooltip();
             });
             $(document).on('touchstart', '.tooltip', function(event){
