@@ -196,17 +196,17 @@ $(document).ready(function(){
         if( isTouch == true ) {
             $(document).on('touchstart', '.tooltipContainer', function(){
                 event.stopPropagation();
-                event.preventDefault();
+                //event.preventDefault();
                 showTooltip(this);
             });
             $(document).on('touchstart', function(){
                 event.stopPropagation();
-                event.preventDefault();
+                //event.preventDefault();
                 hideTooltip();
             });
             $(document).on('touchstart', '.tooltip', function(event){
                 event.stopPropagation();
-                event.preventDefault();
+               // event.preventDefault();
             });
         }
         else {
