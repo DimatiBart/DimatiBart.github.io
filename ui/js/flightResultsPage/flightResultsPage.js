@@ -360,8 +360,8 @@ function showTooltip(container) {
     var tooltip = $(container).find('.tooltip');
     if (!tooltip.hasClass('active')) {
         $(container).find('.tooltip').stop(true,true).fadeIn(350, function(){
-            $(this).addClass('active');
-        });
+
+        }).addClass('active');
     }
 }
 
