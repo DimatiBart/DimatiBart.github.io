@@ -359,16 +359,16 @@ function showTooltip(container) {
     if (!tooltip.hasClass('active')) {
         $(container).find('.tooltip').stop(true,true).fadeIn(350,function(){
             if( isTouch == true ){
-                $(document).on('touchstart.closeTooltip',function(event){
-                    var tooltip = $('.tooltipBox');
-                    hideTooltip(tooltip);
-                });
-                $(document).on('touchstart.stopPropagation','.tooltipBox',function(event){
-                    event.stopPropagation();
-                });
-                $(document).on('touchstart.stopPropagation1','.tooltipWrapp',function(event){
-                    event.stopPropagation();
-                });
+                //$(document).on('touchstart.closeTooltip',function(event){
+                //    var tooltip = $('.tooltipBox');
+                //    hideTooltip(tooltip);
+                //});
+                //$(document).on('touchstart.stopPropagation','.tooltipBox',function(event){
+                //    event.stopPropagation();
+                //});
+                //$(document).on('touchstart.stopPropagation1','.tooltipWrapp',function(event){
+                //    event.stopPropagation();
+                //});
             }
         }).addClass('active');
     }
