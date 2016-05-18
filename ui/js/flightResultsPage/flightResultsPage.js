@@ -357,9 +357,7 @@ function showTooltip(container) {
     hideTooltip(container);
     var tooltip = $(container).find('.tooltip');
     if (!tooltip.hasClass('active')) {
-        $(container).find('.tooltip').stop(true,true).fadeIn(350,function(){
-
-        }).addClass('active');
+        $(container).find('.tooltip').stop(true,true).fadeIn(350).addClass('active');
     }
 }
 
