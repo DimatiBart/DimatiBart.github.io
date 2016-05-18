@@ -195,8 +195,8 @@ $(document).ready(function(){
         var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0));
         if( isTouch == true ) {
             $(document).on('touchstart', '.tooltipContainer', function(){
-                showTooltip(this);
                 event.stopPropagation();
+                showTooltip(this);
             });
             $(document).on('touchstart', function(){
                 hideTooltip();
@@ -357,7 +357,20 @@ function showTooltip(container) {
     hideTooltip(container);
     var tooltip = $(container).find('.tooltip');
     if (!tooltip.hasClass('active')) {
-        $(container).find('.tooltip').stop(true,true).fadeIn(350).addClass('active');
+        $(container).find('.tooltip').stop(true,true).fadeIn(350,function(){
+            if( isTouch == true ){
+                $(document).on('touchstart.closeTooltip',function(event){
+                    var tooltip = $('.tooltipBox');
+                    hideTooltip(tooltip);
+                });
+                $(document).on('touchstart.stopPropagation','.tooltipBox',function(event){
+                    event.stopPropagation();
+                });
+                $(document).on('touchstart.stopPropagation1','.tooltipWrapp',function(event){
+                    event.stopPropagation();
+                });
+            }
+        }).addClass('active');
     }
 }
 
