@@ -193,51 +193,51 @@ $(document).ready(function(){
         }
     })
 
-    (function(){
-        var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0));
-        if( isTouch == true ) {
-            $(document).on('touchstart', '.tooltipContainer', function(event){
-                event.stopPropagation();
-                showTooltip(this);
-            });
-            //$(document).on('touchstart', function(){
-            //    if ($('.tooltip.active').length != 0) {
-            //        event.stopPropagation();
-            //        hideTooltip();
-            //    }
-            //});
-            $(document).on('touchstart', '.tooltip', function(event){
-                event.stopPropagation();
-            });
-            $(document).on('click', '.tooltipContainer, .tooltip', function(event){
-                event.stopPropagation();
-            });
-            $(document).on('click', function(){
-                if ($('.tooltip.active').length != 0) {
-                    event.stopPropagation();
-                    event.stopImmediatePropagation();
-                    hideTooltip();
-                }
-            })
-        }
-        else {
-            $(document).on('mouseenter', '.tooltipContainer', function(event){
-                showTooltip(this);
-                console.log($(event.target).attr('class'))
-            });
-
-            $(document).on('mouseleave', '.tooltipContainer', function(event){
-                hideTooltip(this);
-                console.log($(event.target).attr('class'))
-            });
-            //$(document).on('mouseout','.tooltip',function(event){
-            //    event.stopPropagation();
-            //});
-            //$(document).on('mouseover','.tooltip',function(event){
-            //    event.stopPropagation();
-            //});
-        }
-    })()
+    //(function(){
+    //    var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0));
+    //    if( isTouch == true ) {
+    //        $(document).on('touchstart', '.tooltipContainer', function(event){
+    //            event.stopPropagation();
+    //            showTooltip(this);
+    //        });
+    //        //$(document).on('touchstart', function(){
+    //        //    if ($('.tooltip.active').length != 0) {
+    //        //        event.stopPropagation();
+    //        //        hideTooltip();
+    //        //    }
+    //        //});
+    //        $(document).on('touchstart', '.tooltip', function(event){
+    //            event.stopPropagation();
+    //        });
+    //        $(document).on('click', '.tooltipContainer, .tooltip', function(event){
+    //            event.stopPropagation();
+    //        });
+    //        $(document).on('click', function(){
+    //            if ($('.tooltip.active').length != 0) {
+    //                event.stopPropagation();
+    //                event.stopImmediatePropagation();
+    //                hideTooltip();
+    //            }
+    //        })
+    //    }
+    //    else {
+    //        $(document).on('mouseenter', '.tooltipContainer', function(event){
+    //            showTooltip(this);
+    //            console.log($(event.target).attr('class'))
+    //        });
+    //
+    //        $(document).on('mouseleave', '.tooltipContainer', function(event){
+    //            hideTooltip(this);
+    //            console.log($(event.target).attr('class'))
+    //        });
+    //        //$(document).on('mouseout','.tooltip',function(event){
+    //        //    event.stopPropagation();
+    //        //});
+    //        //$(document).on('mouseover','.tooltip',function(event){
+    //        //    event.stopPropagation();
+    //        //});
+    //    }
+    //})()
 });
 
 $(window).resize(function(){
