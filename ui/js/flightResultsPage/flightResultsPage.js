@@ -199,7 +199,10 @@ $(document).ready(function(){
                 showTooltip(this);
             });
             $(document).on('touchstart', function(){
-                hideTooltip();
+                if ($('.tooltip.active').length != 0) {
+                    event.stopPropagation();
+                    hideTooltip();
+                }
             });
             $(document).on('touchstart', '.tooltip', function(event){
                 event.stopPropagation();
