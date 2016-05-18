@@ -197,8 +197,12 @@ $(document).ready(function(){
             $(document).on('touchstart', '.tooltipContainer', function(){
                 //event.stopPropagation();
                 //event.preventDefault();
-                event.stopImmediatePropagation()
+                //event.stopImmediatePropagation()
                 showTooltip(this);
+            });
+            $(document).on('touchend', '.tooltipContainer', function ( e )  {
+                e.preventDefault();
+                e.stopPropagation();
             });
             $(document).on('touchstart', function(){
                 //event.stopPropagation();
@@ -206,8 +210,8 @@ $(document).ready(function(){
                 hideTooltip();
             });
             $(document).on('touchstart', '.tooltip', function(event){
-                event.stopImmediatePropagation()
-                //event.stopPropagation();
+                //event.stopImmediatePropagation()
+                event.stopPropagation();
                // event.preventDefault();
             });
         }
