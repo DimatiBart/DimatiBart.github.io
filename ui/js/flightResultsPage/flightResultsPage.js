@@ -208,6 +208,7 @@ $(document).ready(function(){
         }
         else {
             $(document).on('mouseenter', '.tooltipContainer', function(event){
+                event.stopPropagation();
                 showTooltip(this);
                 console.log($(event.target).attr('class'))
             });
@@ -358,7 +359,9 @@ function showTooltip(container) {
     hideTooltip(container);
     var tooltip = $(container).find('.tooltip');
     if (!tooltip.hasClass('active')) {
-        $(container).find('.tooltip').stop(true,true).fadeIn(350).addClass('active');
+        $(container).find('.tooltip').stop(true,true).fadeIn(350, function(){
+            $(this).addClass('active');
+        });
     }
 }
 
