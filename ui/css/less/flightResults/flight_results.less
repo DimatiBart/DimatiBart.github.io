@@ -32,20 +32,20 @@
 @mobile-bp: 641px;
 @desktop-bp: 1000px;
 
-
 html, body {
   min-height: 100%;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
-}
 body {
   font: normal 12px/normal @default-font-family;
   color: @default-font-color;
   background: #fff;
   -webkit-text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -635,7 +635,6 @@ a, footer a, header a {
   border-top: 1px dashed #dadada;
   padding: 6px 10px;
   min-height: 45px;
-
   @media only screen and (min-width: @mobile-bp) {
     padding: 8px 20px 7px 20px;
     min-height: 47px;
@@ -919,49 +918,3 @@ a, footer a, header a {
 
 
 
-.tooltip {
-  position: absolute;
-  min-width: 120px;
-  max-width: 150px;
-  display: none;
-  background: #fff;
-  border: 1px solid #ededed;
-  padding: 20px 10px;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
-  min-height: 50px;
-  z-index: 5;
-  text-align: center;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  &.active {
-    //display: block;
-  }
-
-  @media only screen and (min-width: @mobile-bp) {
-
-  }
-}
-
-.cell .tooltipContainer {
-  display: inline-block;
-  position: relative;
-  padding-bottom: 5px;
-  .type {
-    margin-top: 0;
-  }
-  .tooltipArrow {
-    display: none;
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    top: calc(~"100% - 5px");
-    z-index: 6;
-    left: 50%;
-    background: #fff;
-    border-top: 1px solid #ededed;
-    border-left: 1px solid #ededed;
-    .transform(translate(-50%,0) rotate(45deg));
-  }
-}
