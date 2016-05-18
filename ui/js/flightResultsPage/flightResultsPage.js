@@ -195,23 +195,25 @@ $(document).ready(function(){
         var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0));
         if( isTouch == true ) {
             $(document).on('touchstart', '.tooltipContainer', function(){
-                event.stopPropagation();
+                //event.stopPropagation();
                 //event.preventDefault();
+                event.stopImmediatePropagation()
                 showTooltip(this);
             });
             $(document).on('touchstart', function(){
-                event.stopPropagation();
+                //event.stopPropagation();
                 //event.preventDefault();
                 hideTooltip();
             });
             $(document).on('touchstart', '.tooltip', function(event){
-                event.stopPropagation();
+                event.stopImmediatePropagation()
+                //event.stopPropagation();
                // event.preventDefault();
             });
         }
         else {
             $(document).on('mouseenter', '.tooltipContainer', function(event){
-                event.stopPropagation();
+                //event.stopPropagation();
                 showTooltip(this);
                 console.log($(event.target).attr('class'))
             });
@@ -359,12 +361,10 @@ function showChangeAirportPanel(flightType) {
 
 
 function showTooltip(container) {
-    //hideTooltip(container);
+    hideTooltip();
     var tooltip = $(container).find('.tooltip');
     if (!tooltip.hasClass('active')) {
-        $(container).find('.tooltip').stop(true,true).fadeIn(350, function(){
-
-        }).addClass('active');
+        $(container).find('.tooltip').stop(true,true).fadeIn(350).addClass('active');
     }
 }
 
