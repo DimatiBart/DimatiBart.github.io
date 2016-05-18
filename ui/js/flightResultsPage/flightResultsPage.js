@@ -198,12 +198,12 @@ $(document).ready(function(){
                 event.stopPropagation();
                 showTooltip(this);
             });
-            $(document).on('touchstart', function(){
-                if ($('.tooltip.active').length != 0) {
-                    event.stopPropagation();
-                    hideTooltip();
-                }
-            });
+            //$(document).on('touchstart', function(){
+            //    if ($('.tooltip.active').length != 0) {
+            //        event.stopPropagation();
+            //        hideTooltip();
+            //    }
+            //});
             $(document).on('touchstart', '.tooltip', function(event){
                 event.stopPropagation();
             });
@@ -214,6 +214,7 @@ $(document).ready(function(){
             $(document).on('click', function(){
                 if ($('.tooltip.active').length != 0) {
                     event.stopPropagation();
+                    hideTooltip();
                 }
             })
         }
