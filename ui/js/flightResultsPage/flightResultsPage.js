@@ -204,6 +204,9 @@ $(document).ready(function(){
             $(document).on('touchstart', '.tooltip', function(event){
                 event.stopPropagation();
             });
+            $(document).on('click', '.tooltipContainer, .tooltip', function(event){
+                event.stopPropagation();
+            });
         }
         else {
             $(document).on('mouseenter', '.tooltipContainer', function(event){
