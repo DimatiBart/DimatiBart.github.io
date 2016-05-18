@@ -233,22 +233,12 @@ $(window).resize(function(){
 });
 
 $(window).resize(function(){
-    var activeTooltip = $('.tooltip.active');
-    if (window.matchMedia("(min-width: 641px)").matches === false && activeTooltip.length != 0) {
-        var ticket = activeTooltip.closest('.flightTicketBox');
-        var tooltipRightBorder = activeTooltip.offset().left + activeTooltip.width();
-        if (tooltipRightBorder > ticket.width()/2) {
-            //tooltip is on the right
-            var ticketRightBorder = ticket.offset().left + ticket.width();
-            if (tooltipRightBorder > ticketRightBorder) {
-                var difference =  ticketRightBorder - tooltipRightBorder;
-                activeTooltip.css({right: difference});
-            }
-        }
-        else {
-            //tooltip is on the left
-            var ticketLeftBorder = ticket.width();
-        }
+    if (window.matchMedia("(min-width: 641px)").matches === false) {
+     $('.tooltip').css({
+         transform: 'translateX(-50%)',
+         left: '50%',
+         right: 'none'
+     })
     }
 });
 
@@ -379,6 +369,55 @@ function showTooltip(container) {
    // if (!tooltip.hasClass('active')) {
     $(container).find('.tooltip').stop(true,true).fadeIn(350).addClass('active');
     $(container).find('.tooltipArrow').stop(true,true).fadeIn(350).addClass('active');
+    var ticket = tooltip.closest('.flightTicketBox');
+    var tooltipLeftBorder = Math.round(tooltip.offset().left);
+    var ticketLeftBorder = Math.round(ticket.offset().left);
+    if (window.matchMedia("(min-width: 641px)").matches === false) {
+        if (tooltipLeftBorder == ticketLeftBorder) {
+            return;
+        }
+        if (tooltipLeftBorder < ticketLeftBorder) {
+            tooltip.css({
+                left: '-10px',
+                transform: 'none'
+            });
+        }
+        else {
+            var tooltipRightBorder =  tooltipLeftBorder +  Math.round(tooltip.outerWidth());
+            var ticketRightBorder = ticketLeftBorder + Math.round(ticket.width());
+            if (tooltipRightBorder == ticketRightBorder) {
+                return;
+            }
+            if (tooltipRightBorder > ticketRightBorder) {
+                tooltip.css({
+                    right: '-10px',
+                    left: 'auto',
+                    transform: 'none'
+                });
+            }
+            else{
+                tooltip.css({
+                    transform: 'translateX(-50%)',
+                    left: '50%',
+                    right: 'none'
+                })
+            }
+        }
+    }
+    else if (tooltipLeftBorder < ticketLeftBorder) {
+        tooltip.css({
+            left: '-20px',
+            transform: 'none',
+            right: 'none'
+        });
+    }
+    //else if (tooltipLeftBorder != ticketLeftBorder){
+    //    tooltip.css({
+    //        transform: 'translateX(-50%)',
+    //        left: '50%',
+    //        right: 'none'
+    //    })
+    //}
     //}
 }
 
