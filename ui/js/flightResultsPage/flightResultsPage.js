@@ -232,6 +232,26 @@ $(window).resize(function(){
     }
 });
 
+$(window).resize(function(){
+    var activeTooltip = $('.tooltip.active');
+    if (window.matchMedia("(min-width: 641px)").matches === false && activeTooltip.length != 0) {
+        var ticket = activeTooltip.closest('.flightTicketBox');
+        var tooltipRightBorder = activeTooltip.offset().left + activeTooltip.width();
+        if (tooltipRightBorder > ticket.width()/2) {
+            //tooltip is on the right
+            var ticketRightBorder = ticket.offset().left + ticket.width();
+            if (tooltipRightBorder > ticketRightBorder) {
+                var difference =  ticketRightBorder - tooltipRightBorder;
+                activeTooltip.css({right: difference});
+            }
+        }
+        else {
+            //tooltip is on the left
+            var ticketLeftBorder = ticket.width();
+        }
+    }
+});
+
 /*
  * hideMobileMenu
  *****************************************
@@ -356,16 +376,18 @@ function showChangeAirportPanel(flightType) {
 function showTooltip(container) {
     hideTooltip();
     var tooltip = $(container).find('.tooltip');
-    if (!tooltip.hasClass('active')) {
-        $(container).find('.tooltip').stop(true,true).fadeIn(350).addClass('active');
-    }
+   // if (!tooltip.hasClass('active')) {
+    $(container).find('.tooltip').stop(true,true).fadeIn(350).addClass('active');
+    $(container).find('.tooltipArrow').stop(true,true).fadeIn(350).addClass('active');
+    //}
 }
 
 function hideTooltip(container) {
     if (container) {
         $(container).find('.tooltip').stop(true,true).fadeOut(350).removeClass('active');
+        $(container).find('.tooltipArrow').stop(true,true).fadeOut(350).removeClass('active');
     }
     else {
-        $('.tooltip.active').stop(true,true).fadeOut(350).removeClass('active');
+        $('.tooltip.active, .tooltipArrow.active').stop(true,true).fadeOut(350).removeClass('active');
     }
 }

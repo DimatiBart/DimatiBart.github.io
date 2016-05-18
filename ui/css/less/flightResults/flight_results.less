@@ -916,8 +916,6 @@ a, footer a, header a {
 
 .tooltip {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   min-width: 120px;
   max-width: 150px;
   display: none;
@@ -929,20 +927,14 @@ a, footer a, header a {
   z-index: 5;
   text-align: center;
   top: 100%;
+  transform: translateX(-50%);
   &.active {
     //display: block;
   }
-  &:before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    top: -7px;
+
+  @media only screen and (min-width: @mobile-bp) {
     left: 50%;
-    background: #fff;
-    border-top: 1px solid #ededed;
-    border-left: 1px solid #ededed;
-    .transform(translate(-50%,0) rotate(45deg));
+    transform: translateX(-50%);
   }
 }
 
@@ -952,5 +944,19 @@ a, footer a, header a {
   padding-bottom: 5px;
   .type {
     margin-top: 0;
+  }
+  .tooltipArrow {
+    display: none;
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: calc(~"100% - 5px");
+    z-index: 6;
+    left: 50%;
+    background: #fff;
+    border-top: 1px solid #ededed;
+    border-left: 1px solid #ededed;
+    .transform(translate(-50%,0) rotate(45deg));
   }
 }
