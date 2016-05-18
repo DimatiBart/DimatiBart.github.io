@@ -194,15 +194,11 @@ $(document).ready(function(){
     (function(){
         var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0));
         if( isTouch == true ) {
-            $(document).on('touchstart', '.tooltipContainer', function(){
-                //event.stopPropagation();
+            $(document).on('touchstart', '.tooltipContainer', function(event){
+                event.stopPropagation();
                 //event.preventDefault();
                 //event.stopImmediatePropagation()
                 showTooltip(this);
-            });
-            $(document).on('touchend', '.tooltipContainer', function ( e )  {
-                e.preventDefault();
-                e.stopPropagation();
             });
             $(document).on('touchstart', function(){
                 //event.stopPropagation();
