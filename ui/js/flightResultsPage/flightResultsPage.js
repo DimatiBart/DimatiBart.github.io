@@ -209,11 +209,11 @@ $(document).ready(function(){
             });
             $(document).on('click', '.tooltipContainer, .tooltip', function(event){
                 event.stopPropagation();
-                event.preventDefault();
             });
             $(document).on('click', function(){
                 if ($('.tooltip.active').length != 0) {
                     event.stopPropagation();
+                    event.stopImmediatePropagation();
                     hideTooltip();
                 }
             })
