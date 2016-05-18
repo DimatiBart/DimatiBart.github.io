@@ -196,24 +196,17 @@ $(document).ready(function(){
         if( isTouch == true ) {
             $(document).on('touchstart', '.tooltipContainer', function(event){
                 event.stopPropagation();
-                //event.preventDefault();
-                //event.stopImmediatePropagation()
                 showTooltip(this);
             });
             $(document).on('touchstart', function(){
-                //event.stopPropagation();
-                //event.preventDefault();
                 hideTooltip();
             });
             $(document).on('touchstart', '.tooltip', function(event){
-                //event.stopImmediatePropagation()
                 event.stopPropagation();
-               // event.preventDefault();
             });
         }
         else {
             $(document).on('mouseenter', '.tooltipContainer', function(event){
-                //event.stopPropagation();
                 showTooltip(this);
                 console.log($(event.target).attr('class'))
             });
