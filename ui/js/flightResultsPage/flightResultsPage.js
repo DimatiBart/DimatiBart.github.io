@@ -54,7 +54,7 @@ $(document).ready(function(){
     });
 
     $(document).on('click.showMobileFlightDetails', '.flightTicketBox', function (event) {
-        if ($('.tooltip.active').length != 0) {
+        if ($('.tooltip.active').length == 0) {
             event.stopPropagation();
             var flightTicketDetailsBox = $(this).find('.flightTicketDetailsBox');
             if (window.matchMedia("(min-width: 641px)").matches === false &&
