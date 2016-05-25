@@ -54,13 +54,15 @@ $(document).ready(function(){
     });
 
     $(document).on('click.showMobileFlightDetails', '.flightTicketBox', function (event) {
-        event.stopPropagation();
-        var flightTicketDetailsBox = $(this).find('.flightTicketDetailsBox');
-        if (window.matchMedia("(min-width: 641px)").matches === false &&
-            $('body').hasClass('mobileSidebarOpen') === false &&
-            flightTicketDetailsBox.length ){
-            $(this).find('.flightDetailsBtn').trigger('click');
-            showMobileFlightDetails(flightTicketDetailsBox);
+        if ($('.tooltip.active').length == 0) {
+            event.stopPropagation();
+            var flightTicketDetailsBox = $(this).find('.flightTicketDetailsBox');
+            if (window.matchMedia("(min-width: 641px)").matches === false &&
+                $('body').hasClass('mobileSidebarOpen') === false &&
+                flightTicketDetailsBox.length ){
+                $(this).find('.flightDetailsBtn').trigger('click');
+                showMobileFlightDetails(flightTicketDetailsBox);
+            }
         }
     });
 
@@ -189,7 +191,53 @@ $(document).ready(function(){
         if (window.matchMedia("(min-width: 641px)").matches === true ) {
             $(this).find('.flightDetailsBtn').trigger('click');
         }
-    })
+    });
+
+    (function(){
+        var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0));
+        if( isTouch == true ) {
+            $(document).on('touchstart', '.tooltipContainer', function(event){
+                event.stopPropagation();
+                showTooltip(this);
+            });
+            //$(document).on('touchstart', function(){
+            //    if ($('.tooltip.active').length != 0) {
+            //        event.stopPropagation();
+            //        hideTooltip();
+            //    }
+            //});
+            $(document).on('touchstart', '.tooltip', function(event){
+                event.stopPropagation();
+            });
+            $(document).on('click', '.tooltipContainer, .tooltip', function(event){
+                event.stopPropagation();
+            });
+            $(document).on('click', function(){
+                if ($('.tooltip.active').length != 0) {
+                    event.stopPropagation();
+                    event.stopImmediatePropagation();
+                    hideTooltip();
+                }
+            })
+        }
+        else {
+            $(document).on('mouseenter', '.tooltipContainer', function(event){
+                showTooltip(this);
+                console.log($(event.target).attr('class'))
+            });
+
+            $(document).on('mouseleave', '.tooltipContainer', function(event){
+                hideTooltip(this);
+                console.log($(event.target).attr('class'))
+            });
+            //$(document).on('mouseout','.tooltip',function(event){
+            //    event.stopPropagation();
+            //});
+            //$(document).on('mouseover','.tooltip',function(event){
+            //    event.stopPropagation();
+            //});
+        }
+    })();
 });
 
 $(window).resize(function(){
@@ -197,7 +245,15 @@ $(window).resize(function(){
     if (window.matchMedia("(min-width: 641px)").matches === false && flightTicketDetailsBox.length ) {
         setFlightDetailsHeight(flightTicketDetailsBox);
     }
+    if (window.matchMedia("(min-width: 641px)").matches === false) {
+        $('.tooltip').css({
+            transform: 'translateX(-50%)',
+            left: '50%',
+            right: 'none'
+        })
+    }
 });
+
 
 /*
  * hideMobileMenu
@@ -316,5 +372,74 @@ function showChangeAirportPanel(flightType) {
     }
     if (!warningMsg.is(":visible")) {
       warningMsg.show();
+    }
+}
+
+
+function showTooltip(container) {
+    hideTooltip();
+    var tooltip = $(container).find('.tooltip');
+    // if (!tooltip.hasClass('active')) {
+    $(container).find('.tooltip').stop(true,true).fadeIn(350).addClass('active');
+    $(container).find('.tooltipArrow').stop(true,true).fadeIn(350).addClass('active');
+    var ticket = tooltip.closest('.flightTicketBox');
+    var tooltipLeftBorder = Math.round(tooltip.offset().left);
+    var ticketLeftBorder = Math.round(ticket.offset().left);
+    if (window.matchMedia("(min-width: 641px)").matches === false) {
+        if (tooltipLeftBorder == ticketLeftBorder) {
+            return;
+        }
+        if (tooltipLeftBorder < ticketLeftBorder) {
+            tooltip.css({
+                left: '-10px',
+                transform: 'none'
+            });
+        }
+        else {
+            var tooltipRightBorder =  tooltipLeftBorder +  Math.round(tooltip.outerWidth());
+            var ticketRightBorder = ticketLeftBorder + Math.round(ticket.width());
+            if (tooltipRightBorder == ticketRightBorder) {
+                return;
+            }
+            if (tooltipRightBorder > ticketRightBorder) {
+                tooltip.css({
+                    right: '-10px',
+                    left: 'auto',
+                    transform: 'none'
+                });
+            }
+            else{
+                tooltip.css({
+                    transform: 'translateX(-50%)',
+                    left: '50%',
+                    right: 'none'
+                })
+            }
+        }
+    }
+    else if (tooltipLeftBorder < ticketLeftBorder) {
+        tooltip.css({
+            left: '-20px',
+            transform: 'none',
+            right: 'none'
+        });
+    }
+    //else if (tooltipLeftBorder != ticketLeftBorder){
+    //    tooltip.css({
+    //        transform: 'translateX(-50%)',
+    //        left: '50%',
+    //        right: 'none'
+    //    })
+    //}
+    //}
+}
+
+function hideTooltip(container) {
+    if (container) {
+        $(container).find('.tooltip').stop(true,true).fadeOut(350).removeClass('active');
+        $(container).find('.tooltipArrow').stop(true,true).fadeOut(350).removeClass('active');
+    }
+    else {
+        $('.tooltip.active, .tooltipArrow.active').stop(true,true).fadeOut(350).removeClass('active');
     }
 }
