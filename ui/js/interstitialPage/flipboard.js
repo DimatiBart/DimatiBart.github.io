@@ -179,7 +179,7 @@ $(document).ready(function($){
 		setTimeout(function(){
 			$letter.css('display', 'inline');
 			$letter.find('em').css('display', 'inline');
-		}, 100);
+		}, 400); //100 vs 900
 
 		if(!$letter.is(':last-child')) { 
 			setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration); 
