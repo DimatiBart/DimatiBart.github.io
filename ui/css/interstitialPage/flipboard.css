@@ -313,7 +313,7 @@ xrotate-2
   perspective: 300px;
 }
 .cd-headline.rotate-2 i, .cd-headline.rotate-2 em {
-  display: inline-block;
+  display: inline;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   font-style: normal;
