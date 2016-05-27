@@ -34,14 +34,14 @@ $(document).ready(function($){
 				selected = word.hasClass('is-visible');
 			for (var i in letters) {
 				if(word.parents('.rotate-2').length > 0){
-                    if( letters[i] == ' ' ){
-                        letters[i] = '<em>' + '&nbsp' + '</em>';
-                    }
-                    else {
-                        letters[i] = '<em>' + letters[i] + '</em>';
-                    }
-                }
-				letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>': '<i>' + letters[i] + '</i>';
+					if( letters[i] == ' ' ){
+						letters[i-1] = letters[i-1] + " ";
+					}
+					else {
+						letters[i] = '<em>' + letters[i] + '</em>';
+						letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>': '<i>' + letters[i] + '</i>';
+					}
+				}
 			}
 		    var newLetters = letters.join('');
 		    word.html(newLetters).css('opacity', 1);
@@ -152,6 +152,8 @@ $(document).ready(function($){
 
 	function hideLetter($letter, $word, $bool, $duration) {
 		var nextWord;
+		$letter.css('display', 'inline-block');
+		$letter.find('em').css('display', 'inline-block');
 		$letter.removeClass('in').addClass('out');
 
 		if(!$letter.is(':last-child')) {
@@ -171,8 +173,14 @@ $(document).ready(function($){
 	}
 
 	function showLetter($letter, $word, $bool, $duration) {
+		$letter.css('display', 'inline-block');
+		$letter.find('em').css('display', 'inline-block');
 		$letter.addClass('in').removeClass('out');
-		
+		setTimeout(function(){
+			$letter.css('display', 'inline');
+			$letter.find('em').css('display', 'inline');
+		}, 100);
+
 		if(!$letter.is(':last-child')) { 
 			setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration); 
 		} else { 
