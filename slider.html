@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Flights Results</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <link type="text/css" href="ui/css/flightResultsPage/main.min.css" rel="stylesheet">
+    <link type="text/css" href="ui/css/flightResultsPage/nouislider.css" rel="stylesheet">
+    <!--<link type="text/css" href="ui/css/flightResultsPage/nouislider.pips.css" rel="stylesheet">-->
+    <!--<link type="text/css" href="ui/css/flightResultsPage/nouislider.tooltips.css" rel="stylesheet">-->
+
+    <script type="text/javascript" src="ui/js/libs/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="ui/js/matchMedia.js"></script>
+    <script type="text/javascript" src="ui/js/matchMedia.addListener.js"></script>
+    <script type="text/javascript" src="ui/js/flightResultsPage/flightResultsPage.js"></script>
+    <script type="text/javascript" src="ui/js/flightResultsPage/nouislider.min.js"></script>
+
+</head>
+<body>
+    <script type="text/javascript" src="ui/js/flightResultsPage/nouislider.min.js"></script>
+    <script>
+        var numberOfFlightsToDisplay = 10, sliderFilterTimesStep = 30, sliderPosition = [0, 1440];
+    </script>
+    <div style="width: 500px;">
+        <div class="slider arrival" id="range"></div>
+        <div class="rangeValues">
+            <p class="min" style="float: left;"></p>
+            <p class="max" style="float: right;"></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

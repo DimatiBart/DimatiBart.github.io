@@ -5,6 +5,35 @@
 
 $(document).ready(function(){
 
+    var slider = document.getElementById('range');
+    var sliderHelperObj = {
+        prevValue: 0
+    };
+
+    noUiSlider.create(slider, {
+        start: sliderPosition, //TODO will need to set from server
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 1439
+        },
+        step:  sliderFilterTimesStep,
+        margin: 30
+    });
+    setRangeValues(slider.noUiSlider.get());
+    slider.noUiSlider.on('start', function(values, handle){
+        sliderHelperObj.prevValue = values;
+    });
+    slider.noUiSlider.on('slide', function(values, handle){
+        setRangeValues(values);
+    });
+
+    slider.noUiSlider.on('end', function(values, handle){
+        if (sliderHelperObj.prevValue[0] != values[0] || sliderHelperObj.prevValue[1] != values[1]) {
+            console.log('changed');
+            setRangeValues(values)
+        }
+    });
     var currentNumFlightsToDisplay = numberOfFlightsToDisplay;
 
     /*
@@ -317,4 +346,24 @@ function showChangeAirportPanel(flightType) {
     if (!warningMsg.is(":visible")) {
       warningMsg.show();
     }
+}
+
+function rangeToHour(values) {
+    var hoursFrom = (Math.floor(values[0] / 60)).toString();
+    var minutesFrom = (values[0] - (hoursFrom * 60)).toString();
+    var hoursTo = (Math.floor(values[1] / 60).toString());
+    var minutesTo = (values[1] - (hoursTo * 60)).toString();
+
+    minutesFrom = ('00' + minutesFrom).slice(minutesFrom.length);
+    minutesTo = ('00' + minutesTo).slice(minutesTo.length);
+    return {
+        from: hoursFrom + ":" + minutesFrom,
+        to: hoursTo + ":" + minutesTo
+    }
+}
+
+function setRangeValues(values) {
+    var time = rangeToHour(values);
+    $('.min').html(time.from);
+    $('.max').html(time.to);
 }
