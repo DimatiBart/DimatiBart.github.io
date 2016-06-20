@@ -3,44 +3,18 @@
  * ================================
  */
 
+var allowedFlightStep;
+
 $(document).ready(function(){
 
-    var slider = document.getElementById('range');
-    var sliderHelperObj = {
-        prevValue: 0
-    };
-
-    noUiSlider.create(slider, {
-        start: sliderPosition, //TODO will need to set from server
-        connect: true,
-        range: {
-            'min': 0,
-            'max': 1439
-        },
-        step:  sliderFilterTimesStep,
-        margin: 30
-    });
-    setRangeValues(slider.noUiSlider.get());
-    slider.noUiSlider.on('start', function(values, handle){
-        sliderHelperObj.prevValue = values;
-    });
-    slider.noUiSlider.on('slide', function(values, handle){
-        setRangeValues(values);
-    });
-
-    slider.noUiSlider.on('end', function(values, handle){
-        if (sliderHelperObj.prevValue[0] != values[0] || sliderHelperObj.prevValue[1] != values[1]) {
-            console.log('changed');
-            setRangeValues(values)
-        }
-    });
-    var currentNumFlightsToDisplay = numberOfFlightsToDisplay;
+    allowedFlightStep =  numberOfFlightsToDisplay;
 
     /*
      * mobile_filter_btn
      *****************************************
      */
-    $(document).on('click.mobile_filter_btn', '#mobile_filter_btn', function () {
+    $(document).on('click.mobile_filter_btn', '#mobile_filter_btn', function (event) {
+        event.stopPropagation();
         $('body').toggleClass('mobileSidebarOpen');
     });
 
@@ -48,7 +22,8 @@ $(document).ready(function(){
      * close_mobile_filter
      *****************************************
      */
-    $(document).on('click.close_mobile_filter', '.mobileSidebarOpen .mainContent', function () {
+    $(document).on('click.close_mobile_filter', '.mobileSidebarOpen .mainContent', function (event) {
+        event.stopPropagation();
         hideMobileMenu();
     });
 
@@ -83,13 +58,15 @@ $(document).ready(function(){
     });
 
     $(document).on('click.showMobileFlightDetails', '.flightTicketBox', function (event) {
-        event.stopPropagation();
-        var flightTicketDetailsBox = $(this).find('.flightTicketDetailsBox');
-        if (window.matchMedia("(min-width: 641px)").matches === false &&
-            $('body').hasClass('mobileSidebarOpen') === false &&
-            flightTicketDetailsBox.length ){
-            $(this).find('.flightDetailsBtn').trigger('click');
-            showMobileFlightDetails(flightTicketDetailsBox);
+        if ($('.tooltip.active').length == 0) {
+            var flightTicketDetailsBox = $(this).find('.flightTicketDetailsBox');
+            if (window.matchMedia("(min-width: 641px)").matches === false &&
+                $('body').hasClass('mobileSidebarOpen') === false &&
+                flightTicketDetailsBox.length) {
+                event.stopPropagation();
+                $(this).find('.flightDetailsBtn').trigger('click');
+                showMobileFlightDetails(flightTicketDetailsBox);
+            }
         }
     });
 
@@ -133,9 +110,13 @@ $(document).ready(function(){
         event.preventDefault();
         if (window.matchMedia("(min-width: 641px)").matches) {
             var flightTicketDetailsBox = $(this).closest('.flightTicketDetailsBox');
-            var flightDetailsBtn = $(this).closest('.flightTicketBox').find('.flightDetailsBtn');
+            var flightTicketBox  = $(this).closest('.flightTicketBox');
+            var flightDetailsBtn = flightTicketBox.find('.flightDetailsBtn');
+            var margin = parseInt(flightTicketBox.css('margin-top'));
+            var scroll = flightTicketBox.offset().top - $('.searchBarContainer').height() - margin;
             flightDetailsBtn.removeClass('active');
             flightTicketDetailsBox.stop().slideUp(500).removeClass('open');
+            $('html body').animate({scrollTop:  scroll}, 500);
         }
         else {
             hideMobileFlightDetails();
@@ -161,21 +142,21 @@ $(document).ready(function(){
     });
 
     /*
+     * stop click event bubbling
+     * searchWidgetBox
+     *****************************************
+     */
+    $(document).on('click', '.searchWidgetBox', function(event){
+        event.stopPropagation();
+    });
+
+    /*
      * show more results button
      *****************************************
      */
     $(document).on('click.second-btn', '.second-btn', function(event){
         event.preventDefault();
-        var footer = $(this).closest('.mainContentFooter');
-        $('.tabMenuContent.active').find('.flightTicketBox.hidden').slice(0, numberOfFlightsToDisplay).removeClass('hidden');
-        currentNumFlightsToDisplay += numberOfFlightsToDisplay;
-        if (currentNumFlightsToDisplay >= flightItinerariesQuantity) {
-            $(this).hide();
-            footer.find('.currentFlightsSize').html(flightItinerariesQuantity);
-        }
-        else {
-            footer.find('.currentFlightsSize').html(currentNumFlightsToDisplay);
-        }
+        airResultsUITool.allowedMoreFlightCount(this);
     });
 
     /*
@@ -183,31 +164,17 @@ $(document).ready(function(){
      *****************************************
      */
     $(window).scroll(function(){
+        calculateSummaryPosition();
+    });
 
-        var scrollTop = $(window).scrollTop();
-        var searchBar =  $('.searchBar');
-        var barHeaderHeight = searchBar.outerHeight();
-        var pageHeaderHeight;
-        var padding;
-        if (window.matchMedia("(min-width: 641px)").matches === true ) {
-            pageHeaderHeight = $('.header').outerHeight();
-            padding = 20;
-        }
-        else {
-            pageHeaderHeight = 0;
-            padding = 0;
-        }
-
-        if(scrollTop > pageHeaderHeight + padding){
-            $('.pageContentHeader').css('padding-top', barHeaderHeight + padding);
-            searchBar.addClass('fixedHeader');
-            searchBar.css('margin-top', 0);
-        }
-        else {
-            $('.pageContentHeader').css('padding-top','0');
-            searchBar.removeClass('fixedHeader');
-            searchBar.css('margin-top', padding);
-        }
+    /*
+     * show/hide Search Widget
+     *****************************************
+     */
+    $(document).on('click', '.searchBarContainer', function(){
+       $('.searchWidgetBox').toggleClass('active');
+        checkSWScroll();
+        calculateSummaryPosition();
     });
 
     /*
@@ -218,13 +185,194 @@ $(document).ready(function(){
         if (window.matchMedia("(min-width: 641px)").matches === true ) {
             $(this).find('.flightDetailsBtn').trigger('click');
         }
-    })
+    });
+
+    /*
+     * lightboxBtn
+     *****************************************
+     */
+    $(document).on('click.showLightbox','.lightboxBtn',function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        var lightboxName = $(this).data('lightbox-name');
+        var lightbox = $('.lightbox[data-lightbox-name="'+ lightboxName +'"]');
+        showLightbox(lightbox);
+    });
+
+    /*
+     * lightboxCloseBtn
+     ***************************************
+     */
+    $(document).on('click.closeLightbox','.lightboxCloseBtn, .lightboxExtraCloseBtn',function(event){
+        event.preventDefault();
+        var lightbox = $(this).closest('.lightbox');
+        closeLightbox(lightbox);
+    });
+    $(document).on('click.closeLightboxLayer','.bgLayer',function(){
+        var lightboxName = $(this).data('lightbox-name');
+        var lightbox = $('.lightbox[data-lightbox-name="'+ lightboxName +'"]');
+        closeLightbox(lightbox);
+    });
+
+    /*
+     * lightbox prevent click bubbling
+     ***************************************
+     */
+    $(document).on('click.preventBubbling','.lightbox',function(event){
+        event.stopPropagation();
+    });
+
+
+    $('.flight_adv').on('click', function(event){
+        event.preventDefault();
+        calculateSummaryPosition();
+    });
+
+
+    (function(){
+        var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0));
+        if( isTouch == true ) {
+            $(document).on('touchstart', '.tooltipContainer', function(event){
+                event.stopPropagation();
+                showTooltip(this);
+            });
+            $(document).on('touchstart', '.tooltip', function(event){
+                event.stopPropagation();
+            });
+            $(document).on('click', '.tooltipContainer, .tooltip', function(event){
+                event.stopPropagation();
+            });
+            $(document).on('click', function(){
+                if ($('.tooltip.active').length != 0) {
+                    event.stopPropagation();
+                    event.stopImmediatePropagation();
+                    hideTooltip();
+                }
+            })
+        }
+        else {
+            $(document).on('mouseenter', '.tooltipContainer', function(event){
+                showTooltip(this);
+            });
+
+            $(document).on('mouseleave', '.tooltipContainer', function(event){
+                hideTooltip(this);
+            });
+        }
+    })();
+
+
+    /*
+     * fareRulesLink
+     * @fareRulesLightboxContent
+     ***************************************
+     */
+    $(document).on('click.fareRulesLinkClick','.fareRulesLink',function(){
+        event.preventDefault();
+        event.stopPropagation();
+        var fare_rules_lightbox = $('#fare_rules_lightbox');
+        var dynamicDataBox = fare_rules_lightbox.find('.dynamicDataBox');
+        var isEmpty = dynamicDataBox.is(':empty');
+        if (isEmpty) {
+            $.ajax({
+                type: "POST",
+                url: "/staglobe/getFareRulesInformation.do",
+                data: "requestSource=Shopping&selectedItinId=0",
+                statusCode: {
+                    200: function (response) {
+                        dynamicDataBox.append(response);
+                        showLightbox(fare_rules_lightbox);
+                    },
+                    404: function () {
+                    },
+                    500: function () {
+                    }
+                },
+                beforeSend: function (xhr) {
+                    $('body').append(loading_layer);
+                    $('#loadingLayer').fadeIn(300);
+                },
+                complete: function () {
+                    $('#loadingLayer').fadeOut(300, function () {
+                        $('#loadingLayer').remove();
+                    });
+                }
+            });
+        } else {
+            showLightbox(fare_rules_lightbox);
+        }
+    });
+
+    /*
+     * customCheckbox
+     *****************************************
+     */
+    $(document).on('change.customCheckboxChange','input.customCheckbox',function(){
+        var customCheckboxLabel = $(this).closest('.customCheckboxLabel');
+        if( $(this).prop('checked') ){
+            customCheckboxLabel.addClass('checked');
+        }
+        else {
+            customCheckboxLabel.removeClass('checked');
+        }
+    });
+
+    /*
+     * filterListCheckbox
+     *****************************************
+     */
+    $(document).on('change.filterListCheckboxChange','input.filterListCheckbox',function(){
+        var filterListLabel = $(this).closest('li').find('.filterListLabel');
+        if( $(this).prop('checked') ){
+            filterListLabel.addClass('checked');
+        }
+        else {
+            filterListLabel.removeClass('checked');
+        }
+    });
+
+    /*
+     * showMoreFiltersBtn
+     *****************************************
+     */
+    $(document).on('click.showMoreFiltersBtnClick','.showMoreFiltersBtn',function(){
+        var filterListLabel_hidden = $(this).closest('.filterBox').find('.filterList').find('li.hidden');
+        if( $(this).hasClass('active') ){
+            $(this).removeClass('active');
+            filterListLabel_hidden.hide();
+        }
+        else {
+            $(this).addClass('active');
+            filterListLabel_hidden.show();
+            if( $(this).data('ellipsis-added') !== true ){
+                setMaxWidthForFilterLabel(filterListLabel_hidden);
+                $(this).data('ellipsis-added',true);
+            }
+        }
+    });
+
+    /*
+     * setMaxWidthForFilterLabel
+     *****************************************
+     */
+    setMaxWidthForFilterLabel($('.filterList').filter('.withCounts').find('.filterListLabel').not('.hidden'));
+
+
 });
 
 $(window).resize(function(){
-    var flightTicketDetailsBox = $('.flightTicketDetailsBox.open.openOnMobile');
-    if (window.matchMedia("(min-width: 641px)").matches === false && flightTicketDetailsBox.length ) {
-        setFlightDetailsHeight(flightTicketDetailsBox);
+    if (window.matchMedia("(min-width: 641px)").matches === false) {
+        var flightTicketDetailsBox = $('.flightTicketDetailsBox.open.openOnMobile');
+        if (flightTicketDetailsBox.length) {
+            setFlightDetailsHeight(flightTicketDetailsBox);
+        }
+        //checkSWScroll();
+        calculateSummaryPosition();
+        $('.tooltip').css({
+            transform: 'translateX(-50%)',
+            left: '50%',
+            right: 'none'
+        });
     }
 });
 
@@ -252,6 +400,7 @@ function hideMobileMenu() {
  */
 function hideFlightDetails() {
     var flightTicketDetailsBox = $('.flightTicketDetailsBox.open');
+    $('html').removeClass('noScroll');
     $('body').removeClass('noScroll bodyTransition bodyRotate');
     flightTicketDetailsBox.hide().removeClass('open openOnMobile rotate').css({
         'height':'auto',
@@ -267,11 +416,13 @@ function hideFlightDetails() {
  */
 function hideMobileFlightDetails() {
     var body = $('body');
+    var html = $('html');
     var flightTicketDetailsBox = $('.flightTicketDetailsBox.openOnMobile');
     body.addClass('bodyRotate');
     flightTicketDetailsBox.addClass('rotate').css('top',$(window).scrollTop());
     flightTicketDetailsBox.closest('.flightTicketBox').removeClass('active');
     setTimeout(function(){
+        html.removeClass('noScroll');
         body.addClass('bodyTransition').removeClass('bodyRotate noScroll');
         flightTicketDetailsBox.css('top',0);
     }, 4);
@@ -289,6 +440,8 @@ function hideMobileFlightDetails() {
  */
 function showMobileFlightDetails(flightTicketDetailsBox){
     var body = $('body');
+    var html = $('html');
+    html.addClass('noScroll');
     body.addClass('bodyTransition bodyRotate noScroll');
     flightTicketDetailsBox.addClass('open openOnMobile rotate').css('top',$(window).scrollTop()).fadeIn(250);
     flightTicketDetailsBox.closest('.flightTicketBox').addClass('active');
@@ -316,17 +469,24 @@ function showFlightDetailsInfo(obj, fareId, goingThere) {
   if($(flightDetailsId+" td").length == 0){
       if (!controls.checkAndLock()) return;
       var _url = UrlBuilder.create('AirFlightExtraDetails.do').add('fareId', fareId).add('flow', 'air').add('goingThere', goingThere).get();
-      Ext.Ajax.request({url: _url,
-          success: function(response){
-              if (isValidAjaxResponse(response.responseText)) {
-                  $(flightDetailsId).html(response.responseText);
-              } else if (isAjaxSessionExpired(response.responseText)) {
-                  forwardSessionExpired();
+      $.ajax({
+          type: "GET",
+          url: _url,
+          statusCode: {
+              200: function (response) {
+                  if (isValidAjaxResponse(response)) {
+                      $(flightDetailsId).html(response);
+                  } else if (isAjaxSessionExpired(response)) {
+                      forwardSessionExpired();
+                  }
+                  controls.unlock();
+              },
+              404: function () {
+                  controls.unlock();
+              },
+              500: function () {
+                  controls.unlock();
               }
-              controls.unlock();
-          },
-          failure: function(response) {
-              controls.unlock();
           }
       });
   }
@@ -348,22 +508,184 @@ function showChangeAirportPanel(flightType) {
     }
 }
 
-function rangeToHour(values) {
-    var hoursFrom = (Math.floor(values[0] / 60)).toString();
-    var minutesFrom = (values[0] - (hoursFrom * 60)).toString();
-    var hoursTo = (Math.floor(values[1] / 60).toString());
-    var minutesTo = (values[1] - (hoursTo * 60)).toString();
-
-    minutesFrom = ('00' + minutesFrom).slice(minutesFrom.length);
-    minutesTo = ('00' + minutesTo).slice(minutesTo.length);
-    return {
-        from: hoursFrom + ":" + minutesFrom,
-        to: hoursTo + ":" + minutesTo
+function checkSWScroll () {
+    var html = $('html');
+    var body = $('body');
+    if (window.matchMedia("(min-width: 641px)").matches === false ) {
+        if ($('.searchWidgetBox').hasClass('active')) {
+            html.addClass('noScroll');
+            body.addClass('noScroll');
+        }
+        else {
+            html.removeClass('noScroll');
+            body.removeClass('noScroll');
+        }
+    }
+    else {
+        html.removeClass('noScroll');
+        body.removeClass('noScroll');
     }
 }
 
-function setRangeValues(values) {
-    var time = rangeToHour(values);
-    $('.min').html(time.from);
-    $('.max').html(time.to);
+function calculateSummaryPosition() {
+    var scrollTop = $(window).scrollTop();
+    var searchBar =  $('.searchBarContainer');
+    var barHeaderHeight = searchBar.outerHeight();
+    var pageHeaderHeight;
+    var padding;
+    var maxHeight;
+    var nextContainer;
+    if (window.matchMedia("(min-width: 641px)").matches === true ) {
+        pageHeaderHeight = $('#sta-page-wrap').outerHeight() + $('#sta-top-header').height();
+        padding = 20;
+        nextContainer = $('.pageContentHeader');
+    }
+    else {
+        pageHeaderHeight = $('#sta-mobile-header').outerHeight();
+        padding = 0;
+        nextContainer = $('#page_content');
+    }
+
+    if(scrollTop > pageHeaderHeight + padding){
+        nextContainer.css('padding-top', barHeaderHeight + padding);
+        searchBar.addClass('fixedHeader');
+        searchBar.css('margin-top', 0);
+
+        if (searchBar.find('.searchWidgetBox').hasClass('active')) {
+            if (window.matchMedia("(min-width: 641px)").matches === true ) {
+                searchBar.css('max-height', 'none');
+            }
+            else {
+                searchBar.css('max-height', '100%');
+
+            }
+        }
+    }
+    else {
+        nextContainer.css('padding-top','0');
+        searchBar.removeClass('fixedHeader');
+        searchBar.css('margin-top', padding);
+
+        if (searchBar.find('.searchWidgetBox').hasClass('active')) {
+            if (window.matchMedia("(min-width: 641px)").matches === true ) {
+                searchBar.css('max-height', 'none');
+            }
+            else {
+                searchBar.css('max-height', searchBar.height());
+            }
+        }
+
+    }
+}
+
+/*
+ * showLightbox
+ *****************************************
+ */
+function showLightbox(lightbox){
+    var lightboxName = lightbox.data('lightbox-name');
+    var bgLayer = '<div class="bgLayer ' + lightboxName + '"' + '></div>';
+    var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0));
+    if( lightbox.length > 0 ){
+        $('html').addClass('noScroll');
+        $('body').addClass('lightboxNoScroll').append(bgLayer);
+        $('.bgLayer.'+lightboxName).removeClass(lightboxName).attr('data-lightbox-name',lightboxName).fadeIn(350);
+        lightbox.stop().fadeIn(350);
+        if( isTouch ){
+            $('.bgLayer').css('cursor','pointer');
+        }
+    }
+}
+
+
+/*
+ * closeLightbox
+ *****************************************
+ */
+function closeLightbox(lightbox){
+    var lightboxName = lightbox.data('lightbox-name');
+    var bgLayer = $('.bgLayer[data-lightbox-name="'+ lightboxName +'"]');
+    $('html').removeClass('noScroll');
+    $('body').removeClass('lightboxNoScroll');
+    bgLayer.fadeOut(250,function(){
+        $(this).remove();
+    });
+    lightbox.stop().fadeOut(250);
+}
+
+/*
+ * showTooltip
+ *****************************************
+ */
+function showTooltip(container) {
+    hideTooltip();
+    var tooltip = $(container).find('.tooltip');
+    // if (!tooltip.hasClass('active')) {
+    $(container).find('.tooltip').stop(true,true).fadeIn(350).addClass('active');
+    $(container).find('.tooltipArrow').stop(true,true).fadeIn(350).addClass('active');
+    var ticket = tooltip.closest('.flightTicketBox');
+    var tooltipLeftBorder = Math.round(tooltip.offset().left);
+    var ticketLeftBorder = Math.round(ticket.offset().left);
+    if (window.matchMedia("(min-width: 641px)").matches === false) {
+        if (tooltipLeftBorder == ticketLeftBorder) {
+            return;
+        }
+        if (tooltipLeftBorder < ticketLeftBorder) {
+            tooltip.css({
+                left: '-10px',
+                transform: 'none'
+            });
+        }
+        else {
+            var tooltipRightBorder =  tooltipLeftBorder +  Math.round(tooltip.outerWidth());
+            var ticketRightBorder = ticketLeftBorder + Math.round(ticket.width());
+            if (tooltipRightBorder == ticketRightBorder) {
+                return;
+            }
+            if (tooltipRightBorder > ticketRightBorder) {
+                tooltip.css({
+                    right: '-10px',
+                    left: 'auto',
+                    transform: 'none'
+                });
+            }
+            else{
+                tooltip.css({
+                    transform: 'translateX(-50%)',
+                    left: '50%',
+                    right: 'none'
+                })
+            }
+        }
+    }
+}
+
+/*
+ * hideTooltip
+ *****************************************
+ */
+function hideTooltip(container) {
+    if (container) {
+        $(container).find('.tooltip').stop(true,true).fadeOut(350).removeClass('active');
+        $(container).find('.tooltipArrow').stop(true,true).fadeOut(350).removeClass('active');
+    }
+    else {
+        $('.tooltip.active, .tooltipArrow.active').stop(true,true).fadeOut(350).removeClass('active');
+    }
+}
+
+/*
+ * setMaxWidthForFilterLabel
+ *****************************************
+ */
+function setMaxWidthForFilterLabel(filterListLabel){
+    var countElement_margin = 5;
+    var priceElement_margin = 15;
+    filterListLabel.each(function(){
+        var filterText = $(this).find('.filterText');
+        var count = $(this).find('.count');
+        var price = $(this).find('.price');
+        var maxWidth = $(this).width() - count.outerWidth() - price.outerWidth() - countElement_margin - priceElement_margin;
+        filterText.css('max-width',maxWidth);
+    });
 }
