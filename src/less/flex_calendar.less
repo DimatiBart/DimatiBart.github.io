@@ -1,0 +1,70 @@
+@import "../../common/less/reset.less";
+@import "../../common/less/variables.less";
+
+/*
+ ***************************************************
+ * fonts
+ ***************************************************
+ */
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700);
+
+@mobile-main-bg: #9f9f9f;
+
+body {
+  font: normal 12px/normal @btn-font-family;
+  color: @default-font-color;
+  background: #fff;
+}
+
+.flex-results-container {
+  width: 100%
+}
+
+.info-section {
+
+}
+
+.flex-container {
+  background: @light-grey;
+  padding: 10px;
+}
+
+.depart-header {
+  box-sizing: border-box;
+  background: @bondi-blue;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  min-height: 36px;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.flex-results {
+  .ticket {
+    padding: 10px;
+    min-height: 55px;
+    background: white;
+    margin: 5px 0;
+
+    .tag {
+      min-height: 17px;
+      background: @jungle;
+    }
+    .flight-info {
+
+    }
+
+    .price-info {
+      text-align: right;
+      .price {
+        color: @dark-grey;
+        font-size: 14px;
+        font-weight: 700;
+        .sub {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
