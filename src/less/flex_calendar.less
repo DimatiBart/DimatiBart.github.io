@@ -8,15 +8,13 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700);
 
-@mobile-main-bg: #9f9f9f;
-
 body {
   font: normal 12px/normal @titillium;
   color: @default-font-color;
   background: #fff;
 }
 
-.flex-results-container {
+.flex-main-container {
   width: 100%;
 }
 
@@ -27,20 +25,106 @@ body {
 .flex-container {
   background: @light-grey;
   padding: 10px;
+  display: block;
 }
 
-.depart-header {
-  box-sizing: border-box;
-  background: @bondi-blue;
-  color: white;
-  text-align: center;
-  font-size: 18px;
-  min-height: 36px;
-  padding: 10px;
-  font-weight: 600;
+.flex-results-header {
+  display: flex;
+  width: 100%;
+
+  .depart-header-container {
+    width: 100%;
+  }
+
+  .depart-header {
+    box-sizing: border-box;
+    background: @bondi-blue;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    min-height: 36px;
+    padding: 3px 10px;
+    font-weight: 600;
+    @media only screen and (min-width: @mobile-bp) {
+
+    }
+  }
+
+  .aiport-codes {
+    box-sizing: border-box;
+    width: 110px;
+    display: none;
+    background-color: white;
+    border: solid 1px @grey-border;
+    border-right: 0;
+    padding: 20px 5px;
+    text-align: center;
+    @media only screen and (min-width: @mobile-bp) {
+      display: inline-block;
+    }
+
+    .from, .to {
+      font-size: 14px;
+    }
+
+    .from {
+      &:after {
+        content: '';
+        display: block;
+        background: url('../../tempFiles/arrow.png');
+        height: 10px;
+        width: 20px;
+        margin: 5px auto;
+      }
+    }
+
+  }
+
+  .dates-container {
+    display: none;
+    @media only screen and (min-width: @mobile-bp) {
+      display: table;
+      width: 100%;
+      height: calc(~"100% - 36px");
+    }
+
+    .date-cell {
+      display: table-cell;
+      font-size: 0;
+      text-align: center ;
+      border: solid 1px @grey-border;
+
+      &:not(:first-child) {
+        border-left: 0;
+      }
+    }
+
+    .day-name, .month {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .day-number {
+      font-size: 18px;
+      font-weight: 700;
+      margin: -6px 0;
+    }
+
+  }
 }
+
+.flex-results-wrapper {
+  @media only screen and (min-width: @mobile-bp) {
+    display: flex;
+    .grey-column {
+      width: 112px;
+    }
+  }
+}
+
 
 .flex-results {
+  width: 100%;
   .ticket {
     box-sizing: border-box;
     padding: 10px;
@@ -72,7 +156,7 @@ body {
       box-sizing: border-box;
       min-height: 17px;
       text-transform: uppercase;
-      font: normal 11px/12px @titillium;
+      font: 500 10px @titillium;
       letter-spacing: 2px;
       display: inline-block;
     }
