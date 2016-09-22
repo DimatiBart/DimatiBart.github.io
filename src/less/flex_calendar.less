@@ -11,13 +11,13 @@
 @mobile-main-bg: #9f9f9f;
 
 body {
-  font: normal 12px/normal @btn-font-family;
+  font: normal 12px/normal @titillium;
   color: @default-font-color;
   background: #fff;
 }
 
 .flex-results-container {
-  width: 100%
+  width: 100%;
 }
 
 .info-section {
@@ -42,28 +42,107 @@ body {
 
 .flex-results {
   .ticket {
+    box-sizing: border-box;
     padding: 10px;
     min-height: 55px;
     background: white;
     margin: 5px 0;
+    font-family: @default-font-family;
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px transparent;
+
+    &:hover {
+      border-color: #5f8fb4;
+      box-shadow: 0 2px 4.25px 0.75px rgba(0, 0, 0, 0.07);
+    }
+
+    &.cheapest {
+      .price-info .price {
+        color: @jungle;
+      }
+    }
+
+    & > div {
+      display: inline-block;
+      font-size: 0;
+    }
 
     .tag {
+      box-sizing: border-box;
       min-height: 17px;
-      background: @jungle;
+      text-transform: uppercase;
+      font: normal 11px/12px @titillium;
+      letter-spacing: 2px;
+      display: inline-block;
     }
-    .flight-info {
 
+    .feature {
+      background: @jungle;
+      color: white;
+      padding: 2px 7px;
+      margin-bottom: 6px;
+    }
+
+    .seats-indicator {
+      margin-top: 15px;
+      color: @brooklyn;
+      font-weight: 700;
+    }
+
+    .logo-container {
+      margin-right: 10px;
+      align-self: center;
+
+      .logo {
+        width: 75px;
+        height: 45px;
+      }
+    }
+
+    .flight-info {
+      text-align: left;
+      width: calc(~"50% - 57px");
+
+      .date {
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        letter-spacing: .1px;
+      }
+
+      .airway {
+        font-size: 10px;
+        font-weight: 400;
+        color: @mid-grey-sub-text;
+      }
     }
 
     .price-info {
       text-align: right;
+      width: calc(~"50% - 37px");
       .price {
         color: @dark-grey;
         font-size: 14px;
         font-weight: 700;
+        width: 100%;
         .sub {
           font-size: 10px;
+          margin: 0 0 0 -3px;
         }
+
+        .currency {
+          font-weight: 100;
+        }
+      }
+    }
+
+    &.no-results {
+      justify-content: flex-start;
+      .logo-container {
+        background: url("../../tempFiles/no-results.png") center no-repeat;
+        width: 75px;
+        height: 45px;
       }
     }
   }

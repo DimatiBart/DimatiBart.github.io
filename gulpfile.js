@@ -15,3 +15,7 @@ gulp.task('buildStyles', function(){
         .pipe(rename('main.min.css'))
         .pipe(gulp.dest('./dest/css/'));
 });
+
+gulp.task('watch', function(){
+    gulp.watch('./src/less/*.less', ['buildStyles'])
+});
