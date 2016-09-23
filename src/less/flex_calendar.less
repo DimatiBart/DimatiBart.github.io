@@ -62,6 +62,7 @@ body {
     border-right: 0;
     padding: 20px 5px;
     text-align: center;
+    font-weight: 600;
     @media only screen and (min-width: @mobile-bp) {
       display: inline-block;
       flex-basis: 100px;
@@ -264,16 +265,29 @@ body {
       }
     }
 
-    &.no-results {
-      justify-content: flex-start;
-    }
-
     &:not(.no-results) {
       @media only screen and (min-width: @mobile-bp) {
         .flight-info {
+          display: none;
+        }
+      }
+    }
+
+    &.no-results {
+      justify-content: flex-start;
+      @media only screen and (min-width: @mobile-bp) {
+        vertical-align: top;
+
+        .flight-info {
           display: block;
+          width: 100%;
+          text-align: center;
           .date {
             display: none;
+          }
+          .airway {
+            display: block;
+            font-size: 12px;
           }
         }
       }
@@ -283,6 +297,8 @@ body {
         height: 45px;
         @media only screen and (min-width: @mobile-bp) {
           display: block;
+          width: 100%;
+          margin: 0 0 10px 0;
         }
       }
     }
