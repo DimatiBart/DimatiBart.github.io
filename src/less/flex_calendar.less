@@ -34,6 +34,9 @@ body {
 
   .depart-header-container {
     width: 100%;
+    @media only screen and (min-width: @mobile-bp) {
+      border-bottom: 1px solid #dadada;
+    }
   }
 
   .depart-header {
@@ -50,7 +53,7 @@ body {
     }
   }
 
-  .aiport-codes {
+  .airport-codes {
     box-sizing: border-box;
     width: 110px;
     display: none;
@@ -61,6 +64,8 @@ body {
     text-align: center;
     @media only screen and (min-width: @mobile-bp) {
       display: inline-block;
+      flex-basis: 100px;
+      flex-shrink: 0;
     }
 
     .from, .to {
@@ -86,6 +91,7 @@ body {
       display: table;
       width: 100%;
       height: calc(~"100% - 36px");
+      border-collapse: collapse;
     }
 
     .date-cell {
@@ -93,10 +99,8 @@ body {
       font-size: 0;
       text-align: center ;
       border: solid 1px @grey-border;
-
-      &:not(:first-child) {
-        border-left: 0;
-      }
+      border-bottom-color: transparent;
+      width: 118px;
     }
 
     .day-name, .month {
@@ -114,17 +118,20 @@ body {
 }
 
 .flex-results-wrapper {
-  @media only screen and (min-width: @mobile-bp) {
-    display: flex;
-    .grey-column {
-      width: 112px;
-    }
-  }
+
 }
 
 
 .flex-results {
   width: 100%;
+
+  @media only screen and (min-width: @mobile-bp) {
+    display: table;
+    width: calc(~"100% - 100px");
+    margin-left: 100px;
+    border-collapse: collapse;
+  }
+
   .ticket {
     box-sizing: border-box;
     padding: 10px;
@@ -136,15 +143,31 @@ body {
     justify-content: space-between;
     border: solid 1px transparent;
 
+    @media only screen and (min-width: @mobile-bp) {
+      display: table-cell;
+      border-color: @grey-border;
+      border-top-color: transparent;
+      width: 118px;
+      vertical-align: middle;
+    }
+
     &:hover {
       border-color: #5f8fb4;
       box-shadow: 0 2px 4.25px 0.75px rgba(0, 0, 0, 0.07);
+
+      @media only screen and (min-width: @mobile-bp) {
+        border: 1px double #5f8fb4;
+      }
     }
 
     &.cheapest {
-      .price-info .price {
-        color: @jungle;
+      .price-info {
+        height: 100%;
+        .price {
+          color: @jungle;
+        }
       }
+
     }
 
     & > div {
@@ -166,6 +189,9 @@ body {
       color: white;
       padding: 2px 7px;
       margin-bottom: 6px;
+      @media only screen and (min-width: @mobile-bp) {
+        margin-bottom: 8px;
+      }
     }
 
     .seats-indicator {
@@ -178,6 +204,10 @@ body {
       margin-right: 10px;
       align-self: center;
 
+      @media only screen and (min-width: @mobile-bp) {
+        display: none;
+      }
+
       .logo {
         width: 75px;
         height: 45px;
@@ -185,6 +215,10 @@ body {
     }
 
     .flight-info {
+      @media only screen and (min-width: @mobile-bp) {
+        display: none;
+      }
+
       text-align: left;
       width: calc(~"50% - 57px");
 
@@ -199,12 +233,21 @@ body {
         font-size: 10px;
         font-weight: 400;
         color: @mid-grey-sub-text;
+        @media only screen and (min-width: @mobile-bp) {
+          display: none;
+        }
       }
     }
 
     .price-info {
       text-align: right;
       width: calc(~"50% - 37px");
+
+      @media only screen and (min-width: @mobile-bp) {
+        width: 100%;
+        text-align: center;
+      }
+
       .price {
         color: @dark-grey;
         font-size: 14px;
@@ -223,10 +266,24 @@ body {
 
     &.no-results {
       justify-content: flex-start;
+    }
+
+    &:not(.no-results) {
+      @media only screen and (min-width: @mobile-bp) {
+        .flight-info {
+          display: block;
+          .date {
+            display: none;
+          }
+        }
+      }
       .logo-container {
         background: url("../../tempFiles/no-results.png") center no-repeat;
         width: 75px;
         height: 45px;
+        @media only screen and (min-width: @mobile-bp) {
+          display: block;
+        }
       }
     }
   }
