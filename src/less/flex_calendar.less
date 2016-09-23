@@ -1,6 +1,9 @@
 @import "../../common/less/reset.less";
 @import "../../common/less/variables.less";
 
+
+@import "flex_calendar_touch.less";
+
 /*
  ***************************************************
  * fonts
@@ -16,6 +19,9 @@ body {
 
 .flex-main-container {
   width: 100%;
+  @media only screen and (min-width: @mobile-bp) {
+    width: 960px;
+  }
 }
 
 .info-section {
@@ -103,15 +109,18 @@ body {
       border: solid 1px @grey-border;
       border-bottom-color: transparent;
       width: 118px;
+      &.hovered {
+        background-color:  rgba(0, 101, 189, 0.1);
+      }
     }
 
     .day-name, .month {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 600;
     }
 
     .day-number {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
       margin: -6px 0;
     }
@@ -152,15 +161,6 @@ body {
       border-top-color: transparent;
       width: 118px;
       vertical-align: middle;
-    }
-
-    &:hover {
-      border-color: #5f8fb4;
-      box-shadow: 0 2px 4.25px 0.75px rgba(0, 0, 0, 0.07);
-
-      @media only screen and (min-width: @mobile-bp) {
-        border: 1px double #5f8fb4;
-      }
     }
 
     &.cheapest {

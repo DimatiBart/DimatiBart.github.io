@@ -1,0 +1,25 @@
+body.touchDevice {
+  .flex-results .ticket {
+    &.hovered {
+      border-color: #5f8fb4;
+      box-shadow: 0 2px 4.25px 0.75px rgba(0, 0, 0, 0.07);
+
+      @media only screen and (min-width: @mobile-bp) {
+        border: 1px double #5f8fb4;
+      }
+    }
+  }
+}
+
+body:not(.touchDevice) {
+  .flex-results .ticket {
+    &:hover {
+      border-color: #5f8fb4;
+      box-shadow: 0 2px 4.25px 0.75px rgba(0, 0, 0, 0.07);
+
+      @media only screen and (min-width: @mobile-bp) {
+        border: 1px double #5f8fb4;
+      }
+    }
+  }
+}
