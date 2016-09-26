@@ -56,18 +56,18 @@ body {
     padding: 3px 10px;
     font-weight: 600;
     @media only screen and (min-width: @mobile-bp) {
-
+      min-height: 40px;
+      padding: 5px 10px;
     }
   }
 
   .airport-codes {
     box-sizing: border-box;
-    width: 110px;
     display: none;
     background-color: white;
     border: solid 1px @grey-border;
     border-right: 0;
-    padding: 20px 5px;
+    padding: 20px 5px 0 5px;
     text-align: center;
     font-weight: 600;
     @media only screen and (min-width: @mobile-bp) {
@@ -98,7 +98,7 @@ body {
     @media only screen and (min-width: @mobile-bp) {
       display: table;
       width: 100%;
-      height: calc(~"100% - 36px");
+      height: calc(~"100% - 40px");
       border-collapse: collapse;
       box-sizing: border-box;
     }
@@ -110,20 +110,25 @@ body {
       border: solid 1px @grey-border;
       border-bottom-color: transparent;
       width: 118px;
+
+      @media only screen and (min-width: @mobile-bp) {
+        padding-bottom: 5px;
+      }
+
       &.hovered {
         background-color:  rgba(0, 101, 189, 0.1);
       }
     }
 
     .day-name, .month {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
     }
 
     .day-number {
       font-size: 20px;
       font-weight: bold;
-      margin: -6px 0;
+      margin: -9px 0;
     }
 
   }
@@ -143,6 +148,12 @@ body {
     margin-left: 100px;
     border-collapse: collapse;
     box-sizing: border-box;
+  }
+
+  .tag {
+    &.seats-indicator {
+      margin-top: 15px;
+    }
   }
 
   .ticket {
@@ -202,7 +213,7 @@ body {
       width: calc(~"50% - 57px");
 
       .date {
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 700;
         margin-bottom: 15px;
         letter-spacing: .1px;
@@ -230,10 +241,13 @@ body {
       .price {
         color: @dark-grey;
         font-size: 14px;
+        @media only screen and (min-width: @mobile-bp) {
+          font-size: 16px;
+        }
         font-weight: 700;
         width: 100%;
         .sub {
-          font-size: 10px;
+          font-size: 12px;
           margin: 0 0 0 -3px;
         }
 
@@ -271,7 +285,7 @@ body {
       }
       .logo-container {
         background: url("../../tempFiles/no-results.png") center no-repeat;
-        width: 75px;
+        width: 80px;
         height: 45px;
         @media only screen and (min-width: @mobile-bp) {
           display: block;

@@ -1,13 +1,12 @@
 .tag {
   box-sizing: border-box;
-  min-height: 17px;
   text-transform: uppercase;
   font: 500 10px @titillium;
   letter-spacing: 2px;
   display: inline-block;
 
   &.seats-indicator {
-    margin-top: 15px;
+    margin-top: 9px;
     color: @brooklyn;
     font-weight: 700;
   }
@@ -15,8 +14,9 @@
   &.feature {
     background: @jungle;
     color: white;
-    padding: 2px 7px;
+    padding: 2px 10px;
     margin-bottom: 6px;
+    min-height: 17px;
     @media only screen and (min-width: @mobile-bp) {
       margin-bottom: 8px;
     }
@@ -29,18 +29,39 @@
   font-size: 0;
   padding: 20px 10px;
   & > div {
-    width: 50%;
+    width: 100%;
     display: inline-block;
+
+    @media only screen and (min-width: @mobile-bp) {
+      width: calc(~"50% - 10px");
+    }
   }
-  h4 {
-    font: 600 16px @titillium;
+
+  .preferred-container {
+    margin: 0 20px 30px 0;
+    @media only screen and (min-width: @mobile-bp) {
+      margin-bottom: 0;
+    }
   }
+
+  .cheapest-container {
+    .feature {
+      float: right;
+    }
+  }
+
+  h6 {
+    font: 600 16px/15px @titillium;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
   .ticket {
     cursor: pointer;
-    width: 460px;
+
     box-sizing: border-box;
     padding: 10px;
-    min-height: 55px;
+    min-height: 70px;
     background: white;
     margin: 5px 0;
     font-family: @default-font-family;
@@ -48,6 +69,12 @@
     justify-content: space-between;
     border: solid 1px transparent;
     box-shadow: 0 2px 4.25px 0.75px rgba(0, 0, 0, 0.07);
+    width: 100%;
+
+    @media only screen and (min-width: @mobile-bp) {
+      width: 460px;
+      padding: 5px 10px;
+    }
 
     &:hover {
       box-shadow: 0 2px 6.48px 1.52px rgba(0, 0, 0, 0.17);
@@ -69,8 +96,13 @@
     }
 
     .logo-container {
-      margin-right: 10px;
+      margin-right: 20px;
       align-self: center;
+      display: none;
+
+      @media only screen and (min-width: @mobile-bp) {
+        display: inline-block;
+      }
 
       .logo {
         width: 75px;
@@ -81,6 +113,11 @@
     .flight-info {
       text-align: left;
       width: 100%;
+
+      @media only screen and (min-width: @mobile-bp) {
+        padding: 15px 0;
+      }
+
 
       .date {
         font-size: 12px;
@@ -98,15 +135,22 @@
 
     .price-info {
       text-align: right;
-      width: calc(~"50% - 37px");
+      width: calc(~"100% - 90px");
 
+      @media only screen and (min-width: @mobile-bp) {
+        width: calc(~"50% - 37px");
+        padding: 15px 0;
+      }
       .price {
         color: @dark-grey;
         font-size: 14px;
+        @media only screen and (min-width: @mobile-bp) {
+          font-size: 16px;
+        }
         font-weight: 700;
         width: 100%;
         .sub {
-          font-size: 10px;
+          font-size: 12px;
           margin: 0 0 0 -3px;
         }
 
