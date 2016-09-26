@@ -1,0 +1,55 @@
+.lightbox {
+  border: 1px solid @grey-border;
+  background: white;
+  width: 260px;
+  box-shadow: 0 2px 6.48px 1.52px rgba(0, 0, 0, 0.17);
+  padding: 20px 10px 10px;
+  position: relative;
+
+  text-align: center;
+
+  &:after{
+    content: "";
+    display: none;
+    border: none;
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    //background: url("../../../icons/flightResultsPage/flights_results_spr.png") -60px -129px no-repeat;
+    background: url("../../tempFiles/flights_results_spr.png") -60px -129px no-repeat;
+    cursor: pointer;
+    @media @retina-bp {
+      //background: url('../../../icons/flightResultsPage/flights_results_spr_x2.png') no-repeat -53px -116px;
+      background: url('../../tempFiles/flights_results_spr_x2.png') no-repeat -53px -116px;
+      background-size: 74px auto;
+    }
+  }
+
+  .hint {
+    font: 400 11px @default-font-family;
+    color: @mid-grey-sub-text;
+
+
+  }
+
+  .price {
+    font-size: 22px;
+    .sub {
+      font-size: 18px;
+    }
+  }
+
+  &.cheapest {
+    .price {
+      color: @jungle;
+    }
+  }
+
+  .feature {
+    margin-bottom: 10px;
+  }
+
+
+}

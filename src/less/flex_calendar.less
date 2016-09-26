@@ -4,6 +4,7 @@
 
 @import "flex_calendar_touch.less";
 @import "flex_calendar_features.less";
+@import "flex_calendar_lightbox.less";
 
 /*
  ***************************************************
@@ -138,6 +139,24 @@ body {
 
 }
 
+.price {
+  color: @dark-grey;
+  font-size: 14px;
+  @media only screen and (min-width: @mobile-bp) {
+    font-size: 16px;
+  }
+  font-weight: 700;
+  width: 100%;
+  .sub {
+    font-size: 12px;
+    margin: 0 0 0 -3px;
+  }
+
+  .currency {
+    font-weight: 100;
+  }
+}
+
 
 .flex-results {
   width: 100%;
@@ -199,7 +218,7 @@ body {
       }
 
       .logo {
-        width: 75px;
+        width: 70px;
         height: 45px;
       }
     }
@@ -236,24 +255,6 @@ body {
       @media only screen and (min-width: @mobile-bp) {
         width: 100%;
         text-align: center;
-      }
-
-      .price {
-        color: @dark-grey;
-        font-size: 14px;
-        @media only screen and (min-width: @mobile-bp) {
-          font-size: 16px;
-        }
-        font-weight: 700;
-        width: 100%;
-        .sub {
-          font-size: 12px;
-          margin: 0 0 0 -3px;
-        }
-
-        .currency {
-          font-weight: 100;
-        }
       }
     }
 
