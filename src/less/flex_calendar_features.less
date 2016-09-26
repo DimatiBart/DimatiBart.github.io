@@ -28,26 +28,35 @@
   margin: 20px 0;
   font-size: 0;
   padding: 20px 10px;
-  & > div {
-    width: 100%;
-    display: inline-block;
 
-    @media only screen and (min-width: @mobile-bp) {
-      width: calc(~"50% - 10px");
+  @media only screen and (min-width: @mobile-bp) {
+    display: flex;
+    flex-wrap: wrap;
+    .preferred-header, .cheapest-header-wrapper {
+      flex-basis: calc(~"50% - 10px");
+      flex-shrink: 0;
+    }
+    .preferred-header {
+      order: 1;
+      margin-right: 10px;
+    }
+
+    .cheapest-header-wrapper {
+      order: 2;
+    }
+
+    .ticket.cheapest {
+      order: 4;
+    }
+
+    .ticket.preferred {
+      order: 3;
+      margin-right: 10px;
     }
   }
 
-  .preferred-container {
-    margin: 0 20px 30px 0;
-    @media only screen and (min-width: @mobile-bp) {
-      margin-bottom: 0;
-    }
-  }
-
-  .cheapest-container {
-    .feature {
+  .cheapest-header-wrapper .tag {
       float: right;
-    }
   }
 
   h6 {
@@ -58,7 +67,6 @@
 
   .ticket {
     cursor: pointer;
-
     box-sizing: border-box;
     padding: 10px;
     min-height: 70px;
@@ -90,9 +98,11 @@
 
     }
 
-    & > div {
-      display: inline-block;
-      font-size: 0;
+    &.preferred {
+      margin-bottom: 30px;
+      @media only screen and (min-width: @mobile-bp) {
+        margin-bottom: 5px;
+      }
     }
 
     .logo-container {
