@@ -37,14 +37,14 @@ var mobileHelper = {
         if( isMobile.any() && window.matchMedia("(min-width: 768px)").matches ){
             $('head').append(metaTag);
         }
-    }
+    },
+    _isTouch: (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0))
 };
 
 var UIController = {
     initUI: function(mobileHelper){
         mobileHelper._tabletDeviceCheck();
-        var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0));
-        if (isTouch){
+        if (mobileHelper.isTouch){
             $('body').addClass('touchDevice');
 
             $(document).on('touchstart', '.flex-results-wrapper .ticket',function(event){
@@ -77,20 +77,37 @@ var UIController = {
         }
         else {
             $(document).on('mouseenter', '.flex-results-wrapper  .ticket',function(){
-                var index = $(this).index() + 1;
-                $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
+                if (window.matchMedia("(min-width: 641px)").matches === true) {
+                    var index = $(this).index() + 1;
+                    $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
+                }
             });
 
             $(document).on('mouseleave', '.flex-results-wrapper .ticket',function(){
                 $('.date-cell.hovered').removeClass('hovered');
+                if (window.matchMedia("(min-width: 641px)").matches === true) {
+                    $('.date-cell.hovered').removeClass('hovered');
+                }
             });
 
             $(document).on('click', '.ticket',function(){
-                if (!this.classList.contains('no-results')){
-                    console.log('sup m8');
+                if (window.matchMedia("(min-width: 641px)").matches === false) {
                 }
             });
         }
+
+        $(document).on('click', '.preloader',function(event){
+            $(this).toggleClass('pressed');
+        });
+    },
+    _showFlightLightbox: function(){
+
+    },
+    _hideFlightLightbox: function(){
+
+    },
+    _initLightBoxData: function(){
+
     }
 };
 

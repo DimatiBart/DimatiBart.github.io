@@ -5,8 +5,11 @@
   box-shadow: 0 2px 6.48px 1.52px rgba(0, 0, 0, 0.17);
   padding: 20px 10px 10px;
   position: relative;
-
   text-align: center;
+
+  @media only screen and (min-width: @mobile-bp) {
+    width: 185px;
+  }
 
   &:after{
     content: "";
@@ -30,8 +33,6 @@
   .hint {
     font: 400 11px @default-font-family;
     color: @mid-grey-sub-text;
-
-
   }
 
   .price {
@@ -47,9 +48,34 @@
     }
   }
 
-  .feature {
+  .feature, .price, .hint {
     margin-bottom: 10px;
   }
 
+  .seats-indicator {
+    margin: 0 0 20px 0;
+  }
 
+  .logo-container {
+    width: 58px;
+    height: 33px;
+    display: inline-block;
+    margin: 5px 0 15px;
+  }
+
+  .airway {
+    font-size: 10px;
+  }
+
+  .btn {
+    box-sizing: border-box;
+    height: 45px;
+    font-size: 14px;
+    width: 100%;
+
+    @media only screen and (min-width: @mobile-bp) {
+      height: 35px;
+      font-size: 12px;
+    }
+  }
 }

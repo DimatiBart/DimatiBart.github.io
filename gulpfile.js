@@ -4,6 +4,7 @@ var rename = require("gulp-rename");
 var less = require('gulp-less');
 var gutil = require('gulp-util');
 var concat = require('gulp-concat');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('default', function(){
     gulp.start('buildStyles');
@@ -14,6 +15,10 @@ gulp.task('buildStyles', function(){
     gulp.src('./src/less/flex_calendar.less')
         .pipe(less().on('error', gutil.log))
         .pipe(cleanCSS())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(rename('main.min.css'))
         .pipe(gulp.dest('./dest/css/'));
 });
