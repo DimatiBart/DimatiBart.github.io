@@ -6,14 +6,15 @@
   padding: 20px 10px 10px;
   position: relative;
   text-align: center;
+  z-index: 2;
 
   @media only screen and (min-width: @mobile-bp) {
     width: 185px;
   }
 
-  &:after{
+  .lightboxCloseBtn{
     content: "";
-    display: none;
+    display: inline-block;
     border: none;
     width: 21px;
     height: 21px;
@@ -23,6 +24,10 @@
     //background: url("../../../icons/flightResultsPage/flights_results_spr.png") -60px -129px no-repeat;
     background: url("../../tempFiles/flights_results_spr.png") -60px -129px no-repeat;
     cursor: pointer;
+    @media only screen and (min-width: @mobile-bp) {
+      display: none;
+    }
+
     @media @retina-bp {
       //background: url('../../../icons/flightResultsPage/flights_results_spr_x2.png') no-repeat -53px -116px;
       background: url('../../tempFiles/flights_results_spr_x2.png') no-repeat -53px -116px;
@@ -56,7 +61,7 @@
     margin: 0 0 20px 0;
   }
 
-  .logo-container {
+  .lightbox-logo {
     width: 58px;
     height: 33px;
     display: inline-block;
@@ -76,6 +81,27 @@
     @media only screen and (min-width: @mobile-bp) {
       height: 35px;
       font-size: 12px;
+    }
+  }
+}
+
+/*
+ ***************************************************
+ * bgLayer
+ ***************************************************
+ */
+.bgLayer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(67,67,67,0.7);
+  z-index: 1;
+  &.active {
+    @media only screen and (min-width: @mobile-bp) {
+      display: none !important;
     }
   }
 }

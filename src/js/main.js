@@ -3,12 +3,12 @@ var mobileHelper = {
         x: null,
         y: null
     },
-    saveTouchPosition: function(event){
+    _saveTouchPosition: function(event){
         var touch = event.originalEvent.touches[0];
         this.lastTouchPos.x = touch.pageX;
         this.lastTouchPos.y =  touch.pageY;
     },
-    deleteTicketHover: function () {
+    _deleteTicketHover: function () {
         $('.ticket.hovered').removeClass('hovered');
         $('.date-cell.hovered').removeClass('hovered');
     },
@@ -48,8 +48,8 @@ var UIController = {
             $('body').addClass('touchDevice');
 
             $(document).on('touchstart', '.flex-results-wrapper .ticket',function(event){
-                mobileHelper.saveTouchPosition.call(mobileHelper, event);
-                mobileHelper.deleteTicketHover ();
+                mobileHelper._saveTouchPosition.call(mobileHelper, event);
+                mobileHelper._deleteTicketHover ();
                 var $this = $(this);
                 $this.addClass('hovered');
                 var index = $this.index() + 1;
@@ -57,13 +57,13 @@ var UIController = {
             });
 
             $(document).on('touchmove', '.ticket',function(event){
-                mobileHelper.saveTouchPosition.call(mobileHelper, event);
+                mobileHelper._saveTouchPosition.call(mobileHelper, event);
             });
 
             $(document).on('touchend', '.flex-results-wrapper  .ticket',function(event){
                 var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
                 if (!endTarget.hasClass('hovered')) {
-                    mobileHelper.deleteTicketHover ();
+                    mobileHelper._deleteTicketHover ();
                 }
 
             });
@@ -76,9 +76,9 @@ var UIController = {
             });
         }
         else {
-            $(document).on('mouseenter', '.flex-results-wrapper  .ticket',function(){
+            $(document).on('mouseenter', '.flex-results-wrapper  .ticket',function(event){
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
-                    var index = $(this).index() + 1;
+                    var index = $(event.currentTarget).index() + 1;
                     $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
                 }
             });
@@ -90,24 +90,77 @@ var UIController = {
                 }
             });
 
-            $(document).on('click', '.ticket',function(){
+            $(document).on('click', '.ticket',function(event){
                 if (window.matchMedia("(min-width: 641px)").matches === false) {
+                    this._showFlightLightbox($(event.currentTarget))
                 }
-            });
+            }.bind(this));
+
+            var desktopMediaQuery = window.matchMedia("(min-width: 641px)");
+            desktopMediaQuery.addListener(this._hideFlightLightbox.bind(this));
         }
 
-        $(document).on('click', '.preloader',function(event){
+        $(document).on('click', '.preloader',function(){
             $(this).toggleClass('pressed');
         });
-    },
-    _showFlightLightbox: function(){
 
+        $(document).on('click', '.lightboxCloseBtn, .bgLayer',function(event){
+            event.stopPropagation();
+            this._hideFlightLightbox();
+        }.bind(this));
+    },
+    _showFlightLightbox: function(ticket){
+        var lightbox = ticket.find('.lightbox')
+        if (!lightbox.length) {
+            return;
+        }
+        if (window.matchMedia("(min-width: 641px)").matches === false) {
+            this._showBgLayer();
+        }
+        lightbox.fadeIn(350);
+        this._calculateLightBoxPosition(ticket, lightbox);
     },
     _hideFlightLightbox: function(){
-
+        var lightbox = $('.lightbox:visible').fadeOut(250);
+        this._hideBgLayer();
     },
-    _initLightBoxData: function(){
+    _showBgLayer: function() {
+        if (!$('.bgLayer').length) {
+            var bgLayer = '<div class="bgLayer"></div>';
+            $('html').addClass('noScroll');
+            $('body').addClass('lightboxNoScroll').append(bgLayer);
+            bgLayer = $('.bgLayer');
+            bgLayer.fadeIn(350);
+        }
+    },
+    _hideBgLayer: function(){
+        var bgLayer = $('.bgLayer');
+        if (bgLayer.length) {
+            bgLayer.fadeOut(350,function(){
+                bgLayer.remove();
+            });
+        }
+    },
+    _calculateLightBoxPosition: function (ticket, lightbox){
+        if (window.matchMedia("(min-width: 641px)").matches === false) {
+            lightbox.css('transform', 'translate:(-50%,-50%)');
+        }
+        else {
+            var yPos = lightbox.attr('data-y-pos');
+            if (yPos) {
+                lightbox.css('transform', 'translate:(-50%,'+ yPos +'px)');
+            }
+            else {
+                var halfOFTicketPriceHeight = 10;
+                var halfOfLightboxPriceHeight = 14;
+                var ticketPriceMiddlePos = ticket.find('price').position().top +  halfOFTicketPriceHeight;
+                var lightboxPriceMiddlePos = lightbox.find('price').position().top + halfOfLightboxPriceHeight;
+                var difference = ticketPriceMiddlePos - lightboxPriceMiddlePos;
+                lightbox.attr('data-y-pos', difference);
+                lightbox.css('transform', 'translate:(-50%,'+ difference +'px)');
+            }
 
+        }
     }
 };
 

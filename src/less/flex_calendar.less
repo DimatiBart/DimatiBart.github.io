@@ -186,6 +186,7 @@ body {
     display: flex;
     justify-content: space-between;
     border: solid 1px transparent;
+    position: relative;
 
     @media only screen and (min-width: @mobile-bp) {
       display: table-cell;
@@ -193,6 +194,22 @@ body {
       border-top-color: transparent;
       width: 118px;
       vertical-align: middle;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @media only screen and (min-width: @mobile-bp) {
+        position: absolute;
+        top: -2px;
+        z-index: 1;
+        transform: translate(-50%, 0);
+      }
+
     }
 
     &.cheapest {
@@ -205,7 +222,7 @@ body {
 
     }
 
-    & > div {
+    .logo-container, .flight-info, .price-info {
       display: inline-block;
       font-size: 0;
     }
