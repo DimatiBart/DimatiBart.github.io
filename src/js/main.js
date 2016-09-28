@@ -44,7 +44,7 @@ var mobileHelper = {
 var UIController = {
     initUI: function(mobileHelper){
         mobileHelper._tabletDeviceCheck();
-        if (mobileHelper.isTouch){
+        if (mobileHelper._isTouch){
             $('body').addClass('touchDevice');
 
             $(document).on('touchstart', '.flex-results-wrapper .ticket',function(event){
@@ -78,17 +78,20 @@ var UIController = {
         else {
             $(document).on('mouseenter', '.flex-results-wrapper  .ticket',function(event){
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
-                    var index = $(event.currentTarget).index() + 1;
+                    var target = $(event.currentTarget);
+                    var index = target.index() + 1;
                     $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
+                    this._showFlightLightbox(target)
                 }
-            });
+            }.bind(this));
 
             $(document).on('mouseleave', '.flex-results-wrapper .ticket',function(){
                 $('.date-cell.hovered').removeClass('hovered');
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
                     $('.date-cell.hovered').removeClass('hovered');
+                    this._hideFlightLightbox();
                 }
-            });
+            }.bind(this));
 
             $(document).on('click', '.ticket',function(event){
                 if (window.matchMedia("(min-width: 641px)").matches === false) {
@@ -110,18 +113,20 @@ var UIController = {
         }.bind(this));
     },
     _showFlightLightbox: function(ticket){
-        var lightbox = ticket.find('.lightbox')
+        var lightbox = ticket.find('.lightbox');
         if (!lightbox.length) {
             return;
         }
         if (window.matchMedia("(min-width: 641px)").matches === false) {
             this._showBgLayer();
         }
-        lightbox.fadeIn(350);
+        //lightbox.fadeIn(350);
+        lightbox.addClass('active');
         this._calculateLightBoxPosition(ticket, lightbox);
     },
     _hideFlightLightbox: function(){
-        var lightbox = $('.lightbox:visible').fadeOut(250);
+        //$('.lightbox:visible').fadeOut(50);
+        $('.lightbox:visible').removeClass('active');
         this._hideBgLayer();
     },
     _showBgLayer: function() {
@@ -136,6 +141,8 @@ var UIController = {
     _hideBgLayer: function(){
         var bgLayer = $('.bgLayer');
         if (bgLayer.length) {
+            $('html').removeClass('noScroll');
+            $('body').removeClass('lightboxNoScroll');
             bgLayer.fadeOut(350,function(){
                 bgLayer.remove();
             });
@@ -153,8 +160,8 @@ var UIController = {
             else {
                 var halfOFTicketPriceHeight = 10;
                 var halfOfLightboxPriceHeight = 14;
-                var ticketPriceMiddlePos = ticket.find('price').position().top +  halfOFTicketPriceHeight;
-                var lightboxPriceMiddlePos = lightbox.find('price').position().top + halfOfLightboxPriceHeight;
+                var ticketPriceMiddlePos = ticket.find('.price').position().top +  halfOFTicketPriceHeight;
+                var lightboxPriceMiddlePos = lightbox.find('.price').position().top + halfOfLightboxPriceHeight;
                 var difference = ticketPriceMiddlePos - lightboxPriceMiddlePos;
                 lightbox.attr('data-y-pos', difference);
                 lightbox.css('transform', 'translate:(-50%,'+ difference +'px)');

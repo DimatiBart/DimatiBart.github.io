@@ -7,6 +7,11 @@
   position: relative;
   text-align: center;
   z-index: 2;
+  display: none;
+
+  &.active {
+    display: block;
+  }
 
   @media only screen and (min-width: @mobile-bp) {
     width: 185px;
@@ -104,4 +109,17 @@
       display: none !important;
     }
   }
+}
+
+/*
+ ***************************************************
+ * noScroll
+ ***************************************************
+ */
+.noScroll,
+.lightboxNoScroll,
+.noScroll_sidebar {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
 }
