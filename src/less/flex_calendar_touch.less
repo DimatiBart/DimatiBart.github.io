@@ -13,6 +13,11 @@ body.touchDevice {
   .bgLayer {
     cursor: pointer;
   }
+  .lightbox .lightboxCloseBtn {
+    @media only screen and (min-width: @mobile-bp) {
+      display: block;
+    }
+  }
 }
 
 body:not(.touchDevice):not(.lightboxNoScroll) {

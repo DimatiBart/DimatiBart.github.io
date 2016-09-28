@@ -48,32 +48,33 @@ var UIController = {
             $('body').addClass('touchDevice');
 
             $(document).on('touchstart', '.flex-results-wrapper .ticket',function(event){
-                mobileHelper._saveTouchPosition.call(mobileHelper, event);
-                mobileHelper._deleteTicketHover ();
-                var $this = $(this);
-                $this.addClass('hovered');
-                var index = $this.index() + 1;
+                this._saveTouchPosition(event);
+                this._deleteTicketHover ();
+                var target = $(event.currentTarget);
+                target.addClass('hovered');
+                var index = target.index() + 1;
                 $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
-            });
+            }.bind(this));
 
             $(document).on('touchmove', '.ticket',function(event){
-                mobileHelper._saveTouchPosition.call(mobileHelper, event);
-            });
+                this._saveTouchPosition(event);
+            }.bind(this));
 
             $(document).on('touchend', '.flex-results-wrapper  .ticket',function(event){
-                var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
+                var endTarget = $(document.elementFromPoint(this.lastTouchPos.x, this.lastTouchPos.y)).closest('.ticket');
                 if (!endTarget.hasClass('hovered')) {
-                    mobileHelper._deleteTicketHover ();
+                    this._deleteTicketHover ();
                 }
 
-            });
+            }.bind(this));
 
-            $(document).on('click', '.ticket',function(){
+            $(document).on('click', '.ticket',function(event){
                 event.preventDefault();
-                if (!this.classList.contains('no-results')){
-                    console.log('sup m8');
+                var target = $(event.currentTarget);
+                if (!target.hasClass('no-results')){
+                    this._showFlightLightbox(target);
                 }
-            });
+            }.bind(this));
         }
         else {
             $(document).on('mouseenter', '.flex-results-wrapper  .ticket',function(event){
@@ -81,7 +82,7 @@ var UIController = {
                     var target = $(event.currentTarget);
                     var index = target.index() + 1;
                     $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
-                    this._showFlightLightbox(target)
+                    this._showFlightLightbox(target);
                 }
             }.bind(this));
 
@@ -109,7 +110,13 @@ var UIController = {
 
         $(document).on('click', '.lightboxCloseBtn, .bgLayer',function(event){
             event.stopPropagation();
-            this._hideFlightLightbox();
+            if (window.matchMedia("(min-width: 641px)").matches === false) {
+                this._hideFlightLightbox();
+            }
+            else {
+                this._hideFlightLightbox($(event.currentTarget));
+            }
+
         }.bind(this));
     },
     _showFlightLightbox: function(ticket){
