@@ -48,33 +48,37 @@ var UIController = {
             $('body').addClass('touchDevice');
 
             $(document).on('touchstart', '.flex-results-wrapper .ticket',function(event){
-                this._saveTouchPosition(event);
-                this._deleteTicketHover ();
+                mobileHelper._saveTouchPosition(event);
+                mobileHelper._deleteTicketHover();
                 var target = $(event.currentTarget);
                 target.addClass('hovered');
                 var index = target.index() + 1;
                 $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
-            }.bind(this));
+            });
 
             $(document).on('touchmove', '.ticket',function(event){
-                this._saveTouchPosition(event);
-            }.bind(this));
+                mobileHelper._saveTouchPosition(event);
+            });
 
             $(document).on('touchend', '.flex-results-wrapper  .ticket',function(event){
-                var endTarget = $(document.elementFromPoint(this.lastTouchPos.x, this.lastTouchPos.y)).closest('.ticket');
+                var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
                 if (!endTarget.hasClass('hovered')) {
-                    this._deleteTicketHover ();
+                    mobileHelper._deleteTicketHover ();
                 }
-
-            }.bind(this));
+            });
 
             $(document).on('click', '.ticket',function(event){
                 event.preventDefault();
                 var target = $(event.currentTarget);
                 if (!target.hasClass('no-results')){
+                    this._hideFlightLightbox();
                     this._showFlightLightbox(target);
                 }
             }.bind(this));
+
+            $(document).on('click', '.ticket .lightbox',function(event){
+                event.stopPropagation();
+            });
         }
         else {
             $(document).on('mouseenter', '.flex-results-wrapper  .ticket',function(event){
@@ -162,16 +166,16 @@ var UIController = {
         else {
             var yPos = lightbox.attr('data-y-pos');
             if (yPos) {
-                lightbox.css('transform', 'translate:(-50%,'+ yPos +'px)');
+                lightbox.css('transform', 'translate(-50%,'+ yPos +'px)');
             }
             else {
-                var halfOFTicketPriceHeight = 10;
+                var halfOFTicketPriceHeight = 11;
                 var halfOfLightboxPriceHeight = 14;
                 var ticketPriceMiddlePos = ticket.find('.price').position().top +  halfOFTicketPriceHeight;
                 var lightboxPriceMiddlePos = lightbox.find('.price').position().top + halfOfLightboxPriceHeight;
                 var difference = ticketPriceMiddlePos - lightboxPriceMiddlePos;
                 lightbox.attr('data-y-pos', difference);
-                lightbox.css('transform', 'translate:(-50%,'+ difference +'px)');
+                lightbox.css('transform', 'translate(-50%,'+ difference +'px)');
             }
 
         }
