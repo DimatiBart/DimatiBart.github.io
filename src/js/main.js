@@ -4,13 +4,11 @@ var mobileHelper = {
         y: null
     },
     _saveTouchPosition: function(event){
-        console.log("saveTouchPosition");
         var touch = event.originalEvent.touches[0];
         this.lastTouchPos.x = touch.pageX;
         this.lastTouchPos.y =  touch.pageY;
     },
     _deleteTicketHover: function () {
-        console.log(" deleteTicketHover");
         $('.ticket.hovered').removeClass('hovered');
         $('.date-cell.hovered').removeClass('hovered');
     },
@@ -50,7 +48,6 @@ var UIController = {
             $('body').addClass('touchDevice');
 
             $(document).on('touchstart', '.flex-results-wrapper .ticket',function(event){
-                console.log(" touchstart");
                 mobileHelper._saveTouchPosition(event);
                 mobileHelper._deleteTicketHover();
                 var target = $(event.currentTarget);
@@ -61,16 +58,13 @@ var UIController = {
 
             $(document).on('touchmove', '.ticket',function(event){
                 mobileHelper._saveTouchPosition(event);
-                console.log(" touchmove");
             });
 
             $(document).on('touchend', '.flex-results-wrapper  .ticket',function(event){
-                console.log(" touchmend start");
                 var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
                 if (!endTarget.hasClass('hovered')) {
                     mobileHelper._deleteTicketHover ();
                 }
-                console.log(" touchmend end");
             });
 
             $(document).on('click', '.ticket',function(event){
@@ -130,7 +124,6 @@ var UIController = {
         }.bind(this));
     },
     _showFlightLightbox: function(ticket){
-        console.log(" _showFlightLightbox");
         var lightbox = ticket.find('.lightbox');
         if (!lightbox.length) {
             return;
@@ -143,13 +136,11 @@ var UIController = {
         this._calculateLightBoxPosition(ticket, lightbox);
     },
     _hideFlightLightbox: function(){
-        console.log(" _hideFlightLightbox");
         //$('.lightbox:visible').fadeOut(50);
         $('.lightbox:visible').removeClass('active');
         this._hideBgLayer();
     },
     _showBgLayer: function() {
-        console.log(" showBgLayer");
         if (!$('.bgLayer').length) {
             var bgLayer = '<div class="bgLayer"></div>';
             $('html').addClass('noScroll');
@@ -159,7 +150,6 @@ var UIController = {
         }
     },
     _hideBgLayer: function(){
-        console.log("hideBgLayer");
         var bgLayer = $('.bgLayer');
         if (bgLayer.length) {
             $('html').removeClass('noScroll');
@@ -170,7 +160,6 @@ var UIController = {
         }
     },
     _calculateLightBoxPosition: function (ticket, lightbox){
-        console.log(" _calculateLightBoxPosition start");
         if (window.matchMedia("(min-width: 641px)").matches === false) {
             lightbox.css('transform', 'translate:(-50%,-50%)');
         }
@@ -190,7 +179,6 @@ var UIController = {
             }
 
         }
-        console.log(" _calculateLightBoxPosition end");
     }
 };
 
