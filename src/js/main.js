@@ -35,7 +35,7 @@ var mobileHelper = {
             }
         };
         if( isMobile.any() && window.matchMedia("(min-width: 768px)").matches ){
-            //$('head').append(metaTag);
+            $('head').append(metaTag);
         }
     },
     _isTouch: (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0))
@@ -166,7 +166,7 @@ var UIController = {
         else {
             var yPos = lightbox.attr('data-y-pos');
             if (yPos) {
-                lightbox.css('transform', 'translate(-50%,'+ yPos +'px)');
+                lightbox.css('transform', 'translate(-100%,'+ yPos +'px)');
             }
             else {
                 var halfOFTicketPriceHeight = 11;
@@ -175,7 +175,7 @@ var UIController = {
                 var lightboxPriceMiddlePos = lightbox.find('.price').position().top + halfOfLightboxPriceHeight;
                 var difference = ticketPriceMiddlePos - lightboxPriceMiddlePos;
                 lightbox.attr('data-y-pos', difference);
-                lightbox.css('transform', 'translate(-50%,'+ difference +'px)');
+                lightbox.css('transform', 'translate(-100%,'+ difference +'px)');
             }
 
         }
