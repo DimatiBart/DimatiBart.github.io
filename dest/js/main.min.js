@@ -35,7 +35,7 @@ var mobileHelper = {
             }
         };
         if( isMobile.any() && window.matchMedia("(min-width: 768px)").matches ){
-            $('head').append(metaTag);
+            //$('head').append(metaTag);
         }
     },
     _isTouch: (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0))
