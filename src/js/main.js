@@ -164,19 +164,19 @@ var UIController = {
             lightbox.css('transform', 'translate:(-50%,-50%)');
         }
         else {
-            var yPos = lightbox.attr('data-y-pos');
-            if (yPos) {
-                lightbox.css('transform', 'translate(-50%,'+ yPos +'px)');
-            }
-            else {
-                var halfOFTicketPriceHeight = 11;
-                var halfOfLightboxPriceHeight = 14;
-                var ticketPriceMiddlePos = ticket.find('.price').position().top +  halfOFTicketPriceHeight;
-                var lightboxPriceMiddlePos = lightbox.find('.price').position().top + halfOfLightboxPriceHeight;
-                var difference = ticketPriceMiddlePos - lightboxPriceMiddlePos;
-                lightbox.attr('data-y-pos', difference);
-                lightbox.css('transform', 'translate(-50%,'+ difference +'px)');
-            }
+            // var yPos = lightbox.attr('data-y-pos');
+            // if (yPos) {
+            //     lightbox.css('transform', 'translate(-50%,'+ yPos +'px)');
+            // }
+            // else {
+            //     var halfOFTicketPriceHeight = 11;
+            //     var halfOfLightboxPriceHeight = 14;
+            //     var ticketPriceMiddlePos = ticket.find('.price').position().top +  halfOFTicketPriceHeight;
+            //     var lightboxPriceMiddlePos = lightbox.find('.price').position().top + halfOfLightboxPriceHeight;
+            //     var difference = ticketPriceMiddlePos - lightboxPriceMiddlePos;
+            //     lightbox.attr('data-y-pos', difference);
+            //     lightbox.css('transform', 'translate(-50%,'+ difference +'px)');
+            // }
 
         }
     }

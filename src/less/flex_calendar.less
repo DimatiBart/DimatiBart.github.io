@@ -18,13 +18,12 @@ body {
   font: normal 12px/normal @titillium;
   color: @default-font-color;
   background: #fff;
-  width: 1200px;
 }
 
 .flex-main-container {
   width: 100%;
   @media only screen and (min-width: @mobile-bp) {
-    width: 1000px;
+    width: 960px;
   }
 }
 
@@ -209,7 +208,8 @@ body {
         position: absolute;
         top: -2px;
         z-index: 1;
-        transform: translate(-50%, 0);
+        right: 0;
+        //transform: translate(-50%, 0);
       }
 
     }
