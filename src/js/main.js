@@ -35,7 +35,7 @@ var mobileHelper = {
             }
         };
         if( isMobile.any() && window.matchMedia("(min-width: 768px)").matches ){
-            $('head').append(metaTag);
+            //$('head').append(metaTag);
         }
     },
     _isTouch: (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.MaxTouchPoints > 0))
@@ -51,7 +51,7 @@ var UIController = {
             this._showBgLayer();
         }
         //lightbox.fadeIn(350);
-        lightbox.addClass('active');
+        //lightbox.addClass('active');
         //this._calculateLightBoxPosition(ticket, lightbox);
     },
     _hideFlightLightbox: function(){
@@ -127,12 +127,12 @@ var UIController = {
         });
 
         $(document).on('click', '.ticket',function(event){
-            event.preventDefault();
-            var target = $(event.currentTarget);
-            if (!target.hasClass('no-results')){
-                UIController._hideFlightLightbox();
-                UIController._showFlightLightbox(target);
-            }
+            console.log('hey now');
+            // var target = $(event.currentTarget);
+            // if (!target.hasClass('no-results')){
+            //     UIController._hideFlightLightbox();
+            //     UIController._showFlightLightbox(target);
+            // }
         });
 
         $(document).on('click', '.ticket .lightbox',function(event){
