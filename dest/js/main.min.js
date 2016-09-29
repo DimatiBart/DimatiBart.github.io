@@ -47,25 +47,25 @@ var UIController = {
         if (mobileHelper._isTouch){
             $('body').addClass('touchDevice');
 
-            $(document).on('touchstart', '.flex-results-wrapper .ticket',function(event){
-                mobileHelper._saveTouchPosition(event);
-                mobileHelper._deleteTicketHover();
-                var target = $(event.currentTarget);
-                target.addClass('hovered');
-                var index = target.index() + 1;
-                $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
-            });
-
-            $(document).on('touchmove', '.ticket',function(event){
-                mobileHelper._saveTouchPosition(event);
-            });
-
-            $(document).on('touchend', '.flex-results-wrapper  .ticket',function(event){
-                var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
-                if (!endTarget.hasClass('hovered')) {
-                    mobileHelper._deleteTicketHover ();
-                }
-            });
+            // $(document).on('touchstart', '.flex-results-wrapper .ticket',function(event){
+            //     mobileHelper._saveTouchPosition(event);
+            //     mobileHelper._deleteTicketHover();
+            //     var target = $(event.currentTarget);
+            //     target.addClass('hovered');
+            //     var index = target.index() + 1;
+            //     $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
+            // });
+            //
+            // $(document).on('touchmove', '.ticket',function(event){
+            //     mobileHelper._saveTouchPosition(event);
+            // });
+            //
+            // $(document).on('touchend', '.flex-results-wrapper  .ticket',function(event){
+            //     var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
+            //     if (!endTarget.hasClass('hovered')) {
+            //         mobileHelper._deleteTicketHover ();
+            //     }
+            // });
 
             $(document).on('click', '.ticket',function(event){
                 event.preventDefault();
@@ -164,19 +164,19 @@ var UIController = {
             lightbox.css('transform', 'translate:(-50%,-50%)');
         }
         else {
-            // var yPos = lightbox.attr('data-y-pos');
-            // if (yPos) {
-            //     lightbox.css('transform', 'translate(-50%,'+ yPos +'px)');
-            // }
-            // else {
-            //     var halfOFTicketPriceHeight = 11;
-            //     var halfOfLightboxPriceHeight = 14;
-            //     var ticketPriceMiddlePos = ticket.find('.price').position().top +  halfOFTicketPriceHeight;
-            //     var lightboxPriceMiddlePos = lightbox.find('.price').position().top + halfOfLightboxPriceHeight;
-            //     var difference = ticketPriceMiddlePos - lightboxPriceMiddlePos;
-            //     lightbox.attr('data-y-pos', difference);
-            //     lightbox.css('transform', 'translate(-50%,'+ difference +'px)');
-            // }
+            var yPos = lightbox.attr('data-y-pos');
+            if (yPos) {
+                lightbox.css('transform', 'translate(-50%,'+ yPos +'px)');
+            }
+            else {
+                var halfOFTicketPriceHeight = 11;
+                var halfOfLightboxPriceHeight = 14;
+                var ticketPriceMiddlePos = ticket.find('.price').position().top +  halfOFTicketPriceHeight;
+                var lightboxPriceMiddlePos = lightbox.find('.price').position().top + halfOfLightboxPriceHeight;
+                var difference = ticketPriceMiddlePos - lightboxPriceMiddlePos;
+                lightbox.attr('data-y-pos', difference);
+                lightbox.css('transform', 'translate(-50%,'+ difference +'px)');
+            }
 
         }
     }
