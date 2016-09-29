@@ -70,10 +70,11 @@ var UIController = {
             $(document).on('click', '.ticket',function(event){
                 event.preventDefault();
                 var target = $(event.currentTarget);
+                this._hideFlightLightbox();
                 if (!target.hasClass('no-results')){
-                    this._hideFlightLightbox();
                     this._showFlightLightbox(target);
                 }
+
             }.bind(this));
 
             $(document).on('click', '.ticket .lightbox',function(event){
