@@ -47,26 +47,6 @@ var UIController = {
         if (mobileHelper._isTouch){
             $('body').addClass('touchDevice');
 
-            // $(document).on('touchstart', '.flex-results-wrapper .ticket',function(event){
-            //     mobileHelper._saveTouchPosition(event);
-            //     mobileHelper._deleteTicketHover();
-            //     var target = $(event.currentTarget);
-            //     target.addClass('hovered');
-            //     var index = target.index() + 1;
-            //     $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
-            // });
-            //
-            // $(document).on('touchmove', '.ticket',function(event){
-            //     mobileHelper._saveTouchPosition(event);
-            // });
-            //
-            // $(document).on('touchend', '.flex-results-wrapper  .ticket',function(event){
-            //     var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
-            //     if (!endTarget.hasClass('hovered')) {
-            //         mobileHelper._deleteTicketHover ();
-            //     }
-            // });
-
             $(document).on('click', '.ticket',function(event){
                 event.preventDefault();
                 var target = $(event.currentTarget);
