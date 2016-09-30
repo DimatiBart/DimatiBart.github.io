@@ -31,3 +31,33 @@
     text-align: right;
   }
 }
+
+
+.info-section {
+  font-size: 0;
+  margin-bottom: 5px;
+  padding: 10px;
+
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  .title {
+    font: 600 16px @titillium;
+    color: @dark-grey;
+    @media only screen and (min-width: @mobile-bp) {
+      width: 50%;
+      display: inline-block;
+    }
+  }
+
+  .priceHint {
+    font: 400 12px @titillium;
+    color: @mid-grey-sub-text;
+    @media only screen and (min-width: @mobile-bp) {
+      width: 50%;
+      display: inline-block;
+      text-align: right;
+    }
+  }
+}
