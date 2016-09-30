@@ -123,6 +123,10 @@ var UIController = {
             }
 
         }.bind(this));
+
+        $(document).on('click', '.searchBar', function(){
+            $('.searchWidgetBox').toggleClass('active');
+        });
     },
     _showFlightLightbox: function(ticket){
         var lightbox = ticket.find('.lightbox');

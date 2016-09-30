@@ -67,7 +67,7 @@
     }
   }
 
-  .edit-search-btn, .mobileFilterBtn {
+  .edit-search-btn {
     float: right;
     margin: 6px 10px 0 0;
     font: normal 12px/14px @titillium;
@@ -84,11 +84,20 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    min-width: 96px;
-    display: none;
+    min-width: 80px;
 
-    &.show-mobile {
+    .desktop{
+      display: none;
+      @media only screen and (min-width: @mobile-bp) {
+        display: block;
+      }
+    }
+
+    .mobile {
       display: block;
+      @media only screen and (min-width: @mobile-bp) {
+        display: none;
+      }
     }
 
     @media only screen and (min-width: @mobile-bp) {
@@ -100,31 +109,13 @@
       right: 0;
       top: 50%;
       margin-top: -17px;
+      min-width: 96px;
       &:hover {
         background-color: white;
         color: #0065bd;
       }
     }
 
-  }
-
-  .mobileFilterBtn {
-    display: block;
-    @media only screen and (min-width: @mobile-bp) {
-      display: none;
-    }
-
-    .closeFilterText {
-      display: none;
-    }
-    &.active {
-      .closeFilterText {
-        display: inline;
-      }
-      .openFilterText {
-        display: none;
-      }
-    }
   }
 
   .search-bar-infobox {
@@ -282,39 +273,16 @@
 
 /*
  ***************************************************
- * mobileFilterBtn
+ * searchWidgetBox
  ***************************************************
  */
-.mobileFilterBtn {
-  float: right;
-  margin: 6px 10px 0 0;
-  font: normal 12px/14px @title-font-family;
-  color: #fff;
-  background: transparent;
-  border: 1px solid #fff;
-  min-height: 34px;
-  padding: 6px 10px 5px 10px;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-sizing: border-box;
-  -moz-text-overflow: ellipsis;
-  -webkit-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  min-width: 96px;
-  @media only screen and (min-width: @mobile-bp) {
-    display: none;
-  }
-  .closeFilterText {
-    display: none;
-  }
+.searchWidgetBox {
+  background: #0065bd;
+  border-top: solid 1px white;
+  min-height: 100px; // TEMP
+  display: none;
+
   &.active {
-    .closeFilterText {
-      display: inline;
-    }
-    .openFilterText {
-      display: none;
-    }
+    display: block;
   }
 }
