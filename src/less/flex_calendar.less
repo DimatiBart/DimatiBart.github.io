@@ -7,6 +7,7 @@
 @import "flex_calendar_lightbox.less";
 @import "flex_calendar_mixins.less";
 @import "flex_calendar_general.less";
+@import "flex_calendar_summary.less";
 
 /*
  ***************************************************
@@ -88,7 +89,7 @@ body {
       &:after {
         content: '';
         display: block;
-        background: url('../../tempFiles/arrow.png');
+        background: url('../../../icons/flexCalendarPage/flex_spr.png') no-repeat 0 -25px;
         height: 10px;
         width: 20px;
         margin: 5px auto;
@@ -305,15 +306,41 @@ body {
         }
       }
       .logo-container {
-        background: url("../../tempFiles/no-results.png") center no-repeat;
+        box-sizing: border-box;
+        padding-top: 13px;
+        .logo {
+          background: url("../../../icons/flexCalendarPage/flex_spr.png") no-repeat 0 0;
+          width: 24px;
+          height: 20px;
+          margin: 0 auto;
+          @media @retina-bp {
+            background: url("../../../icons/flexCalendarPage/flex_spr_x2.png") no-repeat 0 0;
+            background-size: 24px 20px;
+          }
+        }
+
         width: 80px;
         height: 45px;
+
         @media only screen and (min-width: @mobile-bp) {
           display: block;
           width: 100%;
           margin: 0 0 10px 0;
         }
+
       }
     }
+  }
+}
+
+.clearfix {
+  &:after {
+    content: "";
+    display: block;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
   }
 }

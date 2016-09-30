@@ -20,12 +20,12 @@ gulp.task('buildStyles', function(){
             cascade: false
         }))
         .pipe(rename('main.min.css'))
-        .pipe(gulp.dest('./dest/css/'));
+        .pipe(gulp.dest('./dest/flexCalendarPage/css/'));
 });
 gulp.task('buildJS', function() {
     gulp.src("./src/js/*.js")
         .pipe(concat('main.min.js'))
-        .pipe(gulp.dest('./dest/js/'));
+        .pipe(gulp.dest('./dest/flexCalendarPage/js/'));
 });
 
 gulp.task('watch', function(){

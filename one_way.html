@@ -3,17 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>One way flex calendar proto</title>
-    <link rel="stylesheet" href="./dest/css/main.min.css">
+    <link rel="stylesheet" href="./dest/flexCalendarPage/css/main.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <script defer src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script defer src="./dest/js/main.min.js"></script>
+    <script defer src="./dest/flexCalendarPage/js/main.min.js"></script>
 </head>
 <body>
     <main class="flex-main-container">
         <div class="searchBarContainer">
-            <section class="searchBar">
-
-            </section>
+            <article class="searchBar">
+                <div class="info-wrapper">
+                    <button class="search-btn">
+                        <span class="sprite-search"></span>
+                    </button>
+                    <div class="search-bar-infobox nowrap">
+                        <span class="origin">LON</span>
+                        <div class="sprite-two-way-arrow"></div>
+                        <span class="destination">BKK</span>
+                    </div>
+                    <div class="search-bar-infobox table-icon-container">
+                        <div class="sprite-calendar table-icon"></div>
+                        <span class="from">14 Oct 16</span>
+                    </div>
+                    <div class="search-bar-infobox mobile-hidden-element table-icon-container travelers-wrapper">
+                        <div class="sprite-travellers table-icon"></div>
+                        <p class="travellers-details">
+                            1 Youth</p>
+                    </div>
+                    <div class="search-bar-infobox mobile-hidden-element">
+                        <p class="flight-type">Return Flight</p>
+                    </div>
+                </div>
+                <button class="edit-search-btn">Edit Search</button>
+                <button class="mobileFilterBtn" id="mobile_filter_btn">
+                    <span class="openFilterText">Filter</span>
+                    <span class="closeFilterText">Close filters</span>
+                </button>
+            </article>
             <section class="searchWidgetBox">
 
             </section>
@@ -296,7 +322,7 @@
 
                     <article class="ticket no-results">
                         <div class="logo-container">
-
+                            <div class="logo"></div>
                         </div>
                         <div class="flight-info">
                             <p class="date">Mon, 27 Jun</p>
