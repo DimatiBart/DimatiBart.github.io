@@ -1,0 +1,2101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>One way flex calendar proto</title>
+    <link rel="stylesheet" href="./dest/flexCalendarPage/css/main.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <script defer src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script defer src="./dest/flexCalendarPage/js/main.min.js"></script>
+</head>
+<body>
+<main class="flex-main-container">
+    <div class="searchBarContainer">
+        <article class="searchBar">
+            <div class="info-wrapper">
+                <button class="search-btn">
+                    <span class="sprite-search"></span>
+                </button>
+                <div class="search-bar-infobox nowrap">
+                    <span class="origin">LON</span>
+                    <div class="sprite-two-way-arrow"></div>
+                    <span class="destination">BKK</span>
+                </div>
+                <div class="search-bar-infobox table-icon-container">
+                    <div class="sprite-calendar table-icon"></div>
+                    <span class="from">14 Oct 16</span>
+                </div>
+                <div class="search-bar-infobox mobile-hidden-element table-icon-container travelers-wrapper">
+                    <div class="sprite-travellers table-icon"></div>
+                    <p class="travellers-details">
+                        1 Youth</p>
+                </div>
+                <div class="search-bar-infobox mobile-hidden-element">
+                    <p class="flight-type">Return Flight</p>
+                </div>
+            </div>
+            <button class="edit-search-btn">
+                <span class="desktop">Edit Search</span>
+                <span class="mobile">Edit</span>
+            </button>
+        </article>
+        <section class="searchWidgetBox">
+
+        </section>
+    </div>
+    <div class="feature-container">
+        <h6 class="preferred-header">Your preferred flight</h6>
+        <article class="ticket preferred">
+            <div class="logo-container">
+                <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+            </div>
+            <div class="flight-info">
+                <p class="date">Fri, 01 Jul - Thi, 21 Jul</p>
+                <p class="airway">British Airways</p>
+            </div>
+            <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                <div class="tag-wrapper">
+                    <span class="tag seats-indicator">7 seats left!</span>
+                </div>
+            </div>
+        </article>
+        <div class="cheapest-header-wrapper">
+            <h6 class="cheapest-header">Cheapest flight</h6>
+            <div class="tag feature">Cheapest</div>
+        </div>
+        <article class="ticket cheapest">
+            <div class="logo-container">
+                <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+            </div>
+            <div class="flight-info">
+                <p class="date">Fri, 01 Jul - Thi, 21 Jul</p>
+                <p class="airway">British Airways</p>
+            </div>
+            <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+            </div>
+        </article>
+    </div>
+    <section class="info-section">
+        <h3 class="title">Showing +/- 3 days on your flexible search</h3>
+        <span class="priceHint">All prices are per person incl. taxes & fees</span>
+    </section>
+    <section class="flex-container return">
+        <div class="flex-results-header">
+            <div class="airport-codes">
+                <p class="from">LGW</p>
+                <p class="to">MIA</p>
+            </div>
+            <div class="return-header-container">
+                <header class="return-header">Return</header>
+                <div class="dates-container">
+                    <div class="date-cell">
+                        <p class="day-name">Mon</p>
+                        <p class="day-number">27</p>
+                        <p class="month">Jun</p>
+                    </div>
+                    <div class="date-cell">
+                        <p class="day-name">Mue</p>
+                        <p class="day-number">28</p>
+                        <p class="month">Jun</p>
+                    </div>
+                    <div class="date-cell">
+                        <p class="day-name">Wed</p>
+                        <p class="day-number">29</p>
+                        <p class="month">Jun</p>
+                    </div>
+                    <div class="date-cell">
+                        <p class="day-name">Thu</p>
+                        <p class="day-number">30</p>
+                        <p class="month">Jun</p>
+                    </div>
+                    <div class="date-cell">
+                        <p class="day-name">Fri</p>
+                        <p class="day-number">01</p>
+                        <p class="month">Jul</p>
+                    </div>
+                    <div class="date-cell">
+                        <p class="day-name">Sat</p>
+                        <p class="day-number">02</p>
+                        <p class="month">Jul</p>
+                    </div>
+                    <div class="date-cell">
+                        <p class="day-name">Sun</p>
+                        <p class="day-number">03</p>
+                        <p class="month">Jul</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="depart-header-container">
+            <header class="depart-header">
+                <span class="title">Departure</span>
+            </header>
+            <div class="dates-container">
+                <div class="date-cell">
+                    <p class="day-name">Mon</p>
+                    <p class="day-number">27</p>
+                    <p class="month">Jun</p>
+                </div>
+                <div class="date-cell">
+                    <p class="day-name">Mue</p>
+                    <p class="day-number">28</p>
+                    <p class="month">Jun</p>
+                </div>
+                <div class="date-cell">
+                    <p class="day-name">Wed</p>
+                    <p class="day-number">29</p>
+                    <p class="month">Jun</p>
+                </div>
+                <div class="date-cell">
+                    <p class="day-name">Thu</p>
+                    <p class="day-number">30</p>
+                    <p class="month">Jun</p>
+                </div>
+                <div class="date-cell">
+                    <p class="day-name">Fri</p>
+                    <p class="day-number">01</p>
+                    <p class="month">Jul</p>
+                </div>
+                <div class="date-cell">
+                    <p class="day-name">Sat</p>
+                    <p class="day-number">02</p>
+                    <p class="month">Jul</p>
+                </div>
+                <div class="date-cell">
+                    <p class="day-name">Sun</p>
+                    <p class="day-number">03</p>
+                    <p class="month">Jul</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-results-wrapper">
+            <div class="flex-results-row">
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Fri, 01 Jul</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature cheapest">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <span class="currency">AUD</span>
+                            <strong>672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket no-results">
+                    <div class="logo-container">
+                        <div class="logo"></div>
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">No Flights</p>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+            </div>
+            <div class="flex-results-row">
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Fri, 01 Jul</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature cheapest">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <span class="currency">AUD</span>
+                            <strong>672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket no-results">
+                    <div class="logo-container">
+                        <div class="logo"></div>
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">No Flights</p>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+            </div>
+            <div class="flex-results-row">
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Fri, 01 Jul</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature cheapest">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <span class="currency">AUD</span>
+                            <strong>672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket no-results">
+                    <div class="logo-container">
+                        <div class="logo"></div>
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">No Flights</p>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+            </div>
+            <div class="flex-results-row">
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Fri, 01 Jul</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature cheapest">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <span class="currency">AUD</span>
+                            <strong>672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket no-results">
+                    <div class="logo-container">
+                        <div class="logo"></div>
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">No Flights</p>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+            </div>
+            <div class="flex-results-row">
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Fri, 01 Jul</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature cheapest">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <span class="currency">AUD</span>
+                            <strong>672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket no-results">
+                    <div class="logo-container">
+                        <div class="logo"></div>
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">No Flights</p>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+            </div>
+            <div class="flex-results-row">
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Fri, 01 Jul</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature cheapest">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <span class="currency">AUD</span>
+                            <strong>672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket no-results">
+                    <div class="logo-container">
+                        <div class="logo"></div>
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">No Flights</p>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+            </div>
+            <div class="flex-results-row">
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Fri, 01 Jul</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature cheapest">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <strong>£672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket cheapest">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Thu, 30 Jun</p>
+                        <p class="airway">Transcaraibes Air International/Air Tropical</p>
+                    </div>
+                    <div class="price-info">
+                        <div class="tag-wrapper">
+                            <span class="tag feature">cheapest</span>
+                        </div>
+
+                        <span class="price">
+                            <span class="currency">AUD</span>
+                            <strong>672.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                        <div class="tag-wrapper">
+                            <span class="tag seats-indicator">7 seats left!</span>
+                        </div>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="ticket no-results">
+                    <div class="logo-container">
+                        <div class="logo"></div>
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">No Flights</p>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+                <article class="ticket">
+                    <div class="logo-container">
+                        <img class="logo" src="tempFiles/airline-logo.png" alt="JetBlue Airway logo">
+                    </div>
+                    <div class="flight-info">
+                        <p class="date">Mon, 27 Jun</p>
+                        <p class="airway">British Airways</p>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">
+                            <strong>£465.</strong>
+                            <span class="sub">99</span>
+                        </span>
+                    </div>
+                    <div class="lightbox">
+                        <span class="lightboxCloseBtn"></span>
+                        <div class="tag feature">
+                            Cheapest
+                        </div>
+                        <p class="prices-from-text hint">
+                            Prices from
+                        </p>
+                        <p class="price">
+                            <strong>465.</strong>
+                            <span class="sub">99</span>
+                        </p>
+                        <p class="tag seats-indicator">3 Seats left!</p>
+                        <p class="hint dates">Min, 18 May - Tue, 31 May</p>
+                        <div class="lightbox-logo">
+                            <img src="tempFiles/little-logo.png" alt="Airway logo">
+                        </div>
+                        <p class="airway hint">Transcaraibes Air International/Air Tropical</p>
+                        <button class="btn preloader flightSelectBtn">
+                            <span class="text">Select</span>
+                            <div class="loader">
+                                <div class="arc"></div>
+                            </div>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="dates-links-container">
+        <div class="earlier">
+            <a href="#" >< earlier dates</a>
+        </div>
+        <div class="later">
+            <a href="#">later dates > </a>
+        </div>
+
+
+    </footer>
+</main>
+</body>
+</html>

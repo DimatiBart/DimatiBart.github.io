@@ -47,7 +47,7 @@ var UIController = {
         if (mobileHelper._isTouch){
             $('body').addClass('touchDevice');
 
-            $(document).on('touchstart', '.flex-results-wrapper .ticket',function(event){
+            $(document).on('touchstart', '.flex-results-row .ticket',function(event){
                 mobileHelper._saveTouchPosition(event);
                 mobileHelper._deleteTicketHover();
                 var target = $(event.currentTarget);
@@ -60,7 +60,7 @@ var UIController = {
                 mobileHelper._saveTouchPosition(event);
             });
 
-            $(document).on('touchend', '.flex-results-wrapper  .ticket',function(event){
+            $(document).on('touchend', '.flex-results-row  .ticket',function(event){
                 var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
                 if (!endTarget.hasClass('hovered')) {
                     mobileHelper._deleteTicketHover ();
@@ -82,7 +82,7 @@ var UIController = {
             });
         }
         else {
-            $(document).on('mouseenter', '.flex-results-wrapper  .ticket',function(event){
+            $(document).on('mouseenter', '.flex-results-row  .ticket',function(event){
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
                     var target = $(event.currentTarget);
                     var index = target.index() + 1;
@@ -91,7 +91,7 @@ var UIController = {
                 }
             }.bind(this));
 
-            $(document).on('mouseleave', '.flex-results-wrapper .ticket',function(){
+            $(document).on('mouseleave', '.flex-results-row .ticket',function(){
                 $('.date-cell.hovered').removeClass('hovered');
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
                     $('.date-cell.hovered').removeClass('hovered');

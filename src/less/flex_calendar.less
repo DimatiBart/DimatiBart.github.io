@@ -8,6 +8,7 @@
 @import "flex_calendar_mixins.less";
 @import "flex_calendar_general.less";
 @import "flex_calendar_summary.less";
+@import "flex_calendar_return.less";
 
 /*
  ***************************************************
@@ -43,104 +44,107 @@ body {
 .flex-results-header {
   display: flex;
   width: 100%;
+}
 
-  .depart-header-container {
-    width: 100%;
-    @media only screen and (min-width: @mobile-bp) {
-      border-bottom: 1px solid #dadada;
-    }
-  }
-
-  .depart-header {
-    box-sizing: border-box;
-    background: @bondi-blue;
-    color: white;
-    text-align: center;
-    font-size: 18px;
-    min-height: 36px;
-    padding: 3px 10px;
-    font-weight: 600;
-    @media only screen and (min-width: @mobile-bp) {
-      min-height: 40px;
-      padding: 5px 10px;
-    }
-  }
-
-  .airport-codes {
-    box-sizing: border-box;
-    display: none;
-    background-color: white;
-    border: solid 1px @grey-border;
-    border-right: 0;
-    padding: 20px 5px 0 5px;
-    text-align: center;
-    font-weight: 600;
-    @media only screen and (min-width: @mobile-bp) {
-      display: inline-block;
-      flex-basis: 100px;
-      flex-shrink: 0;
-    }
-
-    .from, .to {
-      font-size: 14px;
-    }
-
-    .from {
-      &:after {
-        content: '';
-        display: block;
-        background: url('../../../icons/flexCalendarPage/flex_spr.png') no-repeat 0 -25px;
-        height: 10px;
-        width: 20px;
-        margin: 5px auto;
-      }
-    }
-
-  }
-
-  .dates-container {
-    display: none;
-    @media only screen and (min-width: @mobile-bp) {
-      display: table;
-      width: 100%;
-      height: calc(~"100% - 40px");
-      border-collapse: collapse;
-      box-sizing: border-box;
-    }
-
-    .date-cell {
-      display: table-cell;
-      font-size: 0;
-      text-align: center ;
-      border: solid 1px @grey-border;
-      border-bottom-color: transparent;
-      width: 118px;
-
-      @media only screen and (min-width: @mobile-bp) {
-        padding-bottom: 5px;
-      }
-
-      &.hovered {
-        background-color:  rgba(0, 101, 189, 0.1);
-      }
-    }
-
-    .day-name, .month {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .day-number {
-      font-size: 20px;
-      font-weight: bold;
-      margin: -9px 0;
-    }
-
+.depart-header-container, .return-header-container {
+  width: 100%;
+  @media only screen and (min-width: @mobile-bp) {
+    border-bottom: 1px solid #dadada;
   }
 }
 
-.flex-results-wrapper {
+.depart-header, .return-header {
+  box-sizing: border-box;
+  background: @bondi-blue;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  min-height: 36px;
+  padding: 3px 10px;
+  font-weight: 600;
+  @media only screen and (min-width: @mobile-bp) {
+    min-height: 40px;
+    padding: 5px 10px;
+  }
+}
 
+.airport-codes {
+  box-sizing: border-box;
+  display: none;
+  background-color: white;
+  border: solid 1px @grey-border;
+  border-right: 0;
+  padding: 20px 5px 0 5px;
+  text-align: center;
+  font-weight: 600;
+  @media only screen and (min-width: @mobile-bp) {
+    display: inline-block;
+    flex-basis: 100px;
+    flex-shrink: 0;
+  }
+
+  .from, .to {
+    font-size: 14px;
+  }
+
+  .from {
+    &:after {
+      content: '';
+      display: block;
+      background: url('../../../icons/flexCalendarPage/flex_spr.png') no-repeat 0 -25px;
+      height: 10px;
+      width: 20px;
+      margin: 5px auto;
+    }
+  }
+
+}
+
+.dates-container {
+  display: none;
+  @media only screen and (min-width: @mobile-bp) {
+    display: table;
+    width: 100%;
+    height: calc(~"100% - 40px");
+    border-collapse: collapse;
+    box-sizing: border-box;
+  }
+
+  .date-cell {
+    display: table-cell;
+    font-size: 0;
+    text-align: center ;
+    border: solid 1px @grey-border;
+    border-bottom-color: transparent;
+    width: 118px;
+
+    @media only screen and (min-width: @mobile-bp) {
+      padding-bottom: 5px;
+    }
+
+    &.hovered {
+      background-color:  rgba(0, 101, 189, 0.1);
+    }
+  }
+
+  .day-name, .month {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .day-number {
+    font-size: 20px;
+    font-weight: bold;
+    margin: -9px 0;
+  }
+
+}
+
+.flex-results-wrapper {
+  display: table;
+  margin-left: 100px;
+  width: calc(~"100% - 101px");
+  border-collapse: collapse;
 }
 
 .price {
@@ -162,14 +166,13 @@ body {
 }
 
 
-.flex-results {
+.flex-results-row{
   width: 100%;
 
   @media only screen and (min-width: @mobile-bp) {
-    width: calc(~"100% - 100px");
-    margin-left: 100px;
     border-collapse: collapse;
     box-sizing: border-box;
+    display: table-row;
   }
 
   .tag {

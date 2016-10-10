@@ -1,0 +1,35 @@
+.flex-container.return {
+  .flex-results-wrapper {
+    .clearfix;
+  }
+
+  .depart-header-container {
+    float: left;
+    display: flex;
+    width: 100px;
+    flex-direction: row;
+
+    .depart-header {
+      width: 40px;
+      position: relative;
+      .title {
+        transform: rotate(-90deg);
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -50%;
+      }
+    }
+
+    .dates-container {
+      display: flex;
+      flex-direction: column;
+      width: 60px;
+      .date-cell {
+        width: auto;
+        padding: 20px 0;
+        border-right: none;
+      }
+    }
+  }
+}
