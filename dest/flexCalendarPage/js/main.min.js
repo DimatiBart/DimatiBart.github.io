@@ -42,7 +42,9 @@ var mobileHelper = {
 };
 
 var UIController = {
+    isReturn: null,
     initUI: function(mobileHelper){
+        this.isReturn = $('.flex-container').hasClass('return');
         mobileHelper._tabletDeviceCheck();
         if (mobileHelper._isTouch){
             $('body').addClass('touchDevice');
@@ -52,9 +54,8 @@ var UIController = {
                 mobileHelper._deleteTicketHover();
                 var target = $(event.currentTarget);
                 target.addClass('hovered');
-                var index = target.index() + 1;
-                $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
-            });
+                this._hoverDatesCell(target);
+            }.bind(this));
 
             $(document).on('touchmove', '.ticket',function(event){
                 mobileHelper._saveTouchPosition(event);
@@ -85,8 +86,7 @@ var UIController = {
             $(document).on('mouseenter', '.flex-results-row  .ticket',function(event){
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
                     var target = $(event.currentTarget);
-                    var index = target.index() + 1;
-                    $('.dates-container .date-cell:nth-child('+ index +')').addClass('hovered');
+                    this._hoverDatesCell(target);
                     this._showFlightLightbox(target);
                 }
             }.bind(this));
@@ -94,7 +94,6 @@ var UIController = {
             $(document).on('mouseleave', '.flex-results-row .ticket',function(){
                 $('.date-cell.hovered').removeClass('hovered');
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
-                    $('.date-cell.hovered').removeClass('hovered');
                     this._hideFlightLightbox();
                 }
             }.bind(this));
@@ -127,6 +126,17 @@ var UIController = {
         $(document).on('click', '.searchBar', function(){
             $('.searchWidgetBox').toggleClass('active');
         });
+    },
+    _hoverDatesCell: function(target) {
+        var columnIndex = target.index() + 1;
+        if (this.isReturn) {
+            var rowIndex = target.closest('.flex-results-row').index() + 1;
+            $('.return-header-container .date-cell:nth-child('+ columnIndex +')').addClass('hovered');
+            $('.depart-header-container .date-cell:nth-child('+ rowIndex  +')').addClass('hovered');
+        }
+        else {
+            $('.depart-header-container .date-cell:nth-child('+ columnIndex +')').addClass('hovered');
+        }
     },
     _showFlightLightbox: function(ticket){
         var lightbox = ticket.find('.lightbox');

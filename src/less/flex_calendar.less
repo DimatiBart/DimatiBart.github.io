@@ -141,10 +141,12 @@ body {
 }
 
 .flex-results-wrapper {
-  display: table;
-  margin-left: 100px;
-  width: calc(~"100% - 101px");
-  border-collapse: collapse;
+  @media only screen and (min-width: @mobile-bp) {
+    display: table;
+    margin-left: 100px;
+    width: calc(~"100% - 101px");
+    border-collapse: collapse;
+  }
 }
 
 .price {
