@@ -24,9 +24,11 @@ body {
 }
 
 .flex-main-container {
+  display: block;
   width: 100%;
   @media only screen and (min-width: @mobile-bp) {
     width: 960px;
+    margin: 0 auto;
   }
 }
 
@@ -80,6 +82,7 @@ body {
   @media only screen and (min-width: @mobile-bp) {
     display: inline-block;
     flex-basis: 100px;
+    max-width: 100px;
     flex-shrink: 0;
   }
 
