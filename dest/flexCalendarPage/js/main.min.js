@@ -155,8 +155,15 @@ var UIController = {
     },
     _hideFlightLightbox: function(){
         //$('.lightbox:visible').fadeOut(50);
-        $('.lightbox:visible').removeClass('active');
-        this._hideBgLayer();
+        var lightbox = $('.lightbox:visible');
+        if (lightbox.length) {
+            lightbox.removeClass('active');
+            this._hideBgLayer();
+
+            if (window.matchMedia("(min-width: 641px)").matches === false && mobileHelper._isTouch) {
+                lightbox.closest('.ticket').addClass('hovered');
+            }
+        }
     },
     _showBgLayer: function() {
         if (!$('.bgLayer').length) {
