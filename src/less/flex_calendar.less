@@ -43,15 +43,12 @@ body {
   }
 }
 
-.flex-results-header {
-  display: flex;
-  width: 100%;
-}
-
 .depart-header-container, .return-header-container {
   width: 100%;
+  display: none;
   @media only screen and (min-width: @mobile-bp) {
     border-bottom: 1px solid #dadada;
+    display: table-row;
   }
 }
 
@@ -76,14 +73,11 @@ body {
   background-color: white;
   border: solid 1px @grey-border;
   border-right: 0;
-  padding: 20px 5px 0 5px;
   text-align: center;
   font-weight: 600;
   @media only screen and (min-width: @mobile-bp) {
-    display: inline-block;
-    flex-basis: 100px;
-    max-width: 100px;
-    flex-shrink: 0;
+    display: table-cell;
+    width: 100px;
   }
 
   .from, .to {
@@ -106,28 +100,23 @@ body {
 .dates-container {
   display: none;
   @media only screen and (min-width: @mobile-bp) {
-    display: table;
-    width: 100%;
-    height: calc(~"100% - 40px");
-    border-collapse: collapse;
-    box-sizing: border-box;
+    display: table-row;
+  }
+}
+
+.date-cell {
+  display: table-cell;
+  font-size: 0;
+  text-align: center ;
+  border: solid 1px @grey-border;
+  width: 118px;
+
+  @media only screen and (min-width: @mobile-bp) {
+    padding-bottom: 5px;
   }
 
-  .date-cell {
-    display: table-cell;
-    font-size: 0;
-    text-align: center ;
-    border: solid 1px @grey-border;
-    border-bottom-color: transparent;
-    width: 118px;
-
-    @media only screen and (min-width: @mobile-bp) {
-      padding-bottom: 5px;
-    }
-
-    &.hovered {
-      background-color:  rgba(0, 101, 189, 0.1);
-    }
+  &.hovered {
+    background-color:  rgba(0, 101, 189, 0.1);
   }
 
   .day-name, .month {
@@ -140,14 +129,11 @@ body {
     font-weight: bold;
     margin: -9px 0;
   }
-
 }
 
-.flex-results-wrapper {
+.flex-results-table {
+  width: 100%;
   @media only screen and (min-width: @mobile-bp) {
-    display: table;
-    margin-left: 100px;
-    width: calc(~"100% - 101px");
     border-collapse: collapse;
   }
 }
@@ -262,7 +248,7 @@ body {
       width: calc(~"50% - 57px");
 
       .date {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 700;
         margin-bottom: 15px;
         letter-spacing: .1px;

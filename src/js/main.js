@@ -128,15 +128,18 @@ var UIController = {
         });
     },
     _hoverDatesCell: function(target) {
-        var columnIndex = target.index() + 1;
-        if (this.isReturn) {
-            var rowIndex = target.closest('.flex-results-row').index() + 1;
-            $('.return-header-container .date-cell:nth-child('+ columnIndex +')').addClass('hovered');
-            $('.depart-header-container .date-cell:nth-child('+ rowIndex  +')').addClass('hovered');
+        var columnIndex;
+        var trContainsHeader = target.closest('.flex-results-row').hasClass('contains-header');
+        if (trContainsHeader){
+            columnIndex = target.index() - 1;
         }
         else {
-            $('.depart-header-container .date-cell:nth-child('+ columnIndex +')').addClass('hovered');
+            columnIndex = target.index();
         }
+        if (this.isReturn) {
+            target.siblings('.date-cell').addClass('hovered');
+        }
+        $('.dates-container .date-cell:nth-child('+ columnIndex +')').addClass('hovered');
     },
     _showFlightLightbox: function(ticket){
         var lightbox = ticket.find('.lightbox');
