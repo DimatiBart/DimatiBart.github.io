@@ -8,9 +8,25 @@
       border: 1px solid #dadada;
       height: 115px;
       padding: 7px;
+      text-align: center;
+      min-width: 76px;
 
       .price-info {
         width: auto;
+        height: auto;
+        text-align: center;
+      }
+    }
+
+    .tag {
+      &.seats-indicator {
+        margin-top: 10px;
+      }
+      &.feature {
+        padding: 2px 3px;
+        @media only screen and (min-width: @mobile-bp) {
+          padding: 2px 10px;
+        }
       }
     }
   }
@@ -20,7 +36,7 @@
   }
 
   .return-header {
-    width: calc(~"100% - 70px");
+    width: calc(~"100% - 71px");
     display: inline-block;
   }
 
