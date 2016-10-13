@@ -1355,20 +1355,20 @@
         }
         .depart {
             float: left;
-            max-width: 69px;
         }
     </style>
     <script>
-        var swiper = new Swiper('.swiper-container', {
-            scrollbar: '.swiper-scrollbar',
-            scrollbarHide: true,
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            nextButton: '.swiper-next',
-            prevButton: '.swiper-prev'
-        });
-        swiper.update(true);
-        swiper.slideNext(false);
+       $(document).ready(function(){
+           var swiper = new Swiper('.swiper-container', {
+               scrollbar: '.swiper-scrollbar',
+               scrollbarHide: true,
+               slidesPerView: 'auto',
+               centeredSlides: true,
+               nextButton: '.swiper-next',
+               prevButton: '.swiper-prev'
+           });
+           swiper.slideNext(false);
+       })
     </script>
 </body>
 </html>
