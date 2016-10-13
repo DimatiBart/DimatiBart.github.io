@@ -6,6 +6,8 @@
     .ticket {
       display: table-cell;
       border: 1px solid #dadada;
+      height: 115px;
+      padding: 7px;
 
       .price-info {
         width: auto;
@@ -13,10 +15,22 @@
     }
   }
 
+  .depart-header, .return-header {
+    min-height: 35px;
+  }
+
+  .return-header {
+    width: calc(~"100% - 70px");
+    display: inline-block;
+  }
+
   .depart-header {
     .title {
       transform: rotate(-90deg);
-      width: 20px;
+      width: 15px;
+      @media only screen and (min-width: @mobile-bp) {
+        width: 20px;
+      }
     }
   }
   .depart-header-container, .return-header-container, .dates-container {
@@ -31,5 +45,26 @@
   .swiper-prev {
     float: left;
     cursor: pointer;
+  }
+
+  .depart{
+    .airport-codes {
+      display: table-cell;
+      height: 91px;
+    }
+
+    .date-cell {
+      //width: auto;
+      width: 34px;
+      height: 114px;
+    }
+  }
+
+  .q {
+    width: 33.33%;
+    .date-cell {
+      border-right-color: transparent;
+      border-left-color: transparent;
+    }
   }
 }

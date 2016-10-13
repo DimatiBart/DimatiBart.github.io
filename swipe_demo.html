@@ -16,14 +16,17 @@
 <body>
     <main class="flex-main-container">
         <section class="flex-container return">
-            <header class="return-header">
-                <div class="swiper-next">&#9654;</div>
-                Return
-                <div class="swiper-prev">&#9664;</div>
-            </header>
             <table class="depart">
-                <tr class="dates-container">
-
+                <tr>
+                    <td colspan="2" class="airport-codes">
+                        <p class="from">LGW</p>
+                        <p class="to">MIA</p>
+                    </td>
+                </tr>
+                <tr class="dates-container contains-header">
+                    <td rowspan="7" class="depart-header">
+                        <div class="title">Departure</div>
+                    </td>
                     <td class="date-cell">
                         <p class="day-name">Thu</p>
                         <p class="day-number">30</p>
@@ -86,6 +89,11 @@
 
                 </tr>
             </table>
+            <header class="return-header">
+                <div class="swiper-next">&#9654;</div>
+                Return
+                <div class="swiper-prev">&#9664;</div>
+            </header>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <table class="swiper-slide">
@@ -1125,13 +1133,10 @@
     <style>
         .swiper-container {
             margin: 0;
-            width: calc(100% - 120px);
+            width: calc(100% - 70px);
         }
         .swiper-slide {
             width: 100%;
-        }
-        .q {
-            width: 33%;
         }
         .depart {
             float: left;
