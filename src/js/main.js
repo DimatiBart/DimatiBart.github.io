@@ -48,12 +48,39 @@ var UIController = {
         this.isReturn = $('.flex-container').hasClass('return');
         if (this.isReturn){
             this.initSwiper();
+
+            $(document).on('click', '.swiper .ticket',function(event){
+                var target = $(event.currentTarget);
+                var slide = target.closest('.swiper-slide');
+                var columnIndex, rowIndex;
+                if (slide.hasClass('second')) {
+                    columnIndex = 3; //
+                }
+                else {
+
+                    if (slide.hasClass('third')) {
+                        columnIndex = target.index() + 3;
+                    }
+                    else {
+                        columnIndex = target.index() - 1;
+                    }
+                }
+                rowIndex = target.closest('.flex-results-row').index() - 1;
+
+                this._hoverSwiperDatesCell(target, columnIndex, rowIndex);
+                var desktopTable = $('.flex-results-table');
+
+                var lightbox = $('.flex-results-table .flex-results-row').eq(rowIndex).find('.ticket').eq(columnIndex).find('.lightbox').clone();
+                $('body').append(lightbox);
+                lightbox.attr('style', '').addClass('active');
+                this._showBgLayer();
+            }.bind(this));
         }
         mobileHelper._tabletDeviceCheck();
         if (mobileHelper._isTouch){
             $('body').addClass('touchDevice');
 
-            $(document).on('touchstart', '.flex-results-row .ticket',function(event){
+            $(document).on('touchstart', '.flex-results-table .flex-results-row .ticket',function(event){
                 mobileHelper._saveTouchPosition(event);
                 mobileHelper._deleteTicketHover();
                 var target = $(event.currentTarget);
@@ -61,18 +88,18 @@ var UIController = {
                 this._hoverDatesCell(target);
             }.bind(this));
 
-            $(document).on('touchmove', '.ticket',function(event){
+            $(document).on('touchmove', '.flex-results-table .ticket',function(event){
                 mobileHelper._saveTouchPosition(event);
             });
 
-            $(document).on('touchend', '.flex-results-row  .ticket',function(event){
+            $(document).on('touchend', '.flex-results-table .flex-results-row  .ticket',function(event){
                 var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
                 if (!endTarget.hasClass('hovered')) {
                     mobileHelper._deleteTicketHover ();
                 }
             });
 
-            $(document).on('click', '.ticket',function(event){
+            $(document).on('click', '.flex-results-table .ticket',function(event){
                 event.preventDefault();
                 var target = $(event.currentTarget);
                 this._hideFlightLightbox();
@@ -82,12 +109,12 @@ var UIController = {
 
             }.bind(this));
 
-            $(document).on('click', '.ticket .lightbox',function(event){
+            $(document).on('click', '.flex-results-table .ticket .lightbox',function(event){
                 event.stopPropagation();
             });
         }
         else {
-            $(document).on('mouseenter', '.flex-results-row  .ticket',function(event){
+            $(document).on('mouseenter', '.flex-results-table .flex-results-row  .ticket',function(event){
                 $('.date-cell.hovered').removeClass('hovered');
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
                     var target = $(event.currentTarget);
@@ -96,13 +123,13 @@ var UIController = {
                 }
             }.bind(this));
 
-            $(document).on('mouseleave', '.flex-results-row .ticket',function(){
+            $(document).on('mouseleave', '.flex-results-table .flex-results-row .ticket',function(){
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
                     this._hideFlightLightbox();
                 }
             }.bind(this));
 
-            $(document).on('click', '.ticket',function(event){
+            $(document).on('click', '.flex-results-table .ticket',function(event){
                 if (window.matchMedia("(min-width: 641px)").matches === false) {
                     this._showFlightLightbox($(event.currentTarget))
                 }
@@ -220,6 +247,14 @@ var UIController = {
             nextButton: '.swiper-next',
             prevButton: '.swiper-prev'
         });
+    },
+    _hoverSwiperDatesCell: function(target, columnIndex, rowIndex){
+        var swiperContainer = $('.swiper');
+        var departDatesTable = swiperContainer.find('.depart-dates-table');
+        swiperContainer.find('.swiper-container .dates-container.hovered').removeClass('hovered');
+        departDatesTable.find('.dates-container.hovered').removeClass('hovered');
+        target.closest('.flex-results-row').siblings('.dates-container').find('.date-cell').eq(rowIndex).addClass('hovered');
+        departDatesTable.find('.dates-container .date-cell').eq(columnIndex).addClass('hovered');
     }
 };
 
