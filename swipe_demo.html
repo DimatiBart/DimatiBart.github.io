@@ -96,7 +96,7 @@
             </header>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <table class="swiper-slide">
+                    <div class="swiper-slide"><table >
                         <tr class="dates-container">
                             <td class="date-cell">
                                 <p class="day-name">Mon</p>
@@ -821,8 +821,8 @@
                                 </div>
                             </td>
                         </tr>
-                    </table>
-                    <table class="swiper-slide q">
+                    </table></div>
+                    <div class="swiper-slide q"><table >
                         <tr class="dates-container">
 
                             <td class="date-cell">
@@ -1102,8 +1102,8 @@
                                 </div>
                             </td>
                         </tr>
-                    </table>
-                    <table class="swiper-slide">
+                    </table></div>
+                    <div class="swiper-slide"><table >
                         <tr class="dates-container">
 
                             <td class="date-cell">
@@ -1337,7 +1337,10 @@
                             </td>
                         </tr>
 
-                    </table>
+                    </table></div>
+
+
+
                 </div>
                 <!-- Add Scrollbar -->
                 <div class="swiper-scrollbar"></div>
@@ -1363,12 +1366,13 @@
            var swiper = new Swiper('.swiper-container', {
                scrollbar: '.swiper-scrollbar',
                scrollbarHide: true,
+               spaceBetween : 0,
                slidesPerView: 'auto',
                centeredSlides: true,
+               initialSlide: 1,
                nextButton: '.swiper-next',
                prevButton: '.swiper-prev'
            });
-           swiper.slideNext(false);
        })
     </script>
 </body>
