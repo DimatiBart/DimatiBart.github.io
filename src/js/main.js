@@ -8,10 +8,6 @@ var mobileHelper = {
         this.lastTouchPos.x = touch.pageX;
         this.lastTouchPos.y =  touch.pageY;
     },
-    _deleteTicketHover: function () {
-        $('.ticket.hovered').removeClass('hovered');
-        $('.date-cell.hovered').removeClass('hovered');
-    },
     _tabletDeviceCheck: function(){
         var metaTag = '<meta name="viewport" content="width=1000">';
         var isMobile = {
@@ -67,13 +63,34 @@ var UIController = {
                 }
                 rowIndex = target.closest('.flex-results-row').index() - 1;
 
-                this._hoverSwiperDatesCell(target, columnIndex, rowIndex);
-                var desktopTable = $('.flex-results-table');
-
                 var lightbox = $('.flex-results-table .flex-results-row').eq(rowIndex).find('.ticket').eq(columnIndex).find('.lightbox').clone();
                 $('body').append(lightbox);
                 lightbox.attr('style', '').addClass('active');
                 this._showBgLayer();
+            }.bind(this));
+
+            $(document).on('mouseenter', '.swiper .ticket', function(event){
+                var target = $(event.currentTarget);
+                this._hoverSwiperDatesCell(target);
+            }.bind(this));
+
+            $(document).on('touchstart', '.swiper .ticket',function(event){
+                mobileHelper._saveTouchPosition(event);
+                this._deleteTicketHover();
+                var target = $(event.currentTarget);
+                target.addClass('hovered');
+                this._hoverSwiperDatesCell(target);
+            }.bind(this));
+
+            $(document).on('touchmove', '.swiper .ticket',function(event){
+                mobileHelper._saveTouchPosition(event);
+            });
+
+            $(document).on('touchend', '.swiper .ticket',function(event){
+                var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
+                if (!endTarget.hasClass('hovered')) {
+                    this._deleteHoverSwiperDatesCell();
+                }
             }.bind(this));
         }
         mobileHelper._tabletDeviceCheck();
@@ -82,7 +99,7 @@ var UIController = {
 
             $(document).on('touchstart', '.flex-results-table .flex-results-row .ticket',function(event){
                 mobileHelper._saveTouchPosition(event);
-                mobileHelper._deleteTicketHover();
+                this._deleteTicketHover();
                 var target = $(event.currentTarget);
                 target.addClass('hovered');
                 this._hoverDatesCell(target);
@@ -95,9 +112,9 @@ var UIController = {
             $(document).on('touchend', '.flex-results-table .flex-results-row  .ticket',function(event){
                 var endTarget = $(document.elementFromPoint(mobileHelper.lastTouchPos.x, mobileHelper.lastTouchPos.y)).closest('.ticket');
                 if (!endTarget.hasClass('hovered')) {
-                    mobileHelper._deleteTicketHover ();
+                    this._deleteTicketHover ();
                 }
-            });
+            }.bind(this));
 
             $(document).on('click', '.flex-results-table .ticket',function(event){
                 event.preventDefault();
@@ -248,13 +265,26 @@ var UIController = {
             prevButton: '.swiper-prev'
         });
     },
-    _hoverSwiperDatesCell: function(target, columnIndex, rowIndex){
+    _hoverSwiperDatesCell: function(target){
+        this._deleteHoverSwiperDatesCell();
+
         var swiperContainer = $('.swiper');
+        var columnIndex = target.index();
         var departDatesTable = swiperContainer.find('.depart-dates-table');
-        swiperContainer.find('.swiper-container .dates-container.hovered').removeClass('hovered');
-        departDatesTable.find('.dates-container.hovered').removeClass('hovered');
-        target.closest('.flex-results-row').siblings('.dates-container').find('.date-cell').eq(rowIndex).addClass('hovered');
-        departDatesTable.find('.dates-container .date-cell').eq(columnIndex).addClass('hovered');
+
+        var closestResultsRow = target.closest('.flex-results-row');
+        var rowIndex = closestResultsRow.index() - 1;
+
+        closestResultsRow.siblings('.dates-container').find('.date-cell').eq(columnIndex).addClass('hovered');
+        departDatesTable.find('.dates-container .date-cell').eq(rowIndex).addClass('hovered');
+    },
+    _deleteTicketHover: function () {
+        $('.ticket.hovered').removeClass('hovered');
+        $('.date-cell.hovered').removeClass('hovered');
+    },
+    _deleteHoverSwiperDatesCell: function(){
+        var swiperContainer = $('.swiper');
+        swiperContainer.find('.date-cell.hovered').removeClass('hovered');
     }
 };
 
