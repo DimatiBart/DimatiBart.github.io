@@ -11,6 +11,14 @@
       text-align: center;
       min-width: 76px;
 
+      &.preferred-date {
+        border-color: #5f8fb4;
+        border-top: 1px double #5f8fb4;
+        @media only screen and (min-width: @mobile-bp) {
+          border: 1px double #5f8fb4;
+        }
+      }
+
       .price-info {
         width: auto;
         height: auto;
@@ -88,11 +96,17 @@
     }
   }
 
-  .q {
-    width: 33.33%;
+  .second {
+    width: 33.34%;
     .date-cell {
-      border-right-color: transparent;
-      border-left-color: transparent;
+
     }
+  }
+
+  .swiper-slide.first tr td:last-child {
+    border-right: 0;
+  }
+  .swiper-slide.third tr td:first-child {
+    border-left: 0;
   }
 }

@@ -186,6 +186,13 @@ body {
     cursor: pointer;
     background-clip: padding-box;
 
+    &.preferred-date {
+      border-color: #5f8fb4;
+      @media only screen and (min-width: @mobile-bp) {
+        border: 1px double #5f8fb4;
+      }
+    }
+
     @media only screen and (min-width: @mobile-bp) {
       display: table-cell;
       border-color: @grey-border;
