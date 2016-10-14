@@ -43,8 +43,12 @@ var mobileHelper = {
 
 var UIController = {
     isReturn: null,
+    swiper: null,
     initUI: function(mobileHelper){
         this.isReturn = $('.flex-container').hasClass('return');
+        if (this.isReturn){
+            this.initSwiper();
+        }
         mobileHelper._tabletDeviceCheck();
         if (mobileHelper._isTouch){
             $('body').addClass('touchDevice');
@@ -84,6 +88,7 @@ var UIController = {
         }
         else {
             $(document).on('mouseenter', '.flex-results-row  .ticket',function(event){
+                $('.date-cell.hovered').removeClass('hovered');
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
                     var target = $(event.currentTarget);
                     this._hoverDatesCell(target);
@@ -92,7 +97,6 @@ var UIController = {
             }.bind(this));
 
             $(document).on('mouseleave', '.flex-results-row .ticket',function(){
-                $('.date-cell.hovered').removeClass('hovered');
                 if (window.matchMedia("(min-width: 641px)").matches === true) {
                     this._hideFlightLightbox();
                 }
@@ -204,6 +208,18 @@ var UIController = {
             }
 
         }
+    },
+    initSwiper: function(){
+        this.swiper = new Swiper('.swiper-container', {
+            scrollbar: '.swiper-scrollbar',
+            scrollbarHide: true,
+            spaceBetween : 0,
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            initialSlide: 1,
+            nextButton: '.swiper-next',
+            prevButton: '.swiper-prev'
+        });
     }
 };
 
