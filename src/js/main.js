@@ -65,7 +65,7 @@ var UIController = {
 
                 var lightbox = $('.flex-results-table .flex-results-row').eq(rowIndex).find('.ticket').eq(columnIndex).find('.lightbox').clone();
                 $('body').append(lightbox);
-                lightbox.attr('style', '').addClass('active');
+                lightbox.attr('style', '').addClass('active swiperLightbox');
                 this._showBgLayer();
             }.bind(this));
 
@@ -206,6 +206,9 @@ var UIController = {
         var lightbox = $('.lightbox:visible');
         if (lightbox.length) {
             lightbox.removeClass('active');
+            if (lightbox.hasClass('swiperLightbox')) {
+                lightbox.remove();
+            }
             this._hideBgLayer();
 
             if (window.matchMedia("(min-width: 641px)").matches === false && mobileHelper._isTouch) {
