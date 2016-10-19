@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sharing proto</title>
+    <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+    <script src="https://apis.google.com/js/platform.js" async defer>
+        {lang: 'en-GB'}
+    </script>
+</head>
+<body>
+
+<section class="share-section">
+    <script>window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));</script>
+        <p class="title"></p>
+        <div class="buttons-container">
+            <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fsta-travel.com&layout=button_count&size=small&mobile_iframe=true&width=104&height=20&appId"
+                    style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <a class="twitter-share-button"
+               href="https://twitter.com/intent/tweet?text=Hello%20world"
+               data-size="large">
+                Tweet</a>
+        </div>
+    <div class="g-plus" data-action="share" data-annotation="none"></div>
+    </section>
+
+<style>
+</style>
+</body>
+</html>

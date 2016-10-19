@@ -105,6 +105,17 @@
       }
     }
 
+    &.multiple {
+      cursor: auto;
+
+      &:hover {
+        box-shadow: none;
+      }
+      .logo-container .logo {
+          background-image: url("../../../icons/flexCalendarPage/multiple-flights.png");
+        }
+    }
+
     .logo-container {
       margin-right: 20px;
       align-self: center;
@@ -167,16 +178,6 @@
         .currency {
           font-weight: 100;
         }
-      }
-    }
-
-
-    &.no-results {
-      justify-content: flex-start;
-      .logo-container {
-        background: url("../../../tempFiles/no-results.png") center no-repeat;
-        width: 75px;
-        height: 45px;
       }
     }
   }
