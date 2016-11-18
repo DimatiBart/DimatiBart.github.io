@@ -12,7 +12,7 @@ gulp.task('default', function(){
 });
 
 gulp.task('buildStyles', function(){
-    gulp.src('./src/less/flex_calendar.less')
+    gulp.src('./src/less/header_module.less')
         .pipe(less().on('error', gutil.log))
         .pipe(cleanCSS())
         .pipe(autoprefixer({
@@ -20,12 +20,12 @@ gulp.task('buildStyles', function(){
             cascade: false
         }))
         .pipe(rename('main.min.css'))
-        .pipe(gulp.dest('./dest/flexCalendarPage/css/'));
+        .pipe(gulp.dest('./dest/css/'));
 });
 gulp.task('buildJS', function() {
     gulp.src("./src/js/*.js")
         .pipe(concat('main.min.js'))
-        .pipe(gulp.dest('./dest/flexCalendarPage/js/'));
+        .pipe(gulp.dest('./dest/js/'));
 });
 
 gulp.task('watch', function(){
