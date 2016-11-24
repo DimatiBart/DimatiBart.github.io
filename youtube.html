@@ -35,9 +35,7 @@
                             }, 20)
                         },
                         onStateChange: function(e){
-                            console.log('changed');
                             if (e.data == YT.PlayerState.ENDED){
-                                console.log('starting');
                                 player.playVideo();
                             }
                         }
