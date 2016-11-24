@@ -4,55 +4,60 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="dest/css/main.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700" rel="stylesheet">
 </head>
 <body>
-<div class="header-module video-background">
-    <div class="video-foreground" >
-        <div id="ytplayer"></div>
-        <!--<iframe src="https://www.youtube.com/embed/h3uBr0CCm58?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=h3uBr0CCm58" frameborder="0" allowfullscreen></iframe>-->
-    </div>
-    <script>
-        // Load the IFrame Player API code asynchronously.
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/player_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+<div class="header-module">
+        <div class="video-foreground" >
+            <div id="ytplayer"></div>
+            <a class="link" href="google.com"></a>
+        </div>
+        <script>
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/player_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // Replace the 'ytplayer' element with an <iframe> and
-        // YouTube player after the API code downloads.
-        var player;
-        function onYouTubePlayerAPIReady() {
-            player = new YT.Player('ytplayer', {
-                height: '360',
-                width: '640',
-                videoId: 'S7REINR7T1c',
-                playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel':0},
-                events: {
-                    onReady: function(e){
-                        setInterval(function(){
-                            if(player.getCurrentTime() > player.getDuration()-0.05){
-                                player.seekTo(0);
+            var player;
+            function onYouTubePlayerAPIReady() {
+                player = new YT.Player('ytplayer', {
+                    height: '360',
+                    width: '640',
+                    videoId: 'Scxs7L0vhZ4',
+                    playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel':0, "wmode": "transparent"},
+                    events: {
+                        onReady: function(e){
+                            player.mute();
+                            setInterval(function(){
+                                if(player.getCurrentTime() > player.getDuration()-0.05){
+                                    player.seekTo(0);
+                                }
+                            }, 20)
+                        },
+                        onStateChange: function(e){
+                            console.log('changed');
+                            if (e.data == YT.PlayerState.ENDED){
+                                console.log('starting');
+                                player.playVideo();
                             }
-                        }, 20)
-                    },
-                    onStateChange: function(e){
-                        console.log('changed');
-                        if (e.data == YT.PlayerState.ENDED){
-                            console.log('starting');
-                            player.playVideo();
                         }
                     }
-                }
-            });
-        }
+                });
+            }
 
 
-    </script>
-    <div id="vidtop-content">
-        <div class="vid-info">
-            <h1>Hello</h1>
-            <p>It's me</p>
+        </script>
+        <div class="text">
+            <p class="title">Hello</p>
+            <p class="sub">It's me</p>
         </div>
+</div>
+
+<div class="header-module" style="background-image: url('Capture.PNG')">
+    <a href="" class="link link_img"></a>
+    <div class="text">
+        <p class="title">Hello</p>
+        <p class="sub">It's me</p>
     </div>
 </div>
 </body>

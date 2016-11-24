@@ -1,50 +1,69 @@
-* {
-  box-sizing: border-box;
-}
-.video-background {
+@import "../../common/less/variables";
+
+* { box-sizing: border-box; }
+
+.header-module {
+  min-height: 408px;
   width: 100%;
-  height:350px;
-  background: #000;
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  z-index: -99;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media only screen and (min-width: 642px) {
+    min-height: 446px;
+  }
 }
-.video-foreground,
-.video-background iframe {
+
+.video-foreground {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
   position: absolute;
-  top: 0;
-  left: 0;
+}
+
+#ytplayer {
+  width: 250%;
+  height: 200%;
+  left: 50%;
+  top: -50%;
+  position: absolute;
+  transform: translateX(-50%);
+  pointer-events: none;
+  @media only screen and (min-width: 642px) {
+    left: initial;
+    transform: none;
+    width: 100%;
+  }
+}
+.text {
+  color: white;
+  text-align: center;
+  z-index: 2;
+
+  .title{
+    font: 600 46px/0.96 @titillium;
+    margin: 0 0 13px 0;
+  }
+
+  .sub {
+    margin-top: 0;
+    font: normal 18px/1.39 @titillium;
+    letter-spacing: 0.1px;
+  }
+}
+
+.link {
+  display: block;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-}
-#vidtop-content {
-  top: 0;
-  color: #fff;
-}
-.vid-info {
-  position: absolute;
-  top: 0; right: 0;
-  width: 33%;
-  background: rgba(0,0,0,0.3);
-  color: #fff;
-  padding: 1rem;
-  font-family: Avenir, Helvetica, sans-serif;
 
-  h1 { font-size: 2rem; font-weight: 700; margin-top: 0; line-height: 1.2; }
-  a { display: block; color: #fff; text-decoration: none; background: rgba(0,0,0,0.5); transition: .6s background; border-bottom: none; margin: 1rem auto; text-align: center;}
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .video-foreground { height: 300%; top: -100%; }
-}
-@media (max-aspect-ratio: 16/9) {
-  .video-foreground { width: 300%; left: -100%; }
-}
-@media all and (max-width: 600px) {
-  .vid-info { width: 50%; padding: .5rem; }
-  .vid-info h1 { margin-bottom: .2rem; }
-}
-@media all and (max-width: 500px) {
-  .vid-info .acronym { display: none; }
+  &_img {
+    position: absolute;
+    z-index: 1;
+  }
 }
