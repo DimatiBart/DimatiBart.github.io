@@ -8,9 +8,9 @@
   min-height: 341px;
   width: 100%;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -38,12 +38,16 @@
     transform: translateX(-50%);
     pointer-events: none;
     @media only screen and (min-width: 642px) {
-      left: initial;
+      left: auto;
       transform: none;
       width: 100%;
     }
   }
   .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
     text-align: center;
     z-index: 2;
@@ -96,7 +100,7 @@
     font: 600 16px/1.63 @titillium;
     margin: 0 0 18px 0;
   }
-  .image-area {
+  img {
     display: none;
     @media only screen and (min-width: 642px) {
       display: block;
