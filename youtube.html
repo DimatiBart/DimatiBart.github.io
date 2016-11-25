@@ -7,56 +7,57 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700" rel="stylesheet">
 </head>
 <body>
-<div class="header-module">
-        <div class="video-foreground" >
-            <div id="ytplayer"></div>
-            <a class="link" href="google.com"></a>
-        </div>
-        <script>
-            var tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/player_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    <div class="header-module-wrapper">
+        <div class="header-module">
+            <div class="video-foreground" >
+                <div id="ytplayer"></div>
+                <a class="link" href="google.com"></a>
+            </div>
+            <script>
+                var tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/player_api";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-            var player;
-            function onYouTubePlayerAPIReady() {
-                player = new YT.Player('ytplayer', {
-                    height: '360',
-                    width: '640',
-                    videoId: 'Scxs7L0vhZ4',
-                    playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel':0, "wmode": "transparent"},
-                    events: {
-                        onReady: function(e){
-                            player.mute();
-                            setInterval(function(){
-                                if(player.getCurrentTime() > player.getDuration()-0.05){
-                                    player.seekTo(0);
+                var player;
+                function onYouTubePlayerAPIReady() {
+                    player = new YT.Player('ytplayer', {
+                        height: '360',
+                        width: '640',
+                        videoId: 'Scxs7L0vhZ4',
+                        playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel':0, "wmode": "transparent"},
+                        events: {
+                            onReady: function(e){
+                                player.mute();
+                                setInterval(function(){
+                                    if(player.getCurrentTime() > player.getDuration()-0.05){
+                                        player.seekTo(0);
+                                    }
+                                }, 20)
+                            },
+                            onStateChange: function(e){
+                                if (e.data == YT.PlayerState.ENDED){
+                                    player.playVideo();
                                 }
-                            }, 20)
-                        },
-                        onStateChange: function(e){
-                            if (e.data == YT.PlayerState.ENDED){
-                                player.playVideo();
                             }
                         }
-                    }
-                });
-            }
-        </script>
-        <div class="text">
-            <p class="title">Hello</p>
-            <p class="sub">It's me</p>
+                    });
+                }
+            </script>
+            <div class="text">
+                <p class="title">Hello</p>
+                <p class="sub">It's me</p>
+            </div>
         </div>
-</div>
 
-<div class="header-module" style="background-image: url('Capture.PNG')">
-    <a href="" class="link link_img"></a>
-    <div class="text">
-        <p class="title">Hello</p>
-        <p class="sub">It's me</p>
+        <div class="header-module" style="background-image: url('Capture.PNG')">
+            <a href="" class="link link_img"></a>
+            <div class="text">
+                <p class="title">Hello</p>
+                <p class="sub">It's me</p>
+            </div>
+        </div>
     </div>
-</div>
-
     <div class="intro-module">
         <div class="text-area">
             <p class="title">STA Travel</p>
