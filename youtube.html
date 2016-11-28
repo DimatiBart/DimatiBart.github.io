@@ -5,43 +5,28 @@
     <title>Title</title>
     <link rel="stylesheet" href="dest/css/main.min.css">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="header-module-wrapper">
         <div class="header-module">
             <div class="video-foreground" >
-                <div id="ytplayer"></div>
+                <div class="ytplayer" data-url="8GW6sLrK40k"></div>
                 <a class="link" href="google.com"></a>
             </div>
-            <script>
-                var tag = document.createElement('script');
-                tag.src = "https://www.youtube.com/player_api";
-                var firstScriptTag = document.getElementsByTagName('script')[0];
-                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                var player;
-                function onYouTubePlayerAPIReady() {
-                    player = new YT.Player('ytplayer', {
-                        videoId: 'Scxs7L0vhZ4',
-                        playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel':0, "wmode": "transparent"},
-                        events: {
-                            onReady: function(e){
-                                player.mute();
-                                setInterval(function(){
-                                    if(player.getCurrentTime() > player.getDuration()-0.05){
-                                        player.seekTo(0);
-                                    }
-                                }, 20)
-                            },
-                            onStateChange: function(e){
-                                if (e.data == YT.PlayerState.ENDED){
-                                    player.playVideo();
-                                }
-                            }
-                        }
-                    });
-                }
-            </script>
+            <div class="text">
+                <p class="title">Hello</p>
+                <p class="sub">It's me</p>
+            </div>
+        </div>
+        <div class="header-module">
+            <div class="video-foreground" >
+                <div class="ytplayer" data-url="6SgHDXl30s8"></div>
+                <a class="link" href="google.com"></a>
+            </div>
             <div class="text">
                 <p class="title">Hello</p>
                 <p class="sub">It's me</p>
@@ -64,5 +49,14 @@
         </div>
         <img src="intro_text.PNG" alt="some img" class="image-area">
     </div>
+<div class="ups-home-module">
+    <ul class="list">
+        <li><a href="#" class="ups-col ups-col_1 ups-col_has-url">The World’s Leading Student Travel Company</a></li>
+        <li><a href="#" class="ups-col ups-col_2 ups-col_has-url">The Original Round the World Experts</a></li>
+        <li><a class="ups-col ups-col_3">We Know Because We Go</a></li>
+        <li><a class="ups-col ups-col_4">Price Beat Guarantee</a></li>
+    </ul>
+</div>
 </body>
+<script src="dest/js/main.min.js"></script>
 </html>

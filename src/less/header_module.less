@@ -40,7 +40,7 @@
     position: absolute;
   }
 
-  #ytplayer {
+  .ytplayer {
     width: 250%;
     height: 200%;
     left: 50%;
@@ -128,5 +128,136 @@
   &:hover {
     text-decoration: underline;
     color: @bondi-blue;
+  }
+}
+
+.ups-home-module {
+  margin-bottom: 40px;
+  .list {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    position: relative;
+    list-style: none;
+    li {
+      display: inline-block;
+      list-style: none;
+      &:not(:first-child) {
+        margin-left: 25px;
+      }
+
+      @media only screen and (max-width: 641px) {
+        position: absolute;
+        text-align: center;
+        left: 0;
+        top: 0;
+        width: 100%;
+        &:not(:first-child) {
+          margin-left: 0;
+        }
+      }
+    }
+    .ups-col {
+      font: 600 14px @titillium;
+      color: @bondi-blue;
+      text-decoration: none;
+
+      &_has-url:hover {
+        text-decoration: underline;
+      }
+
+      @media only screen and (max-width: 641px) {
+        &_1 {
+          animation: fade 10s infinite;
+        }
+        &_2 {
+          animation: fade2 10s infinite;
+        }
+
+        &_3 {
+          animation: fade3 10s infinite;
+        }
+
+        &_4 {
+          animation: fade4 10s infinite;
+        }
+      }
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 9px;
+        background: url('../../fanta.png') no-repeat 0 0;
+        margin-right: 10px;
+        @media @retina-bp {
+          background: url('../../fanta.png') no-repeat 0 -7px;
+          background-size: 12px 16px;
+        }
+      }
+    }
+  }
+}
+
+@retina-bp: ~"only screen and (-webkit-min-device-pixel-ratio: 2)",
+~"only screen and (   min--moz-device-pixel-ratio: 2)",
+~"only screen and (     -o-min-device-pixel-ratio: 2/1)",
+~"only screen and (        min-device-pixel-ratio: 2)",
+~"only screen and (        min-resolution: 192dpi)",
+~"only screen and (        min-resolution: 2dppx)";
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+
+  25%,75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade2 {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100%,50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade3 {
+  0%,25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade4 {
+  0%,50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
