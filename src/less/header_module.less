@@ -272,3 +272,122 @@
     opacity: 0;
   }
 }
+
+.destination-module {
+  max-width: 1060px;
+  margin: 0 auto 40px;
+  .text-block {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    color: white;
+    font: normal 26px @titillium;
+  }
+  .block {
+    position: relative;
+    height: 320px;
+    background-color: #f6be00;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 20px;
+    width: 100%;
+    transition: box-shadow .1s;
+
+    &:hover {
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
+    }
+    @media only screen and (min-width: 642px) {
+      width: auto;
+      &:not(:first-child) {
+        margin-left: 20px;
+      }
+    }
+  }
+  &__tag-wrapper {
+    text-align: right;
+    padding: 10px 10px 0 0;
+  }
+
+  &__tag {
+    background-color: #00add0;
+    padding: 0 10px;
+    font: bold 11px @titillium;
+    color: white;
+    letter-spacing: 2px;
+    display: inline-block;
+    line-height: 18px;
+  }
+
+  .row {
+    display: flex;
+
+    &:last-child .block:not(:first-child) {
+      margin-bottom: 0;
+    }
+
+    &_one {
+      flex-direction: column;
+      @media only screen and (min-width: 642px) {
+        flex-direction: row;
+      }
+      .block {
+        &:first-child {
+          height: 156px;
+        }
+        &:nth-child(2) {
+          height: 320px;
+        }
+
+        @media only screen and (min-width: 642px) {
+          &:first-child {
+            flex: 1 1 687px;
+            height: 320px;
+          }
+          &:nth-child(2) {
+            flex: 0 0 334px;
+            height: 320px;
+          }
+        }
+      }
+
+    }
+    &_two {
+      @media only screen and (max-width: 641px) {
+        flex-direction: column;
+      }
+      .block {
+        width: 50%;
+        @media only screen and (max-width: 641px) {
+          height: 210px;
+          width: 100%;
+        }
+      }
+    }
+    &_three {
+      @media only screen and (max-width: 641px) {
+        flex-wrap: wrap;
+      }
+
+      .block:first-child {
+        flex: 0 1 520px;
+
+        @media only screen and (max-width: 641px) {
+          flex-basis: 100%;
+        }
+      }
+      .block:nth-child(n+2) {
+        flex: 1 1 245px;
+        @media only screen and (max-width: 641px) {
+          flex-basis: calc(50% - 10px);
+        }
+      }
+
+      .block:nth-child(n+3) {
+        margin-left: 20px;
+      }
+    }
+  }
+}
