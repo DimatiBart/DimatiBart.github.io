@@ -44,9 +44,18 @@ var onYouTubePlayerAPIReady;
                     if ($this.closest('.header-module').hasClass('desktop') && isMobile) {
                         return;
                     }
+                    var module = $this.closest('.header-module');
+                    var text = module.find('.text');
+                    text.css('z-index: 2');
+                    var link =  module.find('.link');
+                    link.css({
+                        "z-index": 1,
+                        "background-color": "black"
+                    });
                     var id = "youtube-player" + i;
                     $this.attr('id', id);
                     var url = $(this).attr('data-url');
+                    var isStarted = false;
                     var player = new YT.Player(id, {
                         videoId: url,
                         playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel':0, "wmode": "transparent"},
@@ -61,6 +70,12 @@ var onYouTubePlayerAPIReady;
                                 }, 20)
                             },
                             onStateChange: function(e){
+                                if (!isStarted && e.data == YT.PlayerState.PLAYING) {
+                                    text.css('z-index: 1');
+                                    link.css('z-index: 2');
+                                    link.fadeTo("slow", 0);
+                                    isStarted = true;
+                                }
                                 if (e.data == YT.PlayerState.ENDED){
                                     player.playVideo();
                                 }
