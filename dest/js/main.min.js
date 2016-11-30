@@ -72,3 +72,44 @@ var onYouTubePlayerAPIReady;
         }
     }
 })();
+
+
+// $(window).load(function(){
+//     var upsModule = $('.ups-home-module');
+//     if (upsModule.length) {
+//         $(window).resize(function(){
+//             if (window.matchMedia("(min-width: 641px)").matches === false) {
+//                 var ups = upsModule.find('.ups-col');
+//                 var heightArray = $.map(ups, function(elem){
+//                     return $(elem).height();
+//                 });
+//                 var maxHeight = Math.max.apply(null, heightArray);
+//                 upsModule.height(maxHeight);
+//             }
+//             else {
+//                 upsModule.height('auto');
+//             }
+//         });
+//         $(window).trigger('resize');
+//     }
+// })
+
+(function(){
+    var upsModule = $('.ups-home-module');
+    if (upsModule.length) {
+        $(window).resize(function(){
+            if (window.matchMedia("(min-width: 641px)").matches === false) {
+                var ups = upsModule.find('.ups-col');
+                var heightArray = $.map(ups, function(elem){
+                    return $(elem).height();
+                });
+                var maxHeight = Math.max.apply(null, heightArray);
+                upsModule.height(maxHeight);
+            }
+            else {
+                upsModule.height('auto');
+            }
+        });
+        $(window).trigger('resize');
+    }
+})();
