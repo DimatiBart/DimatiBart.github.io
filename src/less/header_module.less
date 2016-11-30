@@ -368,14 +368,14 @@
       }
 
       .block:first-child {
-        flex: 0 1 520px;
+        flex: 0 1 calc(50% - 10px);
 
         @media only screen and (max-width: 641px) {
           flex-basis: 100%;
         }
       }
       .block:nth-child(n+2) {
-        flex: 1 1 245px;
+        flex: 1 1 calc(25% - 15px);
         @media only screen and (max-width: 641px) {
           flex-basis: calc(50% - 10px);
         }
