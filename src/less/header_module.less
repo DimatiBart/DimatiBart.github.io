@@ -292,9 +292,9 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    margin-bottom: 20px;
     width: 100%;
     transition: box-shadow .1s;
+    margin-bottom: 20px;
 
     &:hover {
       box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
@@ -323,10 +323,6 @@
 
   .row {
     display: flex;
-
-    &:last-child .block:not(:first-child) {
-      margin-bottom: 0;
-    }
 
     &_one {
       flex-direction: column;
@@ -389,5 +385,23 @@
         margin-left: 20px;
       }
     }
+  }
+
+  .title {
+    text-align: center;
+    .main {
+      font: normal 26px @titillium;
+      color: @dark-grey;
+      margin: 0 0 3px 0;
+    }
+    .sub {
+      font: normal 16px @titillium;
+      color: @mid-grey-sub-text;
+      margin: 0 0 21px 0;
+    }
+  }
+  .link_primary {
+    text-align: right;
+    display: block;
   }
 }
