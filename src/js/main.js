@@ -27,7 +27,7 @@ var onYouTubePlayerAPIReady;
                 }
             };
 
-            if( isMobile.any()){
+            if( isMobile.any() && window.matchMedia("(min-width: 642px)").matches == false){
                 isMobile = true;
             }
             else {
@@ -46,7 +46,7 @@ var onYouTubePlayerAPIReady;
                     }
                     var module = $this.closest('.header-module');
                     var text = module.find('.text');
-                    text.css('z-index: 2');
+                    text.css('z-index', 2);
                     var link =  module.find('.link');
                     link.css({
                         "z-index": 1,
@@ -71,8 +71,8 @@ var onYouTubePlayerAPIReady;
                             },
                             onStateChange: function(e){
                                 if (!isStarted && e.data == YT.PlayerState.PLAYING) {
-                                    text.css('z-index: 1');
-                                    link.css('z-index: 2');
+                                    text.css('z-index', 1);
+                                    link.css('z-index', 2);
                                     link.fadeTo("slow", 0);
                                     isStarted = true;
                                 }
