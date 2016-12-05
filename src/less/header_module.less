@@ -295,6 +295,12 @@
 .destination-module {
   max-width: 1060px;
   margin: 0 auto 40px;
+  padding: 0 20px;
+
+  @media only screen and (min-width: 642px) {
+    padding: 0;
+  }
+
   .text-block {
     position: absolute;
     top: 50%;
@@ -399,8 +405,10 @@
         flex-grow: 1;
         flex-shrink: 1;
         flex-basis: calc(~"25% - 15px");
+        height: 205px;
         @media only screen and (max-width: 641px) {
           flex-basis: calc(~"50% - 10px");
+          height: 320px;
         }
       }
 
