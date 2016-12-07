@@ -1,0 +1,10 @@
+{
+    "short_name": "miBand",
+    "name": "miBand Helper",
+    "description": "Hop Hey La La Ley",
+    "start_url": "./?utm_source=web_app_manifest",
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme_color": "#3b4145",
+    "background_color": "#3b4145"
+}
