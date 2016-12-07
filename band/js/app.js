@@ -93,6 +93,8 @@ function startScanSteps(miBand){
 }
 
 function updateSteps(value){
+    var today = new Date().toJSON().slice(0, 10);
+    var prevSteps = localStorage.setItem(today, value);
   $('.steps .value').text(value);
 }
 
