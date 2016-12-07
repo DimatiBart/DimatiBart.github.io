@@ -23,7 +23,7 @@ $(function(){
 
   if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-               .register('./js/worker.js', { scope: './' })
+               .register('./js/worker.js')
                .then(function() { console.log('Service Worker Registered'); });
     }
 })

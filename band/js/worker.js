@@ -1,10 +1,10 @@
 var cacheName = 'cache';
 var filesToCache = [
-  "new.html",
-  "new.css",
-  "./img/polygon-background5.jpg",
-  "./js/app.js",
-  "./js/band.js",
+  "../new.html",
+  "../new.css",
+  "../img/polygon-background5.jpg",
+  "./app.js",
+  "./band.js"
 ];
 
 self.addEventListener('install', function(e) {
