@@ -31,6 +31,7 @@ $(function(){
 function initEverything(miBand){
   initBatterySection(miBand);
   initGeneralInfoSection(miBand);
+  initStepsInfoSection();
   startScanSteps(miBand);
 }
 
@@ -93,4 +94,10 @@ function startScanSteps(miBand){
 
 function updateSteps(value){
   $('.steps .value').text(value);
+}
+
+function initStepsInfoSection(){
+    var today = new Date().toJSON().slice(0, 10);
+    var prevSteps = localStorage.getItem(today) || 0;
+    updateSteps(prevSteps);
 }
