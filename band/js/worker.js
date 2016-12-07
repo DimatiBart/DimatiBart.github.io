@@ -1,4 +1,4 @@
-var cacheName = 'cache';
+var cacheName = 'cache1';
 var filesToCache = [
   "../new.html",
   "../new.css",
