@@ -47,7 +47,7 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    z-index: -1;
+    z-index: 1;
     position: absolute;
   }
 
@@ -64,6 +64,10 @@
       transform: none;
       width: 100%;
     }
+    @media only screen and (min-width: 1161px) {
+      height: 250%;
+      top: -75%;
+    }
   }
   .text {
     position: absolute;
@@ -77,6 +81,7 @@
     .title{
       font: 600 46px/0.96 @titillium;
       margin: 0 0 13px 0;
+      letter-spacing: .2px;
     }
 
     .sub {
@@ -323,6 +328,11 @@
 
     &:hover {
       box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
+      .text-block {
+        @media only screen and (min-width: 642px) {
+          font-size: 36px;
+        }
+      }
     }
     @media only screen and (min-width: 642px) {
       width: auto;
