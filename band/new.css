@@ -126,3 +126,28 @@ html, body{
 	padding: 0;
 	border: 0;
 }
+
+@media only screen and (max-width:640px) {
+  body {
+    font-size: 50%;
+  }
+  p {
+    font-size: 25px;
+
+  }
+  p.value {
+    font-size: 30px;
+  }
+  .data-cell {
+    width: 100% !important;
+    margin-bottom: 30px;
+  }
+  .data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .steps-section {
+    font-size: 13px;
+  }
+}
