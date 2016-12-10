@@ -30,13 +30,10 @@ $(function(){
 
 function initEverything(miBand){
   let reset = (localStorage.length === 0);
-  miBand.pair(reset)
-  .then(()=>{
     initBatterySection(miBand);
     initGeneralInfoSection(miBand);
     initStepsInfoSection();
     startScanSteps(miBand);
-  })
 }
 
 function hideInfoSections(){
