@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="dest/css/main.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="flight-deals-module">
+        <header>
+            <p class="sta-heading-m">Flight Deals</p>
+            <div class="flight-deals-module__switch">
+                <input type="radio" class="flight-deals-module__switch__input" name="view" value="company" id="company" checked="">
+                <label for="company" class="flight-deals-module__switch__label flight-deals-module__switch__label_off">All flights</label>
+                <input type="radio" class="flight-deals-module__switch__input" name="view" value="employee" id="employee">
+                <label for="employee" class="flight-deals-module__switch__label flight-deals-module__switch__label_second flight-deals-module__switch__label_on">Student fares</label>
+                <span class="flight-deals-module__switch__selection"></span>
+            </div>
+        </header>
+        <div class="flight-deals-module__carousel">
+            <div class="flight-ticket">
+                <div class="flight-ticket__shadow-wrapp"></div>
+                <span class="flight-ticket__rounds"></span>
+                <div class="flight-ticket__shadow-wrapp"></div>
+                <div class="flight-ticket__content"></div>
+            </div>
+            <div class="flight-ticket flight-ticket_blue-ticket">
+                <div class="flight-ticket__shadow-wrapp"></div>
+                <span class="flight-ticket__rounds"></span>
+                <div class="flight-ticket__shadow-wrapp"></div>
+                <div class="flight-ticket__content">
+                    <div class="flight-ticket__content__blue-header">sta travel blue ticket</div>
+                    <img src="./logo.png" alt="airway name" class="flight-ticket__content__img">
+                    <div class="flight-ticket__content__data">
+                        qwlekjg qwlkejhg qlkjwhge
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="dest/js/main.min.js"></script>
+</html>

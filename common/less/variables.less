@@ -72,3 +72,15 @@
 @jungle: #92a401;
 @brooklyn: #1b365d;
 @grey-border: #dadada;
+
+.clearfix {
+  &:after {
+    content: "";
+    display: block;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
