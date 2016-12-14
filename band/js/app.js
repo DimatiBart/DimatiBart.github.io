@@ -29,10 +29,11 @@ $(function(){
 })
 
 function initEverything(miBand){
-  initBatterySection(miBand);
-  initGeneralInfoSection(miBand);
-  initStepsInfoSection();
-  startScanSteps(miBand);
+  let reset = (localStorage.length === 0);
+    initBatterySection(miBand);
+    initGeneralInfoSection(miBand);
+    initStepsInfoSection();
+    startScanSteps(miBand);
 }
 
 function hideInfoSections(){
