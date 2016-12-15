@@ -550,7 +550,10 @@ body  {
   }
 
   &__carousel {
-
+    &__slide {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   .flight-ticket {
@@ -562,9 +565,67 @@ body  {
     border-right: 0;
     border-left: 0;
     height: 136px;
+    width: 100%;
     @media only screen and (min-width: @mobile-bp) {
       cursor: auto;
+      width: 510px;
+
+      &:nth-child(odd) {
+        margin-right: 20px;
+      }
     }
+
+    &__preloader {
+      display: none;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+      z-index: 3;
+    }
+    
+    &__arc {
+      position: relative;
+      width: 22px;
+      height: 22px;
+      border: 4px solid @mid-grey-sub-text;
+      border-radius: 50%;
+      box-sizing: content-box;
+      animation: rotate 2.9s infinite linear;
+
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        top: -6px;
+        width: 20px;
+        height: 39px;
+        background-color: @light-grey;
+        transition: background .1s ease-out;
+        animation: rotate 2s infinite ease;
+      }
+
+      &::before {
+        left: -6px;
+        transform-origin: 20px 20px;
+      }
+
+      &::after {
+        left: 7px;
+        transform-origin: 0 20px;
+        animation-delay: 0.5s;
+      }
+    }
+
+    &_loading {
+      background-color: @light-grey;
+      .flight-ticket__rounds {
+        background-color: @light-grey;
+      }
+      .flight-ticket__preloader {
+        display: block;
+      }
+    }
+
     &.active {
       cursor: auto;
     }
@@ -591,6 +652,9 @@ body  {
         &::after, &::before {
           border: solid 1px @bondi-blue;
         }
+      }
+      .flight-ticket__content__data {
+        height: calc(~"100% - 25px");
       }
     }
 
@@ -627,6 +691,7 @@ body  {
         top: 0;
         transform: translate(-50%,0);
         border: solid 1px @grey-border;
+        background: white;
         //box-shadow: 0 2px 4px 1px rgba(0,0,0,0.07) inset;
       }
       &:before {
@@ -682,9 +747,92 @@ body  {
         padding-right: 10px;
       }
       &__data {
-        padding: 0 10px;
-        margin-left: 89px;
+        display: flex;
+        padding: 0 20px;
+        justify-content: space-around;
+        flex-direction: column;
+        height: 100%;
+        @media only screen and (min-width: @mobile-bp) {
+          margin-left: 89px;
+          padding: 0 15px 0 10px;
+        }
+
+        &__row {
+          display: flex;
+          justify-content: space-between;
+
+          &_tooltips {
+            margin: -10px 0;
+          }
+
+          &__price {
+            text-align: right;
+            &__value {
+              font: normal 18px/0.9 Tahoma;
+              color: @jungle;
+              letter-spacing: .1px;
+              margin: 0;
+              strong {
+                font-size: 20px;
+                font-weight: bold;
+                margin-left: -5px;
+              }
+            }
+          }
+
+          &__hint {
+            font: normal 10px Tahoma;
+            color: @mid-grey-sub-text;
+
+            &_tax {
+              margin-left: 20px;
+              span {
+                display: block;
+              }
+            }
+          }
+
+          &__title {
+            font: 400 16px/1.25 @titillium;
+            letter-spacing: .1px;
+            p {
+              margin: 0;
+            }
+
+            strong {
+              font-weight: 600;
+            }
+          }
+          &__dates {
+            font: normal 10px Tahoma;
+            color: @mid-grey-sub-text;
+            strong {
+              display: block;
+            }
+          }
+
+          &__tooltip {
+            font: 600 10px @titillium;
+            text-transform: uppercase;
+            color: @bondi-blue;
+            margin: 0;
+          }
+        }
       }
     }
+  }
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
