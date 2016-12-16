@@ -88,27 +88,6 @@ var onYouTubePlayerAPIReady;
     }
 })();
 
-
-// $(window).load(function(){
-//     var upsModule = $('.ups-home-module');
-//     if (upsModule.length) {
-//         $(window).resize(function(){
-//             if (window.matchMedia("(min-width: 641px)").matches === false) {
-//                 var ups = upsModule.find('.ups-col');
-//                 var heightArray = $.map(ups, function(elem){
-//                     return $(elem).height();
-//                 });
-//                 var maxHeight = Math.max.apply(null, heightArray);
-//                 upsModule.height(maxHeight);
-//             }
-//             else {
-//                 upsModule.height('auto');
-//             }
-//         });
-//         $(window).trigger('resize');
-//     }
-// })
-
 (function(){
     var upsModule = $('.ups-home-module');
     if (upsModule.length) {
@@ -128,3 +107,34 @@ var onYouTubePlayerAPIReady;
         $(window).trigger('resize');
     }
 })();
+
+function tabSwitcherHandler(element){
+    var width = element.outerWidth();
+    var switcher = element.siblings('.switch');
+    element.siblings('.active').removeClass('active');
+    element.addClass('active');
+    switcher.css('width', width);
+    var position = element.position().left;
+    switcher.css('left', position);
+}
+
+$(window).load(function(){
+    var flightDeals = $('.flight-deals-module');
+
+    if (flightDeals.length) {
+        var currentTab = flightDeals.find('.tabs li.active');
+        tabSwitcherHandler(currentTab);
+
+        $(document).on('click', '.flight-deals-module .tabs li', function(){
+            var $this = $(this);
+            if (!$this.hasClass('active')) {
+                tabSwitcherHandler($this);
+            }
+        });
+
+        $(window).resize(function(){
+            var currentTab = flightDeals.find('.tabs li.active');
+            tabSwitcherHandler(currentTab);
+        })
+    }
+});

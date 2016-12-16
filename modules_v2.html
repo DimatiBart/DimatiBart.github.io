@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <link rel="stylesheet" href="dest/css/main.min.css">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700" rel="stylesheet">
     <script
@@ -10,17 +11,15 @@
             integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
             crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="new">
     <div class="flight-deals-module">
         <header>
             <p class="sta-heading-m">Flight Deals</p>
-            <div class="flight-deals-module__switch">
-                <input type="radio" class="flight-deals-module__switch__input" name="view" value="company" id="company" checked="">
-                <label for="company" class="flight-deals-module__switch__label flight-deals-module__switch__label_off">All flights</label>
-                <input type="radio" class="flight-deals-module__switch__input" name="view" value="employee" id="employee">
-                <label for="employee" class="flight-deals-module__switch__label flight-deals-module__switch__label_second flight-deals-module__switch__label_on">Student fares</label>
-                <span class="flight-deals-module__switch__selection"></span>
-            </div>
+            <ul class="tabs">
+                <li class="active">All Flights</li>
+                <li>Student Fares</li>
+                <div class="switch"></div>
+            </ul>
         </header>
         <div class="flight-deals-module__carousel">
             <div class="flight-deals-module__carousel__slide">
@@ -103,12 +102,23 @@
                     <span class="flight-ticket__rounds"></span>
                     <div class="flight-ticket__shadow-wrapp"></div>
                     <div class="flight-ticket__preloader">
-                        <!--TODO: fix animation-->
+                        <div class="flight-ticket__arc"></div>
+                    </div>
+                </div>
+                <div class="flight-ticket flight-ticket_loading">
+                    <div class="flight-ticket__shadow-wrapp"></div>
+                    <span class="flight-ticket__rounds"></span>
+                    <div class="flight-ticket__shadow-wrapp"></div>
+                    <div class="flight-ticket__preloader">
                         <div class="flight-ticket__arc"></div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="flight-deals-module__link-wrapper">
+            <a href="" class="link_primary">READ MORE</a>
+        </div>
+
     </div>
 </body>
 <script src="dest/js/main.min.js"></script>

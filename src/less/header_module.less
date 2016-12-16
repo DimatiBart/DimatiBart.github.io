@@ -450,6 +450,13 @@
 
 body  {
   -webkit-tap-highlight-color: transparent;
+  &.new {
+    margin: 0 auto;
+    @media only screen and (min-width: @mobile-bp) {
+      max-width: 1060px;
+      min-width: 960px;
+    }
+  }
 }
 
 .sta-heading-m {
@@ -459,22 +466,77 @@ body  {
 }
 
 .flight-deals-module {
+  padding: 0 20px;
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 0;
+  }
+
+  .tabs {
+    list-style-type: none;
+    margin: 0;
+    position: relative;
+    padding: 0;
+    display: inline-block;
+    white-space: nowrap;
+
+    li {
+      display: inline-block;
+      font: 600 14px @titillium;
+      padding: 8px 15px;
+      @media only screen and (min-width: @mobile-bp) {
+        padding: 8px 25px;
+      }
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: @bondi-blue;
+      cursor: pointer;
+      transition: color .2s linear;
+      position: relative;
+      z-index: 2;
+
+      &.active {
+        color: white;
+      }
+    }
+
+    .switch {
+      position: absolute;
+      height: 37px;
+      background: @bondi-blue;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      transition: left .15s ease-out;
+    }
+  }
 
   input[type="checkbox"], input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
   }
 
+  .flight-deals-module__link-wrapper {
+    text-align: center;
+    @media only screen and (min-width: @mobile-bp) {
+      text-align: right;
+    }
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 55px;
+  }
+
   .sta-heading-m {
     text-align: center;
-    margin: 40px 0 20px 0;
+    margin: 40px 0 30px;
   }
 
   &__switch {
     position: relative;
-    margin: 20px auto 40px;
+    margin: 20px 0 40px;
     height: 57px;
-    width: 352px;
+    display: inline-block;
     background: #fff;
     font-family: @titillium;
     -webkit-border-radius: 40px;
@@ -559,7 +621,7 @@ body  {
   .flight-ticket {
     position: relative;
     background: #fff;
-    margin: 10px 0;
+    margin-bottom: 10px;
     cursor: pointer;
     border: solid 1px @grey-border;
     border-right: 0;
@@ -567,8 +629,8 @@ body  {
     height: 136px;
     width: 100%;
     @media only screen and (min-width: @mobile-bp) {
-      cursor: auto;
-      width: 510px;
+      max-width: 520px;
+      flex: 1 1 470px;
 
       &:nth-child(odd) {
         margin-right: 20px;
@@ -610,8 +672,8 @@ body  {
       }
 
       &::after {
-        left: 7px;
-        transform-origin: 0 20px;
+        left: 14px;
+        transform-origin: 0 15px;
         animation-delay: 0.5s;
       }
     }
