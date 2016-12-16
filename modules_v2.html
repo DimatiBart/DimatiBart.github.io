@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <link rel="stylesheet" href="dest/css/main.min.css">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/swiper.css">
     <script
             src="https://code.jquery.com/jquery-1.12.4.min.js"
             integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
@@ -21,104 +22,200 @@
                 <div class="switch"></div>
             </ul>
         </header>
-        <div class="flight-deals-module__carousel">
-            <div class="flight-deals-module__carousel__slide">
-                <div class="flight-ticket">
-                    <div class="flight-ticket__shadow-wrapp"></div>
-                    <span class="flight-ticket__rounds"></span>
-                    <div class="flight-ticket__shadow-wrapp"></div>
-                    <div class="flight-ticket__content">
-                        <img src="./logo.png" alt="airway name" class="flight-ticket__content__img">
-                        <div class="flight-ticket__content__data">
-                            <div class="flight-ticket__content__data__row">
-                                <div class="flight-ticket__content__data__row__title">
-                                    <p> <strong>Glasgow</strong> (GLA)</p>
-                                    <p> <strong>Bangkok</strong> (BKK)</p>
+        <div class="swiper-container">
+            <div class="flight-deals-module__carousel swiper-wrapper">
+                <div class="flight-deals-module__carousel__slide swiper-slide">
+                    <div class="flight-ticket">
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <span class="flight-ticket__rounds"></span>
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <div class="flight-ticket__content">
+                            <img src="./logo.png" alt="airway name" class="flight-ticket__content__img">
+                            <div class="flight-ticket__content__data">
+                                <div class="flight-ticket__content__data__row">
+                                    <div class="flight-ticket__content__data__row__title">
+                                        <p> <strong>Glasgow</strong> (GLA)</p>
+                                        <p> <strong>Bangkok</strong> (BKK)</p>
+                                    </div>
+
+                                    <div class="flight-ticket__content__data__row__price">
+                                        <span class="flight-ticket__content__data__row__hint">One way from</span>
+                                        <p class="flight-ticket__content__data__row__price__value">
+                                            <span>AUD</span>
+                                            <strong>529</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flight-ticket__content__data__row">
+                                    <div class="flight-ticket__content__data__row__dates">
+                                        <span>Travel between 12 Apr 2017 - 06 Jul 2017</span>
+                                        <strong>Book by 31 Mar 2017</strong>
+                                    </div>
+                                    <div class="flight-ticket__content__data__row__hint flight-ticket__content__data__row__hint_tax">
+                                        <span>Price per person</span>
+                                        <span>incl. taxes & fees</span>
+                                    </div>
                                 </div>
 
-                                <div class="flight-ticket__content__data__row__price">
-                                    <span class="flight-ticket__content__data__row__hint">One way from</span>
-                                    <p class="flight-ticket__content__data__row__price__value">
-                                        <span>AUD</span>
-                                        <strong>529</strong>
-                                    </p>
-                                </div>
                             </div>
-                            <div class="flight-ticket__content__data__row">
-                                <div class="flight-ticket__content__data__row__dates">
-                                    <span>Travel between 12 Apr 2017 - 06 Jul 2017</span>
-                                    <strong>Book by 31 Mar 2017</strong>
-                                </div>
-                                <div class="flight-ticket__content__data__row__hint flight-ticket__content__data__row__hint_tax">
-                                    <span>Price per person</span>
-                                    <span>incl. taxes & fees</span>
-                                </div>
-                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-ticket flight-ticket_blue-ticket">
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <span class="flight-ticket__rounds"></span>
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <div class="flight-ticket__content">
+                            <div class="flight-ticket__content__blue-header">sta travel blue ticket</div>
+                            <img src="./logo.png" alt="airway name" class="flight-ticket__content__img">
+                            <div class="flight-ticket__content__data">
+                                <div class="flight-ticket__content__data__row">
+                                    <div class="flight-ticket__content__data__row__title">
+                                        <p> <strong>Glasgow</strong> (GLA)</p>
+                                        <p> <strong>Bangkok</strong> (BKK)</p>
+                                    </div>
 
+                                    <div class="flight-ticket__content__data__row__price">
+                                        <span class="flight-ticket__content__data__row__hint">One way from</span>
+                                        <p class="flight-ticket__content__data__row__price__value">
+                                            <span>AUD</span>
+                                            <strong>529</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flight-ticket__content__data__row flight-ticket__content__data__row_tooltips">
+                                    <p class="flight-ticket__content__data__row__tooltip">STUDENT FARE</p>
+                                </div>
+                                <div class="flight-ticket__content__data__row">
+                                    <div class="flight-ticket__content__data__row__dates">
+                                        <span>Travel between 12 Apr 2017 - 06 Jul 2017</span>
+                                        <strong>Book by 31 Mar 2017</strong>
+                                    </div>
+                                    <div class="flight-ticket__content__data__row__hint flight-ticket__content__data__row__hint_tax">
+                                        <span>Price per person</span>
+                                        <span>incl. taxes & fees</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-ticket flight-ticket_loading">
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <span class="flight-ticket__rounds"></span>
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <div class="flight-ticket__preloader">
+                            <div class="flight-ticket__arc"></div>
+                        </div>
+                    </div>
+                    <div class="flight-ticket flight-ticket_loading">
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <span class="flight-ticket__rounds"></span>
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <div class="flight-ticket__preloader">
+                            <div class="flight-ticket__arc"></div>
                         </div>
                     </div>
                 </div>
-                <div class="flight-ticket flight-ticket_blue-ticket">
-                    <div class="flight-ticket__shadow-wrapp"></div>
-                    <span class="flight-ticket__rounds"></span>
-                    <div class="flight-ticket__shadow-wrapp"></div>
-                    <div class="flight-ticket__content">
-                        <div class="flight-ticket__content__blue-header">sta travel blue ticket</div>
-                        <img src="./logo.png" alt="airway name" class="flight-ticket__content__img">
-                        <div class="flight-ticket__content__data">
-                            <div class="flight-ticket__content__data__row">
-                                <div class="flight-ticket__content__data__row__title">
-                                    <p> <strong>Glasgow</strong> (GLA)</p>
-                                    <p> <strong>Bangkok</strong> (BKK)</p>
+                <div class="flight-deals-module__carousel__slide swiper-slide">
+                    <div class="flight-ticket">
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <span class="flight-ticket__rounds"></span>
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <div class="flight-ticket__content">
+                            <img src="./logo.png" alt="airway name" class="flight-ticket__content__img">
+                            <div class="flight-ticket__content__data">
+                                <div class="flight-ticket__content__data__row">
+                                    <div class="flight-ticket__content__data__row__title">
+                                        <p> <strong>Glasgow</strong> (GLA)</p>
+                                        <p> <strong>Bangkok</strong> (BKK)</p>
+                                    </div>
+
+                                    <div class="flight-ticket__content__data__row__price">
+                                        <span class="flight-ticket__content__data__row__hint">One way from</span>
+                                        <p class="flight-ticket__content__data__row__price__value">
+                                            <span>AUD</span>
+                                            <strong>529</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flight-ticket__content__data__row">
+                                    <div class="flight-ticket__content__data__row__dates">
+                                        <span>Travel between 12 Apr 2017 - 06 Jul 2017</span>
+                                        <strong>Book by 31 Mar 2017</strong>
+                                    </div>
+                                    <div class="flight-ticket__content__data__row__hint flight-ticket__content__data__row__hint_tax">
+                                        <span>Price per person</span>
+                                        <span>incl. taxes & fees</span>
+                                    </div>
                                 </div>
 
-                                <div class="flight-ticket__content__data__row__price">
-                                    <span class="flight-ticket__content__data__row__hint">One way from</span>
-                                    <p class="flight-ticket__content__data__row__price__value">
-                                        <span>AUD</span>
-                                        <strong>529</strong>
-                                    </p>
-                                </div>
                             </div>
-                            <div class="flight-ticket__content__data__row flight-ticket__content__data__row_tooltips">
-                                <p class="flight-ticket__content__data__row__tooltip">STUDENT FARE</p>
-                            </div>
-                            <div class="flight-ticket__content__data__row">
-                                <div class="flight-ticket__content__data__row__dates">
-                                    <span>Travel between 12 Apr 2017 - 06 Jul 2017</span>
-                                    <strong>Book by 31 Mar 2017</strong>
-                                </div>
-                                <div class="flight-ticket__content__data__row__hint flight-ticket__content__data__row__hint_tax">
-                                    <span>Price per person</span>
-                                    <span>incl. taxes & fees</span>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
-                </div>
-                <div class="flight-ticket flight-ticket_loading">
-                    <div class="flight-ticket__shadow-wrapp"></div>
-                    <span class="flight-ticket__rounds"></span>
-                    <div class="flight-ticket__shadow-wrapp"></div>
-                    <div class="flight-ticket__preloader">
-                        <div class="flight-ticket__arc"></div>
+                    <div class="flight-ticket flight-ticket_blue-ticket">
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <span class="flight-ticket__rounds"></span>
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <div class="flight-ticket__content">
+                            <div class="flight-ticket__content__blue-header">sta travel blue ticket</div>
+                            <img src="./logo.png" alt="airway name" class="flight-ticket__content__img">
+                            <div class="flight-ticket__content__data">
+                                <div class="flight-ticket__content__data__row">
+                                    <div class="flight-ticket__content__data__row__title">
+                                        <p> <strong>Glasgow</strong> (GLA)</p>
+                                        <p> <strong>Bangkok</strong> (BKK)</p>
+                                    </div>
+
+                                    <div class="flight-ticket__content__data__row__price">
+                                        <span class="flight-ticket__content__data__row__hint">One way from</span>
+                                        <p class="flight-ticket__content__data__row__price__value">
+                                            <span>AUD</span>
+                                            <strong>529</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flight-ticket__content__data__row flight-ticket__content__data__row_tooltips">
+                                    <p class="flight-ticket__content__data__row__tooltip">STUDENT FARE</p>
+                                </div>
+                                <div class="flight-ticket__content__data__row">
+                                    <div class="flight-ticket__content__data__row__dates">
+                                        <span>Travel between 12 Apr 2017 - 06 Jul 2017</span>
+                                        <strong>Book by 31 Mar 2017</strong>
+                                    </div>
+                                    <div class="flight-ticket__content__data__row__hint flight-ticket__content__data__row__hint_tax">
+                                        <span>Price per person</span>
+                                        <span>incl. taxes & fees</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="flight-ticket flight-ticket_loading">
-                    <div class="flight-ticket__shadow-wrapp"></div>
-                    <span class="flight-ticket__rounds"></span>
-                    <div class="flight-ticket__shadow-wrapp"></div>
-                    <div class="flight-ticket__preloader">
-                        <div class="flight-ticket__arc"></div>
+                    <div class="flight-ticket flight-ticket_loading">
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <span class="flight-ticket__rounds"></span>
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <div class="flight-ticket__preloader">
+                            <div class="flight-ticket__arc"></div>
+                        </div>
+                    </div>
+                    <div class="flight-ticket flight-ticket_loading">
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <span class="flight-ticket__rounds"></span>
+                        <div class="flight-ticket__shadow-wrapp"></div>
+                        <div class="flight-ticket__preloader">
+                            <div class="flight-ticket__arc"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
+        <div class="swiper-pagination"></div>
         <div class="flight-deals-module__link-wrapper">
             <a href="" class="link_primary">READ MORE</a>
         </div>
-
     </div>
 </body>
 <script src="dest/js/main.min.js"></script>

@@ -467,6 +467,7 @@ body  {
 
 .flight-deals-module {
   padding: 0 20px;
+  position: relative;
   @media only screen and (min-width: @mobile-bp) {
     padding: 0;
   }
@@ -612,9 +613,11 @@ body  {
   }
 
   &__carousel {
+    margin-bottom: 30px;
     &__slide {
       display: flex;
       flex-wrap: wrap;
+      padding: 0 40px;
     }
   }
 
@@ -630,7 +633,7 @@ body  {
     width: 100%;
     @media only screen and (min-width: @mobile-bp) {
       max-width: 520px;
-      flex: 1 1 470px;
+      flex: 1 1 430px;
 
       &:nth-child(odd) {
         margin-right: 20px;
@@ -881,6 +884,45 @@ body  {
           }
         }
       }
+    }
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    transform: translate(0, -50%);
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-pagination {
+    position: static;
+    margin-bottom: 10px;
+
+    @media only screen and (min-width: @mobile-bp) {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate3d(-50%, 0, 0);
+      margin-bottom: 0;
+    }
+  }
+
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 0;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+
+    &-active {
+      background-color: @bondi-blue;
     }
   }
 }
