@@ -131,10 +131,6 @@ $(window).load(function(){
             spaceBetween: 20,
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev'
-            // spaceBetween : 0,
-            // slidesPerView: 'auto',
-            // centeredSlides: true,
-            // initialSlide: 1,
         });
         var currentTab = flightDeals.find('.tabs li.active');
         tabSwitcherHandler(currentTab);

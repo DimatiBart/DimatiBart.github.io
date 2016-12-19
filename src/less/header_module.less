@@ -520,6 +520,7 @@ body  {
     text-align: center;
     @media only screen and (min-width: @mobile-bp) {
       text-align: right;
+      padding-right: 40px;
     }
   }
 
@@ -617,7 +618,10 @@ body  {
     &__slide {
       display: flex;
       flex-wrap: wrap;
-      padding: 0 40px;
+
+      @media only screen and (min-width: @mobile-bp) {
+        padding: 0 40px;
+      }
     }
   }
 
@@ -888,7 +892,12 @@ body  {
   }
 
   .swiper-button-next, .swiper-button-prev {
-    transform: translate(0, -50%);
+    display: none;
+
+    @media only screen and (min-width: @mobile-bp) {
+      display: block;
+      transform: translate(0, -50%);
+    }
   }
 
   .swiper-button-next {
