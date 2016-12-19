@@ -125,12 +125,12 @@ $(window).load(function(){
 
     if (flightDeals.length) {
 
-        swiper =  new Swiper('.swiper-container', {
-            pagination: '.swiper-pagination',
+        swiper =  new Swiper('.flight-deals-module .swiper-container', {
+            pagination: '.flight-deals-module .swiper-pagination',
             paginationClickable: true,
             spaceBetween: 20,
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev'
+            nextButton: '.flight-deals-module.swiper-button-next',
+            prevButton: '.flight-deals-module .swiper-button-prev'
         });
         var currentTab = flightDeals.find('.tabs li.active');
         tabSwitcherHandler(currentTab);
