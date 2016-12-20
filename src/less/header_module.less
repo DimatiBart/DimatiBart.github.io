@@ -466,6 +466,7 @@ body  {
 }
 
 .flight-deals-module {
+  margin: 40px 0;
   padding: 0 20px;
   position: relative;
   @media only screen and (min-width: @mobile-bp) {
@@ -531,7 +532,7 @@ body  {
 
   .sta-heading-m {
     text-align: center;
-    margin: 40px 0 30px;
+    margin-bottom: 30px;
   }
 
   &__switch {
@@ -957,6 +958,7 @@ body  {
   background-repeat: repeat-x;
   background-position: top center, top center, bottom center, bottom center;
   padding: 20px 18.5px;
+  margin: -5px 0 35px;
 
   transition: background-color  1s ease;
 
@@ -995,6 +997,53 @@ body  {
     &.active {
       background-color: rgba(0,0,0,.3);
       color: white;
+    }
+  }
+
+  .swiper-wrapper {
+    max-width: 520px;
+    height: 362px;
+  }
+  .sliders {
+    font-size: 0;
+
+    .swiper-container {
+      display: inline-block;
+      width: 50%;
+      font-size: 18px; // TODO change temp value
+    }
+  }
+}
+
+.home-contact-us-module {
+  background-color: #3c1053;
+  @media only screen and (min-width: @mobile-bp) {
+    text-align: center;
+    font-size: 0;
+  }
+
+  .contact-us-element,
+  .contact-us-element:hover,
+  .contact-us-element:visited {
+    font: 500 21px @titillium;
+    text-decoration: none;
+    color: white;
+  }
+
+  ul {
+    list-style: none;
+    text-align: left;
+    @media only screen and (min-width: @mobile-bp) {
+      display: inline-block;
+      font-size: 0;
+    }
+
+    li {
+      font-size: 18px;
+      display: block;
+      @media only screen and (min-width: @mobile-bp) {
+        display: inline-block;
+      }
     }
   }
 }

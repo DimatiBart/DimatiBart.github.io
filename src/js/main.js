@@ -155,18 +155,22 @@ $(window).load(function(){
     if (homeHero.length) {
 
         homeHeroSwiper =  new Swiper('.home-hero-carousel-module .swiper-container', {
+            direction: 'vertical'
             // nextButton: '.flight-deals-module.swiper-button-next',
             // prevButton: '.flight-deals-module .swiper-button-prev'
         });
 
         $(document).on('click', '.home-hero-carousel-module .paginator', function(){
-            $('.home-hero-carousel-module .paginator.active').removeClass('active');
             var $this = $(this);
-            var color = $this.data('color');
-            $this.addClass('active');
-            $('.home-hero-carousel-module').css('background-color', color);
-            var index = $this.index();
-            homeHeroSwiper.slideTo(index);
+            if (!$this.hasClass('active')) {
+                $('.home-hero-carousel-module .paginator.active').removeClass('active');
+
+                var color = $this.data('color');
+                $this.addClass('active');
+                $('.home-hero-carousel-module').css('background-color', color);
+                var index = $this.index();
+                homeHeroSwiper.slideTo(index);
+            }
         });
 
         // $(window).resize(function(){
