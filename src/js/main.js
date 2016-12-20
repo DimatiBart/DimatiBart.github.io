@@ -119,7 +119,7 @@ function tabSwitcherHandler(element){
 }
 
 var flightDealsSwiper;
-var homeHeroSwiper;
+var homeHeroSwiperFirst, homeHeroSwiperSecond;
 
 $(window).load(function(){
     var flightDeals = $('.flight-deals-module');
@@ -154,11 +154,23 @@ $(window).load(function(){
 
     if (homeHero.length) {
 
-        homeHeroSwiper =  new Swiper('.home-hero-carousel-module .swiper-container', {
-            direction: 'vertical'
+        homeHeroSwiperFirst =  new Swiper('.home-hero-carousel-module .swiper-container.first', {
+            direction: 'vertical',
+            simulateTouch: false,
+            loop: true
             // nextButton: '.flight-deals-module.swiper-button-next',
             // prevButton: '.flight-deals-module .swiper-button-prev'
         });
+
+        var sliderAmount = $('.home-hero-carousel-module .swiper-container.second .swiper-slide').length;
+
+        homeHeroSwiperSecond =  new Swiper('.home-hero-carousel-module .swiper-container.second', {
+            direction: 'vertical',
+            loop: true,
+            simulateTouch: false,
+            initialSlide: sliderAmount - 1
+        });
+
 
         $(document).on('click', '.home-hero-carousel-module .paginator', function(){
             var $this = $(this);
@@ -169,13 +181,9 @@ $(window).load(function(){
                 $this.addClass('active');
                 $('.home-hero-carousel-module').css('background-color', color);
                 var index = $this.index();
-                homeHeroSwiper.slideTo(index);
+                homeHeroSwiperFirst.slideTo(index + 1);
+                homeHeroSwiperSecond.slideTo(sliderAmount - index);
             }
         });
-
-        // $(window).resize(function(){
-        //     var currentTab = flightDeals.find('.tabs li.active');
-        //     tabSwitcherHandler(currentTab);
-        // })
     }
 });
