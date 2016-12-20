@@ -1017,33 +1017,102 @@ body  {
 
 .home-contact-us-module {
   background-color: #3c1053;
+  margin: 0 0 30px;
+  padding: 26px 20px 35px;
+
   @media only screen and (min-width: @mobile-bp) {
-    text-align: center;
-    font-size: 0;
+    padding: 44px 40px 37px;
   }
 
   .contact-us-element,
   .contact-us-element:hover,
   .contact-us-element:visited {
-    font: 500 21px @titillium;
+    font: 600 21px/0.95 @titillium;
     text-decoration: none;
     color: white;
+    position: relative;
+
+    p {
+      margin: 0;
+
+      &.main {
+        margin-bottom: 9px;
+      }
+
+      &.sub {
+        font-size: 18px;
+        font-weight: normal;
+      }
+    }
   }
 
   .contact-us-list {
     list-style: none;
-    text-align: left;
+    padding: 0;
+    margin: 0;
+
     @media only screen and (min-width: @mobile-bp) {
-      display: inline-block;
-      font-size: 0;
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
     }
 
     li {
       font-size: 18px;
       display: block;
-      @media only screen and (min-width: @mobile-bp) {
-        display: inline-block;
+
+      &:not(:last-child) {
+        margin-bottom: 55px;
+        @media only screen and (min-width: @mobile-bp) {
+          margin-bottom: 0;
+        }
       }
     }
   }
+
+  .contact-us-element {
+    display: block;
+
+    &::before {
+      content: "";
+      display: block;
+      background: url("../../home-contact-us.png") no-repeat;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  .contact-us .contact-us-element {
+    padding-left: 52px;
+
+    &::before {
+      background-position: 0 -31px;
+      width: 36px;
+      height: 37px;
+    }
+  }
+
+  .find-a-store .contact-us-element {
+    padding-left: 52px;
+
+    &::before {
+      background-position: 4px -73px;
+      width: 36px;
+      height: 40px;
+    }
+  }
+
+  .sign-up .contact-us-element {
+    padding-left: 52px;
+
+    &::before {
+      background-position: 0 0;
+      width: 36px;
+      height: 26px;
+    }
+  }
+
 }
