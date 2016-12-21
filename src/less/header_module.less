@@ -626,7 +626,7 @@ body  {
     }
   }
 
-  .wrapper {
+  .slider-wrapper {
     position: relative;
     @media only screen and (min-width: @mobile-bp) {
       padding: 0 40px;
@@ -1020,11 +1020,27 @@ body  {
     font-size: 0;
     margin-bottom: 21px;
 
+    &.mobile {
+      @media only screen and (min-width: @mobile-bp) {
+        display: none;
+      }
+    }
+
+    &.desktop {
+      display: none;
+      @media only screen and (min-width: @mobile-bp) {
+        display: block;
+      }
+    }
+
     .swiper-container {
       display: inline-block;
-      width: 50%;
+      width: 100%;
       font-size: 18px; // TODO change temp value
       box-shadow: 0 2px 4px 0 rgba(67, 67, 67, 0.5);
+      @media only screen and (min-width: @mobile-bp) {
+        width: 50%;
+      }
     }
   }
 }
@@ -1038,8 +1054,11 @@ body  {
     padding: 44px 40px 37px;
   }
 
+  .contact-us-element:hover {
+    text-decoration: underline;
+  }
+
   .contact-us-element,
-  .contact-us-element:hover,
   .contact-us-element:visited {
     font: 600 21px/0.95 @titillium;
     text-decoration: none;
@@ -1057,6 +1076,7 @@ body  {
       &.sub {
         font-size: 18px;
         font-weight: normal;
+        color: rgba(255,255,255,.8);
       }
     }
   }

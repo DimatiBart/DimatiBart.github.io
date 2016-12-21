@@ -119,7 +119,13 @@ function tabSwitcherHandler(element){
 }
 
 var flightDealsSwiper;
-var homeHeroSwiperFirst, homeHeroSwiperSecond;
+var homeHeroSwiperObj = {
+    desktop:{
+        first: null,
+        second: null
+    },
+    mobile: null
+};
 
 $(window).load(function(){
     var flightDeals = $('.flight-deals-module');
@@ -160,7 +166,7 @@ $(window).load(function(){
 
     if (homeHero.length) {
 
-        homeHeroSwiperFirst =  new Swiper('.home-hero-carousel-module .swiper-container.first', {
+        homeHeroSwiperObj.desktop.first =  new Swiper('.home-hero-carousel-module .swiper-container.first', {
             direction: 'vertical',
             simulateTouch: false,
             loop: true
@@ -170,12 +176,35 @@ $(window).load(function(){
 
         var sliderAmount = $('.home-hero-carousel-module .swiper-container.second .swiper-slide').length;
 
-        homeHeroSwiperSecond =  new Swiper('.home-hero-carousel-module .swiper-container.second', {
+        homeHeroSwiperObj.desktop.second =  new Swiper('.home-hero-carousel-module .swiper-container.second', {
             direction: 'vertical',
             loop: true,
             simulateTouch: false,
             initialSlide: sliderAmount - 1
         });
+
+        homeHeroSwiperObj.mobile =  new Swiper('.home-hero-carousel-module .swiper-container.mobile', {
+            loop: true,
+            pagination: '.home-hero-carousel-module .sliders.mobile .swiper-pagination',
+            paginationClickable: true,
+            onSlideChangeStart: function(slider){
+                console.log(slider.realIndex);
+                var paginators = $('.home-hero-carousel-module .paginator');
+                paginators.filter('.active').removeClass('active');
+                var index = parseInt(slider.realIndex);
+                var currentButton = paginators.eq(index).addClass('active');
+                var color = currentButton.data('color');
+                $('.home-hero-carousel-module').css('background-color', color);
+                homeHeroSwiperObj.desktop.first.slideTo(index + 1);
+                homeHeroSwiperObj.desktop.second.slideTo(sliderAmount - index);
+                //$('.home-hero-carousel-module .paginator').eq(slider.realIndex).trigger('click');
+            }
+        });
+
+        //homeHeroSwiperObj.mobile.params.control = homeHeroSwiperObj.desktop.first;
+        //homeHeroSwiperObj.desktop.first.params.control = homeHeroSwiperObj.mobile;
+
+
 
 
         $(document).on('click', '.home-hero-carousel-module .paginator', function(){
@@ -187,8 +216,9 @@ $(window).load(function(){
                 $this.addClass('active');
                 $('.home-hero-carousel-module').css('background-color', color);
                 var index = $this.index();
-                homeHeroSwiperFirst.slideTo(index + 1);
-                homeHeroSwiperSecond.slideTo(sliderAmount - index);
+                homeHeroSwiperObj.desktop.first.slideTo(index + 1);
+                homeHeroSwiperObj.mobile.slideTo(index + 1);
+                homeHeroSwiperObj.desktop.second.slideTo(sliderAmount - index);
             }
         });
     }
