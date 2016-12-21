@@ -132,7 +132,13 @@ $(window).load(function(){
             spaceBetween: 20,
             nextButton: '.flight-deals-module .swiper-button-next',
             prevButton: '.flight-deals-module .swiper-button-prev',
-            loop: true
+            loop: true,
+            slidesPerView: 2,
+            breakpoints: {
+                641: {
+                    slidesPerView: 1
+                }
+            }
         });
         var currentTab = flightDeals.find('.tabs li.active');
         tabSwitcherHandler(currentTab);
