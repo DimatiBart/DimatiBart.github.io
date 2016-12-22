@@ -193,7 +193,7 @@ $(window).load(function(){
 
         homeHeroSwiperObj.mobile =  new Swiper('.home-hero-carousel-module .swiper-container.mobile', {
             loop: true,
-            pagination: '.home-hero-carousel-module .sliders.mobile .swiper-pagination',
+            pagination: '.home-hero-carousel-module .swiper-pagination',
             paginationClickable: true,
             spaceBetween: 10,
             onSlideChangeStart: function(slider){
@@ -235,6 +235,11 @@ $(window).load(function(){
                 homeHeroSwiperObj.desktop.second.slideNext();
             }
             paginatorHandler(parseInt(homeHeroSwiperObj.desktop.first.realIndex));
+        });
+
+        $(document).on('click', '.home-hero-carousel-module .swiper-pagination', function(){
+            event.stopPropagation();
+            event.preventDefault();
         })
     }
 });

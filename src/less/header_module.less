@@ -1017,7 +1017,6 @@ body  {
   }
 
   .swiper-wrapper {
-
     @media only screen and (min-width: 642px) {
       max-width: 520px;
       height: 362px;
@@ -1032,16 +1031,24 @@ body  {
     height: 100%;
   }
 
+  .default-sta-bullets;
+
+  .swiper-pagination {
+    position: static;
+    margin: 8px 0;
+
+    @media only screen and (min-width: @mobile-bp) {
+      display: none;
+    }
+  }
+
   .sliders {
     font-size: 0;
-    margin-bottom: 5px;
-    padding-bottom: 27px;
     position: relative;
     display: block;
 
     @media only screen and (min-width: @mobile-bp) {
-      display: none;
-      padding-bottom: 0;
+      //display: none;
       margin-bottom: 21px;
     }
 
@@ -1053,6 +1060,7 @@ body  {
       .swiper-container {
         position: static;
       }
+
     }
 
     .swiper-btn {
@@ -1151,8 +1159,6 @@ body  {
         }
       }
     }
-
-    .default-sta-bullets;
   }
 }
 
