@@ -195,6 +195,7 @@ $(window).load(function(){
             loop: true,
             pagination: '.home-hero-carousel-module .sliders.mobile .swiper-pagination',
             paginationClickable: true,
+            spaceBetween: 10,
             onSlideChangeStart: function(slider){
                 var index = parseInt(slider.realIndex);
                 paginatorHandler(index);
@@ -221,6 +222,8 @@ $(window).load(function(){
         });
 
         $(document).on('click', '.home-hero-carousel-module .swiper-btn', function(){
+            event.stopPropagation();
+            event.preventDefault();
             var $this = $(this);
             $('.home-hero-carousel-module .paginator.active').removeClass('active');
             if ($this.hasClass('swiper-btn_next')) {
