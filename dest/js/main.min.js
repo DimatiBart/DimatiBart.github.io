@@ -169,9 +169,8 @@ $(window).load(function(){
         homeHeroSwiperObj.desktop.first =  new Swiper('.home-hero-carousel-module .swiper-container.first', {
             direction: 'vertical',
             simulateTouch: false,
-            loop: true
-            // nextButton: '.flight-deals-module.swiper-button-next',
-            // prevButton: '.flight-deals-module .swiper-button-prev'
+            loop: true,
+            spaceBetween: 0
         });
 
         var sliderAmount = $('.home-hero-carousel-module .swiper-container.second .swiper-slide').length;
@@ -180,7 +179,8 @@ $(window).load(function(){
             direction: 'vertical',
             loop: true,
             simulateTouch: false,
-            initialSlide: sliderAmount - 1
+            initialSlide: sliderAmount - 1,
+            spaceBetween: 0
         });
 
         homeHeroSwiperObj.mobile =  new Swiper('.home-hero-carousel-module .swiper-container.mobile', {
@@ -188,7 +188,6 @@ $(window).load(function(){
             pagination: '.home-hero-carousel-module .sliders.mobile .swiper-pagination',
             paginationClickable: true,
             onSlideChangeStart: function(slider){
-                console.log(slider.realIndex);
                 var paginators = $('.home-hero-carousel-module .paginator');
                 paginators.filter('.active').removeClass('active');
                 var index = parseInt(slider.realIndex);
@@ -200,11 +199,6 @@ $(window).load(function(){
                 //$('.home-hero-carousel-module .paginator').eq(slider.realIndex).trigger('click');
             }
         });
-
-        //homeHeroSwiperObj.mobile.params.control = homeHeroSwiperObj.desktop.first;
-        //homeHeroSwiperObj.desktop.first.params.control = homeHeroSwiperObj.mobile;
-
-
 
 
         $(document).on('click', '.home-hero-carousel-module .paginator', function(){
