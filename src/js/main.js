@@ -194,14 +194,14 @@ $(window).load(function(){
         homeHeroSwiperObj.mobile =  new Swiper('.home-hero-carousel-module .swiper-container.mobile', {
             loop: true,
             pagination: '.home-hero-carousel-module .swiper-pagination',
-            paginationClickable: true,
             spaceBetween: 10,
+            preventClicksPropagation: false,
+            paginationClickable: true,
             onSlideChangeStart: function(slider){
                 var index = parseInt(slider.realIndex);
                 paginatorHandler(index);
                 homeHeroSwiperObj.desktop.first.slideTo(index + 1);
                 homeHeroSwiperObj.desktop.second.slideTo(sliderAmount - index);
-                //$('.home-hero-carousel-module .paginator').eq(slider.realIndex).trigger('click');
             }
         });
 
@@ -221,7 +221,13 @@ $(window).load(function(){
             }
         });
 
-        $(document).on('click', '.home-hero-carousel-module .swiper-btn', function(){
+        $(document).on('click', '.swiper-slide', function(event){
+           if (homeHeroSwiperObj.mobile.animating) {
+               event.preventDefault();
+           }
+        });
+
+        $(document).on('click', '.home-hero-carousel-module .swiper-btn', function(event){
             event.stopPropagation();
             event.preventDefault();
             var $this = $(this);
@@ -236,10 +242,5 @@ $(window).load(function(){
             }
             paginatorHandler(parseInt(homeHeroSwiperObj.desktop.first.realIndex));
         });
-
-        $(document).on('click', '.home-hero-carousel-module .swiper-pagination', function(){
-            event.stopPropagation();
-            event.preventDefault();
-        })
     }
 });
