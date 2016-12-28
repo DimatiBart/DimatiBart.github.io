@@ -276,11 +276,13 @@ $(window).load(function(){
         homeToursSliders.mobile = new Swiper('.home-tours-module .slider-container.mobile .swiper-container', {
             //loop: true,
             pagination: '.home-tours-module .swiper-pagination',
+            spaceBetween: 20
         });
 
         homeToursSliders.desktop = new Swiper('.home-tours-module .slider-container.desktop .swiper-container', {
             //loop: true,
             pagination: '.home-tours-module .swiper-pagination',
+            spaceBetween: 20
         })
     }
 });
