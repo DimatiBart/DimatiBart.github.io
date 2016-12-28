@@ -471,6 +471,9 @@ body  {
   position: relative;
   @media only screen and (min-width: @mobile-bp) {
     padding: 0;
+    max-width: 1060px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .tabs {
@@ -1138,15 +1141,36 @@ body  {
       }
 
       &_image {
+
         &_first {
-          padding: 0 20px 20px;
+          padding: 16px 20px 20px;
+          @media only screen and (min-width: @mobile-bp) {
+            padding: 0 20px 20px;
+          }
+
+          .main {
+            margin-top: 17px;
+          }
         }
 
         &_second {
-          padding: 35px 20px 20px;
+          padding: 16px 20px 20px;
+          @media only screen and (min-width: @mobile-bp) {
+            padding: 35px 20px 20px;
+          }
+
+          .sub {
+            margin-bottom: 14px;
+            @media only screen and (min-width: @mobile-bp) {
+              margin-bottom: 0;
+            }
+          }
         }
         .main {
-          margin: 0 0 7px 0;
+          margin-bottom: 5px;
+          @media only screen and (min-width: @mobile-bp) {
+            margin: 0 0 7px 0;
+          }
         }
       }
 
@@ -1284,4 +1308,65 @@ body  {
     }
   }
 
+}
+
+.home-tours-module {
+  @media only screen and (min-width: @mobile-bp) {
+    min-width: 960px;
+    max-width: 1420px;
+    margin: 0 auto 30px;
+  }
+
+
+  .slider-container {
+    .default-sta-bullets;
+
+    &.mobile {
+      @media only screen and (min-width: @mobile-bp) {
+        display: none;
+      }
+    }
+
+    &.desktop {
+      display: none;
+      padding: 0 40px;
+
+      @media only screen and (min-width: @mobile-bp) {
+        display: block;
+      }
+    }
+  }
+  .tour {
+    font-size: 18px;// TODO remove
+    width: 220px;
+    height: 346px;
+    background: rebeccapurple;
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
+  .swiper-slide {
+    font-size: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .slider-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .swiper-btn {
+    &_prev {
+      left: 0;
+    }
+
+    &_next {
+      right: 0;
+    }
+  }
 }
