@@ -273,16 +273,29 @@ $(window).load(function(){
     var heroTours = $('.home-tours-module');
 
     if (heroTours.length) {
-        homeToursSliders.mobile = new Swiper('.home-tours-module .slider-container.mobile .swiper-container', {
+        homeToursSliders.mobile = new Swiper('.home-tours-module .swiper-container.mobile', {
             //loop: true,
             pagination: '.home-tours-module .swiper-pagination',
-            spaceBetween: 20
+            spaceBetween: 20,
+            slidesPerView: 3,
         });
 
-        homeToursSliders.desktop = new Swiper('.home-tours-module .slider-container.desktop .swiper-container', {
-            //loop: true,
-            pagination: '.home-tours-module .swiper-pagination',
-            spaceBetween: 20
+        homeToursSliders.desktop = new Swiper('.home-tours-module .swiper-container.desktop', {
+            loop: true,
+            paginationClickable: true,
+            pagination: '.home-tours-module .swiper-container.desktop .swiper-pagination',
+            spaceBetween: 20,
+            nextButton: '.home-tours-module .swiper-container.desktop .swiper-button-next',
+            prevButton: '.home-tours-module .swiper-container.desktop .swiper-button-prev',
+        });
+
+        window.matchMedia("(min-width: 642px)").addListener(function(){
+            if (window.matchMedia("(min-width: 642px)").matches == false) {
+                console.log(1);
+            }
+            else {
+                console.log(2);
+            }
         })
     }
 });

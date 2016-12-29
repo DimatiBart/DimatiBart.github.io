@@ -1311,6 +1311,10 @@ body  {
 }
 
 .home-tours-module {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
   @media only screen and (min-width: @mobile-bp) {
     min-width: 960px;
     max-width: 1420px;
@@ -1318,55 +1322,111 @@ body  {
   }
 
 
-  .slider-container {
+  //.slider-container {
+  //
+  //
+  //  position: relative;
+  //  max-width: 1000px;
+  //  margin: 0 auto;
+  //
+  //  &.mobile {
+  //    @media only screen and (min-width: @mobile-bp) {
+  //      display: none;
+  //    }
+  //  }
+  //
+  //  &.desktop {
+  //    display: none;
+  //    padding: 0 40px;
+  //
+  //    @media only screen and (min-width: @mobile-bp) {
+  //      display: block;
+  //    }
+  //  }
+  //}
+
+  .swiper-container {
     .default-sta-bullets;
+
+    &.desktop {
+      display: none;
+
+      @media only screen and (min-width: @mobile-bp) {
+        display: block;
+      }
+    }
 
     &.mobile {
       @media only screen and (min-width: @mobile-bp) {
         display: none;
       }
     }
-
-    &.desktop {
-      display: none;
-      padding: 0 40px;
-
-      @media only screen and (min-width: @mobile-bp) {
-        display: block;
-      }
-    }
   }
-  .tour {
-    font-size: 18px;// TODO remove
-    width: 220px;
-    height: 346px;
-    background: rebeccapurple;
-    display: inline-block;
 
-    &:not(:first-child) {
-      margin-left: 20px;
-    }
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 56px;
   }
 
   .swiper-slide {
-    font-size: 0;
+
+    @media only screen and (min-width: @mobile-bp) {
+      padding: 60px 40px 100px;
+    }
+  }
+
+  .slides-container {
     display: flex;
     justify-content: center;
   }
 
-  .slider-container {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
+  .tour {
+    @media only screen and (min-width: @mobile-bp) {
+      width: 220px;
+      height: 346px;
+
+      &:not(:first-child) {
+        margin-left: 20px;
+      }
+    }
+
+    &.swiper-slide {
+      width: 176px !important;
+      height: 270px;
+    }
+
+    background: rebeccapurple;
   }
 
+  //.swiper-slide {
+  //  font-size: 0;
+  //  display: flex;
+  //  justify-content: center;
+  //}
+
   .swiper-btn {
+    top: 50%;
+    transform: translateY(-50%);
+
     &_prev {
-      left: 0;
+      left: 20px;
     }
 
     &_next {
-      right: 0;
+      right: 20px;
+    }
+
+    @media only screen and (min-width: @mobile-bp) and (max-width: 1090px) {
+      &_prev {
+        left: 0;
+      }
+
+      &_next {
+        right: 0;
+      }
     }
   }
+
+  //.swiper-container {
+  //  padding-bottom: 44px;
+  //}
 }
