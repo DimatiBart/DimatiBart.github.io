@@ -275,6 +275,7 @@ $(window).load(function(){
     if (heroTours.length) {
         homeToursSliders.mobile = new Swiper('.home-tours-module .swiper-container.mobile', {
             //loop: true,
+            grabCursor: true,
             pagination: '.home-tours-module .swiper-container.mobile .swiper-pagination',
             spaceBetween: 20,
             slidesPerView:'auto',
@@ -286,6 +287,7 @@ $(window).load(function(){
 
         homeToursSliders.desktop = new Swiper('.home-tours-module .swiper-container.desktop', {
             loop: true,
+            grabCursor: true,
             paginationClickable: true,
             pagination: '.home-tours-module .swiper-container.desktop .swiper-pagination',
             spaceBetween: 20,
@@ -294,11 +296,15 @@ $(window).load(function(){
         });
 
         window.matchMedia("(min-width: 642px)").addListener(function(){
+            var activeSlideIndex;
             if (window.matchMedia("(min-width: 642px)").matches == false) {
-                console.log(1);
+                activeSlideIndex = parseInt(homeToursSliders.desktop.realIndex);
+                activeSlideIndex = activeSlideIndex ? activeSlideIndex * 4: activeSlideIndex;
+                homeToursSliders.mobile.slideTo(activeSlideIndex);
             }
             else {
-                console.log(2);
+                activeSlideIndex = parseInt(homeToursSliders.mobile.realIndex) % 4;
+                homeToursSliders.desktop.slideTo(activeSlideIndex);
             }
         })
     }
