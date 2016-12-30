@@ -303,7 +303,7 @@ $(window).load(function(){
                 homeToursSliders.mobile.slideTo(activeSlideIndex);
             }
             else {
-                activeSlideIndex = parseInt(homeToursSliders.mobile.realIndex) % 4;
+                activeSlideIndex = Math.trunc(parseInt(homeToursSliders.mobile.realIndex) / 4) + 1;
                 homeToursSliders.desktop.slideTo(activeSlideIndex);
             }
         })
