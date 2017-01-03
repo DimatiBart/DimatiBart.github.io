@@ -290,7 +290,7 @@ $(window).load(function(){
             grabCursor: true,
             paginationClickable: true,
             pagination: '.home-tours-module .swiper-container.desktop .swiper-pagination',
-            spaceBetween: 20,
+            //spaceBetween: 20,
             nextButton: '.home-tours-module .swiper-container.desktop .swiper-button-next',
             prevButton: '.home-tours-module .swiper-container.desktop .swiper-button-prev',
         });
