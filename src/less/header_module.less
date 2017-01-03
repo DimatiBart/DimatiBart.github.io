@@ -1324,6 +1324,8 @@ body  {
 
   .swiper-container {
     .default-sta-bullets;
+    max-width: 1040px;
+    margin: 0 auto;
 
     &.desktop {
       display: none;
@@ -1392,21 +1394,11 @@ body  {
     transform: translateY(-50%);
 
     &_prev {
-      left: 20px;
+      left: 10px;
     }
 
     &_next {
-      right: 20px;
-    }
-
-    @media only screen and (min-width: @mobile-bp) and (max-width: 1090px) {
-      &_prev {
-        left: 0;
-      }
-
-      &_next {
-        right: 0;
-      }
+      right: 10px;
     }
   }
 
