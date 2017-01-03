@@ -274,14 +274,14 @@ $(window).load(function(){
 
     if (heroTours.length) {
         homeToursSliders.mobile = new Swiper('.home-tours-module .swiper-container.mobile', {
-            //loop: true,
+            loop: true,
             grabCursor: true,
             pagination: '.home-tours-module .swiper-container.mobile .swiper-pagination',
             spaceBetween: 20,
             slidesPerView:'auto',
             parallax: true,
             paginationClickable: true,
-            centeredSlides: true,
+            //centeredSlides: true,
             //freeMode: true
         });
 
