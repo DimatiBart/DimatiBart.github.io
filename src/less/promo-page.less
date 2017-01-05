@@ -1,0 +1,35 @@
+.region-sales-module {
+  max-width: 960px;
+  margin: 0 auto;
+
+  .sta-heading-s {
+    //text-align: right;
+    margin-bottom: 30px;
+  }
+  .region-block {
+    position: relative;
+    float: left;
+    width: 320px;
+    height: 212px;
+    background-color:  #434343;
+    border-right: 0.5px solid @grey-border;
+    border-bottom: 0.5px solid @grey-border;
+
+    &:hover {
+      box-shadow: 0 2px 6.48px 1.52px rgba(0, 0, 0, 0.17);
+      margin: -4px;
+      width: 328px;
+      height: 220px;
+      z-index: 2;
+      border: 0;
+    }
+
+    &:nth-child(3n + 3) {
+      border-right: 0;
+    }
+
+    &:nth-last-child(-n + 3) {
+      border-bottom: 0;
+    }
+  }
+}
