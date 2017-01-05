@@ -548,73 +548,6 @@ body  {
     -webkit-border-radius: 40px;
     border-radius: 0;
     background-clip: padding-box;
-
-    &__label {
-      position: relative;
-      z-index: 2;
-      float: left;
-      width: 128px;
-      height: 37px;
-      line-height: 37px;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      margin-left: 10px;
-      margin-top: 10px;
-      color: @bondi-blue;
-      text-align: center;
-      cursor: pointer;
-      letter-spacing: 1px;
-      transition: color .2s linear;
-      user-select: none;
-
-      &:focus {
-        background: none;
-        outline: none;
-      }
-
-      &_second {
-        margin-left: 24px;
-        width: 180px;
-      }
-
-      &_on {
-        padding-right: 2px;
-      }
-      &_off {
-        padding-left: 2px;
-      }
-    }
-    &__selection {
-      display: block;
-      position: absolute;
-      z-index: 1;
-      top: 10px;
-      left: 10px;
-      width: 135px;
-      height: 37px;
-      background: #0065bd;
-      -webkit-border-radius: 2px;
-      border-radius: 0;
-      background-clip: padding-box;
-      transition: left .15s ease-out;
-    }
-
-    &__input {
-      display: none;
-
-      &:checked {
-        &+.flight-deals-module__switch__label {
-          transition: 0.15s ease-out;
-          color: #FFFFFF;
-
-          &_on ~ .flight-deals-module__switch__selection {
-            left: 160px;
-            width: 180px;
-          }
-        }
-      }
-    }
   }
 
   &__carousel {
@@ -635,6 +568,32 @@ body  {
       padding: 0 40px;
     }
 
+    .swiper-button, .swiper-container, .swiper-pagination {
+      display: none;
+    }
+
+    &_first-active {
+      .swiper-container_first, .swiper-pagination_first {
+        display: block;
+      }
+      @media only screen and (min-width: @mobile-bp) {
+        .swiper-button_first {
+          display: block;
+        }
+      }
+
+    }
+    &_second-active {
+      .swiper-container_second, .swiper-pagination_second {
+        display: block;
+      }
+
+      @media only screen and (min-width: @mobile-bp) {
+        .swiper-button_second {
+          display: block;
+        }
+      }
+    }
   }
 
   .flight-ticket {
@@ -922,12 +881,12 @@ body  {
 
   .swiper-pagination {
     position: static;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 
     @media only screen and (min-width: @mobile-bp) {
       position: absolute;
       left: 50%;
-      bottom: 0;
+      bottom: -20px;
       transform: translate3d(-50%, 0, 0);
       margin-bottom: 0;
     }

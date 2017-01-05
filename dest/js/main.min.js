@@ -108,41 +108,65 @@ var onYouTubePlayerAPIReady;
     }
 })();
 
-function tabSwitcherHandler(element){
-    var width = element.outerWidth();
-    var switcher = element.siblings('.switch');
-    element.siblings('.active').removeClass('active');
-    element.addClass('active');
-    switcher.css('width', width);
-    var position = element.position().left;
-    switcher.css('left', position);
-}
-
 var flightDealsSwiper = {
-    slider: null,
+    sliders: {},
     isInited: false,
     destroy: function() {
         if (this.isInited) {
-            flightDealsSwiper.destroy();
+            this.sliders.first.destroy();
+            this.sliders.second.destroy();
             this.isInited = false;
         }
     },
+    _classNames: ['first', 'second'],
     init: function(){
         if (!this.isInited) {
-            this.slider = new Swiper('.flight-deals-module .swiper-container', {
-                pagination: '.flight-deals-module .swiper-pagination',
-                paginationClickable: true,
-                spaceBetween: 20,
-                nextButton: '.flight-deals-module .swiper-button-next',
-                prevButton: '.flight-deals-module .swiper-button-prev',
-                loop: true,
-                slidesPerView: 2,
-                breakpoints: {
-                    641: {
-                        slidesPerView: 1
+            this._classNames.forEach(function(curValue){
+                this.sliders[curValue] = new Swiper('.flight-deals-module .swiper-container_' + curValue, {
+                    pagination: '.flight-deals-module .swiper-pagination_'+ curValue,
+                    paginationClickable: true,
+                    spaceBetween: 20,
+                    nextButton: '.flight-deals-module .swiper-button-next.swiper-button_'+ curValue,
+                    prevButton: '.flight-deals-module .swiper-button-prev.swiper-button_'+ curValue,
+                    loop: true,
+                    slidesPerView: 2,
+                    breakpoints: {
+                        641: {
+                            slidesPerView: 1
+                        }
                     }
-                }
-            });
+                });
+            }.bind(this));
+        }
+        this.isInited = true;
+    },
+    tabSwitcherHandler: function(element){
+        var width = element.outerWidth();
+        var switcher = element.siblings('.switch');
+        element.siblings('.active').removeClass('active');
+        element.addClass('active');
+        this.sliderDisplayHandler(element);
+
+        switcher.css('width', width);
+        var position = element.position().left;
+        switcher.css('left', position);
+    },
+    sliderDisplayHandler: function (element){
+        var classToRemove, classToAdd;
+        if (element.hasClass('first-tab')) {
+            classToAdd = 'slider-wrapper_first-active';
+            classToRemove  = 'slider-wrapper_second-active';
+        }
+        else {
+            classToRemove = 'slider-wrapper_first-active';
+            classToAdd  = 'slider-wrapper_second-active';
+
+        }
+        $('.flight-deals-module .slider-wrapper').addClass(classToAdd).removeClass(classToRemove);
+
+        if (flightDealsSwiper.isInited) {
+            flightDealsSwiper.sliders.first.update();
+            flightDealsSwiper.sliders.second.update();
         }
     }
 };
@@ -164,21 +188,21 @@ $(window).load(function(){
 
     if (flightDeals.length) {
 
-        flightDealsSwiper.init();
-
         var currentTab = flightDeals.find('.tabs li.active');
-        tabSwitcherHandler(currentTab);
+        flightDealsSwiper.tabSwitcherHandler(currentTab);
+
+        flightDealsSwiper.init();
 
         $(document).on('click', '.flight-deals-module .tabs li', function(){
             var $this = $(this);
             if (!$this.hasClass('active')) {
-                tabSwitcherHandler($this);
+                flightDealsSwiper.tabSwitcherHandler($this);
             }
         });
 
         $(window).resize(function(){
             var currentTab = flightDeals.find('.tabs li.active');
-            tabSwitcherHandler(currentTab);
+            flightDealsSwiper.tabSwitcherHandler(currentTab);
         })
     }
 
