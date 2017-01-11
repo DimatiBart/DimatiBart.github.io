@@ -333,3 +333,9 @@ $(window).load(function(){
         })
     }
 });
+
+$(document).on('click', '.tap-to-call', function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    window.location = 'tel:' + $(this).data('tel');
+});
