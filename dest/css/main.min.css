@@ -653,6 +653,8 @@ header {
   transition: all .5s ease;
   padding: 5px 20px;
   font-size: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
 }
 @media only screen and (min-width: 641px) {
   header {
