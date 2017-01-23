@@ -231,69 +231,137 @@
 ~"only screen and (        min-resolution: 192dpi)",
 ~"only screen and (        min-resolution: 2dppx)";
 
+//@keyframes fade {
+//  0% {
+//    opacity: 1;
+//    z-index: 1;
+//  }
+//
+//  25%,75% {
+//    opacity: 0;
+//    z-index: -1;
+//  }
+//
+//  100% {
+//    opacity: 1;
+//    z-index: 1;
+//  }
+//}
+//
+//@keyframes fade2 {
+//  0% {
+//    opacity: 0;
+//    z-index: -1;
+//  }
+//
+//  25% {
+//    opacity: 1;
+//    z-index: 1;
+//  }
+//
+//  100%,50% {
+//    opacity: 0;
+//    z-index: -1;
+//  }
+//}
+//
+//@keyframes fade3 {
+//  0%,25% {
+//    opacity: 0;
+//    z-index: -1;
+//  }
+//
+//  50% {
+//    opacity: 1;
+//    z-index: 1;
+//  }
+//
+//  100% {
+//    opacity: 0;
+//    z-index: -1;
+//  }
+//}
+//
+//@keyframes fade4 {
+//  0%,50% {
+//    opacity: 0;
+//    z-index: -1;
+//  }
+//
+//  75% {
+//    opacity: 1;
+//    z-index: 1;
+//  }
+//
+//  100% {
+//    opacity: 0;
+//    z-index: -1;
+//  }
+//}
+
 @keyframes fade {
   0% {
-    opacity: 1;
-    z-index: 1;
-  }
-
-  25%,75% {
     opacity: 0;
     z-index: -1;
   }
 
-  100% {
+  12% {
     opacity: 1;
     z-index: 1;
+  }
+
+  24%,100% {
+    opacity: 0;
+    z-index: -1;
   }
 }
 
 @keyframes fade2 {
-  0% {
+  0%,24% {
     opacity: 0;
     z-index: -1;
   }
 
-  25% {
+  37% {
     opacity: 1;
     z-index: 1;
   }
 
-  100%,50% {
+  49%,100% {
     opacity: 0;
     z-index: -1;
   }
 }
 
 @keyframes fade3 {
-  0%,25% {
+  0%,49% {
     opacity: 0;
     z-index: -1;
   }
 
-  50% {
+  62% {
     opacity: 1;
     z-index: 1;
   }
 
-  100% {
+  74%,100% {
     opacity: 0;
     z-index: -1;
   }
 }
 
 @keyframes fade4 {
-  0%,50% {
+  0%,74% {
     opacity: 0;
     z-index: -1;
   }
 
-  75% {
+  87% {
     opacity: 1;
     z-index: 1;
   }
 
-  100% {
+  99%,100% {
     opacity: 0;
     z-index: -1;
   }
