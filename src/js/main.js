@@ -136,12 +136,12 @@ var flightDealsSwiper = {
         var classToHide;
         if (isDesktop) {
             classToHide = ".swiper-pagination_desktop";
-            currentSlider.find(".swiper-button").hide();
+            sliderWrapper.find(".swiper-button").hide();
         }
         else {
             classToHide = ".swiper-pagination_mobile";
         }
-        currentSlider.find(classToHide).hide();
+        sliderWrapper.find(classToHide).hide();
     },
     _getSwiperParamObject: function(wrapperSelector, isLooped, isDesktop){
         var type = isDesktop ? "desktop": "mobile";
