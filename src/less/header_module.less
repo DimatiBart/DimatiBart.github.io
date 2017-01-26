@@ -639,34 +639,27 @@ body  {
 
   .slider-wrapper {
     position: relative;
+    display: none;
     @media only screen and (min-width: @mobile-bp) {
       padding: 0 40px;
     }
 
-    .swiper-button, .swiper-container, .swiper-pagination {
+    &.active {
+      display: block;
+    }
+  }
+
+  .swiper-container {
+    &_mobile {
+      @media only screen and (min-width: @mobile-bp) {
+        display: none;
+      }
+    }
+
+    &_desktop {
       display: none;
-    }
-
-    &_first-active {
-      .swiper-container_first, .swiper-pagination_first {
-        display: block;
-      }
       @media only screen and (min-width: @mobile-bp) {
-        .swiper-button_first {
-          display: block;
-        }
-      }
-
-    }
-    &_second-active {
-      .swiper-container_second, .swiper-pagination_second {
         display: block;
-      }
-
-      @media only screen and (min-width: @mobile-bp) {
-        .swiper-button_second {
-          display: block;
-        }
       }
     }
   }
@@ -682,11 +675,10 @@ body  {
     height: 136px;
     width: 100%;
     @media only screen and (min-width: @mobile-bp) {
-      max-width: 520px;
-      flex: 1 1 430px;
+      width: calc(~"50% - 10px");
 
       &:nth-child(odd) {
-        //margin-right: 20px;
+        margin-right: 20px;
       }
     }
 
@@ -964,6 +956,19 @@ body  {
       bottom: -20px;
       transform: translate3d(-50%, 0, 0);
       margin-bottom: 0;
+    }
+
+    &_desktop {
+      display: none;
+      @media only screen and (min-width: @mobile-bp) {
+        display: inline-block;
+      }
+    }
+
+    &_mobile {
+      @media only screen and (min-width: @mobile-bp) {
+        display: none;
+      }
     }
   }
 

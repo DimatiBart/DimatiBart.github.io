@@ -111,31 +111,87 @@ var onYouTubePlayerAPIReady;
 var flightDealsSwiper = {
     sliders: {},
     isInited: false,
+    _classNames: ['first', 'second'],
+    breakpointsClasses: ["swiper-container_desktop", "swiper-container_desktop"],
+    _destroyWrapperSliders: function(){
+        this._classNames.forEach(function(elem){
+           this.sliders[elem].mobile.destroy();
+           this.sliders[elem].desktop.destroy();
+        }.bind(this));
+    },
+    updateSliders: function(){
+        this._classNames.forEach(function(elem){
+            this.sliders[elem].mobile.update();
+            this.sliders[elem].desktop.update();
+        }.bind(this));
+    },
     destroy: function() {
         if (this.isInited) {
-            this.sliders.first.destroy();
-            this.sliders.second.destroy();
+            this._destroyWrapperSliders(this.sliders.first);
+            this._destroyWrapperSliders(this.sliders.second);
             this.isInited = false;
         }
     },
-    _classNames: ['first', 'second'],
+    _hideIndicators: function(sliderWrapper, isDesktop){
+        var classToHide;
+        if (isDesktop) {
+            classToHide = ".swiper-pagination_desktop";
+            currentSlider.find(".swiper-button").hide();
+        }
+        else {
+            classToHide = ".swiper-pagination_mobile";
+        }
+        currentSlider.find(classToHide).hide();
+    },
+    _getSwiperParamObject: function(wrapperSelector, isLooped, isDesktop){
+        var type = isDesktop ? "desktop": "mobile";
+
+        var params =  {
+            pagination: wrapperSelector + " .swiper-pagination_" + type,
+            paginationClickable: true,
+            spaceBetween: 20,
+            loop: isLooped
+        };
+
+        if (isDesktop) {
+            var arrows = {
+                nextButton: wrapperSelector +' .swiper-button-next',
+                prevButton: wrapperSelector + ' .swiper-button-prev'
+            };
+            $.extend(params, arrows)
+        }
+
+        return params;
+    },
     init: function(){
         if (!this.isInited) {
             this._classNames.forEach(function(curValue){
-                this.sliders[curValue] = new Swiper('.flight-deals-module .swiper-container_' + curValue, {
-                    pagination: '.flight-deals-module .swiper-pagination_'+ curValue,
-                    paginationClickable: true,
-                    spaceBetween: 20,
-                    nextButton: '.flight-deals-module .swiper-button-next.swiper-button_'+ curValue,
-                    prevButton: '.flight-deals-module .swiper-button-prev.swiper-button_'+ curValue,
-                    loop: true,
-                    slidesPerView: 2,
-                    breakpoints: {
-                        641: {
-                            slidesPerView: 1
-                        }
+                var shouldBeLooped_mobile = true;
+                var shouldBeLooped_desktop = true;
+
+                var currentSlider = $(".slider-wrapper_" + curValue);
+                var wrapperSelector = '.flight-deals-module .slider-wrapper_' + curValue;
+                var slidesAmount = currentSlider.find(".swiper-container_mobile .swiper-slide").length;
+                if (slidesAmount <= 2) {
+                    if (slidesAmount == 2) {
+                        shouldBeLooped_desktop = false;
+                        this._hideIndicators(currentSlider, true);
                     }
-                });
+                    else {
+                        shouldBeLooped_mobile = false;
+                        shouldBeLooped_desktop = false;
+                        this._hideIndicators(currentSlider, true);
+                        this._hideIndicators(currentSlider);
+                    }
+                }
+
+                var desktopSliderParams = this._getSwiperParamObject(wrapperSelector, shouldBeLooped_desktop, true);
+                var mobileSliderParams = this._getSwiperParamObject(wrapperSelector, shouldBeLooped_mobile);
+
+                this.sliders[curValue] = {};
+
+                this.sliders[curValue].desktop = new Swiper(wrapperSelector + " .swiper-container_desktop", desktopSliderParams);
+                this.sliders[curValue].mobile = new Swiper(wrapperSelector + " .swiper-container_mobile", mobileSliderParams);
             }.bind(this));
         }
         this.isInited = true;
@@ -152,21 +208,21 @@ var flightDealsSwiper = {
         switcher.css('left', position);
     },
     sliderDisplayHandler: function (element){
-        var classToRemove, classToAdd;
+        var activeClass, disabledClass;
         if (element.hasClass('first-tab')) {
-            classToAdd = 'slider-wrapper_first-active';
-            classToRemove  = 'slider-wrapper_second-active';
+            activeClass = '.slider-wrapper_first';
+            disabledClass  = '.slider-wrapper_second';
         }
         else {
-            classToRemove = 'slider-wrapper_first-active';
-            classToAdd  = 'slider-wrapper_second-active';
-
+            disabledClass = '.slider-wrapper_first';
+            activeClass  = '.slider-wrapper_second';
         }
-        $('.flight-deals-module .slider-wrapper').addClass(classToAdd).removeClass(classToRemove);
+        var flightDealModule = $(".flight-deals-module");
+        flightDealModule.find(activeClass).addClass("active");
+        flightDealModule.find(disabledClass).removeClass("active");
 
         if (flightDealsSwiper.isInited) {
-            flightDealsSwiper.sliders.first.update();
-            flightDealsSwiper.sliders.second.update();
+            flightDealsSwiper.updateSliders();
         }
     }
 };
