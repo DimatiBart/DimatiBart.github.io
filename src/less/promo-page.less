@@ -215,21 +215,30 @@ body {
     color: white;
     float: left;
     text-transform: none;
-    margin-right: 16px;
+    margin: 11px 28px 0 0;
   }
 
   .time-cell {
     display: inline-block;
     font: 600 21px @titillium;
     text-transform: uppercase;
-    margin-left: 12px;
+    margin-left: 8px;
+    position: relative;
+    padding-right: 16px;
 
     .numeric-val {
       font: 600 24px @titillium;
+      text-align: center;
     }
 
     .sub {
       font: normal 11px @titillium;
+    }
+
+    .separator {
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
 }
