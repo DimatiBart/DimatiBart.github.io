@@ -192,3 +192,44 @@ body {
     background-color: @mid-grey-sub-text;
   }
 }
+
+.countdown-clock {
+  background-color: #e6007e;
+  text-align: center;
+  height: 60px;
+
+  &.inactive {
+    background-color: @GRAY;
+  }
+
+  .clock {
+    display: inline-block;
+    color: @white;
+  }
+
+  .sales-ended-msg {
+    font: 600 21px @MID_GRAY;
+  }
+
+  .sta-heading-m {
+    color: white;
+    float: left;
+    text-transform: none;
+    margin-right: 16px;
+  }
+
+  .time-cell {
+    display: inline-block;
+    font: 600 21px @titillium;
+    text-transform: uppercase;
+    margin-left: 12px;
+
+    .numeric-val {
+      font: 600 24px @titillium;
+    }
+
+    .sub {
+      font: normal 11px @titillium;
+    }
+  }
+}

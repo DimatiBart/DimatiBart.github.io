@@ -392,17 +392,22 @@ $(window).load(function(){
 
 
     (function(){
-        var scrollingHeroBanner = $('.scrolling-hero-banner');
+        var swiperSelector = '.scrolling-hero-banner.swiper-container';
+        var scrollingHeroBanner = $(swiperSelector);
 
         if (scrollingHeroBanner.length) {
-            var swiperSelector = '.scrolling-hero-banner.swiper-container';
-            var a = new Swiper(swiperSelector, {
-                loop: true,
-                pagination: swiperSelector + ' .swiper-pagination',
-                paginationClickable: true,
-                nextButton: swiperSelector + ' .swiper-btn_next',
-                prevButton: swiperSelector +' .swiper-btn_prev',
-            });
+            if (scrollingHeroBanner.find(".swiper-slide").length > 1) {
+                var a = new Swiper(swiperSelector, {
+                    loop: true,
+                    pagination: swiperSelector + ' .swiper-pagination',
+                    paginationClickable: true,
+                    nextButton: swiperSelector + ' .swiper-btn_next',
+                    prevButton: swiperSelector +' .swiper-btn_prev',
+                });
+            }
+            else {
+                $(swiperSelector + " .swiper-btn").hide();
+            }
         }
     })();
 });
