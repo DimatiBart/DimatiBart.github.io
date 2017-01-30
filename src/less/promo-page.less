@@ -151,35 +151,35 @@ body {
     z-index: 1;
     cursor: pointer;
     transition: right, left .5s ease;
-  }
 
-  .swiper-btn_next {
-    background: url('../../new-pages/sprite.png') no-repeat -51px 0;
-    width: 46px;
-    height: 46px;
-    right: 50px;
+    &_next {
+      background: url('../../new-pages/sprite.png') no-repeat -51px 0;
+      width: 46px;
+      height: 46px;
+      right: 50px;
 
-    &:hover {
-      background-position: -51px -51px;
+      &:hover {
+        background-position: -51px -51px;
+      }
+
+      @media only screen and (min-width: 1171px) {
+        right: 100px;
+      }
     }
 
-    @media only screen and (min-width: 1171px) {
-      right: 100px;
-    }
-  }
+    &_prev {
+      background: url('../../new-pages/sprite.png') no-repeat 0 0;
+      width: 46px;
+      height: 46px;
+      left: 50px;
 
-  .swiper-btn_prev {
-    background: url('../../new-pages/sprite.png') no-repeat 0 0;
-    width: 46px;
-    height: 46px;
-    left: 50px;
+      &:hover {
+        background-position: 0 -51px;
+      }
 
-    &:hover {
-      background-position: 0 -51px;
-    }
-
-    @media only screen and (min-width: 1171px) {
-      left: 100px;
+      @media only screen and (min-width: 1171px) {
+        left: 100px;
+      }
     }
   }
 
