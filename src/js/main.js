@@ -388,6 +388,23 @@ $(window).load(function(){
             }
         })
     }
+
+
+
+    (function(){
+        var scrollingHeroBanner = $('.scrolling-hero-banner');
+
+        if (scrollingHeroBanner.length) {
+            var swiperSelector = '.scrolling-hero-banner.swiper-container';
+            var a = new Swiper(swiperSelector, {
+                loop: true,
+                pagination: swiperSelector + ' .swiper-pagination',
+                paginationClickable: true,
+                nextButton: swiperSelector + ' .swiper-btn_next',
+                prevButton: swiperSelector +' .swiper-btn_prev',
+            });
+        }
+    })();
 });
 
 $(document).on('click', '.tap-to-call', function(e){

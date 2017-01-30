@@ -1,0 +1,235 @@
+@white: #fff;
+@GRAY_DARK: #434343;
+@GRAY: #dadada;
+@GRAY_LIGHT: #e6e6e6;
+@GRAY_LIGHTER: #edeff1;
+@GRAY_LIGHTEST: #f9f9f9;
+@VIOLENT: #3c1053;
+@VIOLENT_LIGHT: #824bb0;
+@RED: #d31245;
+@ORANGE: #fb4f14;
+@YELLOW: #f7c701;
+@SYCAMORE: #868548;
+@OLD_LACE: #fffae7;
+@LIME: #c1d82f;
+@AZURE: #009fd2;
+@BLUE_DARK: #0b2453;
+@ASTRONAUT: #234871;
+@PLACEHOLDER: #555;
+@screen-md: 940px;
+
+//PRIMARY COLOUS
+//SECONDARY COLOURS
+//UI COLOURS
+@FULL_MOON: #1b365d;
+@BONDI_BLUE: #0065BD;
+@UNDERWATER_LOVE: #00ADD0;
+@BACK_TO_CALI: #A1DEE9;
+@BROOKLYN_BEAT: #3C1053;
+@FISHERMAN_PANTS: #824BB0;
+@HOBBIT_FEET: #44693D;
+@1979: #AEA444;
+@JUNGLE_FEVER: #92A401;
+@BIG_APPLE: #BED600;
+@PURE_VIDA: #DFDF00;
+@SPRING_BEAK: #F6DE00;
+@FAT_BUDDHA: #FB4F14;
+@CARNIVAL: #B61234;
+@HOT_PINK: #E6007E;
+@DARK_GRAY: #434343; //typography
+@MID_GRAY: #9f9f9f; //subtext
+@TRUE_GRAY: #8E8E8E; //stroke
+@GRAY_STROKE: #e2e2e2;
+@LIGHT_GRAY: #F0F0F0;
+@WHITE: #fff;
+
+
+.e-btn-constructor(
+  @e-btn-font-family: @titillium;
+  @e-btn-font-weight: 700; //bold
+  @e-btn-font-size: 14px;
+  @e-btn-line-height: 14px;
+  @e-btn-color: @FULL_MOON;
+  @e-btn-bgcolor: @BIG_APPLE;
+  @e-btn-padding: 13px 10px;
+  @e-btn-margin: 0;
+  @e-btn-display: block;
+) {
+  font-family: @e-btn-font-family;
+  font-weight: @e-btn-font-weight;
+  font-size: @e-btn-font-size;
+  line-height: @e-btn-line-height;
+  color: @e-btn-color;
+  background-color: @e-btn-bgcolor;
+  padding: @e-btn-padding;
+  margin: @e-btn-margin;
+  display: @e-btn-display;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  outline: none;
+  text-align: center;
+  //width: 220px;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &.e-btn-primary {
+
+    &:hover {
+      background-color: #e6f623;
+    }
+  }
+
+  &.e-btn-secondary {
+    background: none;
+    color: @BIG_APPLE;
+    box-shadow: inset 0 0 0 1px @BIG_APPLE;
+
+    &:hover {
+      background-color: @BIG_APPLE;
+      color: #fff;
+    }
+
+    &.e-btn-dark {
+      box-shadow: inset 0 0 0 1px @WHITE;
+      background: none;
+      color: @WHITE;
+
+      &:hover {
+        background-color: @WHITE;
+        color: @GRAY_DARK;
+      }
+    }
+  }
+
+  &.e-btn-thirdary {
+    background-color: @BONDI_BLUE;
+    color: @WHITE;
+
+    &:hover {
+      background-color: #0098F5;
+    }
+  }
+
+  &.e-btn-big {
+    padding: 15px 13px 16px 13px;
+    letter-spacing: 0.3em;
+    //width: 300px;
+  }
+
+  &.e-btn-small {
+    padding: 10px 13px 11px 13px;
+    letter-spacing: 0.02em;
+    //width: 140px;
+  }
+
+  &.e-btn-inline-block {
+    display: inline-block;
+  }
+
+  &.e-btn-invisible {
+    visibility: hidden;
+  }
+
+  &.e-btn-hidden {
+    display: none;
+  }
+}
+
+
+.e-btn-cta {
+  .e-btn-constructor();
+}
+
+
+.sta-heading-xl {
+  color: #434343;
+  font: 600 46px/1.3 @titillium;
+  margin: 15px 0;
+}
+
+.sta-heading-l {
+  color: #434343;
+  font: 600 36px/1.3 @titillium;
+  margin: 12px 0;
+}
+
+.sta-heading-m {
+  color: #434343;
+  font: 600 26px/1.3 @titillium;
+  margin: 8px 0;
+}
+
+.sta-heading-s {
+  color: #434343;
+  font: 600 21px/1.3 @titillium;
+  margin: 12px 0;
+}
+
+.sta-heading-xs {
+  color: #434343;
+  font: 600 18px/1.3 @titillium;
+  margin: 6px 0;
+}
+
+.sta-heading-tiny {
+  color: #434343;
+  font: 600 16px/1.3 @titillium;
+  margin: 5px 0;
+}
+
+.hero-banner {
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+  font-family: @title-font-family;
+  margin-top: -21px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  flex-direction: column;
+  padding: 30px;
+  text-align: center;
+
+  @media only screen and (min-width: 642px) {
+    height: 320px;
+    padding: 50px;
+    min-width: 960px;
+  }
+
+  .e-btn-cta {
+    margin-top: 13px;
+    padding: 13px 50px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 40px;
+    color: white;
+    margin-top: 11px;
+    text-transform: none;
+    max-width: 700px;
+  }
+}
+
+
+.tag {
+  z-index: 2;
+  font-size: 11px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  background-color: white;
+  color: #434343;
+
+  .tag-text {
+    padding: 0 7px 0 10px;
+  }
+}

@@ -23,7 +23,7 @@ gulp.task('buildStyles', function(){
         .pipe(gulp.dest('./dest/css/'));
 });
 gulp.task('buildJS', function() {
-    gulp.src("./src/js/*.js")
+    gulp.src(["./src/js/swiper.jquery.js","./src/js/*.js"])
         .pipe(concat('main.min.js'))
         .pipe(gulp.dest('./dest/js/'));
 });

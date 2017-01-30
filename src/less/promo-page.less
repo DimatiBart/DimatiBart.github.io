@@ -1,3 +1,9 @@
+body {
+  @media only screen and (min-width: @mobile-bp) {
+    min-width: 960px;
+  }
+}
+
 .region-sales-module {
   padding: 0 10px;
   margin: 0 auto 40px;
@@ -127,5 +133,62 @@
     background-color: @brooklyn;
     padding: 0 10px;
     letter-spacing: 3px;
+  }
+}
+
+.scrolling-hero-banner {
+  position: relative;
+
+  .hero-banner {
+    margin-top: 0;
+    padding: 90px 50px;
+  }
+
+  .swiper-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    cursor: pointer;
+    transition: right, left .5s ease;
+  }
+
+  .swiper-btn_next {
+    background: url('../../new-pages/sprite.png') no-repeat -51px 0;
+    width: 46px;
+    height: 46px;
+    right: 50px;
+
+    &:hover {
+      background-position: -51px -51px;
+    }
+
+    @media only screen and (min-width: 1171px) {
+      right: 100px;
+    }
+  }
+
+  .swiper-btn_prev {
+    background: url('../../new-pages/sprite.png') no-repeat 0 0;
+    width: 46px;
+    height: 46px;
+    left: 50px;
+
+    &:hover {
+      background-position: 0 -51px;
+    }
+
+    @media only screen and (min-width: 1171px) {
+      left: 100px;
+    }
+  }
+
+  .default-sta-bullets;
+
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 25px;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: @mid-grey-sub-text;
   }
 }
