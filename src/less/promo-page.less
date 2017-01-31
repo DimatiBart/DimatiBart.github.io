@@ -138,10 +138,15 @@ body {
 
 .scrolling-hero-banner {
   position: relative;
+  margin: 0 auto 40px;
+  max-width: 1420px;
 
   .hero-banner {
     margin-top: 0;
-    padding: 90px 50px;
+    padding: 50px 50px 54px;
+    @media only screen and (min-width: @mobile-bp) {
+      padding: 90px 50px;
+    }
   }
 
   .swiper-btn {
@@ -151,6 +156,11 @@ body {
     z-index: 1;
     cursor: pointer;
     transition: right, left .5s ease;
+    display: none;
+
+    @media only screen and (min-width: @mobile-bp) {
+      display: block;
+    }
 
     &_next {
       background: url('../../new-pages/sprite.png') no-repeat -51px 0;
@@ -186,7 +196,7 @@ body {
   .default-sta-bullets;
 
   .swiper-container-horizontal > .swiper-pagination-bullets {
-    bottom: 25px;
+    bottom: 20px;
   }
   .swiper-pagination-bullet-active {
     background-color: @mid-grey-sub-text;
@@ -196,7 +206,12 @@ body {
 .countdown-clock {
   background-color: #e6007e;
   text-align: center;
-  height: 60px;
+  min-height: 60px;
+  padding: 12px 0;
+
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 9px 0;
+  }
 
   &.inactive {
     background-color: @GRAY;
@@ -213,9 +228,17 @@ body {
 
   .sta-heading-s {
     color: white;
-    float: left;
     text-transform: none;
-    margin: 16px 28px 0 0;
+    margin: 0 0 6px;
+    font-size: 18px;
+    line-height: 18px;
+
+    @media only screen and (min-width: @mobile-bp) {
+      float: left;
+      margin: 10px 28px 0 0;
+      font-size: 21px;
+      line-height: 21px;
+    }
   }
 
   .time-cell {
@@ -225,17 +248,16 @@ body {
     margin-left: 8px;
     position: relative;
     padding-right: 16px;
-    margin-top: 3px;
 
     .numeric-val {
-      font: 600 24px @titillium;
+      font: 600 24px/20px @titillium;
       text-align: center;
       display: block;
-      margin-bottom: -4px;
     }
 
     .sub {
       font: normal 11px @titillium;
+      margin-top: 6px;
     }
 
     .separator {
