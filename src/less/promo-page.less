@@ -209,6 +209,7 @@ body {
   min-height: 60px;
   padding: 12px 0;
   transition: background-color .5s ease;
+  margin-bottom: 40px;
 
   @media only screen and (min-width: @mobile-bp) {
     padding: 9px 0;
@@ -277,6 +278,81 @@ body {
       position: absolute;
       top: 0;
       right: 0;
+    }
+  }
+}
+
+.top-5-tours {
+  margin-bottom: 40px;
+
+  .bar {
+    background-color:  #e6007e;
+    min-height: 40px;
+    padding: 10px 20px;
+    font: 600 18px/22px @titillium;
+    color: white;
+    @media only screen and (min-width: @mobile-bp) {
+      font-size: 21px;
+      line-height: 25px;
+    }
+  }
+
+  .content-wrapper {
+    font-size: 0;
+  }
+
+  .image-block {
+    width: 300px;
+    height: 315px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+    text-align: right;
+
+    @media only screen and (min-width: @mobile-bp) {
+      width: 380px;
+      height: 398px;
+    }
+
+    &:hover, &:focus {
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,.7);
+    }
+
+    .tag {
+      font: 700 11px/12px @titillium;
+      color: #e6007e;
+      background-color: @white;
+      padding: 3px 8px 3px 10px;
+      margin: 15px 20px 0 0;
+      display: inline-block;
+    }
+  }
+
+  .main-content {
+    display: inline-block;
+    width: calc(~"100% - 380px");
+  }
+
+  .tour {
+    &:not(:first-child) {
+      border-top:1px solid @GRAY;
+    }
+
+    .destination {
+      font: 600 11px/17px @titillium;
+      color:  #00add0;
+      letter-spacing: 1px;
+    }
+    .duration {
+      font: 600 12px/14px @titillium;
+    }
+    .tour-destination {
+      font: 600 14px/20px @titillium;
+    }
+    .price {
+      font: 400 14px/20px @default-font-family;
+      color: #e6007e;
     }
   }
 }
