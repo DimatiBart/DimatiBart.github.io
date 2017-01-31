@@ -208,6 +208,7 @@ body {
   text-align: center;
   min-height: 60px;
   padding: 12px 0;
+  transition: background-color .5s ease;
 
   @media only screen and (min-width: @mobile-bp) {
     padding: 9px 0;
@@ -215,6 +216,13 @@ body {
 
   &.inactive {
     background-color: @GRAY;
+    padding: 20px 0;
+    .clock {
+      display: none;
+    }
+    .sale-ended-msg {
+      display: block;
+    }
   }
 
   .clock {
@@ -222,8 +230,13 @@ body {
     color: @white;
   }
 
-  .sales-ended-msg {
-    font: 600 21px @MID_GRAY;
+  .sale-ended-msg {
+    font: 600 21px @titillium;
+    color: @MID_GRAY;
+    max-width: 700px;
+    display: none;
+    text-align: center;
+    margin: 0 auto;
   }
 
   .sta-heading-s {

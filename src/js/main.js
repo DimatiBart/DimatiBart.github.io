@@ -396,23 +396,29 @@ $(window).load(function(){
         var scrollingHeroBanner = $(swiperSelector);
 
         if (scrollingHeroBanner.length) {
-            if (scrollingHeroBanner.find(".swiper-slide").length > 1) {
-                var autoplay = scrollingHeroBanner.attr("data-swiper-autoplay");
-                var params = {
-                    loop: true,
-                    pagination: swiperSelector + ' .swiper-pagination',
-                    paginationClickable: true,
-                    nextButton: swiperSelector + ' .swiper-btn_next',
-                    prevButton: swiperSelector +' .swiper-btn_prev',
-                };
-                if (autoplay) {
-                    params.autoplay = parseInt(autoplay);
+            scrollingHeroBanner.each(function(index){
+                var slider = $(this);
+                var uniqueCurrentClassName = "scrolling-hero-banner_" + index;
+                slider.addClass(uniqueCurrentClassName);
+                uniqueCurrentClassName = "." + uniqueCurrentClassName;
+                if (slider.find(".swiper-slide").length > 1) {
+                    var autoplay = slider.attr("data-swiper-autoplay");
+                    var params = {
+                        loop: true,
+                        pagination: uniqueCurrentClassName + ' .swiper-pagination',
+                        paginationClickable: true,
+                        nextButton: uniqueCurrentClassName + ' .swiper-btn_next',
+                        prevButton: uniqueCurrentClassName +' .swiper-btn_prev'
+                    };
+                    if (autoplay) {
+                        params.autoplay = parseInt(autoplay);
+                    }
+                    new Swiper(uniqueCurrentClassName, params);
                 }
-                new Swiper(swiperSelector, params);
-            }
-            else {
-                $(swiperSelector + " .swiper-btn").hide();
-            }
+                else {
+                    slider.find(" .swiper-btn").hide();
+                }
+            });
 
             $(document).on("click", swiperSelector + " .swiper-slide", function(){
                 var link;
@@ -428,6 +434,64 @@ $(window).load(function(){
             });
         }
     })();
+
+    (function(){
+        var countdownModule = $(".countdown-clock");
+        if (countdownModule.length) {
+            var countdownModuleHelper = {
+                getTimeRemaining: function(deadline){
+                    var t = deadline - new Date().getTime();
+                    var seconds = Math.floor((t / 1000) % 60);
+                    var minutes = Math.floor((t / 1000 / 60) % 60);
+                    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                    return {
+                        'total': t,
+                        'days': days,
+                        'hours': hours,
+                        'minutes': minutes,
+                        'seconds': seconds
+                    };
+                },
+                initializeClock: function(clockdownInfo){
+                    this.updateClock(clockdownInfo);
+                    clockdownInfo.timeinterval = setInterval(function(){
+                        this.updateClock(clockdownInfo);
+                    }.bind(this), 1000);
+                },
+                updateClock: function(countdownInfo){
+                    var t = this.getTimeRemaining(countdownInfo.deadline);
+
+                    countdownInfo.days.text(t.days);
+                    countdownInfo.hours.text(('0' + t.hours).slice(-2));
+                    countdownInfo.minutes.text(('0' + t.minutes).slice(-2));
+                    countdownInfo.seconds.text(('0' + t.seconds).slice(-2));
+
+                    if (t.total <= 0) {
+                        clearInterval(countdownInfo.timeinterval);
+                        this.closeClock(countdownInfo.clock);
+                    }
+                },
+                closeClock: function(clock){
+                    clock.addClass("inactive").removeClass("active");
+                }
+            };
+            countdownModule.each(function(){
+                var $this = $(this);
+                var countdownInfo = {
+                    clock: $this,
+                    deadline: new Date($(this).attr("data-deadline")).getTime(),
+                    days: $this.find(".days"),
+                    hours: $this.find(".hours"),
+                    minutes: $this.find(".minutes"),
+                    seconds: $this.find(".seconds")
+
+                };
+                //var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+                countdownModuleHelper.initializeClock(countdownInfo);
+            });
+        }
+    })();
 });
 
 $(document).on('click', '.tap-to-call', function(e){
@@ -435,3 +499,4 @@ $(document).on('click', '.tap-to-call', function(e){
     e.preventDefault();
     window.location = 'tel:' + $(this).data('tel');
 });
+
