@@ -286,6 +286,7 @@ body {
   margin: 0 auto 40px;
   max-width: 960px;
   padding:0 20px;
+  text-align: right;
 
   .bar {
     background-color:  #e6007e;
@@ -310,7 +311,6 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    text-align: right;
     display: block;
     margin: 10px 0 0;
 
@@ -337,7 +337,7 @@ body {
   }
 
   .main-content {
-
+    text-align: left;
     @media only screen and (min-width: @mobile-bp) {
       display: inline-block;
       width: calc(~"100% - 400px");
@@ -362,6 +362,12 @@ body {
       +.tour {
         padding-top: 14px;
       }
+    }
+
+    &:last-child:hover::after {
+      content: "";
+      display: block;
+      height: 4px;
     }
 
     &:not(:first-child) {
@@ -422,5 +428,9 @@ body {
       color: @MID_GRAY;
       text-decoration: line-through;
     }
+  }
+
+  .link_primary {
+    text-align: right;
   }
 }
