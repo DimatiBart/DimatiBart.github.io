@@ -283,7 +283,9 @@ body {
 }
 
 .top-5-tours {
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
+  max-width: 960px;
+  padding:0 20px;
 
   .bar {
     background-color:  #e6007e;
@@ -291,9 +293,11 @@ body {
     padding: 10px 20px;
     font: 600 18px/22px @titillium;
     color: white;
+    margin: 0;
     @media only screen and (min-width: @mobile-bp) {
       font-size: 21px;
       line-height: 25px;
+      margin-bottom: 20px;
     }
   }
 
@@ -302,17 +306,20 @@ body {
   }
 
   .image-block {
-    width: 300px;
     height: 315px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    display: inline-block;
     text-align: right;
+    display: block;
+    margin: 10px 0 0;
 
     @media only screen and (min-width: @mobile-bp) {
       width: 380px;
       height: 398px;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 20px 0 0;
     }
 
     &:hover, &:focus {
@@ -330,29 +337,90 @@ body {
   }
 
   .main-content {
-    display: inline-block;
-    width: calc(~"100% - 380px");
+
+    @media only screen and (min-width: @mobile-bp) {
+      display: inline-block;
+      width: calc(~"100% - 400px");
+    }
   }
 
   .tour {
+    font-size: 0;
+    padding: 10px 0;
+    display: block;
+    background-color: white;
+    position: relative;
+    color: @GRAY_DARK;
+
+    &:hover, &:focus {
+      margin: -2px -10px;
+      padding: 10px;
+      box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.17);
+      border-color: transparent;
+      z-index: 2;
+
+      +.tour {
+        padding-top: 14px;
+      }
+    }
+
     &:not(:first-child) {
       border-top:1px solid @GRAY;
     }
 
+    .column {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+     p {
+       margin: 0 0 6px;
+
+       &:last-child {
+         margin: 0;
+       }
+    }
+
+    .column:nth-child(2){
+      text-align: right;
+      width: 90px;
+
+      @media only screen and (min-width: @mobile-bp) {
+        width: 100px;
+      }
+    }
+
+    .column:nth-child(1){
+      width: 50%;
+      margin-right: calc(~"50% - 90px");
+      @media only screen and (min-width: @mobile-bp) {
+        width: 380px;
+        margin-right: 40px;
+      }
+    }
+
     .destination {
-      font: 600 11px/17px @titillium;
+      font: 600 11px/11px @titillium;
       color:  #00add0;
       letter-spacing: 1px;
     }
     .duration {
-      font: 600 12px/14px @titillium;
+      font: 600 12px/13px @titillium;
     }
     .tour-destination {
-      font: 600 14px/20px @titillium;
+      font: 600 14px/17px @titillium;
     }
     .price {
-      font: 400 14px/20px @default-font-family;
+      font: 400 14px/14px @default-font-family;
       color: #e6007e;
+    }
+    .includes {
+      font: 400 12px/12px @titillium;
+    }
+    .prev-price {
+      font: 400 12px/12px @default-font-family;
+      color: @MID_GRAY;
+      text-decoration: line-through;
     }
   }
 }
