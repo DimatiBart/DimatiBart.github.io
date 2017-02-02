@@ -434,3 +434,47 @@ body {
     text-align: right;
   }
 }
+
+.simple-cross-sell {
+  font-size: 0;
+  margin: 0 auto 40px;
+
+  @media only screen and (min-width: @mobile-bp) {
+    max-width: 960px;
+  }
+
+  .tour {
+    background-color:  #e6007e;
+    color: white;
+    height: 193px;
+    position: relative;
+    padding: 10px;
+    margin: 0 0 20px;
+
+    @media only screen and (min-width: @mobile-bp) {
+      width: 300px;
+      display: inline-block;
+      margin: 0 20px 0 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .content-wrapper {
+    position: absolute;
+    width: calc(~"100% - 20px");
+    bottom: 10px;
+  }
+
+  .sub-text{
+    font: 600 10px/12px @titillium;
+    margin-bottom: 1px;
+  }
+
+  .title {
+    font: 600 21px/25px @titillium;
+    margin-bottom: 29px;
+  }
+}
