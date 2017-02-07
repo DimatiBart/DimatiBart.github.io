@@ -420,7 +420,9 @@ $(window).load(function(){
             });
 
             $(document).on("click", swiperSelector + " .swiper-slide", function(){
-                var link;
+                var link, isNewTab;
+
+                isNewTab = JSON.parse($(this).attr("data-is-new-tab"));
                 if (window.matchMedia("(min-width: 642px)").matches) {
                     link = $(this).attr("data-slider-desktop-link");
                 }
@@ -428,7 +430,9 @@ $(window).load(function(){
                     link = $(this).attr("data-slider-mobile-link");
                 }
                 if (link) {
-                    window.location = link;
+                    isNewTab ?
+                        window.location = link :
+                        window.open(link);
                 }
             });
         }
