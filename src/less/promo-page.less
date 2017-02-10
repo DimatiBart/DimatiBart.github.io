@@ -21,7 +21,7 @@ body {
           width: 320px;
 
           &:hover {
-            width: 328px;
+            width: 320px;
           }
 
           &:nth-child(3n + 3) {
@@ -75,6 +75,35 @@ body {
     margin-bottom: 30px;
   }
 
+  .v2 {
+    .region-block {
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        overflow: visible;
+      }
+    }
+
+    .region-block__content-wrapper {
+      background-image: url("http://www.statravel.co.uk/static/uk_division_web_live/assets/QATAR-HP-MINI.jpg");
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 328px;
+      height: 220px;
+      position: absolute;
+
+      &:hover {
+        box-shadow: 0 2px 6.48px 1.52px rgba(0, 0, 0, 0.17);
+      }
+    }
+  }
+
   .region-block {
     text-decoration: none;
     color: @dark-grey;
@@ -107,15 +136,13 @@ body {
     }
 
     &:hover {
-      box-shadow: 0 2px 6.48px 1.52px rgba(0, 0, 0, 0.17);
-      margin: -4px;
+      //margin: -4px;
       z-index: 2;
-      border: 0;
-      height: 198px;
+      //height: 198px;
       width: calc(~"50% + 8px");
 
       @media only screen and (min-width: @mobile-bp) {
-        height: 220px;
+        //height: 220px;
       }
     }
     .text {
