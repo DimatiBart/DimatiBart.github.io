@@ -1443,3 +1443,125 @@ body  {
     background-position: center;
   }
 }
+
+.swiper-btn-mixin() {
+  margin: 0;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  color: white;
+  display: none;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.home-blog-widget-module {
+  margin: 0 auto 40px;
+  padding: 0 10px;
+  position: relative;
+
+  .default-sta-bullets();
+
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 0;
+    max-width: 1120px;
+    min-width: 960px;
+  }
+
+  > * {
+    @media only screen and (min-width: 642px) {
+      padding: 0 30px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+  }
+
+  &:hover {
+    @media only screen and (min-width: 642px) {
+      .swiper-btn {
+        display: block;
+      }
+    }
+  }
+
+
+  .swiper-btn {
+    .swiper-btn-mixin();
+
+    transform: translateY(calc(~"-50% - 20px"));
+    font-size: 30px;
+    z-index: 4;
+    color: @DARK_GRAY;
+
+    &_next {
+      right: 0;
+    }
+
+    &_prev {
+      left: 0;
+    }
+  }
+
+  .sta-heading-m {
+    margin: 0 auto 25px;
+  }
+
+  .slider-wrapper {
+    position: relative;
+
+    @media only screen and (min-width: 642px) {
+      padding-bottom: 47px;
+    }
+
+    &_desktop {
+      display: none;
+      @media only screen and (min-width: 642px) {
+        display: block;
+      }
+    }
+
+    &_mobile {
+      @media only screen and (min-width: 642px) {
+        display: none;
+      }
+    }
+  }
+
+  .swiper-slide {
+    font-size: 0;
+    //padding: 0 30px;
+    display: flex;
+    width: 247px;
+
+    @media only screen and (min-width: 642px) {
+      width: auto;
+    }
+  }
+
+  .swiper-pagination {
+    position: static;
+    margin: 20px;
+
+    @media only screen and (min-width: @mobile-bp) {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate3d(-50%, 0, 0);
+      margin: 0;
+    }
+  }
+
+  .blog-post {
+    margin-right: 20px;
+    width: 100%;
+    max-width: 245px;
+    min-width: 165px;
+    height: 250px;
+    display: block;
+    background-color: mediumvioletred;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
