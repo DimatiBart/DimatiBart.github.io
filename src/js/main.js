@@ -514,28 +514,31 @@ var homeBlogSliderHelper = {
             var uniqueClassSelector = additionalClassName + "_" + index;
             $this.addClass(uniqueClassSelector);
             uniqueClassSelector = "." + uniqueClassSelector;
-            this._initSlider(uniqueClassSelector, index);
+            this._loadData(uniqueClassSelector);
+        }.bind(this));
 
-            window.matchMedia("(min-width: 642px)").addListener(function(){
-                for (var i in this.sliders) {
-                    var activeSlideIndex;
+        window.matchMedia("(min-width: 642px)").addListener(function(){
+            for (var i in this.sliders) {
+                var activeSlideIndex;
 
-                    if (window.matchMedia("(min-width: 642px)").matches == false) {
-                        activeSlideIndex = parseInt(this._sliders[i].desktop.realIndex);
-                        activeSlideIndex = activeSlideIndex ? activeSlideIndex * 4: activeSlideIndex;
-                        this.sliders[i].mobile.update(true);
-                        this.sliders[i].mobile.slideTo(activeSlideIndex);
-                    }
-                    else {
-                        activeSlideIndex = (parseInt(this._sliders[i].mobile.realIndex) / 4) + 1;
-                        this._sliders[i].desktop.update(true);
-                        this._sliders[i].desktop.slideTo(activeSlideIndex);
-                    }
+                if (window.matchMedia("(min-width: 642px)").matches == false) {
+                    activeSlideIndex = parseInt(this._sliders[i].desktop.realIndex);
+                    activeSlideIndex = activeSlideIndex ? activeSlideIndex * 4: activeSlideIndex;
+                    this.sliders[i].mobile.update(true);
+                    this.sliders[i].mobile.slideTo(activeSlideIndex);
                 }
-            }.bind(this));
+                else {
+                    activeSlideIndex = (parseInt(this._sliders[i].mobile.realIndex) / 4) + 1;
+                    this._sliders[i].desktop.update(true);
+                    this._sliders[i].desktop.slideTo(activeSlideIndex);
+                }
+            }
         }.bind(this));
     },
-    _loadData: function(rssURL){
+    _loadData: function(moduleSelector) {
+        var module = $(moduleSelector);
+        var rssURL = module.data("rssUrl");
+
         $.ajax({
             URL: rssURL,
             dataType: "xml",
@@ -544,18 +547,61 @@ var homeBlogSliderHelper = {
             },
             success: function(data){
                 //parse some =>
+                var blogPosts = [];
                 $(data).find("item").each(function(elem, index){
                     if (index >= 8) {
-
+                        var blogPost = this._getBlogTemplate(elem);
+                        blogPosts.push(blogPost);
                     }
                 });
+
+                var desktopContainer = module.find(".slider-wrapper_desktop .swiper-wrapper");
+                var mobileContainer = module.find(".slider-wrapper_mobile .swiper-wrapper");
+
+                module.find(".swiper-slide").remove();
+
+                var desktopSlideContainer;
+                var mobileSlideContainer;
+
+                blogPosts.each(function(elem, index){
+                    if (index % 4) {
+                        desktopSlideContainer = $(document.createElement("div")).addClass("swiper-slide");
+                    }
+                    mobileSlideContainer = $(document.createElement("div")).addClass("swiper-slide");
+
+                    desktopSlideContainer.append(elem);
+                    mobileSlideContainer.append(elem);
+
+                    mobileContainer.append(mobileSlideContainer);
+
+                    if (index == blogPosts.length || desktopContainer.find(".blog-post").length) {
+                        desktopContainer.append(desktopSlideContainer);
+                    }
+                });
+
+                this._initSlider(uniqueClassSelector);
             }.bind(this)
         })
     },
-    _getSlideTemplate: function(){
+    _getBlogTemplate: function(item){
+        var title = item.find("title").text();
+        var text = item.find("description").text();
+        var date = item.find("pubDate").text();
+        var link = item.find("link").text();
+        var author = item.find("dc:creator").text();
+        var description = item.find("content:encoded").text();
+        var imgURL = $(description).find("img").attr("src");
 
+        return '<a href="#" class="blog-post" style="background-image: url('+ imgURL +')">'
+                    +'<div class="content">'
+                    + '<p class="title">'+ title + '</p>'
+                    + '<p class="text">'+ text + '</p>'
+                    + '<p class="author sub">'+ author + '</p>'
+                    + '<p class="date sub">'+ date + '</p>'
+                    + '</div>'
+            + '</a>'
     },
-    _initSlider: function (parentSelector, index){
+    _initSlider: function (parentSelector){
         var sliders = {};
         for (var i = 0; i < this._SLIDERS_AMOUNT_IN_THE_MODULE; i++){
             // where i == 0 is mobile, and i == 1 is desktop ver.
