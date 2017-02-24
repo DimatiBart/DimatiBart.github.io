@@ -10,6 +10,7 @@ export class Clock extends React.Component{
             isTicking: false,
             buttonMsg: ''
         };
+        this.handleClick = this.handleClick.bind(this);
     }
     getTime(){
         return (new Date()).toLocaleString('en-GB').match(/\d{2}:\d{2}:\d{2}/)[0];
@@ -23,7 +24,7 @@ export class Clock extends React.Component{
 
         return (<div className={classes}>
                     <h1>Time is  {this.getTime()}</h1>
-                    <button onClick={this.handleClick.bind(this)}>
+                    <button onClick={this.handleClick}>
                         {this.state.buttonMsg}
                     </button>
                 </div>)
