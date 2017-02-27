@@ -481,6 +481,7 @@ body {
     position: relative;
     padding: 10px;
     margin: 0 0 20px;
+    vertical-align: top;
 
     @media only screen and (min-width: @mobile-bp) {
       width: 300px;
@@ -493,10 +494,20 @@ body {
     }
   }
 
+  .text-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .content-wrapper {
-    position: absolute;
-    width: calc(~"100% - 20px");
-    bottom: 10px;
+    //position: absolute;
+    //width: calc(~"100% - 20px");
+    //bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   .sub-text{
@@ -506,6 +517,6 @@ body {
 
   .title {
     font: 600 21px/25px @titillium;
-    margin-bottom: 29px;
+    //margin-bottom: 29px;
   }
 }
