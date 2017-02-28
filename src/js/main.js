@@ -548,7 +548,7 @@ var homeBlogSliderHelper = {
             success: function(data){
                 //parse some =>
                 var blogPosts = [];
-                $(data).find("item").each(function(elem, index){
+                $(data).find("item").each(function(index, elem){
                     if (index >= 8) {
                         var blogPost = this._getBlogTemplate(elem);
                         blogPosts.push(blogPost);
@@ -563,7 +563,7 @@ var homeBlogSliderHelper = {
                 var desktopSlideContainer;
                 var mobileSlideContainer;
 
-                blogPosts.each(function(elem, index){
+                blogPosts.each(function(index, elem){
                     if (index % 4) {
                         desktopSlideContainer = $(document.createElement("div")).addClass("swiper-slide");
                     }
