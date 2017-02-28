@@ -550,7 +550,7 @@ var homeBlogSliderHelper = {
                 var blogPosts = [];
                 $(data).find("item").each(function(index, elem){
                     if (index >= 8) {
-                        var blogPost = this._getBlogTemplate(elem);
+                        var blogPost = this._getBlogTemplate($(elem));
                         blogPosts.push(blogPost);
                     }
                 }.bind(this));
@@ -563,8 +563,8 @@ var homeBlogSliderHelper = {
                 var desktopSlideContainer;
                 var mobileSlideContainer;
 
-                blogPosts.each(function(index, elem){
-                    if (index % 4) {
+                blogPosts.forEach(function(elem, index){
+                    if (index % 4 == 0) {
                         desktopSlideContainer = $(document.createElement("div")).addClass("swiper-slide");
                     }
                     mobileSlideContainer = $(document.createElement("div")).addClass("swiper-slide");
@@ -574,12 +574,12 @@ var homeBlogSliderHelper = {
 
                     mobileContainer.append(mobileSlideContainer);
 
-                    if (index == blogPosts.length || desktopContainer.find(".blog-post").length) {
+                    if (index + 1 == blogPosts.length || desktopContainer.find(".blog-post").length == 4) {
                         desktopContainer.append(desktopSlideContainer);
                     }
-                }.bind(this));
+                });
 
-                this._initSlider(uniqueClassSelector);
+                this._initSlider(moduleSelector);
             }.bind(this)
         })
     },
@@ -587,12 +587,23 @@ var homeBlogSliderHelper = {
         var title = item.find("title").text();
         var text = item.find("description").text();
         var date = item.find("pubDate").text();
+        date = date.match(/\d{2} \w+ \d{4}/)[0];
         var link = item.find("link").text();
-        var author = item.find("dc:creator").text();
-        var description = item.find("content:encoded").text();
+        var author = item.find("creator").text();
+        var description = item.find("encoded").text();
         var imgURL = $(description).find("img").attr("src");
+        window.a = date;
 
-        return '<a href="#" class="blog-post" style="background-image: url('+ imgURL +')">'
+        var firstRow;
+
+        if (imgURL) {
+            firstRow = '<a href="' + link + '" class="blog-post" style="background-image: url('+ imgURL +')">'
+        }
+        else {
+            firstRow = '<a href="' + link + '" class="blog-post">'
+        }
+
+        return firstRow
                     +'<div class="content">'
                     + '<p class="title">'+ title + '</p>'
                     + '<p class="text">'+ text + '</p>'

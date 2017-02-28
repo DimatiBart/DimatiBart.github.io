@@ -6,6 +6,17 @@ var gutil = require('gulp-util');
 var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
 
+var webserver = require('gulp-webserver');
+
+gulp.task('webserver', function() {
+    gulp.src('./')
+        .pipe(webserver({
+            livereload: true,
+            directoryListing: true,
+            open: true
+        }));
+});
+
 gulp.task('default', function(){
     gulp.start('buildStyles');
     gulp.start('buildJS');
