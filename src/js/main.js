@@ -553,7 +553,7 @@ var homeBlogSliderHelper = {
                         var blogPost = this._getBlogTemplate(elem);
                         blogPosts.push(blogPost);
                     }
-                });
+                }.bind(this));
 
                 var desktopContainer = module.find(".slider-wrapper_desktop .swiper-wrapper");
                 var mobileContainer = module.find(".slider-wrapper_mobile .swiper-wrapper");
@@ -577,7 +577,7 @@ var homeBlogSliderHelper = {
                     if (index == blogPosts.length || desktopContainer.find(".blog-post").length) {
                         desktopContainer.append(desktopSlideContainer);
                     }
-                });
+                }.bind(this));
 
                 this._initSlider(uniqueClassSelector);
             }.bind(this)
