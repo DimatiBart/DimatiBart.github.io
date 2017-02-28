@@ -540,7 +540,7 @@ var homeBlogSliderHelper = {
         var rssURL = module.data("rssUrl");
 
         $.ajax({
-            URL: rssURL,
+            url: rssURL,
             dataType: "xml",
             headers: {
                 'Access-Control-Allow-Origin': '*'
