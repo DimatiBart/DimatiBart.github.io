@@ -624,7 +624,6 @@ var homeBlogSliderHelper = {
                 var params = {
                     loop: true,
                     slidesPerView: sliderPerView,
-                    spaceBetween: 20,
                     initialSlide: 0,
                     pagination: selector + ' .swiper-pagination',
                     paginationClickable: true
