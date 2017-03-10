@@ -1420,13 +1420,18 @@ body  {
   .swiper-slide {
     display: flex;
     justify-content: center;
+    padding: 10px 0; // TODO CHANGE AFTER SHADOW IS PROVIDED
   }
 
   .tour {
     cursor: auto;
-    display: inline-block;
     width: 245px;
     height: 381px;
+    background-color: #e6007e;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
     @media only screen and (min-width: @mobile-bp) {
       width: 100%;
@@ -1436,8 +1441,139 @@ body  {
       &:not(:first-child) {
         margin-left: 20px;
       }
+
+      &:first-child:nth-last-child(2),
+      &:first-child:nth-last-child(2) ~ div {
+        height: 442px;
+      }
     }
-    background: rebeccapurple;
+
+    &:hover {
+      box-shadow: 0 2px 7px 2px rgba(0,0,0,.17);
+    }
+
+    .round-tag {
+      height: 100px;
+      width: 100px;
+      text-align: center;
+      background-color: #e6007e;
+      border-radius: 50%;
+      font: normal 14px/14px @titillium;
+      color: white;
+
+      &__text {
+        &:extend(.absolute-centring);
+        width: 100%;
+        letter-spacing: 1px;
+        top: 50%;
+      }
+    }
+
+    .button-container {
+      min-height: 40px;
+    }
+
+    &_simple {
+      position: relative;
+      letter-spacing: 2px;
+      color: white;
+
+      .home-tag-wrapper {
+        padding: 10px 10px 0 0;
+      }
+
+      .tour__bottom {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        padding: 0 10px;
+      }
+
+      .round-tag {
+        &:extend(.absolute-centring);
+        border: solid 3px white;
+        top: calc(~"50% - 45px");
+      }
+    }
+
+    &_two-panel {
+      .tour__top, .tour__bottom {
+        height: 50%;
+      }
+
+      .tour__top {
+        display: block;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+      }
+
+      .tour__bottom {
+        background-color: white;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .round-tag {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+      }
+
+      &:hover .hover-text{
+        display: flex;
+      }
+
+      .hover-text {
+        display: none;
+        background-color: rgba(0,0,0,.6);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      .hover-text__value {
+        &:extend(.absolute-centring);
+        top: 50%;
+        color: white;
+        font: normal 14px/14px @default-font-family;
+      }
+
+      .button-container {
+        margin-top: auto;
+      }
+
+      .bottom-text {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-color: #e6007e;
+        color: white;
+        font: 600 10px/10px @titillium;
+        padding: 6px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+    }
+
+    .title {
+      font: bold 11px/11px @titillium;
+      margin: 0 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .text {
+      font: 600 26px/26px @titillium;
+      margin: 0 0 15px 0;
+    }
   }
 
   .swiper-btn {
@@ -1456,6 +1592,12 @@ body  {
       left: 0;
     }
   }
+}
+
+.absolute-centring{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .swiper-btn-mixin() {
