@@ -1360,16 +1360,44 @@ body  {
   }
 
   &:hover {
-    @media only screen and (min-width: 642px) {
+    @media only screen and (min-width: @mobile-bp) {
       .swiper-btn {
         display: block;
       }
     }
   }
 
+  &.without-slider {
+    padding: 25px 20px 26px;
+
+    @media only screen and (min-width: @mobile-bp) {
+      padding: 60px 30px;
+    }
+
+    .home-tours-wrapper {
+      max-width: 1040px;
+      margin: 0 auto;
+
+      @media only screen and (min-width: @mobile-bp) {
+        display: flex;
+      }
+    }
+
+    .swiper-btn {
+      display: none;
+    }
+    .tour {
+      width: 100%;
+      margin-bottom: 20px;
+
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
 
   .swiper-container {
-    max-width: 1040px;
+    max-width: 1060px;
     margin: 0 auto;
   }
 
@@ -1388,9 +1416,10 @@ body  {
       display: none;
       @media only screen and (min-width: 642px) {
         display: block;
-        padding: 0 30px;
-        max-width: 1040px;
+        //padding: 0 20px;
+        max-width: 1100px;
         margin: 0 auto;
+        padding: 0 20px;
       }
     }
 
@@ -1418,9 +1447,11 @@ body  {
 
 
   .swiper-slide {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0; // TODO CHANGE AFTER SHADOW IS PROVIDED
+    @media only screen and (min-width: @mobile-bp) {
+      display: flex;
+      justify-content: center;
+      padding: 10px; // TODO CHANGE AFTER SHADOW IS PROVIDED
+    }
   }
 
   .tour {
@@ -1432,6 +1463,7 @@ body  {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin-right: 20px;
 
     @media only screen and (min-width: @mobile-bp) {
       width: 100%;
@@ -1494,6 +1526,18 @@ body  {
         border: solid 3px white;
         top: calc(~"50% - 45px");
       }
+
+      .title {
+        font: bold 11px/11px @titillium;
+        margin: 0 0 10px 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .text {
+        font: 600 26px/26px @titillium;
+        margin: 0 0 15px 0;
+      }
     }
 
     &_two-panel {
@@ -1546,6 +1590,9 @@ body  {
 
       .button-container {
         margin-top: auto;
+        div:last-child:not(.e-btn-cta) {
+          margin-bottom: 45px;
+        }
       }
 
       .bottom-text {
@@ -1561,18 +1608,23 @@ body  {
         text-align: center;
       }
 
-    }
+      .title {
+        font: 600 16px/16px @titillium;
+        margin: 5px 0 8px;
+        color: @GRAY_DARK;
+      }
 
-    .title {
-      font: bold 11px/11px @titillium;
-      margin: 0 0 10px 0;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+      .text {
+        font: 12px @titillium;
+        color: @MID_GRAY;
+      }
 
-    .text {
-      font: 600 26px/26px @titillium;
-      margin: 0 0 15px 0;
+      .price-container {
+        font: bold 12px @default-font-family;
+        margin-bottom: 10px;
+        color: @GRAY_DARK;
+      }
+
     }
   }
 
@@ -1628,6 +1680,7 @@ body  {
     @media only screen and (min-width: 642px) {
       padding: 0 30px;
       max-width: 1040px;
+      box-sizing: content-box;
       margin: 0 auto;
     }
   }

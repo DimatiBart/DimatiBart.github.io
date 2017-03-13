@@ -274,27 +274,32 @@ SliderHelper.prototype.init = function(module, additionalClassName){
 SliderHelper.prototype._initSlider = function (parentSelector){
     var sliders = {};
     for (var i = 0; i < this._SLIDERS_AMOUNT_IN_THE_MODULE; i++){
-        // where i == 0 is mobile, and i == 1 is desktop ver.
+        // where i == 1 is mobile, and i == 0 is desktop ver.
         var sliderPerView = i ? "auto" : 1;
-        var selector = parentSelector + " .slider-wrapper" + (i ? "_mobile" : "_desktop" );
+        var selector = parentSelector + " .slider-wrapper" + (i ? "_mobile": "_desktop");
         var sliderWrapper = $(selector);
+        var sliderAmount = sliderWrapper.find('.swiper-slide').length;
 
-        if (sliderWrapper.find('.swiper-slide').length > 1) {
+        //no need to init slider functionality at all
+        if (!i && sliderAmount <= 1) {
+            return;
+        }
+        else if (sliderAmount > 1) {
             var params = {
                 loop: true,
                 slidesPerView: sliderPerView,
                 initialSlide: 0,
                 pagination: selector + ' .swiper-pagination',
-                paginationClickable: true,
-                spaceBetween: 20
+                paginationClickable: true
             };
 
             if (!i) {
-                var arrows = {
+                var desktopParams = {
                     nextButton: selector + ' .swiper-btn_next',
-                    prevButton: selector +' .swiper-btn_prev'
+                    prevButton: selector +' .swiper-btn_prev',
+                    spaceBetween: 20
                 };
-                $.extend(params, arrows);
+                $.extend(params, desktopParams);
             }
 
             var fieldName = i ? "mobile" : "desktop";
@@ -390,6 +395,44 @@ BlogSliderHelper.prototype._getBlogTemplate = function(item){
         + '<p class="date sub">'+ date + '</p>'
         + '</div>'
         + '</a>'
+};
+BlogSliderHelper.prototype._initSlider = function (parentSelector){
+    var sliders = {};
+    for (var i = 0; i < this._SLIDERS_AMOUNT_IN_THE_MODULE; i++){
+        // where i == 1 is mobile, and i == 0 is desktop ver.
+        var sliderPerView = i ? 1: "auto";
+        var selector = parentSelector + " .slider-wrapper" + (i ? "_mobile": "_desktop");
+        var sliderWrapper = $(selector);
+        var sliderAmount = sliderWrapper.find('.swiper-slide').length;
+
+        if (sliderAmount > 1) {
+            var params = {
+                loop: true,
+                slidesPerView: sliderPerView,
+                initialSlide: 0,
+                pagination: selector + ' .swiper-pagination',
+                paginationClickable: true
+            };
+
+            if (!i) {
+                var desktopParams = {
+                    nextButton: selector + ' .swiper-btn_next',
+                    prevButton: selector +' .swiper-btn_prev',
+                    spaceBetween: 20
+                };
+                $.extend(params, desktopParams);
+            }
+
+            var fieldName = i ? "mobile" : "desktop";
+
+            sliders[fieldName] = new Swiper (selector + " .swiper-container", params);
+        }
+        else {
+            sliderWrapper.find(".swiper-pagination, .swiper-btn").hide();
+        }
+    }
+
+    this._sliders.push(sliders);
 };
 
 
@@ -507,7 +550,7 @@ $(window).load(function(){
     var homeTours = $('.home-tours-module');
 
     if (homeTours.length) {
-        var homeToursSliderHelper = new BlogSliderHelper();
+        var homeToursSliderHelper = new SliderHelper();
         homeToursSliderHelper.init(homeTours, "home_tours");
     }
 
