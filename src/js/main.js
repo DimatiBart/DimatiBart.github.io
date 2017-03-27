@@ -324,18 +324,15 @@ BlogSliderHelper.prototype.constructor = BlogSliderHelper;
 BlogSliderHelper.prototype._loadData = function(moduleSelector) {
     var module = $(moduleSelector);
     var rssURL = module.data("rssUrl");
+    var blogLimit = parseInt(module.data("blogLimit")) || 4;
 
     $.ajax({
         url: rssURL,
-        dataType: "xml",
-        headers: {
-            'Access-Control-Allow-Origin': '*'
-        },
         success: function(data){
             //parse some =>
             var blogPosts = [];
             $(data).find("item").each(function(index, elem){
-                if (index >= 8) {
+                if (index < blogLimit) {
                     var blogPost = this._getBlogTemplate($(elem));
                     blogPosts.push(blogPost);
                 }
@@ -350,6 +347,7 @@ BlogSliderHelper.prototype._loadData = function(moduleSelector) {
             var mobileSlideContainer;
 
             blogPosts.forEach(function(elem, index){
+                debugger;
                 if (index % 4 == 0) {
                     desktopSlideContainer = $(document.createElement("div")).addClass("swiper-slide");
                 }
@@ -360,7 +358,7 @@ BlogSliderHelper.prototype._loadData = function(moduleSelector) {
 
                 mobileContainer.append(mobileSlideContainer);
 
-                if (index + 1 == blogPosts.length || desktopContainer.find(".blog-post").length == 4) {
+                if (index + 1 == blogPosts.length || desktopSlideContainer.find(".blog-post").length == 4) {
                     desktopContainer.append(desktopSlideContainer);
                 }
             });
@@ -400,7 +398,7 @@ BlogSliderHelper.prototype._initSlider = function (parentSelector){
     var sliders = {};
     for (var i = 0; i < this._SLIDERS_AMOUNT_IN_THE_MODULE; i++){
         // where i == 1 is mobile, and i == 0 is desktop ver.
-        var sliderPerView = i ? 1: "auto";
+        var sliderPerView = i ? "auto" : 1;
         var selector = parentSelector + " .slider-wrapper" + (i ? "_mobile": "_desktop");
         var sliderWrapper = $(selector);
         var sliderAmount = sliderWrapper.find('.swiper-slide').length;

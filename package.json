@@ -26,6 +26,5 @@
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1",
-    "vidim": "^1.0.0"
   }
 }
