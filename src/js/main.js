@@ -328,6 +328,7 @@ BlogSliderHelper.prototype._loadData = function(moduleSelector) {
 
     $.ajax({
         url: rssURL,
+        dataType: "xml",
         success: function(data){
             //parse some =>
             var blogPosts = [];
@@ -347,7 +348,6 @@ BlogSliderHelper.prototype._loadData = function(moduleSelector) {
             var mobileSlideContainer;
 
             blogPosts.forEach(function(elem, index){
-                debugger;
                 if (index % 4 == 0) {
                     desktopSlideContainer = $(document.createElement("div")).addClass("swiper-slide");
                 }
@@ -373,8 +373,8 @@ BlogSliderHelper.prototype._getBlogTemplate = function(item){
     var date = item.find("pubDate").text();
     date = date.match(/\d{2} \w+ \d{4}/)[0];
     var link = item.find("link").text();
-    var author = item.find("creator").text();
-    var description = item.find("encoded").text();
+    var author = item.find("creator").text() || item.find("dc\\:creator").text();
+    var description = item.find("encoded").text() || item.find("content\\:encoded").text();
     var imgURL = $(description).find("img").attr("src");
 
     var firstRow;
