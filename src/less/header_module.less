@@ -232,74 +232,6 @@
 ~"only screen and (        min-resolution: 192dpi)",
 ~"only screen and (        min-resolution: 2dppx)";
 
-//@keyframes fade {
-//  0% {
-//    opacity: 1;
-//    z-index: 1;
-//  }
-//
-//  25%,75% {
-//    opacity: 0;
-//    z-index: -1;
-//  }
-//
-//  100% {
-//    opacity: 1;
-//    z-index: 1;
-//  }
-//}
-//
-//@keyframes fade2 {
-//  0% {
-//    opacity: 0;
-//    z-index: -1;
-//  }
-//
-//  25% {
-//    opacity: 1;
-//    z-index: 1;
-//  }
-//
-//  100%,50% {
-//    opacity: 0;
-//    z-index: -1;
-//  }
-//}
-//
-//@keyframes fade3 {
-//  0%,25% {
-//    opacity: 0;
-//    z-index: -1;
-//  }
-//
-//  50% {
-//    opacity: 1;
-//    z-index: 1;
-//  }
-//
-//  100% {
-//    opacity: 0;
-//    z-index: -1;
-//  }
-//}
-//
-//@keyframes fade4 {
-//  0%,50% {
-//    opacity: 0;
-//    z-index: -1;
-//  }
-//
-//  75% {
-//    opacity: 1;
-//    z-index: 1;
-//  }
-//
-//  100% {
-//    opacity: 0;
-//    z-index: -1;
-//  }
-//}
-
 @keyframes fade {
   0% {
     opacity: 0;
@@ -1346,7 +1278,7 @@ body  {
 
 }
 
-.home-tours-module {
+.sta-tours-wrapper {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1367,14 +1299,14 @@ body  {
     }
   }
 
-  &.without-slider {
+  &.sta-without-slider {
     padding: 25px 20px 26px;
 
     @media only screen and (min-width: @mobile-bp) {
       padding: 60px 30px;
     }
 
-    .home-tours-wrapper {
+    .sta-without-slider-wrapper {
       max-width: 1040px;
       margin: 0 auto;
 
@@ -1386,7 +1318,7 @@ body  {
     .swiper-btn {
       display: none;
     }
-    .tour {
+    .sta-tour {
       width: 100%;
       margin-bottom: 20px;
 
@@ -1409,7 +1341,7 @@ body  {
     }
   }
 
-  .slider-wrapper {
+  .sta-slider-wrapper {
     position: relative;
 
     &_desktop {
@@ -1445,7 +1377,6 @@ body  {
     }
   }
 
-
   .swiper-slide {
     @media only screen and (min-width: @mobile-bp) {
       display: flex;
@@ -1454,7 +1385,7 @@ body  {
     }
   }
 
-  .tour {
+  .sta-tour {
     cursor: auto;
     width: 245px;
     height: 381px;
@@ -1484,7 +1415,7 @@ body  {
       box-shadow: 0 2px 7px 2px rgba(0,0,0,.17);
     }
 
-    .round-tag {
+    .sta-round-tag {
       height: 100px;
       width: 100px;
       text-align: center;
@@ -1501,7 +1432,7 @@ body  {
       }
     }
 
-    .button-container {
+    .sta-button-container {
       min-height: 40px;
     }
 
@@ -1514,38 +1445,38 @@ body  {
         padding: 10px 10px 0 0;
       }
 
-      .tour__bottom {
+      .sta-tour__bottom {
         position: absolute;
         bottom: 10px;
         width: 100%;
         padding: 0 10px;
       }
 
-      .round-tag {
+      .sta-round-tag {
         &:extend(.absolute-centring);
         border: solid 3px white;
         top: calc(~"50% - 45px");
       }
 
-      .title {
+      .sta-title {
         font: bold 11px/11px @titillium;
         margin: 0 0 10px 0;
         text-transform: uppercase;
         letter-spacing: 1px;
       }
 
-      .text {
+      .sta-text {
         font: 600 26px/26px @titillium;
         margin: 0 0 15px 0;
       }
     }
 
     &_two-panel {
-      .tour__top, .tour__bottom {
+      .sta-tour__top, .sta-tour__bottom {
         height: 50%;
       }
 
-      .tour__top {
+      .sta-tour__top {
         display: block;
         background-repeat: no-repeat;
         background-position: center;
@@ -1553,24 +1484,24 @@ body  {
         position: relative;
       }
 
-      .tour__bottom {
+      .sta-tour__bottom {
         background-color: white;
         padding: 10px;
         display: flex;
         flex-direction: column;
       }
 
-      .round-tag {
+      .sta-round-tag {
         position: absolute;
         left: 10px;
         top: 10px;
       }
 
-      &:hover .hover-text{
+      &:hover .sta-hover-text{
         display: flex;
       }
 
-      .hover-text {
+      .sta-hover-text {
         display: none;
         background-color: rgba(0,0,0,.6);
         position: absolute;
@@ -1581,21 +1512,21 @@ body  {
         z-index: 2;
       }
 
-      .hover-text__value {
+      .sta-hover-text__value {
         &:extend(.absolute-centring);
         top: 50%;
         color: white;
         font: normal 14px/14px @default-font-family;
       }
 
-      .button-container {
+      .sta-button-container {
         margin-top: auto;
         div:last-child:not(.e-btn-cta) {
           margin-bottom: 45px;
         }
       }
 
-      .bottom-text {
+      .sta-bottom-text {
         width: 100%;
         position: absolute;
         bottom: 0;
@@ -1608,18 +1539,18 @@ body  {
         text-align: center;
       }
 
-      .title {
+      .sta-title {
         font: 600 16px/16px @titillium;
         margin: 5px 0 8px;
         color: @GRAY_DARK;
       }
 
-      .text {
+      .sta-text {
         font: 12px @titillium;
         color: @MID_GRAY;
       }
 
-      .price-container {
+      .sta-price-container {
         font: bold 12px @default-font-family;
         margin-bottom: 10px;
         color: @GRAY_DARK;
@@ -1881,4 +1812,218 @@ body  {
       margin-right: 0;
     }
   }
+}
+
+/*-------------------------------------------------------------
+digital styleguides updates
+-------------------------------------------------------------*/
+
+@e-btn-font-family: @titillium;
+@e-btn-font-weight: 700; //bold
+@e-btn-font-size: 14px;
+@e-btn-line-height: 14px;
+@e-btn-color: @FULL_MOON;
+@e-btn-bgcolor: @BIG_APPLE;
+@e-btn-padding: 13px 10px;
+@e-btn-margin: 0;
+@e-btn-display: block;
+
+.sta-btn {
+  font-family: @e-btn-font-family;
+  font-weight: @e-btn-font-weight;
+  font-size: @e-btn-font-size;
+  line-height: @e-btn-line-height;
+  color: @e-btn-color;
+  background-color: @e-btn-bgcolor;
+  padding: @e-btn-padding;
+  margin: @e-btn-margin;
+  display: @e-btn-display;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  outline: none;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &.sta-btn--primary {
+
+    &:hover {
+      background-color: #e6f623;
+    }
+  }
+
+  &.sta-btn--secondary {
+    background: none;
+    color: @BIG_APPLE;
+    box-shadow: inset 0 0 0 1px @BIG_APPLE;
+
+    &:hover {
+      background-color: @BIG_APPLE;
+      color: #fff;
+    }
+
+    &.sta-btn-dark {
+      box-shadow: inset 0 0 0 1px @WHITE;
+      background: none;
+      color: @WHITE;
+
+      &:hover {
+        background-color: @WHITE;
+        color: @GRAY_DARK;
+      }
+
+      &.sta-btn--inv-bondi-blue {
+        &:hover, &:focus {
+          color: @BONDI_BLUE;
+        }
+      }
+
+      &.sta-btn--inv-big-apple {
+        &:hover, &:focus {
+          color: @BIG_APPLE;
+        }
+      }
+
+      &.sta-btn--inv-fisherman-pants {
+        &:hover, &:focus {
+          color: @FISHERMAN_PANTS;
+        }
+      }
+
+      &.sta-btn--inv-fat-buddha{
+        &:hover, &:focus {
+          color: @FAT_BUDDHA;
+        }
+      }
+
+      &.sta-btn--inv-carnival{
+        &:hover, &:focus {
+          color: @CARNIVAL;
+        }
+      }
+
+      &.sta-btn--inv-brooklyn-beat {
+        &:hover, &:focus {
+          color: @BROOKLYN_BEAT;
+        }
+      }
+
+      &.sta-btn--inv-gringo-green {
+        &:hover, &:focus {
+          color: @GRINGO_GREEN;
+        }
+      }
+
+      &.sta-btn--inv-jungle-fever {
+        &:hover, &:focus {
+          color: @JUNGLE_FEVER;
+        }
+      }
+
+      &.sta-btn--inv-back-to-fuchsia {
+        &:hover, &:focus {
+          color: @BACK_TO_FUCHSIA;
+        }
+      }
+
+      &.sta-btn--inv-hobbit-feet {
+        &:hover, &:focus {
+          color: @HOBBIT_FEET;
+        }
+      }
+
+      &.sta-btn--inv-spring-break {
+        &:hover, &:focus {
+          color: @SPRING_BREAK;
+        }
+      }
+
+      &.sta-btn--inv-full-moon {
+        &:hover, &:focus {
+          color: @FULL_MOON;
+        }
+      }
+
+      &.sta-btn--inv-underwater-love {
+        &:hover, &:focus {
+          color: @UNDERWATER_LOVE;
+        }
+      }
+
+      &.sta-btn--inv-olive-you {
+        &:hover, &:focus {
+          color: @1979;
+        }
+      }
+
+      &.sta-btn--inv-pure-vida {
+        &:hover ,&:focus {
+          color: @PURE_VIDA;
+        }
+
+      }
+
+      &.sta-btn--inv-back-to-cali {
+        &:hover, &:focus {
+          color: @BACK_TO_CALI;
+        }
+      }
+
+      &.sta-btn--inv-skate-park {
+        &:hover, &:focus {
+          color: @SKATE_PARK;
+        }
+      }
+
+      &.sta-btn--inv-flamingo-pride {
+        &:hover, &:focus {
+          color: @FLAMINGO_PRIDE;
+        }
+      }
+
+      &.sta-btn--inv-heavy-metal {
+        &:hover, &:active {
+          color: @GRAY_DARK;
+        }
+      }
+    }
+  }
+
+  &.sta-btn--tertiary {
+    background-color: @BONDI_BLUE;
+    color: @WHITE;
+
+    &:hover {
+      background-color: #0098F5;
+    }
+  }
+
+  &--big {
+    padding: 15px 13px 16px 13px;
+    letter-spacing: 0.3em;
+    //width: 300px;
+  }
+
+  &--small {
+    padding: 10px 13px 11px 13px;
+    letter-spacing: 0.02em;
+    //width: 140px;
+  }
+
+  &--invisible {
+    visibility: hidden;
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
+
+
+.sta-text-white {
+  color: white;
 }

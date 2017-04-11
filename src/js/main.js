@@ -276,7 +276,7 @@ SliderHelper.prototype._initSlider = function (parentSelector){
     for (var i = 0; i < this._SLIDERS_AMOUNT_IN_THE_MODULE; i++){
         // where i == 1 is mobile, and i == 0 is desktop ver.
         var sliderPerView = i ? "auto" : 1;
-        var selector = parentSelector + " .slider-wrapper" + (i ? "_mobile": "_desktop");
+        var selector = parentSelector + " .sta-slider-wrapper" + (i ? "_mobile": "_desktop");
         var sliderWrapper = $(selector);
         var sliderAmount = sliderWrapper.find('.swiper-slide').length;
 
@@ -545,11 +545,11 @@ $(window).load(function(){
         });
     }
 
-    var homeTours = $('.home-tours-module');
+    var homeTours = $('.sta-tours-wrapper');
 
     if (homeTours.length) {
         var homeToursSliderHelper = new SliderHelper();
-        homeToursSliderHelper.init(homeTours, "home_tours");
+        homeToursSliderHelper.init(homeTours, "sta-tours-wrapper");
     }
 
 
