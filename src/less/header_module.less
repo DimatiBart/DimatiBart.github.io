@@ -353,7 +353,7 @@
       @media only screen and (min-width: 642px) {
         flex-direction: row;
       }
-      .block {
+      .sta-block {
         &:first-child {
           height: 156px;
         }
@@ -378,7 +378,7 @@
       @media only screen and (max-width: 641px) {
         flex-direction: column;
       }
-      .block {
+      .sta-block {
         width: 50%;
         @media only screen and (max-width: 641px) {
           height: 210px;
@@ -391,7 +391,7 @@
         flex-wrap: wrap;
       }
 
-      .block:first-child {
+      .sta-block:first-child {
         flex-grow: 0;
         flex-shrink: 1;
         flex-basis: calc(~"50% - 10px");
@@ -400,7 +400,7 @@
           flex-basis: 100%;
         }
       }
-      .block:nth-child(n+2) {
+      .sta-block:nth-child(n+2) {
         flex-grow: 1;
         flex-shrink: 1;
         flex-basis: calc(~"25% - 15px");
@@ -411,7 +411,7 @@
         }
       }
 
-      .block:nth-child(n+3) {
+      .sta-block:nth-child(n+3) {
         margin-left: 20px;
       }
     }
