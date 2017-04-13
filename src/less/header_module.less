@@ -677,7 +677,7 @@ body  {
           border: solid 1px @bondi-blue;
         }
       }
-      .sta-flight-ticket__content__data {
+      .sta-flight-content__data {
         height: calc(~"100% - 25px");
       }
     }
@@ -736,108 +736,108 @@ body  {
       }
 
     }
+  }
 
-    &__content {
+  .sta-flight-content {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &__img {
       position: absolute;
-      top: 0;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+      left: 11px;
+      width: 78px;
+      height: 50px;
+      @media only screen and (min-width: @mobile-bp) {
+        display: block;
+      }
+    }
 
-      &__img {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        display: none;
-        left: 11px;
-        width: 78px;
-        height: 50px;
-        @media only screen and (min-width: @mobile-bp) {
+    &__blue-header {
+      height: 26px;
+      text-align: right;
+      background-color: @bondi-blue;
+      text-transform: uppercase;
+      color: white;
+      font: 600 10px/2.3 @titillium;
+      padding-right: 10px;
+    }
+    &__data {
+      display: flex;
+      padding: 0 20px;
+      justify-content: space-around;
+      flex-direction: column;
+      height: 100%;
+      @media only screen and (min-width: @mobile-bp) {
+        margin-left: 89px;
+        padding: 0 15px 0 10px;
+      }
+    }
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &_tooltips {
+      margin: -10px 0;
+    }
+
+    &__hint {
+      font: normal 10px Tahoma;
+      color: @mid-grey-sub-text;
+
+      &_tax {
+        margin-left: 20px;
+        span {
           display: block;
         }
       }
+    }
 
-      &__blue-header {
-        height: 26px;
-        text-align: right;
-        background-color: @bondi-blue;
-        text-transform: uppercase;
-        color: white;
-        font: 600 10px/2.3 @titillium;
-        padding-right: 10px;
+    &__title {
+      font: 400 16px/1.25 @titillium;
+      letter-spacing: .1px;
+      p {
+        margin: 0;
       }
-      &__data {
-        display: flex;
-        padding: 0 20px;
-        justify-content: space-around;
-        flex-direction: column;
-        height: 100%;
-        @media only screen and (min-width: @mobile-bp) {
-          margin-left: 89px;
-          padding: 0 15px 0 10px;
-        }
 
-        &__row {
-          display: flex;
-          justify-content: space-between;
+      strong {
+        font-weight: 600;
+      }
+    }
+    &__dates {
+      font: normal 10px Tahoma;
+      color: @mid-grey-sub-text;
+      strong {
+        display: block;
+      }
+    }
 
-          &_tooltips {
-            margin: -10px 0;
-          }
+    &__tooltip {
+      font: 600 10px @titillium;
+      text-transform: uppercase;
+      color: @bondi-blue;
+      margin: 0;
+    }
 
-          &__price {
-            text-align: right;
-            &__value {
-              font: normal 18px/0.9 Tahoma;
-              color: @jungle;
-              letter-spacing: .1px;
-              margin: 0;
-              strong {
-                font-size: 20px;
-                font-weight: bold;
-                margin-left: -5px;
-              }
-            }
-          }
-
-          &__hint {
-            font: normal 10px Tahoma;
-            color: @mid-grey-sub-text;
-
-            &_tax {
-              margin-left: 20px;
-              span {
-                display: block;
-              }
-            }
-          }
-
-          &__title {
-            font: 400 16px/1.25 @titillium;
-            letter-spacing: .1px;
-            p {
-              margin: 0;
-            }
-
-            strong {
-              font-weight: 600;
-            }
-          }
-          &__dates {
-            font: normal 10px Tahoma;
-            color: @mid-grey-sub-text;
-            strong {
-              display: block;
-            }
-          }
-
-          &__tooltip {
-            font: 600 10px @titillium;
-            text-transform: uppercase;
-            color: @bondi-blue;
-            margin: 0;
-          }
+    &__price {
+      text-align: right;
+      &__value {
+        font: normal 18px/0.9 Tahoma;
+        color: @jungle;
+        letter-spacing: .1px;
+        margin: 0;
+        strong {
+          font-size: 20px;
+          font-weight: bold;
+          margin-left: -5px;
         }
       }
     }
