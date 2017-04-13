@@ -457,28 +457,28 @@ $(window).load(function(){
         })
     }
 
-    var homeHero = $('.home-hero-carousel-module');
+    var homeHero = $('.sta-hero-carousel');
 
     if (homeHero.length) {
 
         function paginatorHandler(index){
-            var paginators = $('.home-hero-carousel-module .paginator');
+            var paginators = $('.sta-hero-carousel .paginator');
             paginators.filter('.active').removeClass('active');
             var currentButton = paginators.eq(index).addClass('active');
             var color = currentButton.data('color');
-            $('.home-hero-carousel-module').css('background-color', color);
+            $('.sta-hero-carousel').css('background-color', color);
         }
 
-        homeHeroSwiperObj.desktop.first =  new Swiper('.home-hero-carousel-module .swiper-container.first', {
+        homeHeroSwiperObj.desktop.first =  new Swiper('.sta-hero-carousel .swiper-container.first', {
             direction: 'vertical',
             simulateTouch: false,
             loop: true,
             spaceBetween: 0
         });
 
-        var sliderAmount = $('.home-hero-carousel-module .swiper-container.second .swiper-slide').length;
+        var sliderAmount = $('.sta-hero-carousel .swiper-container.second .swiper-slide').length;
 
-        homeHeroSwiperObj.desktop.second =  new Swiper('.home-hero-carousel-module .swiper-container.second', {
+        homeHeroSwiperObj.desktop.second =  new Swiper('.sta-hero-carousel .swiper-container.second', {
             direction: 'vertical',
             loop: true,
             simulateTouch: false,
@@ -489,9 +489,9 @@ $(window).load(function(){
         homeHeroSwiperObj.desktop.first.disableTouchControl();
         homeHeroSwiperObj.desktop.second.disableTouchControl();
 
-        homeHeroSwiperObj.mobile =  new Swiper('.home-hero-carousel-module .swiper-container.mobile', {
+        homeHeroSwiperObj.mobile =  new Swiper('.sta-hero-carousel .swiper-container.mobile', {
             loop: true,
-            pagination: '.home-hero-carousel-module .swiper-pagination',
+            pagination: '.sta-hero-carousel .swiper-pagination',
             spaceBetween: 10,
             preventClicksPropagation: false,
             preventClicks: false,
@@ -505,7 +505,7 @@ $(window).load(function(){
         });
 
 
-        $(document).on('click', '.home-hero-carousel-module .paginator', function(){
+        $(document).on('click', '.sta-hero-carousel .paginator', function(){
             var $this = $(this);
             if (!$this.hasClass('active')) {
                 $('.home-hero-carousel-module .paginator.active').removeClass('active');
@@ -520,17 +520,17 @@ $(window).load(function(){
             }
         });
 
-        $(document).on('click', '.swiper-slide', function(event){
+        $(document).on('click', '.sta-hero-carousel .swiper-slide', function(event){
            if (homeHeroSwiperObj.mobile.animating) {
                event.preventDefault();
            }
         });
 
-        $(document).on('click', '.home-hero-carousel-module .swiper-btn', function(event){
+        $(document).on('click', '.sta-hero-carousel .swiper-btn', function(event){
             event.stopPropagation();
             event.preventDefault();
             var $this = $(this);
-            $('.home-hero-carousel-module .paginator.active').removeClass('active');
+            $('.sta-hero-carousel .paginator.active').removeClass('active');
             if ($this.hasClass('swiper-btn_next')) {
                 homeHeroSwiperObj.desktop.first.slideNext();
                 homeHeroSwiperObj.desktop.second.slidePrev();
