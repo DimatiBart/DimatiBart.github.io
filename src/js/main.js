@@ -1,9 +1,9 @@
 var onYouTubePlayerAPIReady;
 
 (function(){
-    var headerModuleWrapper = $('.header-module-wrapper');
+    var headerModuleWrapper = $('.sta-header-module-wrapper');
     if (headerModuleWrapper.length) {
-        var youtubeFrame = $('.ytplayer');
+        var youtubeFrame = headerModuleWrapper.find('.ytplayer');
         if (youtubeFrame.length) {
 
             var isMobile = {
@@ -41,13 +41,13 @@ var onYouTubePlayerAPIReady;
             onYouTubePlayerAPIReady = function() {
                 youtubeFrame.each(function(i){
                     var $this = $(this);
-                    if ($this.closest('.header-module').hasClass('desktop') && isMobile) {
+                    if ($this.closest('.sta-header-module').hasClass('desktop') && isMobile) {
                         return;
                     }
-                    var module = $this.closest('.header-module');
-                    var text = module.find('.text');
+                    var module = $this.closest('.sta-header-module');
+                    var text = module.find('.sta-text');
                     text.css('z-index', 2);
-                    var link =  module.find('.link');
+                    var link =  module.find('.sta-link');
                     link.css({
                         "z-index": 1,
                         "background-color": "black"
