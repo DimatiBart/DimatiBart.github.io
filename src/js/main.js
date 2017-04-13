@@ -89,7 +89,7 @@ var onYouTubePlayerAPIReady;
 })();
 
 (function(){
-    var upsModule = $('.ups-home-module');
+    var upsModule = $('.sta-ups');
     if (upsModule.length) {
         $(window).resize(function(){
             if (window.matchMedia("(min-width: 641px)").matches === false) {
@@ -168,8 +168,8 @@ var flightDealsSwiper = {
                 var shouldBeLooped_mobile = true;
                 var shouldBeLooped_desktop = true;
 
-                var currentSlider = $(".slider-wrapper_" + curValue);
-                var wrapperSelector = '.flight-deals-module .slider-wrapper_' + curValue;
+                var currentSlider = $(".sta-slider-wrapper_" + curValue);
+                var wrapperSelector = '.sta-flight-deals .sta-slider-wrapper_' + curValue;
                 var slidesAmount = currentSlider.find(".swiper-container_mobile .swiper-slide").length;
                 if (slidesAmount <= 2) {
                     if (slidesAmount == 2) {
@@ -197,7 +197,7 @@ var flightDealsSwiper = {
     },
     tabSwitcherHandler: function(element){
         var width = element.outerWidth();
-        var switcher = element.siblings('.switch');
+        var switcher = element.siblings('.sta-switch');
         element.siblings('.active').removeClass('active');
         element.addClass('active');
         this.sliderDisplayHandler(element);
@@ -209,14 +209,14 @@ var flightDealsSwiper = {
     sliderDisplayHandler: function (element){
         var activeClass, disabledClass;
         if (element.hasClass('first-tab')) {
-            activeClass = '.slider-wrapper_first';
-            disabledClass  = '.slider-wrapper_second';
+            activeClass = '.sta-slider-wrapper_first';
+            disabledClass  = '.sta-slider-wrapper_second';
         }
         else {
-            disabledClass = '.slider-wrapper_first';
-            activeClass  = '.slider-wrapper_second';
+            disabledClass = '.sta-slider-wrapper_first';
+            activeClass  = '.sta-slider-wrapper_second';
         }
-        var flightDealModule = $(".flight-deals-module");
+        var flightDealModule = $(".sta-flight-deals");
         flightDealModule.find(activeClass).addClass("active");
         flightDealModule.find(disabledClass).removeClass("active");
 
@@ -435,16 +435,16 @@ BlogSliderHelper.prototype._initSlider = function (parentSelector){
 
 
 $(window).load(function(){
-    var flightDeals = $('.flight-deals-module');
+    var flightDeals = $('.sta-flight-deals');
 
     if (flightDeals.length) {
 
-        var currentTab = flightDeals.find('.tabs li.active');
+        var currentTab = flightDeals.find('.sta-tabs li.active');
         flightDealsSwiper.tabSwitcherHandler(currentTab);
 
         flightDealsSwiper.init();
 
-        $(document).on('click', '.flight-deals-module .tabs li', function(){
+        $(document).on('click', '.sta-flight-deals .sta-tabs li', function(){
             var $this = $(this);
             if (!$this.hasClass('active')) {
                 flightDealsSwiper.tabSwitcherHandler($this);
@@ -452,7 +452,7 @@ $(window).load(function(){
         });
 
         $(window).resize(function(){
-            var currentTab = flightDeals.find('.tabs li.active');
+            var currentTab = flightDeals.find('.sta-tabs li.active');
             flightDealsSwiper.tabSwitcherHandler(currentTab);
         })
     }

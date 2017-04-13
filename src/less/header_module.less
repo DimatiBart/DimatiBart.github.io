@@ -459,7 +459,7 @@ body  {
   margin: 7px 0;
 }
 
-.flight-deals-module {
+.sta-flight-deals {
   margin: 40px 0;
   padding: 0 10px;
   position: relative;
@@ -469,7 +469,7 @@ body  {
     margin-right: auto;
   }
 
-  .tabs {
+  .sta-tabs {
     list-style-type: none;
     margin: 0;
     position: relative;
@@ -497,7 +497,7 @@ body  {
       }
     }
 
-    .switch {
+    .sta-switch {
       position: absolute;
       height: 37px;
       background: @bondi-blue;
@@ -513,7 +513,7 @@ body  {
     padding: 0;
   }
 
-  .flight-deals-module__link-wrapper {
+  .sta-link-wrapper {
     text-align: center;
     @media only screen and (min-width: @mobile-bp) {
       text-align: right;
@@ -543,16 +543,17 @@ body  {
     background-clip: padding-box;
   }
 
-  &__carousel {
+  .swiper-wrapper {
     margin-bottom: 30px;
-    &__slide {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0 10px;
-    }
   }
 
-  .slider-wrapper {
+  .swiper-slide {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 10px;
+  }
+
+  .sta-slider-wrapper {
     position: relative;
     display: none;
     @media only screen and (min-width: @mobile-bp) {
@@ -579,7 +580,7 @@ body  {
     }
   }
 
-  .flight-ticket {
+  .sta-flight-ticket {
     position: relative;
     background: #fff;
     margin-bottom: 10px;
@@ -640,10 +641,10 @@ body  {
 
     &_loading {
       background-color: @light-grey;
-      .flight-ticket__rounds {
+      .sta-flight-ticket__rounds {
         background-color: @light-grey;
       }
-      .flight-ticket__preloader {
+      .sta-flight-ticket__preloader {
         display: block;
       }
     }
@@ -651,11 +652,12 @@ body  {
     &.active {
       cursor: auto;
     }
+
     &:hover {
-      .flight-ticket__shadow-wrapp {
+      .sta-flight-ticket__shadow-wrapp {
         box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.17);
       }
-      .flight-ticket__rounds {
+      .sta-flight-ticket__rounds {
         &:before, &:after {
           box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.17) inset;
         }
@@ -666,25 +668,22 @@ body  {
       border-top: solid 1px @bondi-blue;
       border-bottom: solid 1px @bondi-blue;
 
-      .flight-ticket__shadow-wrapp {
+      .sta-flight-ticket__shadow-wrapp {
         border-right: solid 1px @bondi-blue;
         border-left: solid 1px @bondi-blue;
       }
-      .flight-ticket__rounds {
+      .sta-flight-ticket__rounds {
         &::after, &::before {
           border: solid 1px @bondi-blue;
         }
       }
-      .flight-ticket__content__data {
+      .sta-flight-ticket__content__data {
         height: calc(~"100% - 25px");
       }
     }
 
     &__shadow-wrapp {
       height: calc(~"50% - 10px");
-      @media only screen and (min-width: @mobile-bp) {
-
-      }
       border-right: solid 1px @grey-border;
       border-left: solid 1px @grey-border;
     }
