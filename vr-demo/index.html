@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>STA VR Experience</title>
+</head>
+<body>
+    <a-scene id="app" inspector="url: https://aframe.io/aframe-inspector/dist/aframe-inspector.js" vr-mode-ui>
+        <a-assets id="assets">
+
+        </a-assets>
+
+        <a-sky id="sky" height="2048"
+               radius="30"
+               src="https://cdn.aframe.io/a-painter/images/sky.jpg"
+               theta-length="90"
+               width="2048">
+        </a-sky>
+        <a-plane id="floor" src="https://cdn.aframe.io/a-painter/images/floor.jpg"
+                 rotation="-90 0 0"
+                 height="100"
+                 width="100">
+        </a-plane>
+
+        <a-camera>
+        </a-camera>
+
+    </a-scene>
+    <script src="./dest/bundle.js"></script>
+</body>
+</html>
