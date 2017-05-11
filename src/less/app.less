@@ -1,0 +1,50 @@
+#smt {
+  margin: 0;
+  padding: 0;
+
+  @media only screen and (min-width: @mobile-bp) {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
+
+
+.sta-app-landing-header {
+  .responsive-background-image;
+  color: white;
+  min-height: 220px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 33px;
+  box-sizing: border-box;
+
+
+  h1 {
+    font: 600 36px/52px @titillium;
+  }
+
+  h3 {
+    font: normal 21px/32px @titillium;
+  }
+
+  @media only screen and (min-width: @mobile-bp) {
+    min-height: 350px;
+
+    h1, h3 {
+      max-width: 863px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.responsive-background-image(){
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
