@@ -1,6 +1,8 @@
 #smt {
   margin: 0;
   padding: 0;
+  min-width: auto;
+  overflow-x: hidden;
 
   @media only screen and (min-width: @mobile-bp) {
     max-width: 1440px;
@@ -23,13 +25,8 @@ h1,h2,h3,h4,h5,h6 {
   padding: 33px;
   box-sizing: border-box;
 
-
-  h1 {
-    font: 600 36px/52px @titillium;
-  }
-
-  h3 {
-    font: normal 21px/32px @titillium;
+  h1, h3 {
+    color: white;
   }
 
   @media only screen and (min-width: @mobile-bp) {
@@ -39,6 +36,71 @@ h1,h2,h3,h4,h5,h6 {
       max-width: 863px;
       width: 100%;
       margin: 0 auto;
+    }
+  }
+}
+
+main.sta-landing-main {
+  padding: 33px 33px 20px;
+  box-sizing: content-box;
+
+  @media only screen and (min-width: @mobile-bp) {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 863px;
+    margin: 0 auto;
+
+    section {
+      margin-bottom: 100px;
+    }
+  }
+
+  .sta-grid-item {
+    &.sta-grid-item_img {
+
+    }
+
+    &.sta-grid-item_60 {
+      width: 60%;
+    }
+    &.sta-grid-item_40 {
+      width: 40%;
+    }
+
+    @media only screen and (min-width: @mobile-bp) {
+      &.sta-grid-item_img {
+        margin-top: -213px;
+      }
+    }
+  }
+
+}
+
+.sta-app-landing-intro {
+
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 33px 33px 20px 0;
+  }
+
+  .sta-download-btns a{
+    display: inline-block;
+    margin: 0 13px 13px 0;
+  }
+
+  .sta-heading-m {
+    margin: 0 0 10px;
+  }
+
+  p {
+    margin-bottom: 41px;
+  }
+}
+
+.sta-app-landing-mobile {
+  &.sta-app-landing-mobile_first {
+
+    @media only screen and (min-width: @mobile-bp) {
+
     }
   }
 }
