@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   min-width: auto;
-  overflow-x: hidden;
+  font-size: 100%;
 
   @media only screen and (min-width: @mobile-bp) {
     max-width: 1440px;
@@ -14,8 +14,12 @@ h1,h2,h3,h4,h5,h6 {
   margin: 0;
 }
 
+.sta-app-landing {
+  overflow: hidden;
+}
 
-.sta-app-landing-header {
+
+.sta-app-landing-header { 
   .responsive-background-image;
   color: white;
   min-height: 220px;
@@ -43,10 +47,14 @@ h1,h2,h3,h4,h5,h6 {
 main.sta-landing-main {
   padding: 33px 33px 20px;
   box-sizing: content-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  .sta-heading-m {
+    margin: 0;
+  }
 
   @media only screen and (min-width: @mobile-bp) {
-    display: flex;
-    flex-wrap: wrap;
     max-width: 863px;
     margin: 0 auto;
 
@@ -55,36 +63,116 @@ main.sta-landing-main {
     }
   }
 
-  .sta-grid-item {
-    &.sta-grid-item_img {
-
-    }
-
-    &.sta-grid-item_60 {
-      width: 60%;
-    }
-    &.sta-grid-item_40 {
-      width: 40%;
-    }
+  .sta-app-landing-intro {
+    margin-bottom: 38px;
 
     @media only screen and (min-width: @mobile-bp) {
-      &.sta-grid-item_img {
+        width: 60%
+    }
+  }
+
+  .sta-app-img {
+    &.sta-app-img_right {
+      width: 40%;
+
+      @media only screen and (min-width: @mobile-bp) {
+
+      }
+    }
+
+    &.sta-app-img_left {
+      width: 40%;
+
+      > img {
+        float: right;
+      }
+    }
+
+    &.sta-app-img_intro {
+      padding-left: 0;
+      order: 2;
+      @media only screen and (min-width: @mobile-bp) {
         margin-top: -213px;
+        order: initial;
+      }
+    }
+
+    &.sta-app-img_first {
+      order: 3;
+      @media only screen and (min-width: @mobile-bp) {
+        order: 1;
+      }
+    }
+
+    &.sta-app-img_second {
+      text-align: center;
+      width: 100%;
+      order: 5;
+
+      > img {
+        max-width: 375px;
+        width: 100%;
+      }
+
+      @media only screen and (min-width: @mobile-bp) {
+        order: 4;
+        width: 40%;
+
+        > img {
+          width: auto;
+        }
       }
     }
   }
 
+  .sta-app-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+      margin: 0 0 34px;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+
+    &.sta-app-text_right {
+      order: 1;
+      width: 60%;
+      @media only screen and (min-width: @mobile-bp) {
+        order: 2;
+        text-align: right;
+        width: 60%;
+        padding-left: 20%;
+      }
+    }
+
+    &.sta-app-text_left {
+      width: 60%;
+      order: 4;
+
+      @media only screen and (min-width: @mobile-bp) {
+        width: 60%;
+        padding-right: 20%;
+        order: 3;
+      }
+    }
+  }
+}
+
+.sta-app-landing-download-btns a{
+  display: inline-block;
+  margin: 0 13px 13px 0;
 }
 
 .sta-app-landing-intro {
+  width: 100%;
 
   @media only screen and (min-width: @mobile-bp) {
     padding: 33px 33px 20px 0;
-  }
-
-  .sta-download-btns a{
-    display: inline-block;
-    margin: 0 13px 13px 0;
+    width: auto;
   }
 
   .sta-heading-m {
@@ -96,12 +184,50 @@ main.sta-landing-main {
   }
 }
 
-.sta-app-landing-mobile {
-  &.sta-app-landing-mobile_first {
+.sta-app-landing-download-section {
+  padding: 0 10px;
 
-    @media only screen and (min-width: @mobile-bp) {
+  @media only screen and (min-width: @mobile-bp) {
+    max-width: 929px;
+    padding: 0 33px;
+    margin: 0 auto;
+  }
 
+  .sta-app-landing-download-wrapper {
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.22);
+    padding: 33px 23px 10px;
+    text-align: center;
+    margin: 0 auto;
+
+    @media only screen and (min-width: 840px) {
+      padding: 33px 23px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        margin: 0;
+        width: calc(~"100% - 340px");
+        text-align: left;
+        padding: 0 68px 0;
+      }
+
+      .sta-app-landing-download-btn {
+        margin: 0;
+        &:first-of-type {
+          margin-right: 13px;
+        }
+      }
     }
+  }
+
+  p {
+    font: normal 20px @titillium;
+    margin: 16px 0 16px;
+  }
+
+  .sta-app-landing-logo {
+    height: 54px;
   }
 }
 
