@@ -326,11 +326,12 @@ BlogSliderHelper.prototype._loadData = function(moduleSelector) {
     var rssURL = module.data("rssUrl");
     var blogLimit = parseInt(module.data("blogLimit")) || 4;
 
-    $.ajax({
+    var xhr = $.ajax({
         url: rssURL,
         dataType: "xml",
         success: function(data){
             //parse some =>
+            clearTimeout(timeoutId);
             var blogPosts = [];
             $(data).find("item").each(function(index, elem){
                 if (index < blogLimit) {
@@ -364,8 +365,16 @@ BlogSliderHelper.prototype._loadData = function(moduleSelector) {
             });
 
             this._initSlider(moduleSelector);
-        }.bind(this)
-    })
+        }.bind(this),
+        error: function(){
+            module.slideUp();
+        }
+    });
+
+    var timeoutId = setTimeout(function(){
+        xhr.abort();
+        module.slideUp();
+    }, 5000)
 };
 BlogSliderHelper.prototype._getBlogTemplate = function(item){
     var text = item.find("title").text();
@@ -378,6 +387,7 @@ BlogSliderHelper.prototype._getBlogTemplate = function(item){
     var images = $(description).find("img");
     var imgURL =  images.eq(0).attr("src");
     images.attr("src", "");
+    images.attr("srcset", "");
 
     var firstRow;
 

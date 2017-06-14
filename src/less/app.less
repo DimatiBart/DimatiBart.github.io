@@ -191,6 +191,8 @@ main.sta-app-landing-main {
 
 .sta-app-landing-download-section {
   padding: 0 10px;
+  z-index: 1;
+  position: relative;
 
   @media only screen and (min-width: @mobile-bp) {
     max-width: 929px;
@@ -203,6 +205,7 @@ main.sta-app-landing-main {
     padding: 33px 23px 10px;
     text-align: center;
     margin: 0 auto;
+    background-color: white;
 
     @media only screen and (min-width: 840px) {
       padding: 33px;
@@ -240,4 +243,68 @@ main.sta-app-landing-main {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.sta-app-scrolling-banner {
+  background-color: @BROOKLYN_BEAT;
+  margin-top: -50px;
+  padding: 205px 0 177px;
+  position: relative;
+
+  @media only screen and (min-width: @mobile-bp) {
+    padding: 240px 0 230px;
+  }
+
+  .swiper-container-sub .swiper-slide {
+    height: 298px;
+    width: 168px;
+
+    @media only screen and (min-width: @mobile-bp) {
+      height: 436px;
+      width: 246px;
+    }
+  }
+  .swiper-container-hero {
+    position: absolute;
+    top: 56px;
+    left: 22px;
+    height: 335px;
+    width: 188px;
+
+    @media only screen and (min-width: @mobile-bp) {
+      height: 497px;
+      width: 281px;
+      top: 83px;
+      left: 29px;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+  .sta-app-phone {
+    width: 224px;
+    top: 128px;
+
+    @media only screen and (min-width: @mobile-bp) {
+      width: 333px;
+      top: 130px;
+    }
+    position: absolute;
+
+    z-index: 1;
+    background-color: @BROOKLYN_BEAT;
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: content-box;
+    padding: 0 5px;
+  }
+
+  .swiper-pagination {
+    margin-top: 12px;
+    transform: translate3d(-50%, 0, 0);
+    left: 50%;
+  }
+
+  .default-sta-bullets;
 }

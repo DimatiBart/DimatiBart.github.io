@@ -20,6 +20,7 @@ gulp.task('webserver', function() {
 gulp.task('default', function(){
     gulp.start('buildStyles');
     gulp.start('buildJS');
+    gulp.start('buildJS-app');
 });
 
 gulp.task('buildStyles', function(){
@@ -39,7 +40,14 @@ gulp.task('buildJS', function() {
         .pipe(gulp.dest('./dest/js/'));
 });
 
+gulp.task('buildJS-app', function() {
+    gulp.src(["./src/js/swiper.min.js","./src/app/*.js"])
+        .pipe(concat('app.min.js'))
+        .pipe(gulp.dest('./dest/js/'));
+});
+
 gulp.task('watch', function(){
     gulp.watch('./src/less/*.less', ['buildStyles']);
     gulp.watch('./src/js/*.js', ['buildJS']);
+    gulp.watch('./src/app/*.js', ['buildJS-app']);
 });
