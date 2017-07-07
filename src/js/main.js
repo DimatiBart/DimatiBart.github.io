@@ -418,7 +418,7 @@ BlogSliderHelper.prototype._initSlider = function (parentSelector){
 
         if (sliderAmount > 1) {
             var params = {
-                loop: true,
+                //loop: true,
                 slidesPerView: sliderPerView,
                 initialSlide: 0,
                 pagination: selector + ' .swiper-pagination',
